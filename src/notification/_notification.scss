@@ -1,0 +1,23 @@
+.notification-list {
+  z-index: 9999999;
+}
+
+.notification-bar {
+  &-active {
+    left: 20px !important;
+  }
+
+  background-color: #525a66 !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5) !important;
+  border-radius: 0 !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  max-width: 300px;
+
+  &-message {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.33;
+    color: $hel-silver;
+  }
+}

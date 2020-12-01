@@ -1,0 +1,58 @@
+.myhki-contact-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 80px;
+  padding-left: 100px;
+  margin: 20px 0;
+  flex-direction: column;
+  justify-content: center;
+
+  @include breakpoint(medium up) {
+    width: 50%;
+    min-height: 120px;
+    padding-left: 150px;
+    padding-right: 20px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+
+    @include breakpoint(medium up) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $hel-dark-gray;
+  }
+
+  &__name{
+    font-size: 15px;
+    font-weight: bold;
+
+    @include breakpoint(medium up) {
+      font-size: 20px;
+    }
+  }
+
+  &__phone,
+  &__email {
+    font-size: 12px;
+    color: $hel-dark-gray;
+
+    @include breakpoint(medium up) {
+      font-size: 14px;
+    }
+  }
+}

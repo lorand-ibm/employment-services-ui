@@ -1,0 +1,131 @@
+.myhki-questionnaire {
+  padding-left: 140px;
+  padding-right: 140px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-flow: column;
+
+  text-align: center;
+
+  @include breakpoint(medium down) {
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-wrap: wrap;
+  }
+
+  @include breakpoint(small down) {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__description {
+    margin-top: 60px;
+
+    @include breakpoint(small down) {
+      margin-top: 30px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    @include breakpoint(medium down) {
+      margin-top: 50px;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @include breakpoint(small down) {
+      margin-top: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &--fullwidth {
+      width: 100%;
+    }
+    &--halfwidth {
+      border-color: red;
+      width: 49%;
+    }
+  }
+
+  &__consent-and-submit {
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(medium down) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    @include breakpoint(small down) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &__consent {
+    width: 45%;
+  }
+
+  &__consent-long {
+    text-align: left;
+
+    &--invisible {
+      display: none;
+    }
+  }
+
+  &__consent-description {
+    display: flex;
+    margin-top: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    @include breakpoint(medium down) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    @include breakpoint(small down) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+  }
+
+  &__consent-button {
+    text-decoration: underline;
+  }
+
+  &__submit-button {
+    width: 45%;
+  }
+
+  &__error {
+    border: solid 1px red;
+    padding: 6px;
+    margin: 0 auto;
+    width: 50%;
+    color: red;
+
+    &--invisible {
+      display: none;
+    }
+  }
+
+  &__thankyou {
+    padding-top: 40px;
+  }
+
+}

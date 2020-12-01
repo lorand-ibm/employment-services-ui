@@ -1,0 +1,210 @@
+.myhki-search-item {
+  $image-width: 155px;
+  $image-width-mobile: 99px;
+  $height: 150px;
+  $height-mobile: 84px;
+
+  height: $height-mobile;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(medium up) {
+    height: $height;
+  }
+
+  &__image {
+    width: $image-width-mobile;
+    height: $height-mobile;
+    display: block;
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative;
+
+    @include breakpoint(medium up) {
+      width: $image-width;
+      height: $height;
+    }
+  }
+
+  &__heart {
+    width: $image-width-mobile;
+    min-width: $image-width-mobile;
+    height: $height-mobile;
+    display: block;
+    background-position: center !important;
+    background-size: auto 64px, cover !important;
+    position: relative;
+
+    @include breakpoint(medium up) {
+      width: $image-width;
+      height: $height;
+    }
+  }
+
+  &__wrapper {
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    @include breakpoint(small only) {
+      display: block;
+    }
+
+    @include breakpoint(medium up) {
+      padding: 0 0 0 25px;
+    }
+  }
+
+  &__header {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding-left: 5px;
+    color: #525a66;
+
+    @include breakpoint(small only) {
+      line-height: 1;
+    }
+
+    padding-top: 4px;
+    @include breakpoint(medium up) {
+      padding-top: 0px;
+    }
+
+    &--skeleton {
+      background-color: rgb(222, 223, 225);
+      width: 100px;
+      @include breakpoint(small only) {
+        height: 10px;
+        margin: 0 0 7px;
+      }
+      height: 11px;
+      margin: 13px 0 8px;
+    }
+  }
+
+  &__footer {
+    padding: 0;
+    line-height: 1;
+
+    &--skeleton {
+      width: 150px;
+      @include breakpoint(small only) {
+        height: 12px;
+        margin: 2px 0;
+      }
+      height: 14px;
+      margin: 8px 0;
+      background-color: rgb(222, 223, 225);
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    a {
+      padding: 4px 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 15px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      @include breakpoint(medium up) {
+        padding: 7px 5px;
+        font-size: 22px;
+        line-height: 22px;
+        max-height: 55px;
+      }
+
+      @include breakpoint(large up) {
+        padding: 7px 5px;
+        font-size: 30px;
+        line-height: 29px;
+        max-height: 72px;
+      }
+    }
+
+    &--skeleton {
+      background-color: rgb(222, 223, 225);
+      width: 260px;
+      height: 12px;
+      margin: 2px 0;
+      @include breakpoint(medium up) {
+        width: 360px;
+        height: 16px;
+        margin: 5px 0 5px;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #525a66;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 5px;
+    padding-top: 0;
+
+    @include breakpoint(medium up) {
+      font-size: 19px;
+      padding-top: 2px;
+      padding-bottom: 5px;
+    }
+
+    &--skeleton {
+      background-color: rgb(222, 223, 225);
+      width: 220px;
+      height: 11px;
+      margin: 7px 0;
+      @include breakpoint(medium up) {
+        height: 16px;
+        margin: 9px 0 9px 0;
+      }
+    }
+  }
+
+  &__tags {
+    padding: 4px 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1;
+
+    @include breakpoint(medium up) {
+      padding: 6px 0px;
+    }
+  }
+
+  &__tag {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.13;
+    color: $hel-vaakuna;
+    margin: 0 5px;
+  }
+
+  .myhki-card-placeholder {
+    display: none;
+  }
+
+  &--no-image {
+    .myhki-card-placeholder {
+      display: block;
+    }
+  }
+}
+
+.save-to-myhelsinki-button-wrapper {
+  position: relative;
+}

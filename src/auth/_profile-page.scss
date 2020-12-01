@@ -1,0 +1,143 @@
+.auth-profile-page {
+  flex: 1;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin: 58px 0 50px;
+
+    @include breakpoint(large up) {
+      margin: 137px 0 70px;
+    }
+  }
+
+  &__title {
+    font-size: 37.5px;
+    font-weight: bold;
+    line-height: 1.07;
+    flex: 1;
+
+    @include breakpoint(large up) {
+      font-size: 67px;
+      font-weight: bold;
+      line-height: 0.9;
+    }
+  }
+
+  &__profile-picture {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $hel-fog;
+
+    @include breakpoint(large up) {
+      width: 138px;
+      height: 138px;
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__field {
+    margin: 0 0 27px;
+    position: relative;
+
+    &-label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.42;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin: 0 0 5px 0;
+    }
+
+    &-value {
+      font-size: 19px;
+      line-height: 1.79;
+      color: #525a66;
+    }
+
+    &-edit-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.13;
+      letter-spacing: 1.2px;
+      text-align: right;
+      color: $hel-vaakuna;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    background: $hel-fog;
+
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.0;
+      margin: 0 0 49px;
+
+      @include breakpoint(large up) {
+        margin: 0 0 58px;
+      }
+
+      &:before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background: url(../assets/images/cog-blue.svg);
+        margin: -3px 12px 0 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &__content-wrapper {
+    background: #ffffff;
+    padding: 26px 10px 37px;
+    margin: 52px 0 46px;
+
+    @include breakpoint(large up) {
+      padding: 26px 21px 36px;
+      margin: 80px 0 60px;
+    }
+  }
+
+  &__logout {
+    margin: 40px 0 44px;
+    text-align: center;
+
+    @include breakpoint(large up) {
+      margin: 50px 0 52px;
+    }
+  }
+
+  &__logout-button {
+    border: solid 2px $hel-metro !important;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: $hel-metro !important;
+    max-width: 335px;
+    width: 100%;
+    line-height: 1.23;
+    text-transform: uppercase;
+  }
+
+  .myhki-koro {
+    height: 20px;
+    background-size: 137px 20px;
+  }
+}

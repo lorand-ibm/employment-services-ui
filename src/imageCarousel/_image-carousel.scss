@@ -1,0 +1,167 @@
+.myhki-image-carousel {
+  position: relative;
+  padding: 90px 0 60px;
+
+  &--slides-1.myhki-image-carousel {
+
+    .carousel .control-arrow {
+      display: none;
+    }
+
+    .myhki-image-carousel {
+      &__controls {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    line-height: 1.0;
+    text-align: center;
+    margin: 0 0 70px;
+
+    @include breakpoint(medium) {
+      font-size: 45px;
+    }
+    @include breakpoint(small only) {
+      margin: 0 0 45px;
+    }
+  }
+
+  &__controls {
+    position: relative;
+    z-index: 3;
+    padding: 0 32px;
+    margin-top: 58px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__control {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid $hel-black;
+    border-radius: 50%;
+    margin-right: 6px;
+
+    &--active {
+      background-color: $hel-black;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+
+    .myhki-image-slide {
+      width: calc(50% - 50px);
+      padding: 0 25px;
+
+      @include breakpoint(small only) {
+        display: flex;
+        flex-direction: column;
+        &:only-child {
+          width: calc(100%);
+          padding: 0;
+        }
+      }
+
+      &__image {
+        padding-bottom: 56.25%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint(small only) {
+          order: 2;
+        }
+      }
+
+      &__title {
+        margin-top: 30px;
+        color: #525a66;
+        font-size: rem-calc(17px);
+        line-height: rem-calc(20px);
+        font-weight: bold;
+
+        @include breakpoint(small only) {
+          margin-top: 0px;
+          margin-bottom: 30px;
+          order: 1;
+        }
+      }
+    }
+  }
+
+  .carousel {
+    overflow: visible;
+    &:hover {
+      .control-arrow {
+        opacity: 1;
+      }
+    }
+
+    .carousel-slider {
+    }
+
+    .slider {
+      margin: 0;
+    }
+
+    .control-arrow {
+      display: block;
+      background: #ffffff;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -25px;
+
+      &.control-disabled {
+        display: none;
+      }
+
+      &:before {
+        background: url(../assets/images/card-list-arrow.svg) no-repeat center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+      }
+
+      &:hover {
+        background-color: #ffffff;
+      }
+
+      &.control-prev {
+        margin-left: 10px;
+        @include breakpoint(medium up) {
+          margin-left: 35px;
+        }
+
+        &:before {
+          margin-left: -3px;
+          transform: rotate(180deg);
+        }
+      }
+
+      &.control-next {
+        margin-right: 10px;
+        @include breakpoint(medium up) {
+          margin-right: 35px;
+        }
+
+        &:before {
+          margin-right: -3px;
+        }
+      }
+    }
+  }
+}

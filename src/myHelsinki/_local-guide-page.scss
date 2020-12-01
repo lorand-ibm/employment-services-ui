@@ -1,0 +1,89 @@
+.local-guide-page {
+  flex: 1;
+  width: 100%;
+  padding: 0 0 150px 0;
+
+  &__upper-wrapper {
+    background-color: $hel-my-helsinki;
+  }
+
+  &__lower-wrapper {
+    > .myhki-koro {
+      $height: 20px;
+      height: $height;
+      background-size: 137px 20px;
+      margin-top: $height * -1;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .myhki-hero {
+    margin-bottom: 40px;
+
+    @include breakpoint(medium up) {
+      margin-bottom: 80px;
+    }
+
+    .myhki-koro {
+      height: 54px;
+      background-size: 102px 54px;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    font-weight: bold;
+    color: #231F20;
+    letter-spacing: -2.7px;
+    line-height: 1.2;
+    margin: 0 0 32px;
+
+    @include breakpoint(medium up) {
+      font-size: 55px;
+    }
+
+    @include breakpoint(large up) {
+      font-size: 67px;
+    }
+  }
+
+  &__quote {
+    font-size: 30px;
+    font-weight: bold;
+    color: #231F20;
+    letter-spacing: -1.2px;
+    line-height: 1.2;
+    margin: 0 0 32px;
+
+    div,
+    p {
+      display: inline;
+      margin: 0;
+      line-height: inherit;
+    }
+
+    @include breakpoint(large up) {
+      font-size: 35px;
+    }
+  }
+
+  &__body {
+    font-size: 20px;
+    color: #1D1B1B;
+    letter-spacing: -0.3px;
+    line-height: 33px;
+
+    h2 {
+      font-size: 30px;
+    }
+
+    h3, h4, h5, h6 {
+      font-size: 20px;
+    }
+  }
+
+  .myhki-cta-block {
+    margin-top: 68px;
+  }
+}

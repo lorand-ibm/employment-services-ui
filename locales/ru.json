@@ -1,0 +1,240 @@
+{
+  "common": {
+    "loadMore": "Загрузить ещё",
+    "readMore": "Читать больше",
+    "readLess": "Читать меньше",
+    "edit": "Редактировать",
+    "save": "Сохранить",
+    "deleteSuccessText": "Успешно удалено",
+    "deleteFailedText": "Ошибка удаления",
+    "saveSuccessText": "Успешно сохранено",
+    "saveFailedText": "Ошибка сохранения",
+    "saveAlreadyAddedText": "Уже в списке",
+    "myHelsinki": "My Helsinki",
+    "saveToMyHelsinki": "Сохранить в My Helsinki",
+    "seeAllLabel": "Смотреть всё",
+    "loading": "Загрузка",
+    "yes": "Да",
+    "no": "Нет",
+    "search": "Поиск",
+    "clear": "Очистить",
+    "close": "Закрыть",
+    "home": "На главную страницу",
+    "primary": "Главное меню",
+    "secondary": "Вторичная навигация",
+    "menu": "Меню",
+    "openNavMenu": "Открыть навигационное меню",
+    "returnNavMenu": "Вернуться к навигационному меню",
+    "closeNavMenu": "Закрыть навигационное меню",
+    "linkWarning": "Эта ссылка открывается в новой вкладке браузера",
+    "call": "Позвонить по этому номеру",
+    "sendEmail": "Отправить сообщение по эл.почте: {{ address }}"
+  },
+  "carousel": {
+    "next": "Далее",
+    "previous": "Вернуться назад",
+    "goTo": "Перейти к изображению {{ number }}"
+  },
+  "openingHours": {
+    "title": "Часы работы",
+    "closed": "закрыто"
+  },
+  "breadcrumbs": {
+    "homeLabel": "На Главную"
+  },
+  "hero": {
+    "copyrights": "Фото"
+  },
+  "login": {
+    "title": "Войдите в систему",
+    "description": "Вы можете войти в систему My Helsinki с помощью следующих сервисов",
+    "providerLabelFacebook": "Facebook",
+    "providerLabelGoogle": "Google",
+    "providerLabelHelsinki": "Пользователь Хельсинки",
+    "toasterLoginSuccessful": "Вы успешно вошли в систему",
+    "toasterLoginFailed": "Не удаётся войти, повторите попытку позже",
+    "toasterLoggedOut": "Вы вышли из системы"
+  },
+  "profile": {
+    "logoutButtonLabel": "Выйти",
+    "profilePageTitle": "Профиль",
+    "basicSettingsHeader": "Базовые настройки",
+    "fieldNameLabel": "Имя",
+    "fieldEmailLabel": "Эл.почта",
+    "displayNameFieldLabel": "Имя",
+    "displayNameFieldPlaceholder": "Имя",
+    "saveButtonText": "Сохранить"
+  },
+  "footer": {
+    "feedbackButtonLabel": "Оставить отзыв",
+    "feedbackLink": "https://www.facebook.com/myhelsinki"
+  },
+  "error": {
+    "title": "Извините, что-то пошло не так",
+    "description": "Пожалуйста, перепроверьте свой URL-адрес или вернитесь <a href=\"/\">на Главную страницу</a>"
+  },
+  "about": {
+    "newsletterButton": "Подпишитесь на нашу рассылку"
+  },
+  "search": {
+    "title": "Результаты поиска",
+    "filterSearchResults": "Фильтровать результаты поиска",
+    "countPlural": "{{count}} результатов поиска",
+    "countSingle": "1 результат поиска",
+    "resultCount": "Найдено {{count}} результатов",
+    "allFiltersSummaryLabel": "Показать все",
+    "categoryFiltersSummaryLabel": "Категория: {{category}}",
+    "tagsFiltersSummaryLabel": "Теги: {{tags}}",
+    "keywordsFiltersSummaryLabel": "Ключевое слово: {{keywords}}",
+    "dateTitle": "Дата",
+    "categoriesTitle": "Категории",
+    "tagsTitle": "Теги",
+    "tagsAllLabel": "Все",
+    "eventLabel": "События",
+    "placeLabel": "Места",
+    "articleLabel": "Статьи",
+    "activityLabel": "Активный отдых",
+    "dateFilterToday": "Сегодня",
+    "dateFilterTomorrow": "Завтра",
+    "dateFilterChoose": "Выбрать",
+    "noResults": "Нет результатов",
+    "noResultsInfo": "Попробуйте настроить поиск",
+    "headerActivity": "Мероприятие активного отдыха",
+    "headerArticle": "Статья",
+    "headerEatAndDrink": "Еда и напитки",
+    "headerMyHelsinkiList": "Список My Helsinki",
+    "headerMyLocalGuide": "Ваш местный гид",
+    "sortAll": "Показ всех",
+    "sortLatest": "Последние сначала",
+    "what'sPopular": "рекомендуемые",
+    "cantFindPlace": "Can't find your favourite place?",
+    "suggestPlaceToUs": "Suggest it to us!",
+    "searchFilters": "Фильтры"
+  },
+  "event": {
+    "searchTitle": "Поиск события",
+    "tickets": "Билеты",
+    "website": "Веб-сайт"
+  },
+  "activity": {
+    "searchTitle": "Поиск мероприятий активного отдыха",
+    "title": "Место начала"
+  },
+  "locationCarousel": {
+    "defaultLinkText": "Информация о месторасположении",
+    "activityLinkText": "Информация о мероприятии активного отдыха",
+    "eventLinkText": "Информация о событии",
+    "placeLinkText": "{{placeType}} подробная информация",
+    "shareLinksTitle": "Поделиться списком"
+  },
+  "myHelsinkiOnboarding": {
+    "title": "Создайте свой собственный список My Helsinki",
+    "description": "Добавьте события и места с сайта в свой список, кликнув на сердечко. Войдите в систему, чтобы сохранить и затем поделиться с друзьями и семьёй!",
+    "getStartedButtonText": "Начать",
+    "loginButtonText": "Войдите, чтобы посмотреть списки"
+  },
+  "myHelsinkiList": {
+    "myListsTitle": "Мои списки",
+    "newList": "Новый список",
+    "editList": "Редактировать список",
+    "titleFieldLabel": "Название",
+    "titleFieldPlaceholder": "Дайте название своему списку",
+    "descriptionFieldLabel": "Описание",
+    "descriptionFieldPlaceholder": "Опишите свой список",
+    "publicFieldLabel": "Публичный",
+    "privacyFieldLabel": "Личный",
+    "createButtonText": "Создать список",
+    "saveButtonText": "Сохранить",
+    "deleteButtonText": "Удалить список",
+    "cancelButtonText": "Сделать это позже",
+    "localGuidesTitle": "Ваши местные гиды",
+    "privateListLabel": "Личный список",
+    "publicListLabel": "Публичный список",
+    "editListItemsTitle": "Редактировать элементы списка",
+    "noItemsText": "Кликните на <span class=\"heart\"></span> события и места, чтобы добавить их в свой собственный #myhelsinki список.",
+    "noItemsBrowseLabel": "Обзор",
+    "noItemsBrowseSightsLabel": "#достопримечательности",
+    "noItemsBrowseRestaurantsLabel": "#рестораны",
+    "noItemsBrowseActivitiesLabel": "#активный отдых",
+    "noItemsBrowseEventsLabel": "#события",
+    "logInToSaveButtonLabel": "Войдите, чтобы сохранить и поделиться"
+  },
+  "myHelsinkiBanner": {
+    "text": "Коронавирус (COVID-19): информация для гостей страны",
+    "buttonText": "Читать больше",
+    "buttonTextMobile": "Коронавирус: информация для гостей страны",
+    "buttonLink": "/ru/коронавирус-covid-19-информация-для-гостей-страны"
+  },
+  "myHelsinkiListDropdown": {
+    "title": "Выбрать список",
+    "createListButtonLabel": "Создать новый список"
+  },
+  "form": {
+    "fieldRequired": "Ошибка: Поле обязательно для заполнения",
+    "fieldEmail": "Ошибка: Укажите действующий адрес эл.почты"
+  },
+  "article": {
+    "dateNotChanged": "{{created}}",
+    "dateChanged": "{{created}}, обновлено {{changed}}"
+  },
+  "feedback": {
+    "modalHeader": "Обратная связь",
+    "messageFieldLabel": "Обратная связь",
+    "messageFieldPlaceholder": "Оставьте отзыв о сайте",
+    "mailFieldLabel": "Адрес эл.почты",
+    "mailFieldPlaceholder": "Если хотите получить ответ",
+    "sendButtonText": "Отправить отзыв",
+    "sentHeading": "Спасибо за ваш отзыв!",
+    "sentInfo": "Благодарим вас за помощь в развитии наших услуг. Если вы сообщили нам адрес своей электронной почты, мы с вами свяжемся."
+  },
+  "eatAndDrinkSubpage": {
+    "allRestaurantsLabel": "Все рестораны"
+  },
+  "author": {
+    "label": "Ваш местный гид"
+  },
+  "study": {
+    "relatedArticlesLabel": "Похожие статьи",
+    "study": "Обучение"
+  },
+  "place": {
+    "bookTableButton": "Заказать столик",
+    "websiteButton": "Веб-сайт",
+    "getDirectionsLabel": "Укажите направление",
+    "suggestAnEdit": "Suggest an edit to this place",
+    "placeIsClosed": "Inform this place is closed"
+  },
+  "survey": {
+    "title": "Будем рады, если Вы примите участие в опросе посетителей сайта MyHelsinki.fi",
+    "body": "Задача этого опроса состоит в том, чтобы исследовать, кто пользуется нашим сайтом, и какую информацию ищут на нашем сайте. Мы также хотим узнать Ваше мнение относительно удобства и простоты пользования, содержания и внешнего вида сайта. Будем Вам благодарны, если Вы найдете несколько минут и ответите на наши вопросы. С Вашей помощью мы сможем сделать наш сайт лучше.",
+    "agree": "Примите участие в опросе",
+    "dismiss": "Пропустить",
+    "url": "https://my.surveypal.com/Myhelsinki.fi-kavijatutkimus-2019"
+  },
+  "reittiopas": {
+    "title": "Route Planner",
+    "searchOriginPlaceholder": "Search origin",
+    "searchDestinationPlaceholder:": "Search destination",
+    "transporationTypes": {
+      "WALK": "Walking",
+      "BICYCLE": "Bicycling",
+      "ALL": "Public transportation",
+      "CAR": "Car"
+    },
+    "info": "CO₂ grams/person/trip. Based on information provided by Helsinki Region Transport (HSL).",
+    "infoZeroEmissions": "The electricity that powers the metro, trams and commuter trains is renewable and therefore considered emissions-free.",
+    "errorMessage": "Unable to establish connection to Journey Planner. Move to HSL's Journey Planner or try again later.",
+    "noResultsMessage": "No results for selected route.",
+    "linkText": "Move to HSL's Journey Planner",
+    "cityBikePopupText": "City bikes available"
+  },
+  "shareLinks": {
+    "copyLinkToClipboard": "Скопировать ссылку в буфер обмена",
+    "shareOnFacebook": "Поделиться в Facebook",
+    "shareOnTwitter": "Поделиться в Twitter",
+    "shareOnLinkedin": "Поделиться в Linkedin"
+  },
+  "instagram": {
+    "photoDescription": "Фото в Instagram"
+  }
+}

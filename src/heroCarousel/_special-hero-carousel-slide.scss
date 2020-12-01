@@ -1,0 +1,124 @@
+.myhki-special-hero-carousel-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+
+  &__items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  &__item {
+    height: 100%;
+    position: relative;
+
+    &:first-child .myhki-hero-carousel-slide {
+      &__wrapper {
+        position: relative;
+        top: 0;
+        left: auto;
+        margin-top: 53px;
+        width: 80%;
+      }
+
+      &__subpage {
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.42;
+      }
+
+      &__title {
+        font-size: 4.2rem;
+        line-height: 1.1;
+        font-weight: bold;
+        letter-spacing: -1.9px;
+
+        @include breakpoint (medium down) {
+          font-size: 2.5rem;
+          max-height: 12.5rem;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+
+    &:nth-child(2) .myhki-hero-carousel-slide {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+
+      &__bg {
+        position: static;
+        flex-grow: 1;
+      }
+
+      &__wrapper {
+        position: static;
+        background-color: $hel-summer-2;
+        top: auto;
+        width: 100%;
+        padding: 45px 35px 76px;
+        @include breakpoint(medium down) {
+          padding: 30px 25px 40px;
+        }
+      }
+
+      &__subpage {
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.15;
+        color: $hel-black;
+        text-shadow: none;
+      }
+
+      &__title {
+        font-size: 37.5px;
+        font-weight: bold;
+        line-height: 1.15;
+        letter-spacing: -1px;
+        color: $hel-black;
+        text-shadow: none;
+
+        @include breakpoint(medium down) {
+          font-size: 2rem;
+          line-height: 1.15;
+          overflow: hidden;
+          max-height: 6.9rem;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+      }
+
+      &__read-more {
+        color: $hel-black;
+
+        &:after {
+          border-left-color: $hel-black;
+        }
+      }
+    }
+  }
+
+  &--items-1 {
+    .myhki-special-hero-carousel-slide__item {
+      width: 100%;
+    }
+  }
+
+  &--items-2 {
+    .myhki-special-hero-carousel-slide__item {
+      &:first-child {
+        width: 66.666%;
+      }
+
+      &:nth-child(2) {
+        width: 33.333%;
+      }
+    }
+  }
+}

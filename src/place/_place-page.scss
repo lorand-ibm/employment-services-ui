@@ -1,0 +1,94 @@
+.place-page {
+  flex: 1;
+  padding-bottom: 136px;
+
+  .myhki-hero-carousel {
+    @include breakpoint(large up) {
+      margin-bottom: 0;
+    }
+  }
+
+  .myhki-breadcrumbs {
+    margin: 35px 0;
+  }
+
+  &__sustainability-widget {
+    margin-bottom: 1.5rem;
+
+    // Match vertical aligment of breadcrumbs and main content.
+    // @todo Figure out a good way to set page gutters so that we don't need to
+    //   do things like this.
+    @include breakpoint(small down) {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .similar-places {
+    margin-top: 96px;
+  }
+
+  .myhki-photo-grid {
+    margin-top: 140px;
+  }
+
+  &__details {
+  }
+
+  &__info {
+  }
+
+  &__rating {
+    $heart-width: 15.3px;
+    $heart-gap: 2px;
+    $single-heart-width: $heart-width + $heart-gap;
+    height: 13px;
+    width: 0;
+    background: url(../assets/images/small-red-heart.svg) space;
+    background-size: $heart-width 13px;
+    margin: 0 auto;
+
+    @include breakpoint(medium up) {
+      margin: 0;
+    }
+
+    &--1 {
+      width: $heart-width;
+    }
+
+    &--2 {
+      width: $single-heart-width * 2;
+    }
+
+    &--3 {
+      width: $single-heart-width * 3;
+    }
+
+    &--4 {
+      width: $single-heart-width * 4;
+    }
+
+    &--5 {
+      width: $single-heart-width * 5;
+    }
+  }
+  .myhki-directions-block {
+    margin-top: 50px;
+  }
+
+  .page-details .columns > .columns {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  @media (max-width: 655px) {
+    .related-lists-card-list {
+      .carousel .slider-wrapper {
+        width: 50%;
+        margin-left: 0;
+      }
+      .myhki-card__background {
+        background-size: auto 80px, cover, cover !important;
+      }
+    }
+  }
+}

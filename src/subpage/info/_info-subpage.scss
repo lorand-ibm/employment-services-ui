@@ -1,0 +1,70 @@
+.subpage--info {
+  &-accordion {
+    background-color: #DFEDFA;
+  }
+
+  .info-accordion {
+    &__accordion-group {
+      margin-bottom: 60px;
+
+      > h2 {
+        font-size: 30px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.0;
+        letter-spacing: normal;
+        text-align: center;
+        color: $hel-black;
+        margin: 0 0 28px;
+      }
+    }
+  }
+
+  &-rich-block {
+    padding: 0;
+  }
+
+  .info-rich-block {
+    .myhki-simple-quote {
+      margin-top: 124px - 30px;
+      margin-bottom: 127px;
+    }
+
+    &__rich-blocks {
+      background-color: $hel-silver;
+      padding: 0 0 170px;
+
+      &-spacer {
+        background: #ffffff;
+        overflow: hidden;
+        max-height: 257px;
+
+        &:after {
+          content: "";
+          display: block;
+          padding-bottom: 20.4%;
+        }
+      }
+
+      &-wrapper {
+        columns: 2;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        column-gap: 18px;
+        margin-top: -22%;
+
+        @include breakpoint(small only) {
+          columns: 1;
+        }
+      }
+
+      .myhki-rich-block {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  }
+}

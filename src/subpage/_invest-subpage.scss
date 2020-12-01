@@ -1,0 +1,49 @@
+.subpage--invest {
+  .myhki-lift-up-carousel {
+    padding: 80px 0 20px;
+  }
+
+  .invest-page {
+    &__quote {
+      padding: 60px 0 85px;
+    }
+
+    &__text-carousel {
+      padding: 90px 0 70px;
+    }
+
+    &__gray {
+      &-wrapper {
+        background: #ebedf1;
+      }
+
+      .myhki-koro {
+        height: 20px;
+        background-size: 137px 20px;
+      }
+    }
+
+    &__blue {
+      margin-bottom: -20px;
+
+      .myhki-card-list {
+        margin-top: 0;
+        padding: 70px 0 90px;
+      }
+
+      &-wrapper {
+        background: #cfe4f5;
+      }
+
+      .myhki-koro {
+        height: 20px;
+        background-size: 137px 20px;
+      }
+    }
+  }
+
+  .myhki-link-list {
+    margin-top: 100px;
+  }
+
+}

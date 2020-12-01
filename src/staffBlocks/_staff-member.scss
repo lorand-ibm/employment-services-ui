@@ -1,0 +1,33 @@
+.myhki-staff-member {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+
+  @include breakpoint(medium up) {
+    width: 50%;
+  }
+
+  &__title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $hel-dark-gray;
+  }
+
+  &__name{
+    font-size: 15px;
+    font-weight: bold;
+
+    @include breakpoint(medium up) {
+      font-size: 20px;
+    }
+  }
+
+  &__phone,
+  &__email {
+    font-size: 12px;
+
+    @include breakpoint(medium up) {
+      font-size: 14px;
+    }
+  }
+}

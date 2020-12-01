@@ -1,0 +1,105 @@
+.feedback-form {
+  h1 {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: $hel-black;
+  }
+
+  &__heading {
+    margin: 0 0 45px;
+    &--thank-you {
+      margin: 0.4em 0;
+    }
+  }
+
+  &__paragraph {
+    font-size: 18px;
+    line-height: inherit;
+    margin-bottom: 1.77em;
+    @include breakpoint(large up) {
+      max-width: 75%;
+    }
+    color: $hel-black !important;
+  }
+
+  &__logo {
+    width: 106px;
+  }
+
+  &__send-button {
+    &:focus {
+      color: $light-silver !important;
+      background-color: $hel-black !important;
+    }
+  }
+
+  .text-input {
+    margin-top: 45px;
+    margin-bottom: 0;
+    input,
+    textarea {
+      color: $hel-black !important;
+      white-space: nowrap;
+      overflow: hidden;
+      height: 24px !important;
+
+      // @todo Use autoprefixer.
+      &::placeholder {
+        color: $hel-dark-gray;
+        opacity: 1;
+      }
+      &::-webkit-input-placeholder {
+        color: $hel-dark-gray;
+        opacity: 1;
+      }
+      &::-moz-placeholder {
+        color: $hel-dark-gray;
+        opacity: 1;
+      }
+      &:-ms-input-placeholder {
+        color: $hel-dark-gray;
+        opacity: 1;
+      }
+    }
+
+    &__label {
+      color: $hel-black !important;
+      position: relative;
+
+      &-error {
+        line-height: 1;
+        text-transform: none;
+        position: absolute;
+        top: 66px;
+        font-size: 15px;
+        color: $hel-brick;
+        font-weight: bold;
+      }
+    }
+
+    &__underline {
+      color: $hel-black !important;
+    }
+
+    &__underline--error {
+      color: $hel-brick !important;
+    }
+
+    &--type-textarea {
+      color: $hel-black;
+    }
+
+    &--error {
+      .text-input__input {
+        color: $hel-black !important;
+      }
+    }
+  }
+
+  &__buttons {
+    color: $hel-black;
+    margin-top: 55px;
+  }
+}

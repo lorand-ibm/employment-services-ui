@@ -1,0 +1,156 @@
+.edit-list-form {
+  line-height: 1.4;
+  font-weight: 500;
+  font-size: rem-calc(16);
+  @include breakpoint(medium up) {
+    font-size: rem-calc(18);
+  }
+
+  h2 {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0 0 44px;
+  }
+
+  &__field-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+  }
+
+  &__field-column {
+    align-items: center;
+    display: flex;
+    flex: 1;
+
+    &--small {
+      flex: 0;
+      width: 30%;
+    }
+  }
+
+  &__field-label {
+    font-size: rem-calc(19);
+  }
+
+  &__buttons {
+    text-align: center;
+    @include breakpoint(large up) {
+      text-align: left;
+    }
+  }
+
+  &__save-button {
+    @include breakpoint(medium up) {
+      margin-right: 3rem;
+    }
+  }
+
+  &__delete-icon {
+    margin-right: 0.5rem;
+  }
+
+  &__item-list {
+    margin: 0 0 47px;
+
+    &-title {
+      font-size: 19px;
+      line-height: 1.79;
+      color: #ffffff;
+      margin: 0 0 11px;
+    }
+
+    &-items {
+      border-top: solid 1px #ffffff;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      > .edit-list-form__item-list-item {
+        border-top: none;
+        flex-wrap: wrap;
+      }
+    }
+
+    &-item {
+      z-index: 100000;
+      display: flex;
+      padding: 10px 0;
+      border-bottom: solid 1px #ffffff;
+      align-items: center;
+      background-color: $hel-suomenlinna;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      &-remove {
+        width: 45px;
+        min-width: 45px;
+        display: flex;
+        align-items: center;
+        order: 1;
+
+        &-button {
+          margin: 0 0 0 2px;
+          display: block;
+          width: 16px;
+          height: 16px;
+          background-image: url(../assets/images/close-white.svg);
+          background-size: contain;
+        }
+      }
+
+      &-sort-handle {
+        padding: 0 10px;
+        order: 3;
+
+        &-handle {
+          display: block;
+          width: 23px;
+          border-top: 2px solid #ffffff;
+          border-bottom: 2px solid #ffffff;
+          height: 9px;
+          cursor: pointer;
+        }
+      }
+
+      &-content {
+        flex: 1;
+        min-width: 0;
+        order: 2;
+      }
+
+      &-subtitle,
+      &-title {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &-subtitle {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.42;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      &-title {
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 1.33;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.edit-list-form__item-list-item {
+  border-top: solid 1px #ffffff;
+}

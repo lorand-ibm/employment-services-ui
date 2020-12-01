@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="20px" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>white-heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-362.000000, -312.000000)" fill="#FFFFFF">
+            <path d="M373,314.609756 C371.9055,313.032859 370.09875,312 368.05,312 C364.70875,312 362,314.741919 362,318.12383 C362,323.622151 370.86875,330.466538 372.679167,331.807172 C372.776333,331.878685 372.888167,331.914894 373,331.914894 C373.111833,331.914894 373.223667,331.878685 373.320833,331.807172 C375.13125,330.466538 384,323.622151 384,318.12383 C384,314.741919 381.29125,312 377.95,312 C375.902167,312 374.0945,313.032859 373,314.609756 Z" id="white-heart"></path>
+        </g>
+    </g>
+</svg>

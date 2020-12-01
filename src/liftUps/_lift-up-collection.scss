@@ -1,0 +1,150 @@
+.myhki-lift-up-collection {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 5px;
+
+  @include breakpoint(medium up) {
+    margin: 0;
+  }
+
+  &__wrapper {
+    width: 66.666%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &:only-child {
+      width: 100%;
+    }
+
+    .myhki-lift-up-collection-item--type {
+      &-horizontal {
+        width: 100%;
+      }
+    }
+  }
+
+  &__wrapper-inner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &:only-child {
+      width: 100%;
+    }
+
+    &.horizontal {
+      width: 66.666%;
+    }
+  }
+
+  &.mobile {
+    .myhki-lift-up-collection__wrapper {
+      width: 100%;
+    }
+
+    .myhki-lift-up-collection__wrapper-inner {
+      width: 50%;
+
+      &:only-child {
+        width: 100%;
+      }
+    }
+
+    .myhki-lift-up-collection-item--type {
+      &-horizontal {
+        width: 100%;
+
+        &:after {
+          padding-bottom: 50%;
+        }
+      }
+
+      &-default {
+        width: 100%;
+
+        &:after {
+          padding-bottom: 50%;
+        }
+      }
+
+      &-vertical {
+        width: 50%;
+
+        &:after {
+          padding-bottom: 170%;
+        }
+      }
+    }
+  }
+}
+
+.myhki-lift-up-collection-item {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 30%;
+  }
+
+  &__wrapper {
+    display: block;
+    padding: 15px;
+    background-position: center !important;
+    background-size: cover !important;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+
+    @include breakpoint(medium up) {
+      top: 5px;
+      bottom: 5px;
+      left: 5px;
+      right: 5px;
+    }
+
+    @include breakpoint(large up) {
+      padding: 25px;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+    word-break: break-word;
+
+    @include breakpoint(medium up) {
+      font-size: 20px;
+    }
+
+    @include breakpoint(large up) {
+      font-size: 30px;
+    }
+  }
+
+  &--type {
+    &-default {
+      width: 50%;
+    }
+
+    &-horizontal {
+      width: 66.666%;
+
+      &:after {
+        padding-bottom: 30%;
+      }
+    }
+
+    &-vertical {
+      width: 33.333%;
+
+      &:after {
+        padding-bottom: 170%;
+      }
+    }
+  }
+}

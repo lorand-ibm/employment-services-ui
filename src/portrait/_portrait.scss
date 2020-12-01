@@ -1,0 +1,78 @@
+.myhki-portrait {
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+
+  align-items: center;
+
+  @include breakpoint(medium down) {
+    flex-wrap: wrap;
+  }
+
+  &__image {
+    width: 100%;
+    padding-right: 30px;
+
+    @include breakpoint(medium up) {
+      height: auto;
+      width: 45%;
+    }
+
+    @include breakpoint(small only) {
+      padding-right: 0;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    color: $hel-black;
+    padding-left: 30px;
+    padding-right: 15px;
+    flex: 1;
+    display: block;
+
+    @include breakpoint(medium down) {
+      font-size: 14px;
+      padding-left: 15px;
+    }
+
+    @include breakpoint(small only) {
+      order: 1;
+      padding-left: 0;
+    }
+  }
+
+  &--flipped {
+    .myhki-portrait {
+      &__image {
+        order: 1;
+        padding-left: 8px;
+        padding-right: 0;
+      }
+
+      &__text {
+        order: 0;
+        padding-left: 0;
+        padding-right: 20px;
+      }
+
+      @include breakpoint(small only) {
+        &__text {
+          padding: 0;
+        }
+        &__image {
+          order: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    text-align: left;
+    color: $hel-medium-gray;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

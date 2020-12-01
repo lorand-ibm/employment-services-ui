@@ -1,0 +1,14 @@
+$fa-font-path: "../node_modules/font-awesome/fonts";
+
+// @todo Font Awesome free version doesn't have thin versions of the icons.
+//   These styles below add those thin icons manually. We should buy the PRO
+//   version of Font Awesome. More info:
+//   - https://fontawesome.com/icons/times?style=light
+//   - https://fontawesome.com/icons/chevron-left?style=light
+//   - https://sridharkatakam.com/thin-font-awesome-close-icon/
+.fa-times-thin:before {
+  content: '\00d7';
+}
+.fa-chevron-left-thin:before {
+  content: '\F104';
+}

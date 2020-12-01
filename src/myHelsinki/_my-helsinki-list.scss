@@ -1,0 +1,243 @@
+.my-helsinki-list-page {
+  flex: 1;
+  padding: 0 0 130px;
+  width: 100%;
+
+  &__hero {
+    position: relative;
+
+    .myhki-hero {
+      background-size: auto 160px, cover, cover !important;
+    }
+  }
+
+  &--user-can-edit {
+    .my-helsinki-list-page {
+      &__hero {
+        position: relative;
+
+        .myhki-hero {
+          background-size: auto 160px, cover, cover !important;
+        }
+
+        @include breakpoint(medium down) {
+          .heart-icon-carousel {
+            opacity: 1;
+          }
+
+          .myhki-hero {
+            background: $hel-suomenlinna !important;
+          }
+        }
+
+        @include breakpoint(large up) {
+          .heart-icon-carousel {
+            opacity: 0;
+            transition: opacity 0.3s;
+          }
+
+          &:hover {
+            .heart-icon-carousel {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__log-in-to-save-button {
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.9px;
+    text-align: center;
+    margin: 10px 0 0;
+    border: 2px solid $hel-black !important;
+  }
+
+  &__edit {
+    margin: 58px 0 22px;
+  }
+
+  &__edit-links {
+    text-align: right;
+  }
+
+  &__edit-link {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    line-height: 22px;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      width: 30px;
+      height: 22px;
+      display: inline-block;
+      background: url(../assets/images/edit-list.svg) no-repeat;
+      background-size: contain;
+      margin: 0 10px -5px 0;
+    }
+  }
+
+  &__privacy {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+
+    &:before {
+      width: 13px;
+      height: 16px;
+      content: "";
+      display: inline-block;
+      background: url(../assets/images/lock.svg);
+      margin: 0 9px -3px 0;
+    }
+  }
+
+  &__info {
+    margin: 28px 0 0;
+
+    @include breakpoint(large up) {
+      margin: 100px 0 0;
+    }
+
+    .myhki-share-links {
+      display: none;
+
+      @include breakpoint(large up) {
+        display: block;
+        margin-top: 10px;
+      }
+    }
+
+    > .row {
+      > .columns {
+        &:last-child {
+          @include breakpoint(medium down) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__lower-wrapper {
+    > .myhki-koro {
+      $height: 20px;
+      height: $height;
+      background-size: 137px 20px;
+      margin-top: $height * -1;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1.0;
+    letter-spacing: -1.7px;
+    text-align: center;
+    margin: 0 0 26px;
+
+    @include breakpoint(large up) {
+      font-size: 67px;
+      font-weight: bold;
+      line-height: 0.9;
+      letter-spacing: -3px;
+      margin: 0 0 37px;
+      text-align: left;
+    }
+  }
+
+  &__description {
+    font-size: 23px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: -0.8px;
+    white-space: pre-wrap;
+    padding: 0 26px;
+
+    @include breakpoint(large up) {
+      font-size: 35px;
+      font-weight: bold;
+      letter-spacing: -1.2px;
+      line-height: 1;
+      padding: 0;
+    }
+
+    &:before {
+      content: "“";
+    }
+    &:after {
+      content: "”";
+    }
+  }
+
+  &__no-items {
+    margin: 47px 0 0 0;
+
+    &-text {
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.2px;
+      color: #abb2be;
+      margin: 0 0 19px;
+
+      .heart {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin-bottom: -4px;
+        background-image: url(../assets/images/small-red-heart.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-browse {
+      ul {
+        list-style: none;
+        margin: 0 0 20px;
+        padding: 0;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 30px 0 0;
+
+        span {
+          font-size: 20px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.0;
+          color: $hel-black;
+          letter-spacing: normal;
+        }
+
+        a {
+          font-size: 15px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.13;
+          letter-spacing: -0.2px;
+          text-align: center;
+          color: $hel-vaakuna;
+        }
+      }
+    }
+  }
+}

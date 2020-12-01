@@ -1,0 +1,75 @@
+.subpage--study {
+  .lift-up-carousel{
+    padding: 60px 0;
+
+    &__wrapper {
+      position: relative;
+      padding: 80px 0 30px;
+      background: $light-blue;
+      @include breakpoint(large up) {
+        padding: 80px 0;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  .myhki-simple-quote {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .related-articles {
+    &__wrapper {
+      background: $hel-silver;
+    }
+
+    &__card-list {
+      margin-top: 80px;
+      margin-bottom: 80px;
+
+      .myhki-card-list {
+        &__title {
+          margin-bottom: 20px;
+        }
+
+        &__see-all-link {
+          margin-bottom: 40px;
+        }
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  .accordion {
+    margin: 60px 0;
+    @include breakpoint(large up) {
+      margin: 80px 0;
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: 30px 0;
+      background: $hel-fog;
+      @include breakpoint(large up) {
+        padding: 80px 0;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  &__text-carousel {
+    padding: 90px 0 60px;
+  }
+}

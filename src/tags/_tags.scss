@@ -1,0 +1,65 @@
+.myhki-tags {
+  text-align: center;
+  margin-top: 20px;
+  @include breakpoint(large up) {
+    margin-top: 35px;
+  }
+
+  &--collapse-margins {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  ul {
+    margin: 0 -25px 0;
+    list-style: none;
+    @include breakpoint(large up) {
+      margin: 0 -25px 0;
+    }
+
+    li {
+      display: inline-block;
+      margin: 5px 25px;
+    }
+  }
+
+  &__all-link {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    text-align: center;
+    color: $hel-black;
+    display: inline-block;
+    position: relative;
+
+    margin-top: 20px;
+    @include breakpoint(large up) {
+      margin-top: 30px;
+    }
+
+    &:after {
+      position: absolute;
+      top: 100%;
+      margin-top: 3px;
+      content: "";
+      display: block;
+      left: -1px;
+      right: -1px;
+      height: 1px;
+      background: $cool-grey;
+    }
+  }
+}
+
+.myhki-tag {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: $hel-vaakuna;
+}

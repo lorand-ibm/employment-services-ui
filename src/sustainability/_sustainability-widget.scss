@@ -1,0 +1,60 @@
+.sustainability-widget {
+  &__link {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    @include breakpoint(medium up) {
+      justify-content: flex-start;
+      margin-left: -5px; // Move the whole link slightly to the left.
+      margin-right: 5px;
+      white-space: nowrap;
+    }
+  }
+
+  &__content-wrapper {
+    padding: 10px 10px;
+    background-color: #00d7a7;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__heart {
+    margin: auto 8px auto 0;
+    height: 40px;
+    display: inline-block;
+  }
+
+  &__label {
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+    font-weight: bold;
+    color: $hel-black;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    // Set min-width on narrow mobile to force a line break.
+    // @todo Update react-i18next to v10. Then we can control line breaks
+    //   with <br> inside translation the string.
+    max-width: 65%;
+    @include breakpoint(375) {
+      max-width: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  &__arrow {
+    margin: auto 0;
+    padding-left: 7px;
+    height: 25px;
+    line-height: 1.5;
+  }
+}

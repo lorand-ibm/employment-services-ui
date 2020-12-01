@@ -1,0 +1,76 @@
+.subpage--startup {
+  .myhki-lift-up-carousel {
+    padding: 70px 0 30px;
+  }
+
+  .startup-page {
+    &__quote {
+      padding: 60px 0 85px;
+    }
+
+    &__text-carousel {
+      padding: 90px 0 60px;
+
+      &--why-helsinki {
+        .source-title {
+          margin-bottom: rem-calc(15px);
+        }
+
+        .myhki-simple-quote__body {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &__gray {
+      &-wrapper {
+        background: #ebedf1;
+      }
+
+      .myhki-koro {
+        height: 20px;
+        background-size: 137px 20px;
+      }
+    }
+
+    &__blue {
+      margin-bottom: -20px;
+
+      .myhki-card-list {
+        margin-top: 0;
+        padding: 70px 0 90px;
+      }
+
+      &-wrapper {
+        background: #cfe4f5;
+      }
+
+      .myhki-koro {
+        height: 20px;
+        background-size: 137px 20px;
+      }
+    }
+
+    &__business-setup-cta {
+      margin: 110px 0px 40px;
+      .myhki-cta-block__text {
+        margin-top: 0px;
+        font-weight: bold;
+      }
+
+      .myhki-cta-block__link.button {
+        border-width: 3px;
+        font-size: rem-calc(16px);
+        font-weight: bold;
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+    }
+  }
+
+  .myhki-link-list {
+    margin-top: 137px;
+  }
+}

@@ -1,0 +1,9 @@
+.myhki-twitter {
+  @include breakpoint(large up) {
+    padding: 60px 0;
+  }
+
+ .twitter-tweet {
+   max-width: 100% !important;
+ }
+}

@@ -1,0 +1,286 @@
+/* Text styles */
+
+@mixin d-h-1-cambria-style {
+  font-size: 60px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-1-sans-style {
+  font-size: 60px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-2-cambria-style {
+  font-size: 45px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-2-sans-uppercase-style {
+  font-size: 45px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-2-sans-style {
+  font-size: 45px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-3-cambria-style {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.06;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin h-1-mobile {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $hel-black;
+}
+
+@mixin h-1-mobile-white-caps {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.03;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+@mixin h-1-mobile-white-caps {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.03;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+@mixin d-h-3-sans-style {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.06;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-3-sans-uppercase-style {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.09;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-4-sans-style {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-4-sans-uppercase-style {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin m-h-3-sans-uppercase-style {
+  font-size: 27.5px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  color: $hel-black;
+}
+
+@mixin d-m-ingress-text-or-style {
+  font-size: 22.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin kortti-otsikko {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: $hel-black;
+}
+
+@mixin side-swipe-title-white-caps {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+@mixin d-body-serif-commonl-style {
+  font-family: $font-family-georgia;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-h-5-sans-uppercase-style {
+  font-size: 17.5px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin d-m-h-5-sans-style {
+  font-size: 17.5px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: $hel-dark-gray;
+}
+
+@mixin body-serif {
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: $hel-black;
+}
+
+@mixin d-m-h-6-u-p-p-e-r-c-a-s-e-cam-style {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.7px;
+  color: $hel-dark-gray;
+}
+
+@mixin d-m-h-4-sans-uppercas-style {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: 0.4px;
+  color: $hel-dark-gray;
+}
+
+@mixin u-p-p-e-r-c-a-s-e-bold-15-px {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+@mixin tag {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  color: $hel-fog;
+}
+
+@mixin d-m-subtitle-upperca-style {
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  color: $hel-dark-gray;
+}
+
+@mixin d-m-subtitle-sans-style {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  color: $hel-dark-gray;
+}
+
+@mixin body-georgia-style {
+  font-family: $font-family-georgia;
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: $hel-dark-gray;
+}

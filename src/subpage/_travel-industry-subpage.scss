@@ -1,0 +1,201 @@
+.subpage--travel-industry {
+  .lift-up-carousel {
+    padding: 80px 0 60px;
+  }
+
+  .myhki-simple-quote {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .accordion {
+    margin: 60px 0;
+    @include breakpoint(large up) {
+      margin: 80px 0;
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: 30px 0;
+      background: $hel-fog;
+      @include breakpoint(large up) {
+        padding: 80px 0;
+      }
+    }
+    a {
+      font-family: $font-family-helsinki-grotesk;
+      color: #0072c6;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+      line-height: 2;
+      letter-spacing: 1.2px;
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  .lift-up-carousel {
+    padding: 60px 0;
+
+    &.consecutive-below {
+      padding-bottom: 0;
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: 0 0 20px;
+
+      @include breakpoint(small only) {
+        background: $hel-silver;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+
+      @include breakpoint(medium up) {
+        display: none;
+      }
+    }
+  }
+
+  .lift-up-carousel-2 {
+    padding: 60px 0;
+
+    &.consecutive-below {
+      padding-bottom: 0;
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: 60px 0;
+      background: $hel-silver;
+
+      @include breakpoint(small only) {
+        padding: 0 0 60px;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+
+      &.koro-1 {
+        @include breakpoint(small only) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .lift-up-carousel-4 {
+    padding: 60px 0;
+
+    &.consecutive-below {
+      padding-bottom: 0;
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: 0 0 20px;
+
+      @include breakpoint(small only) {
+        background: $hel-silver;
+      }
+
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+
+      @include breakpoint(medium up) {
+        display: none;
+      }
+
+      &.koro-1 {
+        @include breakpoint(small only) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .big-card-list {
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+
+    &.consecutive-above {
+      margin-top: -28px;
+
+      .myhki-big-card-list {
+        margin-top: 0;
+
+        &__background {
+          height: 100%;
+        }
+
+        &__carousel-wrapper {
+          padding-top: 50px;
+        }
+      }
+    }
+  }
+
+  &__text-carousel {
+    padding: 90px 0 60px;
+  }
+
+  .latest-news {
+    padding: 50px 0px;
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+
+    &__wrapper {
+      background: $light_blue;
+
+      .myhki-card-list {
+        margin-top: 80px;
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  .featured-companies-card-list {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .big-card-list-2 {
+    margin: 60px 0 80px;
+
+    &.consecutive-below {
+      margin: 0;
+
+      .myhki-big-card-list__wrapper {
+        padding-bottom: 80px;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  .accordion {
+    &.consecutive-above {
+      margin-top: -14px;
+    }
+  }
+}

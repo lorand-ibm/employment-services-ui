@@ -1,0 +1,44 @@
+.sustainability-details {
+  hyphens: auto;
+  line-height: 1.35;
+
+  // Font-size must be controlled on multiple breakpoints because horizontal
+  // space inside this component is very limited. Note that many of the nested
+  // components are also using this font-size for sizing and margins.
+  font-size: 14px;
+  @include breakpoint(375) {
+    font-size: 15px;
+  }
+  @include breakpoint(medium up) {
+    font-size: 16px;
+  }
+  @include breakpoint(large up) {
+    font-size: 20px;
+  }
+
+  &__logo {
+    width: 45%;
+    max-width: 130px;
+    margin-bottom: 0.5em;
+  }
+
+  &__paragraph {
+    line-height: inherit; // Override generic "p" tag style.
+    font-weight: 500; // Semi-bold
+    margin: 1.5em 0;
+  }
+
+  &__feedback-button {
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+
+    &:focus {
+      color: white !important;
+      background-color: $hel-black !important;
+    }
+  }
+
+  &__criterion-group--odd {
+    background: $hel-very-ligh-gray;
+  }
+}

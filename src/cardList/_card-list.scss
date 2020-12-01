@@ -1,0 +1,168 @@
+.myhki-card-list {
+  color: $hel-black;
+  text-align: center;
+  margin: 100px -60px 0;
+  overflow: hidden;
+
+  @include breakpoint(large up) {
+    margin: 130px -60px 0;
+  }
+
+  &--collapse-margins {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--has-background {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  &--has-text-color {
+    .myhki-card-list {
+      &__see-all-link {
+        color: inherit;
+        &:after {
+          background: currentColor;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: inherit;
+    margin: 0 70px 15px;
+
+    @include breakpoint(large up) {
+      font-size: 45px;
+    }
+  }
+
+  &__description {
+    font-size: 21px;
+    line-height: 1.43;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: inherit;
+    margin: 0 60px 26px;
+
+    @include breakpoint(large up) {
+      max-width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__see-all-container {
+    margin-bottom: 40px;
+    @include breakpoint(large up) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__see-all-link {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.9px;
+    color: $hel-dark-gray;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      height: 1px;
+      background: $cool-grey;
+      margin-top: 2px;
+      display: block;
+    }
+  }
+
+  .carousel {
+    overflow: visible;
+    padding: 0 60px;
+    margin: 30px auto 0;
+    width: 95% !important;
+
+    @include breakpoint(medium up) {
+      width: 100% !important;
+    }
+
+    &:hover {
+      .control-arrow {
+        opacity: 1;
+      }
+    }
+
+    .slider-wrapper {
+      overflow: visible;
+    }
+
+    .slider {
+      margin: 0;
+    }
+
+    .slide {
+      transition: opacity 0.25s ease-in, padding 0.25s ease-in;
+
+      &:not(.selected) {
+        opacity: 0.5;
+
+        .myhki-card-list__slide {
+          margin: 0;
+        }
+
+        .myhki-card {
+          transition: padding 0.25s ease-in;
+        }
+      }
+    }
+  }
+
+  &__slide {
+    display: flex;
+    height: 100%;
+
+    .myhki-card-list--slides-1 & {
+      justify-content: center;
+    }
+
+    .myhki-card,
+    .myhki-cta-card {
+      width: 25%;
+      padding: 0 2.5px;
+
+      @include breakpoint(medium up) {
+        padding: 0 5px;
+      }
+
+      @include breakpoint(large up) {
+        padding: 0 8px;
+      }
+    }
+  }
+
+  &__carousel {
+    position: relative;
+  }
+
+  &__carousel-arrow {
+    margin-top: -12px;
+
+    &--prev {
+      margin-left: 55px;
+    }
+
+    &--next {
+      margin-right: 55px;
+    }
+  }
+}

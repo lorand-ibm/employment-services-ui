@@ -1,0 +1,577 @@
+// Common styles for both mobile and desktop.
+.top-navigation-submenu {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  &-desktop {
+    top: 71px;
+    left: 0;
+  }
+
+  &-mobile {
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &__row {
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  .myhki-koro {
+    height: 14px;
+    background-size: 96px 14px;
+    background-repeat: repeat-x;
+  }
+
+  &__links {
+    text-align: left;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 20px 122px;
+  }
+
+  &__link {
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: $hel-black;
+    margin: 7px 0 0;
+    display: inline-block;
+    user-select: none;
+    &:hover {
+      border-color: $hel-black;
+    }
+  }
+
+  &__mobile-menu-toggle {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 1;
+    justify-content: space-between;
+  }
+
+  &__hide {
+    display: none;
+    width: 14px;
+    height: 23px;
+    background: url(../assets/images/caret-left.svg);
+    z-index: 10;
+  }
+
+  &__close {
+    display: none;
+    width: 23px;
+    height: 23px;
+    background: url(../assets/images/submenu-close.svg);
+    z-index: 10;
+  }
+}
+
+// Styles for desktop version of the component.
+.top-navigation-type-wrap--desktop {
+  .top-navigation {
+    &-submenu {
+      transition: max-height 0.2s ease;
+      max-height: 400px;
+
+      &--hidden {
+        max-height: 0;
+      }
+    }
+
+    &--submenu-open {
+      .top-navigation-submenu {
+        margin-bottom: -14px;
+      }
+    }
+
+    &--submenu-animate-slide-out {
+      .top-navigation-submenu {
+        animation: slideSubmenuOutDesktop 0.2s ease both !important;
+        @keyframes slideSubmenuOutDesktop {
+          0% {
+            max-height: 400px;
+            margin-bottom: -14px;
+          }
+
+          100% {
+            max-height: 0;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Styles for mobile version of the component.
+.top-navigation-type-wrap--mobile {
+  .top-navigation {
+    &--submenu-animate-hide {
+      .top-navigation-submenu {
+        top: 0;
+
+        animation: submenuWrapperReverse 0.2s ease both !important;
+        @keyframes submenuWrapperReverse {
+          0% {
+            top: 0;
+          }
+
+          100% {
+            top: 182px;
+          }
+        }
+
+        &__wrapper {
+          overflow: hidden;
+        }
+
+        &__links {
+          animation: submenuLinkHide 0.2s ease both !important;
+          @keyframes submenuLinkHide {
+            0% {
+              opacity: 1;
+            }
+
+            100% {
+              opacity: 0;
+            }
+          }
+        }
+
+        &__mobile-menu-toggle {
+          animation: hideClose 0.2s ease both !important;
+          @keyframes hideClose {
+            0% {
+              opacity: 1;
+            }
+
+            100% {
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-see-and-do {
+        .top-navigation-submenu__wrapper {
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 33%;
+
+          animation: seeAndDoSubmenuReverse 0.2s ease both !important;
+          @keyframes seeAndDoSubmenuReverse {
+            0% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+
+            100% {
+              width: 50%;
+              height: 33%;
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-eat-and-drink {
+        .top-navigation-submenu__wrapper {
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 55%;
+
+          animation: eatAndDrinkSubmenuReverse 0.2s ease both !important;
+          @keyframes eatAndDrinkSubmenuReverse {
+            0% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+
+            100% {
+              width: 50%;
+              height: 55%;
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-work-and-study {
+        .top-navigation-submenu__wrapper {
+          bottom: 0;
+          left: 0;
+          width: 50%;
+          height: 70%;
+
+          animation: workAndStudySubmenuReverse 0.2s ease both !important;
+          @keyframes workAndStudySubmenuReverse {
+            0% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+
+            100% {
+              width: 50%;
+              height: 70%;
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-business-and-invest {
+        .top-navigation-submenu__wrapper {
+          bottom: 0;
+          left: 0;
+          width: 50%;
+          height: 50%;
+
+          animation: businessAndInvestSubmenuReverse 0.2s ease both !important;
+          @keyframes businessAndInvestSubmenuReverse {
+            0% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+
+            100% {
+              width: 50%;
+              height: 50%;
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-info {
+        .top-navigation-submenu__wrapper {
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 55%;
+
+          animation: infoSubmenuReverse 0.2s ease both !important;
+          @keyframes infoSubmenuReverse {
+            0% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+
+            100% {
+              width: 50%;
+              height: 55%;
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &--submenu-animate-slide-out {
+      .top-navigation-submenu {
+        animation: slideSubmenuOut 0.2s ease both !important;
+        height: 100%;
+        left: -100%;
+        top: 0;
+
+        @keyframes slideSubmenuOut {
+          0% {
+            left: 0;
+            top: 0;
+            height: 100%;
+          }
+
+          100% {
+            left: -100%;
+            top: 0;
+            height: 100%;
+          }
+        }
+      }
+
+      .top-navigation__link {
+        visibility: hidden;
+      }
+      .top-navigation-submenu {
+        visibility: visible;
+      }
+      .top-navigation__user-menu {
+        visibility: hidden;
+      }
+      .top-navigation__mobile-menu-toggle {
+        visibility: hidden;
+      }
+    }
+
+    &--active.top-navigation--submenu-open {
+      .top-navigation-submenu {
+        left: 0;
+
+        &__mobile-menu-toggle {
+          display: flex;
+        }
+
+        &__close {
+          display: block;
+        }
+
+        &__hide {
+          display: block;
+        }
+
+        &__links {
+          li {
+            animation: submenuLink 0.2s ease 0.2s both;
+            @keyframes submenuLink {
+              0% {
+                margin-top: -54px;
+                opacity: 0;
+              }
+
+              100% {
+                margin-top: 7px;
+                opacity: 1;
+              }
+            }
+
+            &:nth-child(1) {
+              animation-delay: 0.4s;
+            }
+            &:nth-child(2) {
+              animation-delay: 0.5s;
+            }
+            &:nth-child(3) {
+              animation-delay: 0.6s;
+            }
+            &:nth-child(4) {
+              animation-delay: 0.7s;
+            }
+            &:nth-child(5) {
+              animation-delay: 0.8s;
+            }
+            &:nth-child(6) {
+              animation-delay: 0.9s;
+            }
+            &:nth-child(7) {
+              animation-delay: 1.0s;
+            }
+            &:nth-child(8) {
+              animation-delay: 1.1s;
+            }
+            &:nth-child(9) {
+              animation-delay: 1.2s;
+            }
+            &:nth-child(10) {
+              animation-delay: 1.3s;
+            }
+            &:nth-child(11) {
+              animation-delay: 1.4s;
+            }
+          }
+        }
+
+        animation: submenuWrapper 0.2s ease both;
+        @keyframes submenuWrapper {
+          0% {
+            top: 182px;
+          }
+
+          100% {
+            top: 0;
+          }
+        }
+      }
+
+      &.top-navigation--active-see-and-do {
+        .top-navigation-submenu__wrapper {
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 33%;
+
+          animation: seeAndDoSubmenu 0.2s ease both;
+          @keyframes seeAndDoSubmenu {
+            0% {
+              width: 50%;
+              height: 33%;
+              opacity: 0;
+            }
+
+            100% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-eat-and-drink {
+        .top-navigation-submenu__wrapper {
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 55%;
+
+          animation: eatAndDrinkSubmenu 0.2s ease both;
+          @keyframes eatAndDrinkSubmenu {
+            0% {
+              width: 50%;
+              height: 55%;
+              opacity: 0;
+            }
+
+            100% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-work-and-study {
+        .top-navigation-submenu__wrapper {
+          bottom: 0;
+          left: 0;
+          width: 50%;
+          height: 70%;
+
+          animation: workAndStudySubmenu 0.2s ease both;
+          @keyframes workAndStudySubmenu {
+            0% {
+              width: 50%;
+              height: 70%;
+              opacity: 0;
+            }
+
+            100% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-business-and-invest {
+        .top-navigation-submenu__wrapper {
+          bottom: 0;
+          left: 0;
+          width: 50%;
+          height: 50%;
+
+          animation: businessAndInvestSubmenu 0.2s ease both;
+          @keyframes businessAndInvestSubmenu {
+            0% {
+              width: 50%;
+              height: 50%;
+              opacity: 0;
+            }
+
+            100% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &.top-navigation--active-info {
+        .top-navigation-submenu__wrapper {
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 55%;
+
+          animation: infoSubmenu 0.2s ease both;
+          @keyframes infoSubmenu {
+            0% {
+              width: 50%;
+              height: 55%;
+              opacity: 0;
+            }
+
+            100% {
+              width: 100%;
+              height: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .top-navigation-submenu {
+      position: fixed;
+      top: 182px;
+      left: 100%;
+      bottom: 0;
+      width: 100%;
+      z-index: 3;
+      max-height: none !important;
+
+      &--hidden {
+        max-height: none !important;
+      }
+
+      &__wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      .myhki-koro {
+        display: none;
+      }
+
+      &__links {
+        max-height: 100%;
+        padding: 0 0 120px;
+        margin: 67px 20px 0 20px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        li {
+          margin-top: 7px;
+        }
+      }
+
+      &__link {
+        font-size: 30px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.82;
+        letter-spacing: normal;
+        margin: 0;
+      }
+    }
+  }
+}
+
+

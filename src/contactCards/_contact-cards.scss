@@ -1,0 +1,41 @@
+.myhki-contact-cards {
+  padding: 0 10px;
+  margin: 60px 0;
+
+  @include breakpoint(medium up) {
+    padding: 0;
+    margin: 50px 0;
+  }
+
+  &__title {
+    font-weight: bold;
+    text-align: center;
+  }
+  &__subtitle-wrapper {
+    max-width: 620px;
+    margin: 30px auto 20px;
+    display: flex;
+  }
+  &__subtitle {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.43;
+    color: $hel-dark-gray;
+    text-align: left;
+  }
+  &__subtitle-icon {
+    font-size: 16px;
+    color: $hel-dark-gray;
+    margin-right: 10px;
+    margin-top: 2px;
+  }
+
+  &__wrapper {
+    padding-right: 0%;
+
+    @include breakpoint(medium up) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

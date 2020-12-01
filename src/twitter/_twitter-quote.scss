@@ -1,0 +1,52 @@
+.myhki-twitter-quote {
+  margin: 50px 0px;
+  text-align: center;
+  .myhki-twitter-quote {
+    &__body {
+      font-weight: bold;
+      letter-spacing: -1.2px;
+      text-align: center;
+      color: $hel-black;
+      font-size: 22px;
+      border: none;
+      padding: 0;
+
+      @include breakpoint(medium up) {
+        font-size: 35px;
+        line-height: 1;
+      }
+
+      p {
+        margin: 0;
+        color: inherit;
+
+        @include breakpoint(medium up) {
+          line-height: 1;
+        }
+      }
+    }
+
+    &__source {
+      text-align: center;
+      margin-top: 16px;
+
+      .source-author {
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 1.13;
+        letter-spacing: -0.3px;
+        color: $hel-fog;
+      }
+    }
+    &__source-icon-twitter {
+      .icon-link {
+        margin: 0 0 20px;
+        display: inline-block;
+        background: url(../assets/images/twitter-blue.svg) no-repeat;
+        background-size: cover;
+        width: 30px;
+        height: 25px;
+      }
+    }
+  }
+}

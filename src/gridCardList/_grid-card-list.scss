@@ -1,0 +1,184 @@
+$grid-horizontal-margin: 60px;
+
+.myhki-grid-card-list {
+  color: $hel-black;
+  margin-top: 80px;
+
+  &--show-as-grid {
+    margin-left: -60px;
+    margin-right: -60px;
+
+    .myhki-grid-card-list__header {
+      margin-left: $grid-horizontal-margin;
+      margin-right: $grid-horizontal-margin;
+    }
+  }
+
+  &--has-background {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &__title {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 0.9;
+    letter-spacing: -2.4px;
+    text-align: center;
+    margin: 0 0 16px;
+  }
+
+  &__description {
+    font-size: 21px;
+    line-height: 1.43;
+    letter-spacing: -0.3px;
+    text-align: center;
+    margin: 0;
+
+    @include breakpoint(medium up) {
+      max-width: 60%;
+      margin: 0 auto;
+    }
+  }
+
+  &__links {
+    margin: 30px -15px 0;
+    text-align: center;
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 0.9px;
+    text-decoration: underline;
+    color: inherit;
+    &:hover, &:focus, &:active {
+      color: inherit;
+    }
+  }
+
+  &__items {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .myhki-card-list {
+    margin-top: 0;
+  }
+
+  &__slide {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0 -8px;
+
+    &-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 50%;
+
+      .myhki-card {
+        max-height: 50%;
+      }
+    }
+
+    > .myhki-card {
+      padding-bottom: 8px;
+    }
+
+    .myhki-card {
+      width: 50% !important;
+      padding: 0 8px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &-mobile {
+    padding: 0 2.5px;
+
+    .slider-wrapper {
+      width: calc(100% + 5px);
+    }
+
+    .myhki-grid-card-list__slide {
+      margin: 0 -2.5px;
+
+      &-wrapper {
+        width: 100%;
+
+        .myhki-card {
+          max-height: 100%;
+          padding: 0 2.5px;
+        }
+      }
+    }
+  }
+
+  &__liftup {
+    width: auto !important;
+    margin-left: $grid-horizontal-margin;
+    margin-bottom: 20px;
+    margin-right: $grid-horizontal-margin;
+
+    &:after {
+      padding-bottom: 100%;
+    }
+  }
+
+  .carousel {
+    overflow: visible;
+    padding: 0 ($grid-horizontal-margin + 2.5px);
+
+    &:hover {
+      .control-arrow {
+        opacity: 1;
+      }
+    }
+
+    .slider-wrapper {
+      overflow: visible;
+    }
+
+    .slider {
+      margin: 0;
+    }
+
+    .slide {
+      transition: opacity .25s ease-in, padding .25s ease-in;
+
+      &:not(.selected) {
+        opacity: 0.5;
+
+        .myhki-card-list__slide {
+          margin: 0;
+        }
+
+        > .myhki-card {
+          padding-left: 16px;
+        }
+
+        .myhki-card {
+          transition: padding .25s ease-in;
+        }
+      }
+    }
+  }
+  &__carousel {
+    position: relative;
+  }
+
+  &__carousel-arrow {
+    margin-top: -25px;
+
+    &--prev {
+      margin-left: 55px;
+    }
+
+    &--next {
+      margin-right: 55px;
+    }
+  }
+}

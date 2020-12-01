@@ -1,0 +1,47 @@
+.event-page {
+  flex: 1;
+  padding-bottom: 136px;
+
+  .myhki-breadcrumbs {
+    margin: 35px 0;
+  }
+
+  &__sustainability-widget {
+    margin-bottom: 1.5rem;
+
+    // Match vertical aligment of breadcrumbs and main content.
+    // @todo Figure out a good way to set page gutters so that we don't need to
+    //   do things like this.
+    @include breakpoint(small down) {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .similar-places {
+    margin-top: 96px;
+  }
+
+  .myhki-photo-grid {
+    margin-top: 140px;
+  }
+
+  &__location-name {
+    display: block;
+    margin: 0 0 7px;
+    color: $hel-brick;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.13;
+    letter-spacing: -0.1px;
+  }
+
+  .page-details .columns > .columns {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .myhki-directions-block {
+    margin-top: 50px;
+  }
+}

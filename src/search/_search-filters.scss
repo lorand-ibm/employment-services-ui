@@ -1,0 +1,110 @@
+.search-filters {
+  position: relative;
+
+  &__date {
+    .search-filters__title {
+      margin: 12px 0 13px 0;
+    }
+
+    &-datepicker {
+      position: relative;
+      padding-top: 10px;
+
+      .myhki-datepicker {
+        position: absolute;
+        z-index: 100;
+        top: 100%;
+        left: 0;
+        display: none;
+      }
+    }
+
+    &-selected {
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  &--show-datepicker {
+    .myhki-datepicker {
+      display: inline-block;
+    }
+  }
+
+  &__categories {
+    .search-filters__title {
+      margin: 12px 0 13px 0;
+    }
+
+    &-items {
+
+    }
+  }
+
+  &__tags {
+    .search-filters__title {
+      margin: 12px 0 13px 0;
+    }
+
+    &-items {
+
+    }
+  }
+
+  &__date-item,
+  &__tag,
+  &__category {
+    color: $hel-black;
+    background-color:#ffffff;
+    border: 2px solid $hel-black;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.13;
+    text-align: center;
+    margin: 0 5px 8px 0;
+    min-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: capitalize !important;
+
+    &--active {
+      background-color: $hel-black;
+      color: #ffffff;
+      border: 2px solid $hel-black;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #ffffff;
+        color: $hel-black;
+      }
+    }
+  }
+
+    &__category-bold {
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.13;
+      text-align: center;
+      margin: 0 5px 8px 0;
+      min-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-transform: capitalize !important;
+  
+      &--active {
+        background-color: #ffffff;
+        color: $hel-black;
+        border: 2px solid $hel-black;
+  
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: #ffffff;
+          color: $hel-black;
+        }
+      }
+  }
+}

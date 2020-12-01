@@ -1,0 +1,145 @@
+.myhki-event-list {
+  &__events {
+    border-bottom: solid 1px $hel-silver;
+  }
+
+  &__footer {
+    text-align: center;
+    margin: 20px 0 0 0;
+  }
+
+  &__load-more {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #e22320;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #e22320;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url(../assets/images/red-add.svg) no-repeat center;
+      background-size: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  &-event {
+    display: flex;
+    position: relative;
+    height: 150px;
+    width: 100%;
+    margin: 0 0 45px 0;
+
+    &__image {
+      width: 176.2px;
+      max-width: 50%;
+    }
+
+    &__wrapper {
+      padding: 0 0 0 15px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      @include breakpoint(medium up) {
+        padding: 0 0 0 30px;
+      }
+    }
+
+    &__start-and-duration {
+      @include d-m-subtitle-sans-style;
+      text-transform: uppercase;
+    }
+
+    &__header {
+      padding: 5px 0;
+      @include breakpoint(medium up) {
+        padding: 10px 0;
+      }
+    }
+
+    &__footer {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $hel-dark-gray;
+      padding: 10px 0;
+    }
+
+    &__title {
+      font-size: 18px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.0;
+      letter-spacing: normal;
+      color: $hel-black;
+      flex: 1;
+      margin: 0;
+      @include breakpoint(medium up) {
+        font-size: 30px;
+      }
+    }
+
+    &__price-and-place {
+      @include d-m-subtitle-sans-style;
+      text-transform: uppercase;
+      float: left;
+      @include breakpoint(medium up) {
+        position: static;
+        float: left;
+        color: $hel-dark-gray;
+      }
+    }
+
+    &__save-to-my-helsinki {
+      font-size: 13px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.9px;
+      text-align: right;
+      color: #ffffff;
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+      @include breakpoint(medium up) {
+        position: static;
+        float: right;
+        color: $hel-dark-gray;
+      }
+
+      i {
+        font-size: 30px;
+        margin: 0;
+        vertical-align: middle;
+        @include breakpoint(medium up) {
+          margin: 0 6px 5px 0;
+          font-size: 22px;
+        }
+      }
+
+      span {
+        display: none;
+        @include breakpoint(medium up) {
+          display: inline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import './topNavigation/top-navigation.scss';
+@import './footer/footer.scss';
+
+.app {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__content {
+    flex-grow: 1;
+    display: block;
+    padding-top: 71px;
+    min-height: 100vh;
+  }
+
+  &--modal-open {
+    > .top-navigation,
+    > .footer,
+    > .app__content {
+      $blur: 4px;
+      -webkit-filter: blur($blur);
+      -moz-filter: blur($blur);
+      -o-filter: blur($blur);
+      -ms-filter: blur($blur);
+      filter: blur($blur);
+    }
+  }
+}

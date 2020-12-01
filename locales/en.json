@@ -1,0 +1,323 @@
+{
+  "common": {
+    "description": "Helsinki’s secret is in the moment when you realise that Helsinki has no secrets – that everything is within reach, just for you.",
+    "loadMore": "Load more",
+    "readMore": "Read more",
+    "readLess": "Read less",
+    "edit": "Edit",
+    "save": "Save",
+    "deleteSuccessText": "Delete successful",
+    "deleteFailedText": "Delete failed",
+    "saveSuccessText": "Save successful",
+    "saveFailedText": "Save failed",
+    "submissionSuccessText": "Submission successful",
+    "submissionFailedText": "Submission failed",
+    "saveAlreadyAddedText": "Already added",
+    "myHelsinki": "My Helsinki",
+    "saveToMyHelsinki": "Save to My Helsinki",
+    "seeAllLabel": "See all",
+    "seeMoreLabel": "See more",
+    "loading": "Loading",
+    "yes": "Yes",
+    "no": "No",
+    "search": "Search",
+    "clear": "Clear",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "close": "Close",
+    "home": "Home",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "menu": "Menu",
+    "openNavMenu": "Open navigation menu",
+    "returnNavMenu": "Return to navigation menu",
+    "closeNavMenu": "Close navigation menu",
+    "linkWarning": "This link opens in a new browser tab.",
+    "call": "Call this number.",
+    "sendEmail": "Send email to {{address}}"
+  },
+  "carousel": {
+    "next": "Next item",
+    "previous": "Previous item",
+    "goTo": "Go to slide {{number}}"
+  },
+  "openingHours": {
+    "title": "OPENING HOURS",
+    "closed": "Closed"
+  },
+  "breadcrumbs": {
+    "homeLabel": "Home"
+  },
+  "hero": {
+    "copyrights": "Photo"
+  },
+  "login": {
+    "title": "Log in",
+    "description": "You can log in to My Helsinki with the following services.",
+    "providerLabelFacebook": "Facebook",
+    "providerLabelGoogle": "Google",
+    "providerLabelHelsinki": "Helsinki user",
+    "toasterLoginSuccessful": "You've successfully logged in.",
+    "toasterLoginFailed": "Login failed, please try again later.",
+    "toasterLoggedOut": "You are now logged out."
+  },
+  "profile": {
+    "logoutButtonLabel": "Log out",
+    "profilePageTitle": "Profile",
+    "basicSettingsHeader": "Basic settings",
+    "fieldNameLabel": "Name",
+    "fieldEmailLabel": "Email",
+    "displayNameFieldLabel": "Name",
+    "displayNameFieldPlaceholder": "Name",
+    "saveButtonText": "Save"
+  },
+  "footer": {
+    "feedbackButtonLabel": "Give feedback",
+    "feedbackLink": "https://www.facebook.com/myhelsinki",
+    "feedbackButtonTitle": "Give us valuable feedback about our site!",
+    "submitEventLabel": "Submit an event",
+    "submitEventTitle": "Submit an interesting event to be added to our event calendar!",
+    "submitEventLink": "https://my.surveypal.com/myHelsinki-tapahtumat",
+    "submitPlaceLabel": "Submit a new place",
+    "submitPlaceTitle": "Inform us of a new place to be added to our website!",
+    "submitPlaceLink": "https://places.myhelsinki.fi"
+  },
+  "error": {
+    "title": "Sorry, something went wrong",
+    "description": "Please recheck your URL or go back to the <a href=\"/\">homepage</a>"
+  },
+  "about": {
+    "newsletterButton": "Subscribe to our newsletter"
+  },
+  "search": {
+    "title": "Search results",
+    "filterSearchResults": "Filter search results",
+    "countPlural": "{{count}} search results",
+    "countSingle": "1 search result",
+    "resultCount": "Found {{count}} results",
+    "allFiltersSummaryLabel": "Showing all",
+    "categoryFiltersSummaryLabel": "Category: {{category}}",
+    "tagsFiltersSummaryLabel": "Tags: {{tags}}",
+    "keywordsFiltersSummaryLabel": "Keyword: {{keywords}}",
+    "dateTitle": "Date",
+    "categoriesTitle": "Categories",
+    "tagsTitle": "Tags",
+    "tagsAllLabel": "All",
+    "eventLabel": "Events",
+    "placeLabel": "Places",
+    "articleLabel": "Articles",
+    "activityLabel": "Activities",
+    "dateFilterToday": "Today",
+    "dateFilterTomorrow": "Tomorrow",
+    "dateFilterChoose": "Choose",
+    "noResults": "No results",
+    "noResultsInfo": "Try adjusting your search.",
+    "headerActivity": "Activity",
+    "headerArticle": "Article",
+    "headerEatAndDrink": "Eat and drink",
+    "headerMyHelsinkiList": "My Helsinki list",
+    "headerMyLocalGuide": "Your local guide",
+    "sortAll": " Showing all",
+    "sortLatest": "Latest first",
+    "what'sPopular": "Recommended",
+    "cantFindPlace": "Can't find your favourite place?",
+    "suggestPlaceToUs": "Suggest it to us!",
+    "searchFilters": "Filters",
+    "searchInputLabel": "Search the site"
+  },
+  "event": {
+    "searchTitle": "Event search",
+    "tickets": "Tickets",
+    "website": "Website"
+  },
+  "activity": {
+    "searchTitle": "Activity search",
+    "title": "Starting place"
+  },
+  "locationCarousel": {
+    "defaultLinkText": "Location details",
+    "activityLinkText": "Activity details",
+    "eventLinkText": "Event details",
+    "placeLinkText": "{{placeType}} details",
+    "shareLinksTitle": "Share list",
+    "pin": "Pin"
+  },
+  "myHelsinkiOnboarding": {
+    "title": "Make your own My Helsinki",
+    "description": "Add events and places from the site to your list by tapping the heart. Log in to save and then share with friends and family!",
+    "getStartedButtonText": "Get started",
+    "loginButtonText": "Log in to view lists"
+  },
+  "myHelsinkiList": {
+    "myListsTitle": "My lists",
+    "newList": "New list",
+    "editList": "Edit list",
+    "titleFieldLabel": "Name",
+    "titleFieldPlaceholder": "Name your list",
+    "descriptionFieldLabel": "Description",
+    "descriptionFieldPlaceholder": "Describe your list",
+    "publicFieldLabel": "Public",
+    "privacyFieldLabel": "Private",
+    "createButtonText": "Create list",
+    "saveButtonText": "Save",
+    "deleteButtonText": "Delete list",
+    "cancelButtonText": "Do it later",
+    "localGuidesTitle": "Your local guides",
+    "privateListLabel": "Private list",
+    "publicListLabel": "Public list",
+    "editListItemsTitle": "Edit list items",
+    "noItemsText": "Click on the <span class=\"heart\"></span> on events and places to add them to your own #myhelsinki list.",
+    "noItemsBrowseLabel": "Browse",
+    "noItemsBrowseSightsLabel": "#sights",
+    "noItemsBrowseRestaurantsLabel": "#restaurants",
+    "noItemsBrowseActivitiesLabel": "#activities",
+    "noItemsBrowseEventsLabel": "#events",
+    "logInToSaveButtonLabel": "Log in to save and share",
+    "instructions": "List of {{itemsLength}} items. Press space and use the arrow key to move a selected list item.",
+    "status": "`Item moved to position {{itemPosition}} of {{itemsLength}} list items.",
+    "removeItemFromList": "Remove {{item}} from list"
+  },
+  "myHelsinkiBanner": {
+    "text": "Coronavirus (COVID-19): Information for visitors",
+    "buttonText": "Read more",
+    "buttonTextMobile": "Coronavirus: Information for visitors",
+    "buttonLink": "/en/coronavirus-covid-19-information-for-visitors"
+  },
+  "myHelsinkiListDropdown": {
+    "title": "Choose list",
+    "createListButtonLabel": "Create new list"
+  },
+  "form": {
+    "fieldRequired": "Error: field is required.",
+    "fieldEmail": "Error: field needs to be a valid email."
+  },
+  "article": {
+    "dateNotChanged": "{{created}}",
+    "dateChanged": "{{created}}, updated {{changed}}"
+  },
+  "feedback": {
+    "modalHeader": "Feedback",
+    "messageFieldLabel": "Feedback",
+    "messageFieldPlaceholder": "Give feedback about the website",
+    "mailFieldLabel": "Email",
+    "mailFieldPlaceholder": "If you want an answer",
+    "sendButtonText": "Send feedback",
+    "sentHeading": "Thank you for your feedback!",
+    "sentInfo": "We appreciate you taking the time to help us develop the service. In case you provided us with your email address, we will get back to you shortly."
+  },
+  "eatAndDrinkSubpage": {
+    "allRestaurantsLabel": "All restaurants"
+  },
+  "author": {
+    "label": "Your local guide"
+  },
+  "study": {
+    "relatedArticlesLabel": "Related articles",
+    "study": "Study"
+  },
+  "place": {
+    "bookTableButton": "Book a table",
+    "websiteButton": "Website",
+    "getDirectionsLabel": "Get directions",
+    "suggestAnEdit": "Suggest an edit to this place",
+    "placeIsClosed": "Inform this place is closed"
+  },
+  "questionnaire": {
+    "sendFailed": "Storing of responses failed"
+  },
+  "survey": {
+    "title": "Take part in our MyHelsinki.fi website visitor survey",
+    "body": "The purpose of this survey is to find out who uses our website and what kind of information visitors are looking for. At the same time we would like to hear your opinions about how easy it is to use the website, its contents and its appearance. We would appreciate it if you could take a few minutes to respond to the survey and help us to further improve our service.",
+    "agree": "Go to survey",
+    "dismiss": "Skip",
+    "url": "https://my.surveypal.com/Myhelsinki.fi-kavijatutkimus-2019"
+  },
+  "sustainabilityDetails": {
+    "feedbackButton": "Give us Feedback",
+    "title": "Make steps towards a better life through your everyday choices – see the sustainability criteria.",
+    "link": "https://www.myhelsinki.fi/en/think-sustainably/think-sustainably-criteria",
+    "linkText": "Read more",
+    "linkTextMobile": "Think Sustainably criteria"
+  },
+  "sustainabilityWidget": {
+    "criterionCountSummary": "Completes {{active}}/{{total}} of the Think Sustainably criteria"
+  },
+
+  "sustainabilityFeedbackForm": {
+    "formHeading": "Give us feedback on the Think Sustainably service",
+    "formHelp": "The Think Sustainably service helps you make more sustainable choices when it comes to being, living, and spending time in Helsinki. As a city we want to give everyone who lives in, and visits, Helsinki the opportunity to make better lifestyle choices. The service is built on criteria that provide companies with the tools they need to become more responsible and encourage others around them to do the same. By using the service and giving us your feedback, you can become a part of the solution and help us develop the criteria and the entire service.",
+    "formButtonSubmit": "Send us your feedback",
+
+    "serviceHeading": "Feedback on the sustainability of an individual supplier",
+    "serviceNameLabel": "Which supplier are you giving us feedback about?",
+    "serviceNamePlaceholder": "Supplier’s name",
+
+    "serviceExemplaryCheckLabel": "In my opinion the supplier is exemplary",
+    "serviceExemplaryTextLabel": "Send a message to the supplier",
+    "serviceProblemCheckLabel": "The supplier does not fulfil the required criteria or their operations fail to be sustainable in some other way",
+    "serviceProblemTextLabel": "Please give us more detail",
+    "serviceIncompleteCheckLabel": "I do not have enough information about how the supplier fulfils the criteria",
+    "serviceIncompleteTextLabel": "What information are you missing?",
+
+    "criteriaHeading": "Feedback about the Think Sustainably service",
+    "criteriaUsefulCheckLabel": "The importance of the service",
+    "criteriaUsefulTextLabel": "Do you think the service is useful and, if so, how? Do you have any other comments to add?",
+    "criteriaClearCheckLabel": "The understandability of the service",
+    "criteriaClearTextLabel": "Is it easy/difficult to understand the criteria on which the service is based? Do you have any other comments to add?",
+    "criteriaCoverageCheckLabel": "The breadth of the service",
+    "criteriaCoverageTextLabel": "Do you think the criteria encompass the most essential aspects of sustainability or are they missing something? Do you have any other comments to add?",
+    "criteriaReliableCheckLabel": "The functionality and reliability of the service",
+    "criteriaReliableTextLabel": "Do you think the service provides reliable information? Does it work well technically? Do you have any other comments to add?",
+    "criteriaFeedbackLabel": "Future improvements to the service",
+    "criteriaFeedbackPlaceholder": "Please let us know if you have any suggestions for improvements",
+
+    "additionHeading": "Recommend a new supplier",
+    "additionHelp": "A select few suppliers have been chosen to take part in the pilot phase of the Think Sustainably service. New suppliers will get the chance to take part in autumn 2019 and we hope to make the service available to all suppliers in 2020.",
+    "additionNameLabel": "Which supplier are you recommending?",
+    "additionNamePlaceholder": "Supplier’s name",
+    "additionMessageLabel": "Reasons behind your recommendation",
+    "additionMessagePlaceholder": "Tell us why this supplier would make a good addition to the service",
+
+    "contactMailLabel": "Email",
+    "contactMailPlaceholder": "I would like to receive updates about the development of the service",
+
+    "tellMore": "Tell more!",
+
+    "sentHeading": "Thank you for your feedback!",
+    "sentInfo": "<p>We appreciate you taking the time to help us develop the service. Helsinki wants to be a city where we all learn about a better life and learn and innovate together, a city where we do not fear making mistakes along the way.</p><p>The Think Sustainably service and the set criteria will be regularly evaluated by users and experts as well as through feedback offered to providers.</p><p>Hopefully you will find more sustainable ways to live and spend time through our service. No task is too small. True impact can only happen when a group big and diverse enough becomes part of larger change through their own actions.</p><p>Helsinki has not yet reached the end of its journey, but we are ready and willing to make great efforts to pursue sustainability.</p>",
+    "sentButtonReturn": "Return to service"
+  },
+
+  "sustainabilityMarker": {
+    "sustainableService": "Sustainable service"
+  },
+  "sustainabilityServiceLiftup": {
+    "takeALookAtTheCriteria": "Take a look at the criteria"
+  },
+  "reittiopas": {
+    "title": "Route Planner",
+    "searchOriginPlaceholder": "Search origin",
+    "searchDestinationPlaceholder": "Search destination",
+    "transporationTypes": {
+      "WALK": "Walking",
+      "BICYCLE": "Bicycling",
+      "ALL": "Public transportation",
+      "CAR": "Car"
+    },
+    "info": "CO₂ grams/person/trip. Based on information provided by Helsinki Region Transport (HSL).",
+    "infoZeroEmissions": "The electricity that powers the metro, trams and commuter trains is renewable and therefore considered emissions-free.",
+    "errorMessage": "Unable to establish connection to Journey Planner. Move to HSL's Journey Planner or try again later.",
+    "noResultsMessage": "No results for selected route.",
+    "linkText": "Move to HSL's Journey Planner",
+    "cityBikePopupText": "City bikes available"
+  },
+  "shareLinks": {
+    "copyLinkToClipboard": "Copy link to clipboard",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnTwitter": "Share on Twitter",
+    "shareOnLinkedin": "Share on Linkedin"
+  },
+  "instagram": {
+    "photoDescription": "Photo on Instagram"
+  }
+}

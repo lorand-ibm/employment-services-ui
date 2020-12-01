@@ -1,0 +1,213 @@
+.myhki-hero-carousel-slide-rotated {
+  color: $hel-black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-position: center !important;
+  background-size: cover !important;
+
+  &__bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  &__wrapper-main {
+    text-align: center; // Centering is needed for very short, single row texts.
+    position: absolute;
+    width: 100%;
+    transform-origin: right center;
+    right: -28%;
+    bottom: -27%;
+    @include breakpoint(medium up) {
+      width: 100% * 0.53;
+      transform: translateY(-50%);
+      right: 2%;
+      top: 70%;
+      bottom: auto;
+    }
+    @include breakpoint(large up) {
+      width: map-get($breakpoints, 'large') * 0.53;
+    }
+  }
+
+  &__wrapper-scale {
+    transform-origin: right bottom;
+    @include breakpoint(medium up) {
+      transform-origin: right center;
+    }
+  }
+
+  &__wrapper-rotate {
+    transform: rotate(-30deg);
+    transform-origin: bottom left;
+    position: relative;
+    @include breakpoint(medium up) {
+      transform-origin: center center;
+      transform: rotate(-30deg);
+      padding-bottom: 24px;
+    }
+  }
+
+  &__background {
+    background: $hel-engel;
+    position: absolute;
+    width: 2500px;
+    height: 2000px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__title {
+    margin: 0 -20% 0 auto;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: -1.92px;
+    position: relative;
+    hyphens: auto;
+    transform-origin: top left;
+    font-size: 2rem;
+    line-height: 1;
+    top: -30px;
+    text-align: center;
+    left: 0px;
+    width: 295px;
+    &:lang(en) {
+      width: 250px;
+    }
+
+    @include breakpoint(450px) {
+      &:lang(en) {
+        width: 295px;
+      }
+    }
+
+    @include breakpoint(medium) {
+      font-size: 3rem;
+      text-align: left;
+      width: 500px;
+      &:lang(en) {
+        width: 500px;
+      }
+      top: -45px;
+      left: -60px;
+         
+    }
+    @include breakpoint(large up) {
+      font-size: 4rem;
+      text-align: left;
+      width: 700px;
+      &:lang(en) {
+        width: 700px;
+      }
+      top: -60px;
+      left: -50px;
+    }
+
+    a {
+      color: inherit;
+      &:hover, &:active, &:visited {
+        color: inherit;
+      }
+    }
+  }
+
+  &__read-more-main {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    white-space: nowrap;
+    transform-origin: bottom center;
+    transform: translateX(-50%);
+  }
+
+  &__read-more-scale {
+    transform-origin: bottom center;
+  }
+
+  &__read-more-button {
+    display: inline-block;
+    font-weight: bold;
+
+    color: inherit;
+    &:hover, &:active, &:visited {
+      color: inherit;
+    }
+
+    @include breakpoint(0px medium) {
+      transform: scale(0.9)!important;
+      position: relative;
+      top: -10px;
+      left: 80px;
+    }
+
+    transform: translateY(160%);
+    transform-origin: bottom left;
+
+    @include breakpoint(medium up) {
+      transform: translateY(120%) !important;
+      position: relative;
+      top: -50px;
+      left: 0px;
+    }
+
+    border: 2px solid currentColor;
+    padding: 0.42rem 1.62rem;
+    @include breakpoint(large up) {
+      border-width: 3px;
+      padding: 0.8rem 3rem;
+      position: relative;
+      top: -50px;
+      left: 0px;
+    }
+  }
+
+  // @todo Ensure that videos are positioned correctly. This code is just
+  //   copy-paste from _hero-carousel-slide.scss
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+
+    .loaded & {
+      display: block;
+    }
+
+    iframe {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto !important;
+      height: auto !important;
+      overflow: hidden;
+
+      @include breakpoint(small only) {
+        height: 105% !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+@import '../normilize';
+
+// Prevent main content scrolling when modal is open.
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+
+  &__content {
+    background: $hel-suomenlinna;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    outline: none;
+    padding: 20px;
+    @include breakpoint(large up) {
+      padding: 60px;
+    }
+  }
+
+  &--text-black {
+    .modal__content {
+      color: $hel-black;
+    }
+  }
+
+  &--text-white {
+    .modal__content {
+      color: $white;
+    }
+  }
+
+  &__header {
+    text-align: right;
+    position: relative;
+  }
+
+  &__close-wrapper {
+    align-items: center;
+  }
+
+  &__close-icon {
+    cursor: pointer;
+    font-size: 3rem;
+  }
+
+  &__close-word {
+    display: none;
+  }
+
+  &__close-button {
+      @extend .button-reset;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover, &:focus {
+        span {
+          text-decoration: underline;
+        }
+      }
+  }
+
+  &--close-arrow {
+    .modal {
+      &__header {
+        position: fixed;
+        text-align: left;
+        top: 0;
+        left: 0;
+        background: white;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+        width: 100%;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      }
+      &__close-wrapper {
+        display: flex;
+        align-items: center;
+
+        padding-left: 3.5%;
+        @include breakpoint(medium up) {
+          padding-left: 1.5%;
+        }
+      }
+      &__close-icon {
+        font-size: 2rem;
+        margin-top: -0.15rem;
+      }
+      &__close-word {
+        display: inline-block;
+        margin-left: 0.6rem;
+      }
+    }
+  }
+}

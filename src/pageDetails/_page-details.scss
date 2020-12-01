@@ -1,0 +1,350 @@
+.page-details {
+  h1 {
+    margin: 14px 0 14px;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: $hel-black;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 20px;
+    @include breakpoint(medium up) {
+      text-align: left;
+      margin-bottom: 0px;
+    }
+    &-address {
+      color: #666666;
+    }
+  }
+  &__meta {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: $hel-black;
+    text-align: center;
+    @include breakpoint(medium up) {
+      margin-bottom: 0px;
+      text-align: left;
+    }
+  }
+  &__body {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #525a66;
+    margin: 30px 10px;
+    @include breakpoint(medium up) {
+      margin: 25px 0 45px 0;
+    }
+  }
+
+  &__my-helsinki-actions {
+    text-align: center;
+    margin-bottom: 4px;
+    @include breakpoint(medium up) {
+      margin-bottom: 30px;
+      text-align: right;
+    }
+  }
+
+  &__save-to-my-helsinki {
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    text-align: right;
+    color: #525a66;
+
+    &:focus,
+    &:hover,
+    &:active {
+      .page-details__save-to-my-helsinki-icon {
+        background: url(../assets/images/grey-heart-with-shadow.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-icon {
+      width: 23px;
+      height: 22px;
+      margin-right: 8px;
+      background: url(../assets/images/grey-heart-outline.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
+  &__buttons {
+    margin-bottom: 50px;
+    @include breakpoint(small only) {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__opening-hours {
+    font-weight: bold;
+    color: #525a66;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    margin: 0 10px;
+    @include breakpoint(medium up) {
+      border-bottom-style: none;
+    }
+    &-label {
+      text-align: left;
+      margin: 0 10px 20px 10px;
+      @include breakpoint(medium up) {
+        margin: 0 0 20px 0;
+        text-align: right;
+      }
+    }
+    &-title {
+      font-size: inherit;
+      font-weight: inherit;
+      display: inline;
+      margin-left: 0;
+    }
+
+    &-icon {
+      width: 20px;
+      height: 22px;
+      margin-right: 8px;
+      background: url(../assets/images/ico-clock.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    &-mobile {
+      display: inherit;
+    }
+
+    &-button-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    &-dropdown-icon {
+      width: 23px;
+      height: 22px;
+      margin-right: 8px;
+      background: url(../assets/images/reittiopas/ico-uncollapse.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      display: inline-block;
+      &-flip {
+        transform: rotate(180deg);
+      }
+    }
+    &-dropdown-button-icon {
+      margin-right: 40px;
+    }
+    &-openings {
+      margin-left: 0px;
+      &-text {
+        text-align: right;
+        margin-bottom: 15px;
+
+      }
+    }
+
+    &-openings-row {
+      display: flex;
+      justify-content: flex-start;
+      color: #525a66;
+      text-align: left;
+      font-weight: bold;
+      margin-left: 35px;
+      @include breakpoint(medium up) {
+        justify-content: flex-end;
+      }
+      &-weekday {
+        text-transform: capitalize;
+        width: 36px;
+        text-align: left;
+        @include breakpoint(medium up) {
+          text-align: right;
+        }
+        padding-right: 5px;
+      }
+      &-hours {
+        display: flex;
+        @include breakpoint(medium up) {
+          width: 100px;
+        }
+        &--time {
+          width: 45px;
+          text-align: center;
+        }
+        &--delimiter {
+          width: 10px;
+          text-align: center;
+        }
+        &--closed {
+          padding-left: 3px;
+        }
+      }
+    }
+
+    &-exception {
+      margin: 0 10px 0 10px;
+      padding: 0 23px 0px 23px;
+
+      text-align: left;
+      @include breakpoint(medium up) {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+      }
+      &-row {
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  &__cta-buttons {
+    margin: 20px 0 0;
+    padding: 0 15px;
+    @include breakpoint(medium up) {
+      padding: 0;
+    }
+    & > * {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      @include breakpoint(medium up) {
+        justify-content: flex-end;
+      }
+    }
+    .button {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: 0.9px;
+      text-align: center;
+      color: #525a66;
+      line-height: 44px;
+      margin: 0 5px;
+      padding: 0 14px;
+      min-width: 170px;
+    }
+    .website-button {
+      img {
+        width: 21px;
+        height: 21px;
+        margin: -5px 14px 0 0;
+        vertical-align: middle;
+      }
+    }
+
+    .phone-button {
+      img {
+        width: 21px;
+        height: 21px;
+        margin: -5px 9px 0 0;
+        vertical-align: middle;
+      }
+    }
+
+    .tickets-button,
+    .book-a-table-button {
+      img {
+        width: 20px;
+        height: 20px;
+        margin: -5px 14px 0 0;
+        vertical-align: middle;
+      }
+    }
+  }
+  &__cta-buttons--small-only {
+    text-align: center;
+    .button {
+      margin: 5px 10px 5px 0px;
+    }
+    @include breakpoint(medium up) {
+      text-align: left;
+    }
+  }
+  &__cta-buttons--medium-up {
+    text-align: center;
+    .button {
+      margin: 5px 0px 5px 10px;
+    }
+    @include breakpoint(medium up) {
+      text-align: right;
+    }
+  }
+  .myhki-tags {
+    margin: 20px 0;
+
+    @include breakpoint(medium up) {
+      text-align: left;
+    }
+
+    @include breakpoint(large up) {
+      margin: 30px 0 15px 0;
+    }
+
+    ul {
+      margin-left: -6px;
+      margin-right: -6px;
+    }
+
+    li {
+      margin: 0 6px;
+    }
+  }
+  .myhki-share-links {
+    padding: 10px 0px;
+    margin: 0;
+    ul {
+      text-align: center;
+      justify-content: center;
+      @include breakpoint(medium up) {
+        justify-content: flex-start;
+      }
+    }
+  }
+  &__actionLinks {
+    margin-top: 10px;
+    text-align: center;
+
+    @include breakpoint(medium up) {
+      text-align: left;
+    }
+    color: #9d9c9d;
+    font-size: 12px;
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}

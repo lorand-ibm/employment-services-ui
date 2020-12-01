@@ -1,0 +1,228 @@
+/* Color palette */
+$light-blue: #cfe4f5;
+$light-blue-grey: #d5ebe0;
+$light-silver: #ebedf1;
+$hel-brick: #db2719;
+$hel-spora: #009a4a;
+$hel-metro: #f35f00;
+$hel-fog: #a3c8eb;
+$hel-engel: #fdeb6c;
+$hel-bus: #0000bf;
+$hel-bus-2: #3b00bf;
+$hel-vaakuna: #0072c6;
+//$hel-summer: #fbd400;
+$hel-summer-2: #ffc61e;
+$hel-suomenlinna: #f49ec3;
+$hel-my-helsinki: #f4d9e5;
+$hel-copper: #00d9af;
+$hel-copper-2: #7febd3;
+$hel-gold: #c2a251;
+$hel-silver: #dedfe1;
+$hel-very-ligh-gray: #f5f5f5;
+$hel-medium-gray: #a2aab7;
+$hel-dark-gray: #48505b;
+$hel-black: #231f20;
+$hel-black-opacity45: #231f2045;
+$hel-purple: #3b00ff;
+$cool-grey: #abb2be;
+$hsl-grey: #e6e6e6;
+$hsl-dark-grey: #666666;
+$hsl-blue: #007ac9;
+
+// Foundation breakpoints.
+// @fixme We can't add any new breakpoints. We have lots of declarations that
+//   use Foundation "only" keyword - eg. "breakpoint(small only)" - and all of
+//   those would break. Let's try to refactor those declarations to not use the
+//   "only" keyword.
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+
+/// @type Map
+// @fixme Do not use 'white' because it's some kind of protected name. If we use
+//   'white', the styles will work correctly on local (now on 2019-05) but they
+//   won't compile correctly on production/staging. There will be a broken style
+//   rule which adds :hover background to *all* elements of the website. We can
+//   most likely avoid this problem by starting to use the Foundation Button
+//   component the way it's supposed to be used. See src/button/Button.js for
+//   more info.
+$foundation-palette: (
+  primary: $hel-black,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+  customWhite: #ffffff,
+  // See notes above!
+    blue: $hel-bus,
+  red: $hel-brick,
+);
+
+// Button settings.
+$button-hollow-border-width: 2px;
+$button-hollow-hover-lightness: 0%;
+$button-opacity-disabled: 0.8;
+
+// Label settings.
+$form-label-color: inherit;
+
+$header-height: 71px;
+$header-height-mobile: 70px;
+
+$font-family-helsinki-grotesk: 'HelsinkiGrotesk', Helvetica, Arial, MS Gothic, Meiryo, Osaka;
+$body-font-family: $font-family-helsinki-grotesk;
+$font-family-georgia: Georgia, MS Gothic, Meiryo, Osaka, serif;
+
+// @todo These are Foundation default settings with adjustments to
+//   'small h1' and 'small h2'. All of these values should be revised and these
+//   should be the base for our components' styles. Currently components are
+//   defining 'font-size' rules manually.
+$header-styles: (
+  small: (
+    'h1': (
+      'font-size': 40,
+    ),
+    'h2': (
+      'font-size': 35,
+    ),
+    'h3': (
+      'font-size': 19,
+    ),
+    'h4': (
+      'font-size': 18,
+    ),
+    'h5': (
+      'font-size': 17,
+    ),
+    'h6': (
+      'font-size': 16,
+    ),
+  ),
+  medium: (
+    'h1': (
+      'font-size': 48,
+    ),
+    'h2': (
+      'font-size': 40,
+    ),
+    'h3': (
+      'font-size': 31,
+    ),
+    'h4': (
+      'font-size': 25,
+    ),
+    'h5': (
+      'font-size': 20,
+    ),
+    'h6': (
+      'font-size': 16,
+    ),
+  ),
+);
+
+//HelsinkiGrotesk fonts
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('../assets/fonts/HelsinkiGrotesk-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('../assets/fonts/HelsinkiGrotesk-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('../assets/fonts/HelsinkiGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('../assets/fonts/HelsinkiGrotesk-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('../assets/fonts/HelsinkiGrotesk-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('../assets/fonts/HelsinkiGrotesk-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+//GothamRnd fonts
+@font-face {
+  font-family: 'GothamRnd';
+  src: url('../assets/fonts/GothamRnd-Book.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'GothamRnd';
+  src: url('../assets/fonts/GothamRnd-BookItal.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'GothamRnd';
+  src: url('../assets/fonts/GothamRnd-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'GothamRnd';
+  src: url('../assets/fonts/GothamRnd-MedItal.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'GothamRnd';
+  src: url('../assets/fonts/GothamRnd-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'GothamRnd';
+  src: url('../assets/fonts/GothamRnd-BoldItal.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}

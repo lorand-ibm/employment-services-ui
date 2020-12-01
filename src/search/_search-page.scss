@@ -1,0 +1,337 @@
+$input-wrap-breakpoint: 600px;
+
+.search-page {
+  padding: 0 0 130px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  &__input-wrapper {
+    padding-top: 50px;
+    .myhki-koro {
+      height: 20px;
+      background-size: 137px 20px;
+      margin-top: 40px;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+
+  &__content-wrapper {
+    padding: 0 25px;
+    @include breakpoint(medium up) {
+      padding: 0 50px;
+    }
+    @include breakpoint(large up) {
+      padding: 0 100px;
+    }
+  }
+
+  &__input-wrapper--background-color {
+    background-color: $hel-fog;
+  }
+
+  &__toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    color: $hel-dark-gray;
+    font-size: 25px;
+    font-weight: 700;
+    outline: none;
+
+    &:focus {
+      outline: 5px auto -webkit-focus-ring-color;
+    }
+
+    &-title {
+      margin-right: 15px;
+    }
+
+    &-button {
+      width: 18px;
+      height: 18px;
+      background: url(../assets/images/ico-uncollapse.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      display: inline-block;
+      &-flip {
+        transform: rotate(180deg);
+      }
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+
+      &:after {
+        content: '';
+        height: 4px;
+        border-bottom: solid 1px #abb2be;
+        display: block;
+        margin: 0 -20px;
+      }
+
+      &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 7px solid $hel-black;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin: -3px 0 0 4px;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-left: 5px;
+    color: $hel-dark-gray;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  &__heading {
+    @extend .visually-hidden;
+    margin-top: -30px;
+    margin-bottom: 50px;
+    color: $hel-dark-gray;
+    font-size: 28px;
+    font-weight: 700;
+
+    &-wrapper {
+      text-align: center;
+    }
+  }
+
+  &__label {
+    @extend .visually-hidden;
+    position: absolute;
+    font-size: 16px;
+    margin-top: -28px;
+    margin-left: 12px;
+    @include breakpoint(599px down) {
+      margin-left: 3px;
+    }
+  }
+
+  &__search {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    @include breakpoint(600px up) {
+      border-bottom-style: solid;
+    }
+    &-input {
+      @include breakpoint(599px down) {
+        border-bottom-style: solid;
+        margin-left: 0px;
+      }
+      margin-left: 10px;
+      flex: 1;
+      width: 100%;
+      outline: none;
+      border: none;
+      color: #231f20;
+      font-weight: normal;
+      font-size: 42px;
+      background-color: transparent;
+      &:after {
+        border-style: dotted;
+        color: red;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px -moz-mac-focusring; /* Firefox */
+        outline: 5px auto -webkit-focus-ring-color;
+        background: transparent;
+        margin: -1px 5px -1px 10px;
+        @include breakpoint(599px down) {
+          margin: 0px 5px 0px 0px;
+        }
+
+
+      }
+    }
+
+    &-buttons {
+      @include breakpoint(599px down) {
+        width: 100%;
+        margin: 15px 0 0 1px;
+      }
+      display: flex;
+    }
+
+    &-button {
+      color: $hel-black;
+      background-color: #ffffff;
+      border: 2px solid $hel-black;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.13;
+      text-align: center;
+      margin: 0 5px 8px 0;
+      min-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-transform: capitalize !important;
+    }
+
+    //override default button focus style
+    &-button.button:focus {
+      color: $hel-black;
+      background-color: #ffffff;
+    }
+
+    &-button--primary {
+      @extend .search-page__search-button;
+      background-color: $hel-black;
+      color: #ffffff;
+    }
+
+    //override default button focus style
+    &-button--primary.button:focus {
+      color: #ffffff;
+      background-color: $hel-black;
+    }
+  }
+
+  &__sort-link {
+      margin-right: 26px;
+      padding-bottom: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 18px;
+      color: $hel-dark-gray;
+      &:hover {
+        color: $hel-black;
+      }
+
+    &--selected {
+      @extend .search-page__sort-link;
+      border-bottom: $hel-bus solid 1.5px;
+      color: $hel-bus;
+      &:hover {
+        color: $hel-bus;
+      }
+    }
+  }
+
+  &__count {
+    margin-right: 26px;
+  }
+
+  &__filters {
+    .myhki-koro {
+      height: 20px;
+      background-size: 137px 20px;
+      margin-top: 40px;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+
+  &__items {
+    width: 100%;
+    padding: 50px 5px 10px;
+  }
+
+  &__result-count {
+    text-align: center;
+    margin: 21px 0 0 0;
+
+    .button {
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.23;
+      text-align: center;
+      text-transform: uppercase;
+      padding-left: 90px;
+      padding-right: 90px;
+      cursor: default;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    padding: 20px 0 0;
+    border-top: solid 1px $hel-silver;
+  }
+
+  &__load-more {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #e22320;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #e22320;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url(../assets/images/red-add.svg) no-repeat center;
+      background-size: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  &__load-indicator {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #e22320;
+
+    i {
+      color: #e22320;
+      font-size: 12px;
+      line-height: 24px;
+      -webkit-filter: blur(0);
+    }
+  }
+
+  &__no-results {
+    padding: 0 40px 80px;
+    text-align: center;
+
+    &-title {
+    }
+
+    &-info {
+      margin: 0;
+    }
+  }
+
+  &__suggestPlace {
+    text-align: right;
+    color: #9d9c9d;
+    font-size: 12px;
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}

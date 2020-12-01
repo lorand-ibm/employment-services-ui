@@ -1,0 +1,108 @@
+.theme-page {
+  flex: 1;
+  padding: 0 0 167px 0;
+  max-width: 100%;
+
+  &__header {
+    .myhki-hero {
+      height: 45vh;
+      min-height: 408px;
+    }
+
+    &-image {
+      position: relative;
+      height: 45vh;
+      min-height: 408px;
+      margin: -20px 0 0 0;
+      background-position: center !important;
+      background-size: cover !important;
+
+      .myhki-koro {
+        height: 20px;
+        background-size: 137px 20px;
+        background-repeat: repeat-x;
+        position: absolute;
+        top: -1px;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &--has-header-image {
+    .theme-page__header {
+      .myhki-hero {
+        .myhki-koro {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--black-text {
+    .myhki-hero {
+      &__title {
+        color: $hel-black;
+      }
+    }
+
+    .myhki-breadcrumbs {
+      li:after {
+        color: $hel-black !important;
+      }
+
+      a, span {
+        color: $hel-black !important;
+      }
+    }
+  }
+
+  &__date-wrapper {
+    display: flex;
+
+  }
+  &__date {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.42;
+    color: #979797;
+    margin: 30px 0px;
+    flex: 1 1 0px;
+
+    @include breakpoint(large up) {
+      margin: 30px 0;
+    }
+  }
+
+  .myhki-tags {
+    margin: 20px 0;
+    padding-left: 10px;
+    text-align: left;
+
+    @include breakpoint(large up) {
+      margin: 0 0 20px;
+      text-align: right;
+    }
+  }
+
+  .related-card-list {
+    margin-top: 90px;
+  }
+
+  &__footer {
+    margin-top: 40px;
+  }
+
+  &__simple-lift-up {
+    margin-top: 90px;
+  }
+
+  &__rich-blocks {
+    margin-top: 110px;
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+}

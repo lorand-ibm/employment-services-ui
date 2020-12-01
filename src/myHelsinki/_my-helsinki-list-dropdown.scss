@@ -1,0 +1,157 @@
+.my-helsinki-list-dropdown {
+  z-index: 1;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 11px;
+  user-select: none;
+  height: 34px;
+  width: 27px;
+
+  @include breakpoint(large up) {
+    position: relative;
+  }
+
+  &__loader {
+    display: none;
+    margin-left: 2px;
+    font-size: 22px;
+    line-height: 22px;
+    height: 22px;
+    width: 22px;
+    vertical-align: middle;
+  }
+
+  .user-menu-link {
+    vertical-align: baseline;
+    margin: 0;
+  }
+
+  &--loading {
+    .user-menu-link {
+      display: none;
+    }
+
+    .my-helsinki-list-dropdown__loader {
+      display: inline-block;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 0;
+    height: 0;
+    background: url(../assets/images/close-silver.svg);
+    background-size: 20px 20px;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+
+    @include breakpoint(medium down) {
+      .top-navigation--scrolling-down .my-helsinki-list-dropdown-menu--open & {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.my-helsinki-list-dropdown-menu {
+  background-color: #ffffff;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  max-height: 75vh;
+
+  &--open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include breakpoint(medium down) {
+    left: 10px;
+    right: 10px;
+    margin-top: -10px;
+    transition: margin 0.2s;
+
+    .top-navigation--scrolling-down & {
+      margin-top: 10px;
+    }
+  }
+
+  @include breakpoint(large up) {
+    width: 355px;
+  }
+
+  &__title {
+    margin: 26px 0 33px;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 0.83;
+    text-align: left;
+    color: #525a66;
+  }
+
+  ul {
+    border-bottom: solid 1px $hel-silver;
+    overflow-y: scroll;
+    min-height: 0;
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+
+  li {
+    border-top: solid 1px $hel-silver;
+  }
+
+  &__item {
+    height: 90px;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(small only) {
+      height: 70px;
+    }
+
+    &-heart {
+      width: 34px;
+    }
+
+    &-title {
+      flex: 1;
+      font-size: 17.5px;
+      font-weight: bold;
+      line-height: 1.14;
+      color: #525a66;
+      padding: 0 28px 0 20px;
+    }
+
+    &-count {
+      .count {
+        background-color: #525a66;
+        font-size: 11px;
+        letter-spacing: -0.1px;
+        color: #ffffff;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        text-align: center;
+        line-height: 16px;
+      }
+    }
+  }
+
+  &__create-list-button {
+    border: solid 2px #525a66 !important;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: #525a66;
+    text-transform: uppercase;
+    display: block;
+    margin: 29px 0 18px;
+    width: 100%;
+  }
+}

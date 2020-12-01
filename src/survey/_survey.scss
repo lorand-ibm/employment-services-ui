@@ -1,0 +1,88 @@
+.survey {
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ padding: 40px;
+ top: 20%;
+ left: 0;
+ right: 0;
+ width: 65%;
+ background-color: #98dceb;
+ margin: 0 auto ;
+ border-radius: 4px;
+ outline: none;
+
+ @include breakpoint(small only) {
+   display: unset;
+   width: 90%;
+   height: 80vh;
+   top:70px;
+   bottom: 10vh;
+   overflow: auto;
+   padding: 20px;
+ }
+
+ &__title {
+   display: flex;
+   flex-direction: column;
+    p {
+      @include breakpoint(small only) {
+          font-size: 24px;
+      }
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    a {
+     display: block;
+     width: 22px;
+     height: 22px;
+     background: url(../assets/images/close-black.svg);
+     align-self: flex-end;
+   }
+ }
+
+ &__body {
+   font-size: 18px;
+   font-weight: 700;
+   width: 60%;
+   @include breakpoint(small only) {
+     width: 100%;
+     font-size: 15px;
+   }
+ }
+
+ &__buttons {
+   margin-bottom: 25px;
+   width: 60%;
+   display: flex;
+   justify-content: space-between;
+
+   @include breakpoint(small only) {
+     width: 100%
+   }
+
+   button {
+      border: 1px solid black;
+      padding: 8px;
+      width: 48%;
+      margin: 12px 0;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.30)
+    }
+   }
+ }
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.50);
+  z-index: 10000;
+}

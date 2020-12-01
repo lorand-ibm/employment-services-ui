@@ -1,0 +1,239 @@
+{
+  "common": {
+    "loadMore": "もっと見る",
+    "readMore": "続き読む",
+    "readLess": "詳細を表示しない",
+    "edit": "編集",
+    "save": "保存",
+    "deleteSuccessText": "削除されました",
+    "deleteFailedText": "削除できませんでした",
+    "saveSuccessText": "保存しました",
+    "saveFailedText": "保存できませんでした",
+    "saveAlreadyAddedText": "このアイテムはもうすでに追加されています",
+    "myHelsinki": "マイ・ヘルシンキ",
+    "saveToMyHelsinki": "マイ・ヘルシンキに保存する",
+    "seeAllLabel": "すべてを見る",
+    "loading": "ロード中",
+    "yes": "はい",
+    "no": "いいえ",
+    "search": "検索",
+    "clear": "クリア",
+    "close": "閉じる",
+    "home": "トップページ",
+    "primary": "プライマリナビゲーション",
+    "secondary": "セカンダリナビゲーション",
+    "menu": "メニュー",
+    "openNavMenu": "ナビゲーションメニューを開く",
+    "returnNavMenu": "ナビゲーションメニューに戻る",
+    "closeNavMenu": "ナビゲーションメニューを閉じる",
+    "linkWarning": "このリンクは新規タブで開きます",
+    "call": "この番号に電話をかける",
+    "sendEmail": "{{ address }}にメールを送る"
+  },
+  "carousel": {
+    "next": "次へ",
+    "previous": "前へ",
+    "goTo": "スライドへ {{ number }}"
+  },
+  "openingHours": {
+    "title": "営業時間",
+    "closed": "休館"
+  },
+  "breadcrumbs": {
+    "homeLabel": "ホーム"
+  },
+  "hero": {
+    "copyrights": "写真"
+  },
+  "login": {
+    "title": "ログイン",
+    "description": "以下のサービスを使ってマイ・ヘルシンキにログインできます。",
+    "providerLabelFacebook": "Facebook",
+    "providerLabelGoogle": "Google",
+    "providerLabelHelsinki": "ヘルシンキユーザー",
+    "toasterLoginSuccessful": "ログインしました",
+    "toasterLoginFailed": "ログインできませんでした。時間をおいてログインし直してください。",
+    "toasterLoggedOut": "ログインしました"
+  },
+  "profile": {
+    "logoutButtonLabel": "ログアウト",
+    "profilePageTitle": "プロフィール",
+    "basicSettingsHeader": "基本設定",
+    "fieldNameLabel": "名前",
+    "fieldEmailLabel": "メールアドレス",
+    "displayNameFieldLabel": "名前",
+    "displayNameFieldPlaceholder": "名前",
+    "saveButtonText": "保存"
+  },
+  "footer": {
+    "feedbackButtonLabel": "フィードバックを送る",
+    "feedbackLink": "http://facebook.com/visithelsinki.japan"
+  },
+  "error": {
+    "title": "申し訳ありません。エラーが発生しました。",
+    "description": "URLを確認するか、<a href=\"/\">ホームページ</a>に戻ってください。"
+  },
+  "about": {
+    "newsletterButton": "ニュースレターに登録"
+  },
+  "search": {
+    "title": "検索結果",
+    "filterSearchResults": "検索結果を絞り込む",
+    "countPlural": "検索結果 ({{count}})",
+    "countSingle": "検索結果 (1)",
+    "resultCount": "{{count}} 件が見つかりました",
+    "allFiltersSummaryLabel": "すべてを表示",
+    "categoryFiltersSummaryLabel": "カテゴリー: {{category}}",
+    "tagsFiltersSummaryLabel": "タグ: {{tags}}",
+    "keywordsFiltersSummaryLabel": "キーワード: {{keywords}}",
+    "dateTitle": "日にち",
+    "categoriesTitle": "カテゴリー",
+    "tagsTitle": "タグ",
+    "tagsAllLabel": "すべて",
+    "eventLabel": "イベント",
+    "placeLabel": "場所",
+    "articleLabel": "アクティビティー",
+    "activityLabel": "アクティビティー",
+    "dateFilterToday": "今日",
+    "dateFilterTomorrow": "明日",
+    "dateFilterChoose": "選択",
+    "noResults": "該当なし",
+    "noResultsInfo": "条件を変えて、もう一度検索してみてください。",
+    "headerActivity": "アクティビティー",
+    "headerArticle": "記事",
+    "headerEatAndDrink": "食べる・飲む",
+    "headerMyHelsinkiList": "マイ・ヘルシンキ リスト",
+    "headerMyLocalGuide": "ローカルガイド",
+    "sortAll": "すべてを表示",
+    "sortLatest": "最新の最初の",
+    "what'sPopular": "おすすめ",
+    "cantFindPlace": "Can't find your favourite place?",
+    "suggestPlaceToUs": "Suggest it to us!",
+    "searchFilters": "フィルター"
+  },
+  "event": {
+    "searchTitle": "イベントを検索",
+    "tickets": "チケット",
+    "website": "ウェブサイト"
+  },
+  "activity": {
+    "searchTitle": "アクティビティーを検索",
+    "title": "出発地"
+  },
+  "locationCarousel": {
+    "defaultLinkText": "場所の詳細",
+    "activityLinkText": "アクティビティーの詳細",
+    "eventLinkText": "イベントの詳細",
+    "placeLinkText": "{{placeType}} 詳細",
+    "shareLinksTitle": "リストをシェアする",
+    "pin": "スライドへ"
+  },
+  "myHelsinkiOnboarding": {
+    "title": "マイ・ヘルシンキ リストを作りましょう",
+    "description": "ハートマークをタップすると、自分のリストにイベントや場所が追加できます。ログインしてリストを保存して友達や家族とシェアしましょう！ ",
+    "getStartedButtonText": "始める",
+    "loginButtonText": "ログインしてリストを見る"
+  },
+  "myHelsinkiList": {
+    "myListsTitle": "マイ・リスト",
+    "newList": "新しいリスト",
+    "editList": "リストを編集",
+    "titleFieldLabel": "リスト名",
+    "titleFieldPlaceholder": "リストに名前を付ける",
+    "descriptionFieldLabel": "概要",
+    "descriptionFieldPlaceholder": "リストの概要を書く",
+    "publicFieldLabel": "公開",
+    "privacyFieldLabel": "非公開",
+    "createButtonText": "リストを作成",
+    "saveButtonText": "保存",
+    "deleteButtonText": "リストを消去",
+    "cancelButtonText": "後でやる",
+    "localGuidesTitle": "ローカルガイド",
+    "privateListLabel": "非公開のリスト",
+    "publicListLabel": "公開しているリスト",
+    "editListItemsTitle": "リストのアイテムを編集する",
+    "noItemsText": "<span class=\"heart\"></span>をクリックして、#myhelsinkiリストにイベントと場所を追加する",
+    "noItemsBrowseLabel": "閲覧",
+    "noItemsBrowseSightsLabel": "#見どころ",
+    "noItemsBrowseRestaurantsLabel": "#レストラン",
+    "noItemsBrowseActivitiesLabel": "#アクティビティー",
+    "noItemsBrowseEventsLabel": "#イベント",
+    "logInToSaveButtonLabel": "ログインして保存とシェア"
+  },
+  "myHelsinkiBanner": {
+    "text": "新型コロナウイルス (COVID-19): 旅行者向け情報",
+    "buttonText": "続き読む",
+    "buttonTextMobile": "新型コロナウイルス: 旅行者向け情報",
+    "buttonLink": "/ja/新型コロナウイルス-covid-19-旅行者向け情報"
+  },
+  "myHelsinkiListDropdown": {
+    "title": "リストを選択",
+    "createListButtonLabel": "新しいリストを作成する"
+  },
+  "form": {
+    "fieldRequired": "入力が必要です",
+    "fieldEmail": "有効なメールアドレスを入力してください"
+  },
+  "article": {
+    "dateNotChanged": "{{created}}",
+    "dateChanged": "{{created}}, 更新しました {{changed}}"
+  },
+  "feedback": {
+    "modalHeader": "フィードバック",
+    "messageFieldLabel": "フィードバック",
+    "messageFieldPlaceholder": "ウェブサイトに関するフィードバックを送る",
+    "mailFieldLabel": "メールアドレス",
+    "mailFieldPlaceholder": "返信をご希望の場合は",
+    "sendButtonText": "フィードバックを送信する"
+  },
+  "eatAndDrinkSubpage": {
+    "allRestaurantsLabel": "すべてのレストラン"
+  },
+  "author": {
+    "label": "ローカルガイド"
+  },
+  "study": {
+    "relatedArticlesLabel": "関連する記事",
+    "study": "学ぶ"
+  },
+  "place": {
+    "bookTableButton": "テーブル予約",
+    "websiteButton": "ウェブサイト",
+    "getDirectionsLabel": "行き方",
+    "suggestAnEdit": "Suggest an edit to this place",
+    "placeIsClosed": "Inform this place is closed"
+  },
+  "survey": {
+    "title": "MyHelsinki.fi ウェブサイトに関するアンケート調査にご協力ください。",
+    "body": "アンケート調査は、どのような方がどのような目的でウェブサイトをご覧になっているかを理解するためのものです。また、ウェブサイトの使いやすさやコンテンツ、デザインやレイアウトについてもご意見をお聞かせください。みなさまの回答をサービス向上の参考にさせていただきますので、ぜひご協力お願いいたします。",
+    "agree": "アンケートに回答する",
+    "dismiss": "スキップ",
+    "url": "https://my.surveypal.com/Myhelsinki.fi-kavijatutkimus-2019"
+  },
+  "reittiopas": {
+    "title": "Route Planner",
+    "searchOriginPlaceholder": "Search origin",
+    "searchDestinationPlaceholder:": "Search destination",
+    "transporationTypes": {
+      "WALK": "Walking",
+      "BICYCLE": "Bicycling",
+      "ALL": "Public transportation",
+      "CAR": "Car"
+    },
+    "info": "CO₂ grams/person/trip. Based on information provided by Helsinki Region Transport (HSL).",
+    "infoZeroEmissions": "The electricity that powers the metro, trams and commuter trains is renewable and therefore considered emissions-free.",
+    "errorMessage": "Unable to establish connection to Journey Planner. Move to HSL's Journey Planner or try again later.",
+    "noResultsMessage": "No results for selected route.",
+    "linkText": "Move to HSL's Journey Planner",
+    "cityBikePopupText": "City bikes available"
+  },
+  "shareLinks": {
+    "copyLinkToClipboard": "リンクをクリップボードにコピーする",
+    "shareOnFacebook": "Facebookでシェアする",
+    "shareOnTwitter": "Twitterでシェアする",
+    "shareOnLinkedin": "LinkedInでシェアする"
+  },
+  "instagram": {
+    "photoDescription": "インスタグラムの写真"
+  }
+}

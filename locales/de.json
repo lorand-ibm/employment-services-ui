@@ -1,0 +1,219 @@
+{
+  "common": {
+    "loadMore": "Mehr laden",
+    "readMore": "Weiter lesen",
+    "readLess": "Weniger lesen",
+    "edit": "Bearbeiten",
+    "save": "Speichern",
+    "deleteSuccessText": "Erfolgreich gelöscht",
+    "deleteFailedText": "Löschen fehlgeschlagen",
+    "saveSuccessText": "Erfolgreich gespeichert",
+    "saveFailedText": "Speichern fehlgeschlagen",
+    "saveAlreadyAddedText": "Veranstaltung ist bereits hinzugefügt",
+    "myHelsinki": "My Helsinki",
+    "saveToMyHelsinki": "Speichern auf My Helsinki",
+    "seeAllLabel": "Alle einblenden",
+    "loading": "Lädt",
+    "yes": "Ja",
+    "no": "Nein",
+    "search": "Suchen",
+    "clear": "Leeren"
+  },
+  "openingHours": {
+    "title": "ÖFFNUNGSZEITEN",
+    "closed": "Geschlossen"
+  },
+  "breadcrumbs": {
+    "homeLabel": "Startseite"
+  },
+  "hero": {
+    "copyrights": "Foto"
+  },
+  "login": {
+    "title": "Anmelden",
+    "description": "Du kannst dich über die folgenden Seiten anmelden.",
+    "providerLabelFacebook": "Facebook",
+    "providerLabelGoogle": "Google",
+    "providerLabelHelsinki": "Helsinki user",
+    "toasterLoginSuccessful": "Du hast dich erfolgreich angemeldet.",
+    "toasterLoginFailed": "Anmeldung fehlgeschlagen, bitte versuche es später erneut.",
+    "toasterLoggedOut": "Du bist jetzt abgemeldet."
+  },
+  "profile": {
+    "logoutButtonLabel": "Anmelden",
+    "profilePageTitle": "Profil",
+    "basicSettingsHeader": "Grundeinstellungen",
+    "fieldNameLabel": "Name",
+    "fieldEmailLabel": "Email",
+    "displayNameFieldLabel": "Name",
+    "displayNameFieldPlaceholder": "Name",
+    "saveButtonText": "Speichern"
+  },
+  "footer": {
+    "feedbackButtonLabel": "Feedback geben",
+    "feedbackLink": "https://www.facebook.com/myhelsinki"
+  },
+  "error": {
+    "title": "Entschuldigung, etwas ist schief gelaufen",
+    "description": "Bitte überprüfe deine URL oder gehe zurück zur <a href=\"/\">Startseite</a>"
+  },
+  "about": {
+    "newsletterButton": "Für unseren Newsletter anmelden"
+  },
+  "search": {
+    "title": "Ergebnis/Treffer suchen",
+    "filterSearchResults": "Suchergebnisse filtern",
+    "countPlural": "{{count}} Treffer",
+    "countSingle": "1 Treffer",
+    "resultCount": "Found {{count}} results",
+    "allFiltersSummaryLabel": "Alle anzeigen",
+    "categoryFiltersSummaryLabel": "Kategorie: {{category}}",
+    "tagsFiltersSummaryLabel": "Tags: {{tags}}",
+    "keywordsFiltersSummaryLabel": "Schlüsselwörter: {{keywords}}",
+    "dateTitle": "Datum",
+    "categoriesTitle": "Kategorien",
+    "tagsTitle": "Tags",
+    "tagsAllLabel": "Alle",
+    "eventLabel": "Veranstaltungen",
+    "placeLabel": "Orte",
+    "articleLabel": "Artikel",
+    "activityLabel": "Aktivitäten",
+    "dateFilterToday": "Heute",
+    "dateFilterTomorrow": "Morgen",
+    "dateFilterChoose": "Wähle",
+    "noResults": "Keine Ergebnisse",
+    "noResultsInfo": "Versuche deine Suche anzupassen",
+    "headerActivity": "Aktivität",
+    "headerArticle": "Artikel",
+    "headerEatAndDrink": "Essen und Trinken",
+    "headerMyHelsinkiList": "My Helsinki Liste",
+    "headerMyLocalGuide": "Dein Local Guide",
+    "sortAll": "Zeige alle",
+    "sortLatest": "Neueste zuerst",
+    "what'sPopular": "Empfohlen",
+    "cantFindPlace": "Can't find your favourite place?",
+    "suggestPlaceToUs": "Suggest it to us!"
+  },
+  "event": {
+    "searchTitle": "Suche nach Veranstaltungen",
+    "tickets": "Tickets",
+    "website": "Webseite"
+  },
+  "activity": {
+    "searchTitle": "Suche nach Aktivitäten",
+    "title": "Startplatz"
+  },
+  "locationCarousel": {
+    "defaultLinkText": "Details zur Lokalität",
+    "activityLinkText": "Details zur Aktivität",
+    "eventLinkText": "Veranstaltungsdetails",
+    "placeLinkText": "{{placeType}} details",
+    "shareLinksTitle": "Liste teilen"
+  },
+  "myHelsinkiOnboarding": {
+    "title": "Erstelle dein eigenes My Helsinki",
+    "description": "Klicke auf das <span class=\"heart\"></span> und füge Veranstaltungen und Orte von der Seite zu deiner Liste hinzu. Melde dich an, um zu speichern und deine Liste mit Freunden und Familie zu teilen!",
+    "getStartedButtonText": "Los geht’s",
+    "loginButtonText": "Melde dich an, um Listen zu sehen"
+  },
+  "myHelsinkiList": {
+    "myListsTitle": "Meine Listen",
+    "newList": "Neue Liste",
+    "editList": "Liste bearbeiten",
+    "titleFieldLabel": "Name",
+    "titleFieldPlaceholder": "Benenne deine Liste",
+    "descriptionFieldLabel": "Beschreibung",
+    "descriptionFieldPlaceholder": "Beschreibe deine Liste",
+    "publicFieldLabel": "Öffentlich",
+    "privacyFieldLabel": "Privat",
+    "createButtonText": "Erstelle eine Liste",
+    "saveButtonText": "Speichern",
+    "deleteButtonText": "Liste löschen",
+    "cancelButtonText": "Auf später verschieben",
+    "localGuidesTitle": "Dein Local Guide",
+    "privateListLabel": "Private Liste",
+    "publicListLabel": "Öffentliche Lise",
+    "editListItemsTitle": "Objekte der Liste bearbeiten",
+    "noItemsText": "Klicke auf das <span class=\"heart\"></span>, um Veranstaltungen und Orte zu deiner eigenen #myhelsinki Liste hinzuzufügen.",
+    "noItemsBrowseLabel": "Durchstöbern",
+    "noItemsBrowseSightsLabel": "#sehenswürdigkeiten",
+    "noItemsBrowseRestaurantsLabel": "#restaurants",
+    "noItemsBrowseActivitiesLabel": "#aktivitäten",
+    "noItemsBrowseEventsLabel": "#veranstaltungen",
+    "logInToSaveButtonLabel": "Anmelden, um speichern und teilen zu können"
+  },
+  "myHelsinkiBanner": {
+    "text": "Coronavirus (COVID-19): Informationen für Reisegäste",
+    "buttonText": "Weiter lesen",
+    "buttonTextMobile": "Coronavirus: Informationen für Reisegäste",
+    "buttonLink": "/de/coronavirus-covid-19-informationen-für-reisegäste"
+  },
+  "myHelsinkiListDropdown": {
+    "title": "Wähle eine Liste",
+    "createListButtonLabel": "Erstelle eine Liste"
+  },
+  "form": {
+    "fieldRequired": "Pflichtfeld.",
+    "fieldEmail": "Eine gültige E-Mail-Adresse wird benötigt."
+  },
+  "article": {
+    "dateNotChanged": "{{created}}",
+    "dateChanged": "{{created}}, aktualisiert {{changed}}"
+  },
+  "feedback": {
+    "modalHeader": "Feedback",
+    "messageFieldLabel": "Feedback",
+    "messageFieldPlaceholder": "Gib Feedback zur Webseite",
+    "mailFieldLabel": "Email",
+    "mailFieldPlaceholder": "Wenn du eine Antwort möchtest",
+    "sendButtonText": "Feedback senden"
+  },
+  "eatAndDrinkSubpage": {
+    "allRestaurantsLabel": "Alle Restaurants"
+  },
+  "author": {
+    "label": "Dein Lokal Guide"
+  },
+  "study": {
+    "relatedArticlesLabel": "Verwandte Artikel",
+    "study": "Studieren"
+  },
+  "place": {
+    "bookTableButton": "Tisch reservieren",
+    "websiteButton": "Webseite",
+    "getDirectionsLabel": "Erhalte Anweisungen",
+    "suggestAnEdit": "Suggest an edit to this place",
+    "placeIsClosed": "Inform this place is closed"
+  },
+  "survey": {
+    "title": "Nehmen Sie an unserer MyHelsinki.fi Besucherumfrage teil",
+    "body": "Mit dieser Umfrage möchten wir gerne herausfinden, wer unsere Webseite nutzt und nach welchen Informationen gesucht wird. Gleichzeitig würden wir auch gerne Ihre Meinung erfahren, wie einfach unsere Webseite zu bedienen ist und wie Ihnen der Inhalt sowie die Aufmachung gefällt. Wir würden uns wirklich sehr freuen, wenn Sie sich ein paar Minuten Zeit nehmen, um unsere Fragen zu beantworten und uns somit helfen, unseren Service weiter zu verbessern.",
+    "agree": "Zur Umfrage",
+    "dismiss": "Überspringen",
+    "url": "https://my.surveypal.com/Myhelsinki.fi-kavijatutkimus-2019"
+  },
+  "reittiopas": {
+    "title": "Route Planner",
+    "searchOriginPlaceholder": "Search origin",
+    "searchDestinationPlaceholder:": "Search destination",
+    "transporationTypes": {
+      "WALK": "Walking",
+      "BICYCLE": "Bicycling",
+      "ALL": "Public transportation",
+      "CAR": "Car"
+    },
+    "info": "CO₂ grams/person/trip. Based on information provided by Helsinki Region Transport (HSL).",
+    "infoZeroEmissions": "The electricity that powers the metro, trams and commuter trains is renewable and therefore considered emissions-free.",
+    "errorMessage": "Unable to establish connection to Journey Planner. Move to HSL's Journey Planner or try again later.",
+    "noResultsMessage": "No results for selected route.",
+    "linkText": "Move to HSL's Journey Planner",
+    "cityBikePopupText": "City bikes available"
+  },
+  "shareLinks": {
+    "__comment": "TODO: translations",
+    "copyLinkToClipboard": "Copy link to clipboard",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnTwitter": "Share on Twitter",
+    "shareOnLinkedin": "Share on Linked"
+  }
+}

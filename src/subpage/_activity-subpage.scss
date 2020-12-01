@@ -1,0 +1,139 @@
+// TODO:
+// Remove this and ActivitySubpage.js after Listing is deployed and in use.
+// Double check that this is not used in other unexpected places.
+// Also from main.scss!
+.subpage--activity {
+  .myhki-lift-up-simple {
+    margin-top: 155px;
+  }
+  .myhki-event-list {
+    margin-top: 140px;
+  }
+}
+
+.activities-page {
+  width: 100%;
+
+  &__title {
+    text-align: center;
+    margin-top: 130px;
+
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.0;
+      letter-spacing: normal;
+      text-align: center;
+      color: $hel-black;
+      margin: 0 0 8px 0;
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+
+      &:after {
+        content: "";
+        height: 4px;
+        border-bottom: solid 1px #abb2be;
+        display: block;
+        margin: 0 -20px;
+      }
+
+      &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 7px solid $hel-black;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin: -3px 0 0 4px;
+      }
+    }
+  }
+
+  &__filters-summary {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 0 0 22px;
+    text-transform: uppercase;
+    max-width: 350px;
+    display: inline-block;
+  }
+
+  &--filters-open {
+    .activities-page__title a:before {
+      transform: rotate(180deg);
+    }
+
+    .activities-page__filters {
+      height: auto;
+      min-height: 200px;
+      overflow: visible;
+    }
+  }
+
+  &__filters {
+    height: 0;
+    background-color: $hel-fog;
+    overflow: hidden;
+    position: relative;
+
+    &-wrapper {
+      padding: 35px 0 50px;
+    }
+
+    .myhki-koro {
+      height: 20px;
+      background-size: 137px 20px;
+      margin-top: 40px;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+
+  &__items {
+    width: 100%;
+    padding: 70px 0 10px;
+  }
+
+  &__footer {
+    text-align: center;
+    padding: 20px 0 0;
+    border-top: solid 1px $hel-silver;
+  }
+
+  &__load-more {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #e22320;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #e22320;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url(../assets/images/red-add.svg) no-repeat center;
+      background-size: 8px;
+      vertical-align: middle;
+    }
+  }
+}

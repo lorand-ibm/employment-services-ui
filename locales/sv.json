@@ -1,0 +1,245 @@
+{
+  "common": {
+    "description": "Helsinki’s secret is in the moment when you realise that Helsinki has no secrets – that everything is within reach, just for you.",
+    "loadMore": "Ladda mera",
+    "readMore": "Läs mera",
+    "readLess": "Läs mindre",
+    "edit": "Edit",
+    "save": "Spara",
+    "deleteSuccessText": "Lyckades radera",
+    "deleteFailedText": "Lyckades inte radera",
+    "saveSuccessText": "Lyckades spara",
+    "saveFailedText": "Lyckades inte spara",
+    "saveAlreadyAddedText": "Finns redan",
+    "myHelsinki": "My Helsinki",
+    "saveToMyHelsinki": "Spara i My Helsinki",
+    "seeAllLabel": "Visa alla",
+    "seeMoreLabel": "Visa mera",
+    "loading": "Laddar",
+    "yes": "Ja",
+    "no": "Nej",
+    "search": "Sök",
+    "clear": "Töm",
+    "showMore": "Visa mer",
+    "showLess": "Visa mindre",
+    "close": "Stäng",
+    "home": "Början av sidan",
+    "primary": "Huvudmeny",
+    "secondary": "Sekundär navigering",
+    "menu": "Meny",
+    "openNavMenu": "Öppna navigeringsmeny",
+    "returnNavMenu": "Återvänd till navigeringsmeny",
+    "closeNavMenu": "Stäng navigeringsmeny",
+    "linkWarning": "Länken öppnar en ny flik i webbläsaren",
+    "call": "Ring numret",
+    "sendEmail": "Skicka e-post till {{ address }}"
+  },
+  "carousel": {
+    "next": "Följande",
+    "previous": "Föregående",
+    "goTo": "Gå till bild {{ number }}"
+  },
+  "openingHours": {
+    "title": "ÖPPETTIDER",
+    "closed": "Stängt"
+  },
+  "breadcrumbs": {
+    "homeLabel": "Hem"
+  },
+  "hero": {
+    "copyrights": "Foto"
+  },
+  "login": {
+    "title": "Logga in",
+    "description": "Du kan logga in i My Helsinki med följande tjänster.",
+    "providerLabelFacebook": "Facebook",
+    "providerLabelGoogle": "Google",
+    "providerLabelHelsinki": "Helsinki user",
+    "toasterLoginSuccessful": "Du har lyckats logga in.",
+    "toasterLoginFailed": "Inloggning misslyckades, försök pånytt senare.",
+    "toasterLoggedOut": "Du har nu loggat ut."
+  },
+  "profile": {
+    "logoutButtonLabel": "Logga ut",
+    "profilePageTitle": "Profil",
+    "basicSettingsHeader": "Basinställningar",
+    "fieldNameLabel": "Namn",
+    "fieldEmailLabel": "Email",
+    "displayNameFieldLabel": "Namn",
+    "displayNameFieldPlaceholder": "Namn",
+    "saveButtonText": "Spara"
+  },
+  "footer": {
+    "feedbackButtonLabel": "Ge feedback",
+    "feedbackLink": "https://www.facebook.com/myhelsinki",
+    "feedbackButtonTitle": "Ge oss feedback om vår sida!",
+    "submitEventLabel": "Lägg till ett evenemang",
+    "submitEventTitle": "Här kan du lägga till ett intressant evenemang till evenemangskalendern!",
+    "submitEventLink": "https://my.surveypal.com/myHelsinki-tapahtumat",
+    "submitPlaceLabel": "Lägg till en plats",
+    "submitPlaceTitle": "Tipsa oss om din favoritplats eller lägg till din plats på sidan!",
+    "submitPlaceLink": "https://places.myhelsinki.fi"
+  },
+  "error": {
+    "title": "Tyvärr, något gick på tok",
+    "description": "Kontrollera URL adressen eller gå tillbaka till <a href=\"/\">framsidan</a>"
+  },
+  "about": {
+    "newsletterButton": "Prenumerera på vårt nyhetsbrev"
+  },
+  "search": {
+    "title": "Sökresultat",
+    "filterSearchResults": "Filtrera sökresultaten",
+    "countPlural": "{{count}} sökresultat",
+    "countSingle": "1 sökresultat",
+    "resultCount": "Hittade {{count}} resultat",
+    "allFiltersSummaryLabel": "Visar alla",
+    "categoryFiltersSummaryLabel": "Kategori: {{category}}",
+    "tagsFiltersSummaryLabel": "Taggar: {{tags}}",
+    "keywordsFiltersSummaryLabel": "Nyckelord: {{keywords}}",
+    "dateTitle": "Datum",
+    "categoriesTitle": "Kategorier",
+    "tagsTitle": "Taggar",
+    "tagsAllLabel": "Alla",
+    "eventLabel": "Evenemang",
+    "placeLabel": "Platser",
+    "articleLabel": "Artiklar",
+    "activityLabel": "Aktiviteter",
+    "dateFilterToday": "Idag",
+    "dateFilterTomorrow": "Imorgon",
+    "dateFilterChoose": "Välj",
+    "noResults": "Ej resultat",
+    "noResultsInfo": "Försök justera din sökning.",
+    "headerActivity": "Aktivitet",
+    "headerArticle": "Artikel",
+    "headerEatAndDrink": "Äta och dricka",
+    "headerMyHelsinkiList": "My Helsinki listan",
+    "headerMyLocalGuide": "Your local guide",
+    "sortAll": "Visar alla",
+    "sortLatest": "Senast först",
+    "what'sPopular": "Rekommenderad",
+    "cantFindPlace": "Can't find your favourite place?",
+    "suggestPlaceToUs": "Suggest it to us!"
+  },
+  "event": {
+    "searchTitle": "Evenemangssökning",
+    "tickets": "Biljetter",
+    "website": "Webbsida"
+  },
+  "activity": {
+    "searchTitle": "Aktivitetssökning",
+    "title": "Startplats"
+  },
+  "locationCarousel": {
+    "defaultLinkText": "Platsdetaljer",
+    "activityLinkText": "Aktivitetsdetaljer",
+    "eventLinkText": "Evenemangsdetaljer",
+    "placeLinkText": "{{placeType}} Mer information om platsen",
+    "shareLinksTitle": "Dela listan"
+  },
+  "myHelsinkiOnboarding": {
+    "title": "Skapa ditt eget My Helsinki",
+    "description": "Lägg till evenemang och dina favoritplatser från sidan till din lista genom att klicka på hjärtat. Spara listan genom att logga in och dela den sedan med familj och vänner!",
+    "getStartedButtonText": "Börja nu",
+    "loginButtonText": "Logga in för att se listorna"
+  },
+  "myHelsinkiList": {
+    "myListsTitle": "Mina listor",
+    "newList": "Ny lista",
+    "editList": "Editera listan",
+    "titleFieldLabel": "Namn",
+    "titleFieldPlaceholder": "Namnge din lista",
+    "descriptionFieldLabel": "Beskrivning",
+    "descriptionFieldPlaceholder": "Beskriv din lista",
+    "publicFieldLabel": "Offentlig",
+    "privacyFieldLabel": "Privat",
+    "createButtonText": "Skapa lista",
+    "saveButtonText": "Spara",
+    "deleteButtonText": "Töm listan",
+    "cancelButtonText": "Gör senare",
+    "localGuidesTitle": "Your local guides",
+    "privateListLabel": "Privat lista",
+    "publicListLabel": "Offentlig lista",
+    "editListItemsTitle": "Editera listans innehåll",
+    "noItemsText": "Klicka på <span class=\"heart\"></span> vid evenemang och dina favoritplatser för att lägga till dem på din egen #myhelsinki-lista.",
+    "noItemsBrowseLabel": "Bläddra",
+    "noItemsBrowseSightsLabel": "#sevärdheter",
+    "noItemsBrowseRestaurantsLabel": "#restauranger",
+    "noItemsBrowseActivitiesLabel": "#aktiviteter",
+    "noItemsBrowseEventsLabel": "#evenemang",
+    "logInToSaveButtonLabel": "Logga in för att spara och dela"
+  },
+  "myHelsinkiBanner": {
+    "text": "Coronaviruset (COVID-19): Information för resenärer",
+    "buttonText": "Läs mera",
+    "buttonTextMobile": "Coronaviruset: Information för resenärer",
+    "buttonLink": "/sv/coronaviruset-covid-19-information-för-resenärer"
+  },
+  "myHelsinkiListDropdown": {
+    "title": "Välj lista",
+    "createListButtonLabel": "Skapa ny lista"
+  },
+  "form": {
+    "fieldRequired": "Error: Obligatoriskt fält.",
+    "fieldEmail": "Error: E-mailadress krävs."
+  },
+  "article": {
+    "dateNotChanged": "{{created}}",
+    "dateChanged": "{{created}}, uppdaterad {{changed}}"
+  },
+  "feedback": {
+    "modalHeader": "Feedback",
+    "messageFieldLabel": "Feedback",
+    "messageFieldPlaceholder": "Ge feedbak om sidan",
+    "mailFieldLabel": "Email",
+    "mailFieldPlaceholder": "Om du vill ha svar",
+    "sendButtonText": "Skicka feedback",
+    "sentHeading": "Tack för din feedback!",
+    "sentInfo": "Vi uppskattar att du har hjälpt oss att utveckla tjänsten. Om du gav oss din e-postadress, kommer vi att kontakta dig snart."
+  },
+  "eatAndDrinkSubpage": {
+    "allRestaurantsLabel": "Alla restauranger"
+  },
+  "author": {
+    "label": "Your local guide"
+  },
+  "study": {
+    "relatedArticlesLabel": "Relaterade artiklar",
+    "study": "Studera"
+  },
+  "place": {
+    "bookTableButton": "Boka bord",
+    "websiteButton": "Webbsida",
+    "getDirectionsLabel": "Hämta vägbeskrivning"
+  },
+  "survey": {
+    "title": "Välkommen att svara på besökarenkäten om MyHelsinki.fi",
+    "body": "Syftet med den här enkäten är att undersöka vem som använder vår MyHelsinki.fi-tjänst och hurdan information de söker efter. Samtidigt utreder vi vad besökarna tycker om sajtens användbarhet, innehåll och utseende. Tack för att du tar dig några minuter tid att besvara enkäten och således hjälper oss att utveckla MyHelsinki.fi.",
+    "agree": "Svara",
+    "dismiss": "Nej tack",
+    "url": "https://my.surveypal.com/Myhelsinki.fi-kavijatutkimus-2019"
+  },
+  "reittiopas": {
+    "title": "Route Planner",
+    "searchOriginPlaceholder": "Search origin",
+    "searchDestinationPlaceholder:": "Search destination",
+    "transporationTypes": {
+      "WALK": "Walking",
+      "BICYCLE": "Bicycling",
+      "ALL": "Public transportation",
+      "CAR": "Car"
+    },
+    "info": "CO₂ grams/person/trip. Based on information provided by Helsinki Region Transport (HSL).",
+    "infoZeroEmissions": "The electricity that powers the metro, trams and commuter trains is renewable and therefore considered emissions-free.",
+    "errorMessage": "Unable to establish connection to Journey Planner. Move to HSL's Journey Planner or try again later.",
+    "noResultsMessage": "No results for selected route.",
+    "linkText": "Move to HSL's Journey Planner",
+    "cityBikePopupText": "City bikes available"
+  },
+  "shareLinks": {
+    "copyLinkToClipboard": "Kopiera länken till klippbordet",
+    "shareOnFacebook": "Dela på Facebook",
+    "shareOnTwitter": "Dela på Twitter",
+    "shareOnLinkedin": "Dela på Linkedin"
+  }
+}

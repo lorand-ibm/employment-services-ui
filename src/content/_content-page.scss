@@ -1,0 +1,10 @@
+.content-page {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  position: relative;
+
+  @include breakpoint(small only) {
+    flex-direction: column;
+  }
+}

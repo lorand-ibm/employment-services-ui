@@ -1,0 +1,1738 @@
+# Logfile created on 2020-09-23 07:26:42 +0000 by logger.rb/v1.2.7
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-23 07:26:42 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [57cf5cd9] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [57cf5cd9] Finished in 5.078 seconds with exit status 0 (successful).
+  INFO [b5dff3bc] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b5dff3bc] Finished in 0.768 seconds with exit status 0 (successful).
+  INFO [20cc3c68] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [20cc3c68] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [993e92ac] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [993e92ac] Finished in 1.776 seconds with exit status 0 (successful).
+  INFO [72e5a398] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [72e5a398] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [cdac1499] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [cdac1499] Finished in 0.058 seconds with exit status 0 (successful).
+  INFO [0df7fc46] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0df7fc46] Finished in 1.519 seconds with exit status 0 (successful).
+  INFO [de9b91bf] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [de9b91bf] Finished in 0.052 seconds with exit status 0 (successful).
+  INFO [7400fdec] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [7400fdec] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [9e591a43] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9e591a43] Finished in 2.358 seconds with exit status 0 (successful).
+  INFO [9720eb7b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200923072653 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9720eb7b] Finished in 0.060 seconds with exit status 0 (successful).
+  INFO [e275b6c5] Running /usr/bin/env git archive feat/embed-video | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200923072653 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [e275b6c5] Finished in 0.390 seconds with exit status 0 (successful).
+  INFO [b982f63e] Running /usr/bin/env echo "eda212d354782cd9712e1570f9e570f57c11e99d" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b982f63e] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [ba66ce1f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200923072653 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ba66ce1f] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [10cf20b8] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200923072653/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [10cf20b8] Finished in 0.058 seconds with exit status 0 (successful).
+  INFO [5cafc757] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5cafc757] Finished in 28.996 seconds with exit status 0 (successful).
+  INFO [fdbb89aa] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [fdbb89aa] Finished in 113.135 seconds with exit status 0 (successful).
+  INFO [9a718348] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200923072653 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9a718348] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [ab0d08aa] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ab0d08aa] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [d9517a73] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [d9517a73] Finished in 0.156 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [63988293] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200827110355 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [63988293] Finished in 0.979 seconds with exit status 0 (successful).
+  INFO [5dd29341] Running /usr/bin/env echo "Branch feat/embed-video (at eda212d354782cd9712e1570f9e570f57c11e99d) deployed as release 20200923072653 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5dd29341] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-24 21:29:57 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e3c3f7a9] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e3c3f7a9] Finished in 4.711 seconds with exit status 0 (successful).
+  INFO [3015a5af] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3015a5af] Finished in 0.815 seconds with exit status 0 (successful).
+  INFO [17b93197] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [17b93197] Finished in 0.092 seconds with exit status 0 (successful).
+  INFO [244db54a] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [244db54a] Finished in 1.800 seconds with exit status 0 (successful).
+  INFO [74ce6134] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [74ce6134] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [3addafa6] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3addafa6] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [f3dce27f] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f3dce27f] Finished in 1.557 seconds with exit status 0 (successful).
+  INFO [6fa45ba3] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6fa45ba3] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [0133f58b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0133f58b] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [8ffe7dec] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8ffe7dec] Finished in 2.366 seconds with exit status 0 (successful).
+  INFO [cc580522] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200924213008 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cc580522] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [56840519] Running /usr/bin/env git archive fix/facebookttest | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200924213008 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-24 21:30:40 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bcecb38b] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bcecb38b] Finished in 1.402 seconds with exit status 0 (successful).
+  INFO [b76ed6bc] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b76ed6bc] Finished in 0.724 seconds with exit status 0 (successful).
+  INFO [ad099e91] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ad099e91] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [71a47d2d] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [71a47d2d] Finished in 1.727 seconds with exit status 0 (successful).
+  INFO [b3998a29] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b3998a29] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [783bd7ad] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [783bd7ad] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [2bdaa903] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2bdaa903] Finished in 1.590 seconds with exit status 0 (successful).
+  INFO [04adede0] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [04adede0] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [71c3ba73] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [71c3ba73] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [d015429a] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d015429a] Finished in 1.751 seconds with exit status 0 (successful).
+  INFO [df3b2b99] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200924213048 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [df3b2b99] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [cf3a6c60] Running /usr/bin/env git archive fix/facebookttest | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200924213048 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-24 21:31:48 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1126fcfa] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1126fcfa] Finished in 1.346 seconds with exit status 0 (successful).
+  INFO [98601c2a] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [98601c2a] Finished in 0.733 seconds with exit status 0 (successful).
+  INFO [c5fd01f4] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c5fd01f4] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [242f7073] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [242f7073] Finished in 1.808 seconds with exit status 0 (successful).
+  INFO [dd768356] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dd768356] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [6189e8f5] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6189e8f5] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [3048f9da] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3048f9da] Finished in 1.570 seconds with exit status 0 (successful).
+  INFO [89016a15] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [89016a15] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [43526847] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [43526847] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [525c9f75] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [525c9f75] Finished in 1.763 seconds with exit status 0 (successful).
+  INFO [3e52b2e8] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200924213155 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3e52b2e8] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [32ccd43f] Running /usr/bin/env git archive fix/facebooktest | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200924213155 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [32ccd43f] Finished in 0.316 seconds with exit status 0 (successful).
+  INFO [da58b295] Running /usr/bin/env echo "c0154fabb8cf69fe59eb6145d06fff54931da635" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [da58b295] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [fa1f563e] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200924213155 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fa1f563e] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [d7d360b2] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200924213155/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d7d360b2] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [5677acd5] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5677acd5] Finished in 35.756 seconds with exit status 0 (successful).
+  INFO [c318ae77] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c318ae77] Finished in 137.438 seconds with exit status 0 (successful).
+  INFO [06f961d6] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200924213155 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [06f961d6] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [3ac55e3e] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3ac55e3e] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [ef119949] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ef119949] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 8 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [07af05dc] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200922103456 /home/myhelsinki/myhelsinki-react/releases/20200922133432 /home/myhelsinki/myhelsinki-react/releases/20200922135024 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [07af05dc] Finished in 4.275 seconds with exit status 0 (successful).
+  INFO [3728563d] Running /usr/bin/env echo "Branch fix/facebooktest (at c0154fabb8cf69fe59eb6145d06fff54931da635) deployed as release 20200924213155 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3728563d] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-29 06:56:05 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [709d7fe9] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [709d7fe9] Finished in 3.357 seconds with exit status 0 (successful).
+  INFO [95868776] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [95868776] Finished in 0.631 seconds with exit status 0 (successful).
+  INFO [cd75a184] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cd75a184] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [05b64930] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [05b64930] Finished in 1.770 seconds with exit status 0 (successful).
+  INFO [502214a5] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [502214a5] Finished in 0.058 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [2e129e22] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2e129e22] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [88621e50] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [88621e50] Finished in 1.579 seconds with exit status 0 (successful).
+  INFO [eb3d9095] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [eb3d9095] Finished in 0.059 seconds with exit status 0 (successful).
+  INFO [be18974d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [be18974d] Finished in 0.057 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [7d52d951] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7d52d951] Finished in 2.475 seconds with exit status 0 (successful).
+  INFO [19dd3adc] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929065614 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [19dd3adc] Finished in 0.105 seconds with exit status 0 (successful).
+  INFO [f99f0aeb] Running /usr/bin/env git archive fix/facebooktest | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200929065614 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f99f0aeb] Finished in 0.347 seconds with exit status 0 (successful).
+  INFO [97452efb] Running /usr/bin/env echo "370a5ac9bbed5f7887a0eb712a873424e30a2226" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [97452efb] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [839b64a2] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929065614 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [839b64a2] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [e910c351] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200929065614/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e910c351] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [52a644c8] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [52a644c8] Finished in 37.222 seconds with exit status 0 (successful).
+  INFO [4fc3b85f] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4fc3b85f] Finished in 143.202 seconds with exit status 0 (successful).
+  INFO [41cae2ab] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200929065614 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [41cae2ab] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [9725adbf] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9725adbf] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [f72ca137] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f72ca137] Finished in 0.137 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [11da75b2] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200922141735 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [11da75b2] Finished in 1.207 seconds with exit status 0 (successful).
+  INFO [20c54ea8] Running /usr/bin/env echo "Branch fix/facebooktest (at 370a5ac9bbed5f7887a0eb712a873424e30a2226) deployed as release 20200929065614 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [20c54ea8] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-29 08:37:08 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [80440a11] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [80440a11] Finished in 2.607 seconds with exit status 0 (successful).
+  INFO [cc0a19c0] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cc0a19c0] Finished in 0.585 seconds with exit status 0 (successful).
+  INFO [68ad609f] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [68ad609f] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [823f4682] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [823f4682] Finished in 1.831 seconds with exit status 0 (successful).
+  INFO [f1cfdfec] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f1cfdfec] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [d9cc2bdd] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d9cc2bdd] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [77458562] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [77458562] Finished in 1.649 seconds with exit status 0 (successful).
+  INFO [fedeed81] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fedeed81] Finished in 0.059 seconds with exit status 0 (successful).
+  INFO [183e6208] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [183e6208] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [42e9e7b0] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [42e9e7b0] Finished in 1.991 seconds with exit status 0 (successful).
+  INFO [fb77d97f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929083717 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fb77d97f] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [116ff8db] Running /usr/bin/env git archive develop | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200929083717 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [116ff8db] Finished in 0.464 seconds with exit status 0 (successful).
+  INFO [99fa6b78] Running /usr/bin/env echo "0f51e5e999abeb945a97f1ad721e511264160bd1" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [99fa6b78] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [91f38c4d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929083717 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [91f38c4d] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [968aa803] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200929083717/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [968aa803] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [e31d20e5] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e31d20e5] Finished in 34.770 seconds with exit status 0 (successful).
+  INFO [3bcf2761] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3bcf2761] Finished in 144.312 seconds with exit status 0 (successful).
+  INFO [3a61fbd2] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200929083717 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3a61fbd2] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [8a295fd6] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8a295fd6] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [4fe0225d] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4fe0225d] Finished in 0.141 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [3f7e1e0b] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200923082653 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3f7e1e0b] Finished in 1.124 seconds with exit status 0 (successful).
+  INFO [1e944c44] Running /usr/bin/env echo "Branch develop (at 0f51e5e999abeb945a97f1ad721e511264160bd1) deployed as release 20200929083717 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1e944c44] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-29 19:26:29 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b7aa302e] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b7aa302e] Finished in 4.039 seconds with exit status 0 (successful).
+  INFO [b9f69b35] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b9f69b35] Finished in 0.765 seconds with exit status 0 (successful).
+  INFO [1dbeaa69] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1dbeaa69] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [65416bc6] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [65416bc6] Finished in 1.994 seconds with exit status 0 (successful).
+  INFO [680fd6cd] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [680fd6cd] Finished in 0.091 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [cc5534fd] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cc5534fd] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [5a961043] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5a961043] Finished in 1.625 seconds with exit status 0 (successful).
+  INFO [e4f5d221] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e4f5d221] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [9b489fa3] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9b489fa3] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [04f3a50e] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [04f3a50e] Finished in 2.153 seconds with exit status 0 (successful).
+  INFO [48aaa3f2] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929192640 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [48aaa3f2] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [6e0ce8e6] Running /usr/bin/env git archive master | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200929192640 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6e0ce8e6] Finished in 0.276 seconds with exit status 0 (successful).
+  INFO [a53059d9] Running /usr/bin/env echo "caa479016947f09433fc43bff3ed9e6038dd2684" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a53059d9] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [cd9c1f24] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929192640 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cd9c1f24] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [e40ef481] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200929192640/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e40ef481] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [15056c41] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [15056c41] Finished in 34.636 seconds with exit status 0 (successful).
+  INFO [836d58e2] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [836d58e2] Finished in 139.904 seconds with exit status 0 (successful).
+  INFO [ef3a84e5] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200929192640 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ef3a84e5] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [247bba9a] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [247bba9a] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [b1db89cc] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b1db89cc] Finished in 0.133 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [7663ca87] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200924213155 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7663ca87] Finished in 1.421 seconds with exit status 0 (successful).
+  INFO [084c9ded] Running /usr/bin/env echo "Branch master (at caa479016947f09433fc43bff3ed9e6038dd2684) deployed as release 20200929192640 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [084c9ded] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-29 19:30:55 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e5ddf607] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [e5ddf607] Finished in 2.750 seconds with exit status 0 (successful).
+  INFO [ee9c8d1a] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [ee9c8d1a] Finished in 0.343 seconds with exit status 0 (successful).
+  INFO [4ce66d2c] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [4ce66d2c] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [def351ea] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [def351ea] Finished in 1.768 seconds with exit status 0 (successful).
+  INFO [0a475250] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [0a475250] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-production-vagrant.sh 100.0%
+  INFO [c951d06e] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-production-vagrant.sh as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [c951d06e] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [3f7dfa5e] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [3f7dfa5e] Finished in 1.622 seconds with exit status 0 (successful).
+  INFO [6d83d93f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [6d83d93f] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [f080ed73] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [f080ed73] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [98c344b1] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [98c344b1] Finished in 2.486 seconds with exit status 0 (successful).
+  INFO [c9d41bc7] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929193104 as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [c9d41bc7] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [513609d0] Running /usr/bin/env git archive master | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200929193104 as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [513609d0] Finished in 0.397 seconds with exit status 0 (successful).
+  INFO [505dc353] Running /usr/bin/env echo "caa479016947f09433fc43bff3ed9e6038dd2684" >> REVISION as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [505dc353] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [49f17bd2] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929193104 as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [49f17bd2] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [ad598025] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200929193104/.env as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [ad598025] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [2e7c21a9] Running /usr/bin/env npm install --production as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [2e7c21a9] Finished in 37.475 seconds with exit status 0 (successful).
+  INFO [f9e873c3] Running /usr/bin/env npm run compile as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [f9e873c3] Finished in 135.041 seconds with exit status 0 (successful).
+  INFO [697c42b6] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200929193104 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [697c42b6] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [5a79b431] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [5a79b431] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [2a33af72] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [2a33af72] Finished in 0.249 seconds with exit status 0 (successful).
+  INFO [f8396004] Running /usr/bin/env echo "Branch master (at caa479016947f09433fc43bff3ed9e6038dd2684) deployed as release 20200929193104 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.www.myhelsinki.fi
+  INFO [f8396004] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-29 19:58:28 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7a805cbf] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7a805cbf] Finished in 3.307 seconds with exit status 0 (successful).
+  INFO [20781cd1] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [20781cd1] Finished in 0.765 seconds with exit status 0 (successful).
+  INFO [d6db951a] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d6db951a] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO [50d183a7] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [50d183a7] Finished in 2.630 seconds with exit status 0 (successful).
+  INFO [c9f3ce14] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c9f3ce14] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [0f2f8b13] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0f2f8b13] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [f3a498ff] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f3a498ff] Finished in 1.541 seconds with exit status 0 (successful).
+  INFO [179b56cb] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [179b56cb] Finished in 0.060 seconds with exit status 0 (successful).
+  INFO [5475850a] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5475850a] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [5f29eb30] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5f29eb30] Finished in 2.121 seconds with exit status 0 (successful).
+  INFO [a53f375c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929195839 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a53f375c] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [cd903329] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200929195839 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cd903329] Finished in 0.277 seconds with exit status 0 (successful).
+  INFO [826a84d8] Running /usr/bin/env echo "b9abe28fb92d1c532e63c3a9226c03cbdcfded7b" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [826a84d8] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [a1e14aae] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929195839 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a1e14aae] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [2d78b2a6] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200929195839/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2d78b2a6] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [58039fd3] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [58039fd3] Finished in 33.877 seconds with exit status 0 (successful).
+  INFO [385fc434] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [385fc434] Finished in 141.006 seconds with exit status 0 (successful).
+  INFO [a9a56d63] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200929195839 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a9a56d63] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [a0baf91c] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a0baf91c] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [a3942f96] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a3942f96] Finished in 0.137 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [06b0518d] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929065614 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [06b0518d] Finished in 1.219 seconds with exit status 0 (successful).
+  INFO [efb10518] Running /usr/bin/env echo "Branch fix/faceb (at b9abe28fb92d1c532e63c3a9226c03cbdcfded7b) deployed as release 20200929195839 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [efb10518] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-29 20:34:43 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [193024ec] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [193024ec] Finished in 3.776 seconds with exit status 0 (successful).
+  INFO [e00ce1af] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e00ce1af] Finished in 0.727 seconds with exit status 0 (successful).
+  INFO [083383cd] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [083383cd] Finished in 0.092 seconds with exit status 0 (successful).
+  INFO [a564406a] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a564406a] Finished in 1.748 seconds with exit status 0 (successful).
+  INFO [fcd837de] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fcd837de] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [05a12867] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [05a12867] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [bac0bd14] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bac0bd14] Finished in 1.601 seconds with exit status 0 (successful).
+  INFO [e76328d1] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e76328d1] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [f8bc0ce6] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f8bc0ce6] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [15bff117] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [15bff117] Finished in 2.058 seconds with exit status 0 (successful).
+  INFO [9501ee0e] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929203453 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9501ee0e] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [56a81430] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200929203453 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [56a81430] Finished in 0.299 seconds with exit status 0 (successful).
+  INFO [de45e6c6] Running /usr/bin/env echo "0616a939043e52350c89ef84e35524b2e5485e7d" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [de45e6c6] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [6a36db47] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200929203453 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6a36db47] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [41e08d34] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200929203453/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [41e08d34] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [6f633040] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6f633040] Finished in 35.126 seconds with exit status 0 (successful).
+  INFO [35723349] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [35723349] Finished in 140.278 seconds with exit status 0 (successful).
+  INFO [4a898338] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200929203453 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4a898338] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [d2487087] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d2487087] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [3b547c88] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3b547c88] Finished in 0.139 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [638a0b98] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929083717 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [638a0b98] Finished in 1.454 seconds with exit status 0 (successful).
+  INFO [2d786e19] Running /usr/bin/env echo "Branch fix/faceb (at 0616a939043e52350c89ef84e35524b2e5485e7d) deployed as release 20200929203453 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2d786e19] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 11:12:15 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [246a6fc0] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [246a6fc0] Finished in 4.140 seconds with exit status 0 (successful).
+  INFO [ea963984] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ea963984] Finished in 0.746 seconds with exit status 0 (successful).
+  INFO [778f66f3] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [778f66f3] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [5c140aa9] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5c140aa9] Finished in 1.768 seconds with exit status 0 (successful).
+  INFO [52c44ea6] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [52c44ea6] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [a9ae3dc2] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a9ae3dc2] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [9bb39bd1] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9bb39bd1] Finished in 1.750 seconds with exit status 0 (successful).
+  INFO [d3d4a5e0] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d3d4a5e0] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [28e7fa1d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [28e7fa1d] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [e5b75814] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e5b75814] Finished in 1.891 seconds with exit status 0 (successful).
+  INFO [405b5c11] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930111226 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [405b5c11] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [7fa7c0e1] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930111226 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7fa7c0e1] Finished in 0.439 seconds with exit status 0 (successful).
+  INFO [6fd14d5d] Running /usr/bin/env echo "0616a939043e52350c89ef84e35524b2e5485e7d" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6fd14d5d] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [89865c77] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930111226 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [89865c77] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [3766376b] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930111226/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3766376b] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [217e9d4e] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [217e9d4e] Finished in 35.759 seconds with exit status 0 (successful).
+  INFO [1fe8dbda] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1fe8dbda] Finished in 142.316 seconds with exit status 0 (successful).
+  INFO [a3e4b606] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930111226 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a3e4b606] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO [b3aef142] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b3aef142] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [9aa99917] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9aa99917] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [c7b25acc] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929104408 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c7b25acc] Finished in 1.500 seconds with exit status 0 (successful).
+  INFO [a6df2459] Running /usr/bin/env echo "Branch fix/faceb (at 0616a939043e52350c89ef84e35524b2e5485e7d) deployed as release 20200930111226 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a6df2459] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 11:21:10 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3f057115] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3f057115] Finished in 3.034 seconds with exit status 0 (successful).
+  INFO [0e3fccb5] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0e3fccb5] Finished in 0.850 seconds with exit status 0 (successful).
+  INFO [227ab0d7] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [227ab0d7] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [5708b87b] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5708b87b] Finished in 2.299 seconds with exit status 0 (successful).
+  INFO [34e12dd3] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [34e12dd3] Finished in 0.092 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [f9039a50] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f9039a50] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [33841eec] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [33841eec] Finished in 1.603 seconds with exit status 0 (successful).
+  INFO [0d4bbf53] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0d4bbf53] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [695e124e] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [695e124e] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [b1d3903c] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b1d3903c] Finished in 2.530 seconds with exit status 0 (successful).
+  INFO [acbea61d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930112120 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [acbea61d] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [45aad34c] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930112120 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [45aad34c] Finished in 0.363 seconds with exit status 0 (successful).
+  INFO [4571d8b7] Running /usr/bin/env echo "ff628798d53fcc225458498e498ddbca928b52aa" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4571d8b7] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [97c94a3b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930112120 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [97c94a3b] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [64b7a7c8] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930112120/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [64b7a7c8] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [39453e02] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [39453e02] Finished in 33.726 seconds with exit status 0 (successful).
+  INFO [b90b9f99] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b90b9f99] Finished in 142.321 seconds with exit status 0 (successful).
+  INFO [ded555de] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930112120 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ded555de] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [ba23edfb] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ba23edfb] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [21a57051] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [21a57051] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [197a4c92] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929121807 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [197a4c92] Finished in 1.748 seconds with exit status 0 (successful).
+  INFO [1ddfeb5a] Running /usr/bin/env echo "Branch fix/faceb (at ff628798d53fcc225458498e498ddbca928b52aa) deployed as release 20200930112120 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1ddfeb5a] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 11:38:05 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d17465a0] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d17465a0] Finished in 2.553 seconds with exit status 0 (successful).
+  INFO [95a571cb] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [95a571cb] Finished in 0.761 seconds with exit status 0 (successful).
+  INFO [6570a773] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6570a773] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO [5d829fd8] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5d829fd8] Finished in 2.707 seconds with exit status 0 (successful).
+  INFO [df041614] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [df041614] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [4a0ba870] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4a0ba870] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [ee1a9053] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ee1a9053] Finished in 1.737 seconds with exit status 0 (successful).
+  INFO [d132e4a0] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d132e4a0] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO [e0d8b3a1] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e0d8b3a1] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [c039f60c] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c039f60c] Finished in 2.063 seconds with exit status 0 (successful).
+  INFO [cd121e9a] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930113815 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cd121e9a] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [57d6b848] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930113815 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [57d6b848] Finished in 0.350 seconds with exit status 0 (successful).
+  INFO [cf3583fc] Running /usr/bin/env echo "382da7aff4f9f52961a760003f367d67c6af40e9" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cf3583fc] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [0a2ecd68] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930113815 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0a2ecd68] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [e0473392] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930113815/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e0473392] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [cf51acbd] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cf51acbd] Finished in 32.921 seconds with exit status 0 (successful).
+  INFO [d5264e58] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d5264e58] Finished in 137.064 seconds with exit status 0 (successful).
+  INFO [281ebdc3] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930113815 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [281ebdc3] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [1a4a5ae7] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1a4a5ae7] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [d135e011] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d135e011] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [3ba84613] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929192640 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3ba84613] Finished in 1.319 seconds with exit status 0 (successful).
+  INFO [d568499d] Running /usr/bin/env echo "Branch fix/faceb (at 382da7aff4f9f52961a760003f367d67c6af40e9) deployed as release 20200930113815 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d568499d] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 11:52:56 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ff9da780] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ff9da780] Finished in 2.626 seconds with exit status 0 (successful).
+  INFO [53498863] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [53498863] Finished in 0.889 seconds with exit status 0 (successful).
+  INFO [ff0495ef] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ff0495ef] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [f5d26e84] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f5d26e84] Finished in 2.331 seconds with exit status 0 (successful).
+  INFO [5168df97] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5168df97] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [69e4f94b] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [69e4f94b] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [6768590f] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6768590f] Finished in 1.623 seconds with exit status 0 (successful).
+  INFO [a4aa383c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a4aa383c] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [b8b08a24] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b8b08a24] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [e8f02144] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e8f02144] Finished in 2.070 seconds with exit status 0 (successful).
+  INFO [2642963d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930115306 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2642963d] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [7d67e600] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930115306 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7d67e600] Finished in 0.237 seconds with exit status 0 (successful).
+  INFO [197179db] Running /usr/bin/env echo "36806b42d3b28ea36692ffd35f986a7acc8b9a2d" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [197179db] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [5eabbf65] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930115306 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5eabbf65] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [9066f4ba] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930115306/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9066f4ba] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [6c51e134] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6c51e134] Finished in 33.720 seconds with exit status 0 (successful).
+  INFO [c6c4ad8d] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c6c4ad8d] Finished in 139.028 seconds with exit status 0 (successful).
+  INFO [e9e18c0c] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930115306 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e9e18c0c] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [6e488e2c] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6e488e2c] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [5c869f36] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5c869f36] Finished in 0.122 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [cb060206] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929195839 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cb060206] Finished in 1.327 seconds with exit status 0 (successful).
+  INFO [f90c4838] Running /usr/bin/env echo "Branch fix/faceb (at 36806b42d3b28ea36692ffd35f986a7acc8b9a2d) deployed as release 20200930115306 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f90c4838] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 12:35:36 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [25d6abfb] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [25d6abfb] Finished in 3.669 seconds with exit status 0 (successful).
+  INFO [4c5184e3] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4c5184e3] Finished in 0.834 seconds with exit status 0 (successful).
+  INFO [98298618] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [98298618] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [b8b67331] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b8b67331] Finished in 1.803 seconds with exit status 0 (successful).
+  INFO [55efe5b5] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [55efe5b5] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [4d1ac079] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4d1ac079] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [998dc789] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [998dc789] Finished in 1.711 seconds with exit status 0 (successful).
+  INFO [13c0b0c7] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [13c0b0c7] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [e0ba24da] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e0ba24da] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [d3607406] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d3607406] Finished in 2.177 seconds with exit status 0 (successful).
+  INFO [0fbdc56c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930123547 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0fbdc56c] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [e5e5e6e2] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930123547 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e5e5e6e2] Finished in 0.266 seconds with exit status 0 (successful).
+  INFO [d7dacb96] Running /usr/bin/env echo "f60157553cf99d4145adf76d6a44ea4ff87198ae" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d7dacb96] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [511aa834] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930123547 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [511aa834] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [0344d69f] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930123547/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0344d69f] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [41ed8174] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [41ed8174] Finished in 36.871 seconds with exit status 0 (successful).
+  INFO [84f748be] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [84f748be] Finished in 140.808 seconds with exit status 0 (successful).
+  INFO [1582bd89] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930123547 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1582bd89] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [ec171356] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ec171356] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO [d933b6c9] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d933b6c9] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [a12c5db1] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200929203453 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a12c5db1] Finished in 1.458 seconds with exit status 0 (successful).
+  INFO [d2e16a53] Running /usr/bin/env echo "Branch fix/faceb (at f60157553cf99d4145adf76d6a44ea4ff87198ae) deployed as release 20200930123547 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d2e16a53] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 12:42:50 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c9b5fd92] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c9b5fd92] Finished in 3.147 seconds with exit status 0 (successful).
+  INFO [fdb60cfc] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fdb60cfc] Finished in 0.742 seconds with exit status 0 (successful).
+  INFO [ad773d08] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ad773d08] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [8def47e2] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8def47e2] Finished in 1.923 seconds with exit status 0 (successful).
+  INFO [b3f83aa7] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b3f83aa7] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [915b10e9] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [915b10e9] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [9a2fa9ab] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9a2fa9ab] Finished in 1.548 seconds with exit status 0 (successful).
+  INFO [c743d56f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c743d56f] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [9af435af] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9af435af] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [132119b8] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [132119b8] Finished in 2.114 seconds with exit status 0 (successful).
+  INFO [ddc58c30] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930124300 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ddc58c30] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [3a92ffeb] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930124300 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3a92ffeb] Finished in 0.330 seconds with exit status 0 (successful).
+  INFO [0bada37a] Running /usr/bin/env echo "f60157553cf99d4145adf76d6a44ea4ff87198ae" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0bada37a] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [0b6e79e3] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930124300 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0b6e79e3] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [ac3cf707] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930124300/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ac3cf707] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [97433dd9] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [97433dd9] Finished in 34.358 seconds with exit status 0 (successful).
+  INFO [536c1269] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [536c1269] Finished in 143.217 seconds with exit status 0 (successful).
+  INFO [4b045167] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930124300 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4b045167] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [89bafbca] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [89bafbca] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [6bec06bb] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6bec06bb] Finished in 0.135 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [8ec70e8f] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930111226 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8ec70e8f] Finished in 1.521 seconds with exit status 0 (successful).
+  INFO [b8ec2441] Running /usr/bin/env echo "Branch fix/faceb (at f60157553cf99d4145adf76d6a44ea4ff87198ae) deployed as release 20200930124300 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b8ec2441] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 13:30:22 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4ea3329a] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4ea3329a] Finished in 3.053 seconds with exit status 0 (successful).
+  INFO [4814b953] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4814b953] Finished in 0.795 seconds with exit status 0 (successful).
+  INFO [dfe9f1b2] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dfe9f1b2] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [33b969d2] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [33b969d2] Finished in 2.085 seconds with exit status 0 (successful).
+  INFO [a38ac93c] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a38ac93c] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [850aed91] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [850aed91] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [6ed5447d] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6ed5447d] Finished in 1.750 seconds with exit status 0 (successful).
+  INFO [6b37534b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6b37534b] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [1303b80b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1303b80b] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [9c7558ec] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9c7558ec] Finished in 1.878 seconds with exit status 0 (successful).
+  INFO [aeac65fd] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930133033 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [aeac65fd] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [a5d060aa] Running /usr/bin/env git archive feat/embed-video | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930133033 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a5d060aa] Finished in 0.276 seconds with exit status 0 (successful).
+  INFO [cd355c61] Running /usr/bin/env echo "eda212d354782cd9712e1570f9e570f57c11e99d" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [cd355c61] Finished in 0.102 seconds with exit status 0 (successful).
+  INFO [4556eafb] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930133033 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4556eafb] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [a7ac2550] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930133033/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a7ac2550] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [25be10f0] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [25be10f0] Finished in 35.663 seconds with exit status 0 (successful).
+  INFO [288490ef] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [288490ef] Finished in 141.844 seconds with exit status 0 (successful).
+  INFO [a339a6a5] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930133033 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a339a6a5] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [ccaa3a65] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ccaa3a65] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [d11641b5] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d11641b5] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [3209d7cd] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930112120 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3209d7cd] Finished in 1.163 seconds with exit status 0 (successful).
+  INFO [07669f3a] Running /usr/bin/env echo "Branch feat/embed-video (at eda212d354782cd9712e1570f9e570f57c11e99d) deployed as release 20200930133033 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [07669f3a] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-09-30 14:00:19 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [74a921c1] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [74a921c1] Finished in 2.723 seconds with exit status 0 (successful).
+  INFO [3d6ad4bd] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3d6ad4bd] Finished in 0.840 seconds with exit status 0 (successful).
+  INFO [7ad436f8] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7ad436f8] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO [798fb06e] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [798fb06e] Finished in 1.864 seconds with exit status 0 (successful).
+  INFO [3929058f] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3929058f] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [5be5533a] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5be5533a] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [2edf72ca] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2edf72ca] Finished in 1.958 seconds with exit status 0 (successful).
+  INFO [f2311e84] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f2311e84] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO [5b5eb2d3] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5b5eb2d3] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [d4f00cd5] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d4f00cd5] Finished in 2.260 seconds with exit status 0 (successful).
+  INFO [6b283324] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930140029 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6b283324] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [542a3100] Running /usr/bin/env git archive fix/faceb | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20200930140029 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [542a3100] Finished in 0.244 seconds with exit status 0 (successful).
+  INFO [1095fcc3] Running /usr/bin/env echo "84312980fcc3ded5aa1db6868f384c605e2a8474" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1095fcc3] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [740486f5] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20200930140029 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [740486f5] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [1844c614] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20200930140029/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1844c614] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [74e95f37] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [74e95f37] Finished in 34.680 seconds with exit status 0 (successful).
+  INFO [bc4ede6a] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bc4ede6a] Finished in 141.886 seconds with exit status 0 (successful).
+  INFO [2034d48f] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20200930140029 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2034d48f] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [9e6aba49] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9e6aba49] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [1b9cd231] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1b9cd231] Finished in 0.127 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [81ea07b2] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930113815 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [81ea07b2] Finished in 1.452 seconds with exit status 0 (successful).
+  INFO [7a0eb776] Running /usr/bin/env echo "Branch fix/faceb (at 84312980fcc3ded5aa1db6868f384c605e2a8474) deployed as release 20200930140029 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7a0eb776] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-01 06:40:05 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6580f330] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6580f330] Finished in 3.998 seconds with exit status 0 (successful).
+  INFO [9fead062] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9fead062] Finished in 0.853 seconds with exit status 0 (successful).
+  INFO [bf3e609a] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bf3e609a] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [85e0157a] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [85e0157a] Finished in 1.740 seconds with exit status 0 (successful).
+  INFO [e793216d] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e793216d] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [86475cc9] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [86475cc9] Finished in 0.060 seconds with exit status 0 (successful).
+  INFO [256eb7e0] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [256eb7e0] Finished in 1.629 seconds with exit status 0 (successful).
+  INFO [487309af] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [487309af] Finished in 0.051 seconds with exit status 0 (successful).
+  INFO [df78fc43] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [df78fc43] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [eba83545] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [eba83545] Finished in 2.430 seconds with exit status 0 (successful).
+  INFO [c6c44099] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201001064016 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c6c44099] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [56b1f728] Running /usr/bin/env git archive fix/focus-after-search | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201001064016 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [56b1f728] Finished in 0.362 seconds with exit status 0 (successful).
+  INFO [966bdb6a] Running /usr/bin/env echo "3185866b3a4fab905d8a765fb30ad3051e836b12" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [966bdb6a] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [59b686d7] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201001064016 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [59b686d7] Finished in 0.057 seconds with exit status 0 (successful).
+  INFO [dac2f1b2] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201001064016/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dac2f1b2] Finished in 0.054 seconds with exit status 0 (successful).
+  INFO [e352b389] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e352b389] Finished in 35.287 seconds with exit status 0 (successful).
+  INFO [4cd1f119] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4cd1f119] Finished in 136.452 seconds with exit status 0 (successful).
+  INFO [85077415] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201001064016 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [85077415] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [08522dbd] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [08522dbd] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [4ce07f7e] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4ce07f7e] Finished in 0.122 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [9ede811c] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930115306 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9ede811c] Finished in 1.401 seconds with exit status 0 (successful).
+  INFO [503ee472] Running /usr/bin/env echo "Branch fix/focus-after-search (at 3185866b3a4fab905d8a765fb30ad3051e836b12) deployed as release 20201001064016 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [503ee472] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-02 07:58:10 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6c60f71e] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [6c60f71e] Finished in 4.372 seconds with exit status 0 (successful).
+  INFO [bc596fda] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [bc596fda] Finished in 0.729 seconds with exit status 0 (successful).
+  INFO [50d18773] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [50d18773] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [64a7c892] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [64a7c892] Finished in 1.730 seconds with exit status 0 (successful).
+  INFO [0ac2b195] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0ac2b195] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [ee28e558] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ee28e558] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [c41ac1e4] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c41ac1e4] Finished in 1.628 seconds with exit status 0 (successful).
+  INFO [9432ab8c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9432ab8c] Finished in 0.055 seconds with exit status 0 (successful).
+  INFO [fb9de250] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [fb9de250] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [89c26cf2] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [89c26cf2] Finished in 2.389 seconds with exit status 0 (successful).
+  INFO [305ed5a2] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201002075821 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [305ed5a2] Finished in 0.060 seconds with exit status 0 (successful).
+  INFO [f2c6ce24] Running /usr/bin/env git archive feat/embed-video | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201002075821 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f2c6ce24] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [89b4fb23] Running /usr/bin/env echo "eda212d354782cd9712e1570f9e570f57c11e99d" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [89b4fb23] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [3f679596] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201002075821 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [3f679596] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [024a3061] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201002075821/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [024a3061] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [437deaf0] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [437deaf0] Finished in 28.431 seconds with exit status 0 (successful).
+  INFO [c9d708ef] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c9d708ef] Finished in 114.280 seconds with exit status 0 (successful).
+  INFO [5bd2e210] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201002075821 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5bd2e210] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [c5c5698d] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c5c5698d] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [bc6394ec] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [bc6394ec] Finished in 0.142 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [ca89f201] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930144444 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ca89f201] Finished in 1.331 seconds with exit status 0 (successful).
+  INFO [c69626be] Running /usr/bin/env echo "Branch feat/embed-video (at eda212d354782cd9712e1570f9e570f57c11e99d) deployed as release 20201002075821 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c69626be] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-02 11:23:57 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2ac2d40d] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-14 13:28:14 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fb35821a] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fb35821a] Finished in 3.035 seconds with exit status 0 (successful).
+  INFO [b3a42cc3] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b3a42cc3] Finished in 0.762 seconds with exit status 0 (successful).
+  INFO [b1ffe23a] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b1ffe23a] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [88ed41bc] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [88ed41bc] Finished in 2.729 seconds with exit status 0 (successful).
+  INFO [c44335a7] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c44335a7] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [1efc8bf6] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1efc8bf6] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [b8d0521d] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b8d0521d] Finished in 1.660 seconds with exit status 0 (successful).
+  INFO [a2b2dcd9] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a2b2dcd9] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [514bb8c9] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [514bb8c9] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [e7763699] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e7763699] Finished in 2.441 seconds with exit status 0 (successful).
+  INFO [42a79e16] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201014132825 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [42a79e16] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [7b9e7f0e] Running /usr/bin/env git archive feat/embed-video | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201014132825 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7b9e7f0e] Finished in 0.334 seconds with exit status 0 (successful).
+  INFO [2c3c4eaf] Running /usr/bin/env echo "6a8b2f7e70697c8524d8538577fc07a513d33619" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2c3c4eaf] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [4be353e4] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201014132825 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4be353e4] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [9f530a43] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201014132825/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9f530a43] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO [874da348] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [874da348] Finished in 36.402 seconds with exit status 0 (successful).
+  INFO [8303f958] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8303f958] Finished in 146.754 seconds with exit status 0 (successful).
+  INFO [a96bd36c] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201014132825 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a96bd36c] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [5b6302c3] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5b6302c3] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO [c0ddcf6f] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c0ddcf6f] Finished in 0.153 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [61c71b7a] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201002112632 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [61c71b7a] Finished in 1.515 seconds with exit status 0 (successful).
+  INFO [870f972b] Running /usr/bin/env echo "Branch feat/embed-video (at 6a8b2f7e70697c8524d8538577fc07a513d33619) deployed as release 20201014132825 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [870f972b] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-15 20:26:19 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [09d4fd52] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [09d4fd52] Finished in 5.718 seconds with exit status 0 (successful).
+  INFO [90f27ef1] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [90f27ef1] Finished in 0.811 seconds with exit status 0 (successful).
+  INFO [a1c031ab] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a1c031ab] Finished in 0.106 seconds with exit status 0 (successful).
+  INFO [66b9bd71] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [66b9bd71] Finished in 2.746 seconds with exit status 0 (successful).
+  INFO [f9554481] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f9554481] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [47529607] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [47529607] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [66aa4743] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [66aa4743] Finished in 1.681 seconds with exit status 0 (successful).
+  INFO [5d947474] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5d947474] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [8b273203] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8b273203] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [ee399b76] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ee399b76] Finished in 2.410 seconds with exit status 0 (successful).
+  INFO [eadd77c5] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201015202632 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [eadd77c5] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [e65a7e3e] Running /usr/bin/env git archive feat/embed | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201015202632 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-15 20:27:31 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [53260347] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [53260347] Finished in 1.407 seconds with exit status 0 (successful).
+  INFO [f5c36a66] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f5c36a66] Finished in 0.737 seconds with exit status 0 (successful).
+  INFO [2fb42581] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2fb42581] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [e4899e0a] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e4899e0a] Finished in 1.721 seconds with exit status 0 (successful).
+  INFO [e08a0d7a] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e08a0d7a] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [78d90254] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [78d90254] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [4225bef0] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4225bef0] Finished in 1.639 seconds with exit status 0 (successful).
+  INFO [a129236f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a129236f] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [dfb8f5fb] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dfb8f5fb] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [ab2bbede] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ab2bbede] Finished in 1.778 seconds with exit status 0 (successful).
+  INFO [bb5b2fe0] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201015202739 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bb5b2fe0] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [1878285f] Running /usr/bin/env git archive feat/embed | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201015202739 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-15 20:28:42 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [97834188] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [97834188] Finished in 1.399 seconds with exit status 0 (successful).
+  INFO [b25a5e5c] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b25a5e5c] Finished in 0.721 seconds with exit status 0 (successful).
+  INFO [702b4486] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [702b4486] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [8e45f8c2] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8e45f8c2] Finished in 1.772 seconds with exit status 0 (successful).
+  INFO [13af8e1e] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [13af8e1e] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [bb1f6ab0] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bb1f6ab0] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [c6ee8201] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c6ee8201] Finished in 1.586 seconds with exit status 0 (successful).
+  INFO [fc579e07] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fc579e07] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [36046d09] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [36046d09] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [d1a26669] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d1a26669] Finished in 1.768 seconds with exit status 0 (successful).
+  INFO [2700386c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201015202850 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2700386c] Finished in 0.091 seconds with exit status 0 (successful).
+  INFO [58b54330] Running /usr/bin/env git archive feat/embed-video | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201015202850 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [58b54330] Finished in 0.338 seconds with exit status 0 (successful).
+  INFO [d002418c] Running /usr/bin/env echo "24b814ec7d57bd0ed8300fcf147c52d67b1f0e94" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d002418c] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [bfb9da6b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201015202850 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bfb9da6b] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [8cafa0c2] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201015202850/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8cafa0c2] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [6a321fd6] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6a321fd6] Finished in 36.135 seconds with exit status 0 (successful).
+  INFO [3fc17e53] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3fc17e53] Finished in 144.550 seconds with exit status 0 (successful).
+  INFO [1a80d0d0] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201015202850 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [1a80d0d0] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [40d59c6a] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [40d59c6a] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [c163295d] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c163295d] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 8 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [48ff6a6e] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201006090858 /home/myhelsinki/myhelsinki-react/releases/20201006091437 /home/myhelsinki/myhelsinki-react/releases/20201006111644 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [48ff6a6e] Finished in 4.149 seconds with exit status 0 (successful).
+  INFO [a7ed5d9c] Running /usr/bin/env echo "Branch feat/embed-video (at 24b814ec7d57bd0ed8300fcf147c52d67b1f0e94) deployed as release 20201015202850 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a7ed5d9c] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-19 15:34:26 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5140fc85] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5140fc85] Finished in 5.028 seconds with exit status 0 (successful).
+  INFO [296787ef] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [296787ef] Finished in 0.698 seconds with exit status 0 (successful).
+  INFO [8c5c7c53] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [8c5c7c53] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [4d2c5c60] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [4d2c5c60] Finished in 1.868 seconds with exit status 0 (successful).
+  INFO [961d9476] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [961d9476] Finished in 0.100 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [4b84ce0c] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [4b84ce0c] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [59ce59e2] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [59ce59e2] Finished in 1.609 seconds with exit status 0 (successful).
+  INFO [7c872e3f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [7c872e3f] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [ae843b02] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ae843b02] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [566d3613] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [566d3613] Finished in 2.742 seconds with exit status 0 (successful).
+  INFO [751b018b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201019153438 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [751b018b] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [ecb40823] Running /usr/bin/env git archive develop | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201019153438 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ecb40823] Finished in 0.300 seconds with exit status 0 (successful).
+  INFO [7f4bcbbc] Running /usr/bin/env echo "137eb3f13cef516a7ecba1f5169ef6577735196e" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [7f4bcbbc] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [ee449083] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201019153438 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ee449083] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [32048d8b] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201019153438/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [32048d8b] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [bba3cc56] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [bba3cc56] Finished in 28.923 seconds with exit status 0 (successful).
+  INFO [f4a3d6a9] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f4a3d6a9] Finished in 111.215 seconds with exit status 0 (successful).
+  INFO [0c8b98d9] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201019153438 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0c8b98d9] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [af086625] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [af086625] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO [1370fe15] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [1370fe15] Finished in 0.174 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [0dd4e3ee] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930145824 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0dd4e3ee] Finished in 1.224 seconds with exit status 0 (successful).
+  INFO [becfff4d] Running /usr/bin/env echo "Branch develop (at 137eb3f13cef516a7ecba1f5169ef6577735196e) deployed as release 20201019153438 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [becfff4d] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-20 09:32:21 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ff778ac8] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ff778ac8] Finished in 4.123 seconds with exit status 0 (successful).
+  INFO [07067c86] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [07067c86] Finished in 0.685 seconds with exit status 0 (successful).
+  INFO [ee111fb3] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ee111fb3] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [1113e52d] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [1113e52d] Finished in 3.809 seconds with exit status 0 (successful).
+  INFO [db1a503a] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [db1a503a] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [98f0cfeb] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [98f0cfeb] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO [80bccbfb] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [80bccbfb] Finished in 1.653 seconds with exit status 0 (successful).
+  INFO [39a49e3c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [39a49e3c] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [297271e7] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [297271e7] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [8dbda187] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [8dbda187] Finished in 2.053 seconds with exit status 0 (successful).
+  INFO [222f1a5f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201020093233 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [222f1a5f] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [920aa8df] Running /usr/bin/env git archive develop | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201020093233 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [920aa8df] Finished in 0.349 seconds with exit status 0 (successful).
+  INFO [f923ae35] Running /usr/bin/env echo "137eb3f13cef516a7ecba1f5169ef6577735196e" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f923ae35] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [46161dfa] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201020093233 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [46161dfa] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [28162182] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201020093233/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [28162182] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [1900228b] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [1900228b] Finished in 28.819 seconds with exit status 0 (successful).
+  INFO [a7815c06] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [a7815c06] Finished in 113.816 seconds with exit status 0 (successful).
+  INFO [5fd08296] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201020093233 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5fd08296] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO [386d0d4f] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [386d0d4f] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [0238619e] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0238619e] Finished in 0.148 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [9a39396f] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20200930153817 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9a39396f] Finished in 1.081 seconds with exit status 0 (successful).
+  INFO [5504f017] Running /usr/bin/env echo "Branch develop (at 137eb3f13cef516a7ecba1f5169ef6577735196e) deployed as release 20201020093233 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5504f017] Finished in 0.094 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-21 12:08:21 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [df8b3243] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [df8b3243] Finished in 3.143 seconds with exit status 0 (successful).
+  INFO [4a32613b] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4a32613b] Finished in 0.565 seconds with exit status 0 (successful).
+  INFO [795982f4] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [795982f4] Finished in 0.094 seconds with exit status 0 (successful).
+  INFO [b1dc5947] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b1dc5947] Finished in 2.006 seconds with exit status 0 (successful).
+  INFO [5af165f2] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5af165f2] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [223ba3fd] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [223ba3fd] Finished in 0.083 seconds with exit status 0 (successful).
+  INFO [015dfa5b] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [015dfa5b] Finished in 1.628 seconds with exit status 0 (successful).
+  INFO [5a5984a9] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5a5984a9] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [a0964536] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a0964536] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [7f80c299] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7f80c299] Finished in 2.453 seconds with exit status 0 (successful).
+  INFO [2afd3366] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201021120831 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2afd3366] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [a8b66f9d] Running /usr/bin/env git archive feat/embedded-with-new-react-player-lazy | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201021120831 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a8b66f9d] Finished in 0.321 seconds with exit status 0 (successful).
+  INFO [51436a99] Running /usr/bin/env echo "5883cc2bda5c0f1ff081d8eaf61e66a85fc64ece" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [51436a99] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO [c6da3712] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201021120831 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c6da3712] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [ac7d3830] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201021120831/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ac7d3830] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [3adfc746] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3adfc746] Finished in 35.879 seconds with exit status 0 (successful).
+  INFO [f2598180] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f2598180] Finished in 139.292 seconds with exit status 0 (successful).
+  INFO [f2e2e0f7] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201021120831 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f2e2e0f7] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [352a1d44] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [352a1d44] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [b439a11a] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b439a11a] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [86e2ae17] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201006113321 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [86e2ae17] Finished in 1.137 seconds with exit status 0 (successful).
+  INFO [534d8524] Running /usr/bin/env echo "Branch feat/embedded-with-new-react-player-lazy (at 5883cc2bda5c0f1ff081d8eaf61e66a85fc64ece) deployed as release 20201021120831 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [534d8524] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-21 19:45:45 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a61cb1bb] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a61cb1bb] Finished in 2.056 seconds with exit status 0 (successful).
+  INFO [8b98980c] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [8b98980c] Finished in 0.481 seconds with exit status 0 (successful).
+  INFO [4c2369a5] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4c2369a5] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [3b02fd05] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3b02fd05] Finished in 1.776 seconds with exit status 0 (successful).
+  INFO [c3ca888e] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c3ca888e] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [f6fc4cf5] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f6fc4cf5] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [675cc591] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [675cc591] Finished in 1.604 seconds with exit status 0 (successful).
+  INFO [5ad9cb54] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5ad9cb54] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [16ebdad9] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [16ebdad9] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [66d31519] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [66d31519] Finished in 2.145 seconds with exit status 0 (successful).
+  INFO [5b0c4342] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201021194553 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5b0c4342] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [d10b237f] Running /usr/bin/env git archive feat/embedded-with-new-react-player-lazy | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201021194553 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d10b237f] Finished in 0.324 seconds with exit status 0 (successful).
+  INFO [687f6e49] Running /usr/bin/env echo "5d3a1c7d98dcf2529372c3914f393e9422409d3e" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [687f6e49] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [dcdc99c2] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201021194553 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dcdc99c2] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [a453aa9e] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201021194553/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a453aa9e] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [6963327d] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6963327d] Finished in 35.410 seconds with exit status 0 (successful).
+  INFO [92f7ad86] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [92f7ad86] Finished in 146.373 seconds with exit status 0 (successful).
+  INFO [e60e095b] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201021194553 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e60e095b] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [aed9a352] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [aed9a352] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [5c609e85] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5c609e85] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [d4390cb3] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201014132825 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d4390cb3] Finished in 1.178 seconds with exit status 0 (successful).
+  INFO [34f76716] Running /usr/bin/env echo "Branch feat/embedded-with-new-react-player-lazy (at 5d3a1c7d98dcf2529372c3914f393e9422409d3e) deployed as release 20201021194553 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [34f76716] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-22 07:03:14 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7fbc31b8] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7fbc31b8] Finished in 1.859 seconds with exit status 0 (successful).
+  INFO [bb0780fa] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bb0780fa] Finished in 0.484 seconds with exit status 0 (successful).
+  INFO [a7b5ac89] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a7b5ac89] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [97d8bde2] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [97d8bde2] Finished in 1.805 seconds with exit status 0 (successful).
+  INFO [33248bb8] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [33248bb8] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [3e4a54ff] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3e4a54ff] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [7f0b703b] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7f0b703b] Finished in 1.575 seconds with exit status 0 (successful).
+  INFO [b21033b8] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [b21033b8] Finished in 0.065 seconds with exit status 0 (successful).
+  INFO [ae670564] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ae670564] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [182b8c9a] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [182b8c9a] Finished in 2.151 seconds with exit status 0 (successful).
+  INFO [41e06c4c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201022070322 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [41e06c4c] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [5e2d7d30] Running /usr/bin/env git archive feat/embed-video | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201022070322 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [5e2d7d30] Finished in 0.363 seconds with exit status 0 (successful).
+  INFO [43e94305] Running /usr/bin/env echo "a7af698c70da733a80f69a910d83c0ce30d57aad" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [43e94305] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [19f4115e] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201022070322 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [19f4115e] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [70a4f8ae] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201022070322/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [70a4f8ae] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [f7d68dd6] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f7d68dd6] Finished in 34.618 seconds with exit status 0 (successful).
+  INFO [aec9789c] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [aec9789c] Finished in 144.332 seconds with exit status 0 (successful).
+  INFO [c6295210] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201022070322 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c6295210] Finished in 0.106 seconds with exit status 0 (successful).
+  INFO [65b4ea92] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [65b4ea92] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [0a343b61] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0a343b61] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [2fa9c00f] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201015202632 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2fa9c00f] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [c449a68d] Running /usr/bin/env echo "Branch feat/embed-video (at a7af698c70da733a80f69a910d83c0ce30d57aad) deployed as release 20201022070322 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c449a68d] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-26 20:57:55 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bf867ec4] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [bf867ec4] Finished in 3.825 seconds with exit status 0 (successful).
+  INFO [59bcc4ef] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [59bcc4ef] Finished in 0.713 seconds with exit status 0 (successful).
+  INFO [f43e0340] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f43e0340] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [cbfb0a1e] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [cbfb0a1e] Finished in 3.994 seconds with exit status 0 (successful).
+  INFO [743303c8] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [743303c8] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [e16f193a] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [e16f193a] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [bc3e6998] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [bc3e6998] Finished in 1.834 seconds with exit status 0 (successful).
+  INFO [7181a945] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [7181a945] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [84d464e7] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [84d464e7] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [34bd7735] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [34bd7735] Finished in 2.241 seconds with exit status 0 (successful).
+  INFO [fa320d85] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201026205808 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [fa320d85] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [a14128a7] Running /usr/bin/env git archive feat/react-player-lazy | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201026205808 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [a14128a7] Finished in 0.367 seconds with exit status 0 (successful).
+  INFO [ecb2a07b] Running /usr/bin/env echo "b8da6724bfd48a406e16972c23a0b02ce677cf64" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ecb2a07b] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [d59452a8] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201026205808 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [d59452a8] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO [8ead735a] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201026205808/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [8ead735a] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [726782be] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [726782be] Finished in 27.970 seconds with exit status 0 (successful).
+  INFO [1f17c070] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [1f17c070] Finished in 110.866 seconds with exit status 0 (successful).
+  INFO [e351d4a4] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201026205808 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [e351d4a4] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [963d6e1a] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [963d6e1a] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [a7b4333d] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [a7b4333d] Finished in 0.136 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [68ff8ec8] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201023124820 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [68ff8ec8] Finished in 1.201 seconds with exit status 0 (successful).
+  INFO [12897753] Running /usr/bin/env echo "Branch feat/react-player-lazy (at b8da6724bfd48a406e16972c23a0b02ce677cf64) deployed as release 20201026205808 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [12897753] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-27 09:17:44 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e7a5dfd4] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [e7a5dfd4] Finished in 3.525 seconds with exit status 0 (successful).
+  INFO [bbacf320] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bbacf320] Finished in 0.659 seconds with exit status 0 (successful).
+  INFO [11ee1e67] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [11ee1e67] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [7d1f8ce5] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [7d1f8ce5] Finished in 1.959 seconds with exit status 0 (successful).
+  INFO [841b97df] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [841b97df] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [dcbea106] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dcbea106] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [aec24942] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [aec24942] Finished in 1.715 seconds with exit status 0 (successful).
+  INFO [673a45af] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [673a45af] Finished in 0.092 seconds with exit status 0 (successful).
+  INFO [2348717d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [2348717d] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [f3c87329] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f3c87329] Finished in 2.887 seconds with exit status 0 (successful).
+  INFO [aa119c35] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201027091755 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [aa119c35] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [95ed6638] Running /usr/bin/env git archive feat/jpg-lazy-carousel | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201027091755 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [95ed6638] Finished in 0.379 seconds with exit status 0 (successful).
+  INFO [eaebf9a5] Running /usr/bin/env echo "b0d0a8714d5c0dae9ae01cea94de8bef8ec34743" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [eaebf9a5] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [4e9a7fa9] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201027091755 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [4e9a7fa9] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [51ddb07d] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201027091755/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [51ddb07d] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [d8f04864] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d8f04864] Finished in 38.569 seconds with exit status 0 (successful).
+  INFO [f6b07382] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f6b07382] Finished in 144.280 seconds with exit status 0 (successful).
+  INFO [c384854b] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201027091755 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c384854b] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [261b4839] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [261b4839] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [001fdeb5] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [001fdeb5] Finished in 0.174 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [6cc46bc9] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201015202739 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [6cc46bc9] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [c412efa1] Running /usr/bin/env echo "Branch feat/jpg-lazy-carousel (at b0d0a8714d5c0dae9ae01cea94de8bef8ec34743) deployed as release 20201027091755 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [c412efa1] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-10-27 11:01:11 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3b13e6cc] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [3b13e6cc] Finished in 3.081 seconds with exit status 0 (successful).
+  INFO [bc916113] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [bc916113] Finished in 0.779 seconds with exit status 0 (successful).
+  INFO [dac81d85] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dac81d85] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [d7838ab0] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d7838ab0] Finished in 1.957 seconds with exit status 0 (successful).
+  INFO [dfa11646] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [dfa11646] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh 100.0%
+  INFO [412c1e37] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-staging-vagrant.sh as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [412c1e37] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [99616c98] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [99616c98] Finished in 1.880 seconds with exit status 0 (successful).
+  INFO [fca65269] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [fca65269] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [0d901f7b] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0d901f7b] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [9d2d50dd] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9d2d50dd] Finished in 2.319 seconds with exit status 0 (successful).
+  INFO [9ab711f6] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201027110121 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [9ab711f6] Finished in 0.104 seconds with exit status 0 (successful).
+  INFO [f647cea1] Running /usr/bin/env git archive feat/jpg-lazy-carousel | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201027110121 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f647cea1] Finished in 0.288 seconds with exit status 0 (successful).
+  INFO [39bf2968] Running /usr/bin/env echo "30df02becfd574f807df8aec01575a5300d740ab" >> REVISION as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [39bf2968] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [a06935f4] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201027110121 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a06935f4] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO [0b1b5c45] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201027110121/.env as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [0b1b5c45] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [f03b7dcb] Running /usr/bin/env npm install --production as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [f03b7dcb] Finished in 36.346 seconds with exit status 0 (successful).
+  INFO [a0469e07] Running /usr/bin/env npm run compile as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a0469e07] Finished in 145.631 seconds with exit status 0 (successful).
+  INFO [a83bb359] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201027110121 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [a83bb359] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [52173dc6] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [52173dc6] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [ca90444f] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [ca90444f] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.staging.myhelsinki.fi
+  INFO [d3230a12] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201015202850 as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [d3230a12] Finished in 1.371 seconds with exit status 0 (successful).
+  INFO [091ad997] Running /usr/bin/env echo "Branch feat/jpg-lazy-carousel (at 30df02becfd574f807df8aec01575a5300d740ab) deployed as release 20201027110121 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.staging.myhelsinki.fi
+  INFO [091ad997] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-17 12:22:56 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [537d136d] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [537d136d] Finished in 6.890 seconds with exit status 0 (successful).
+  INFO [19bbf26b] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [19bbf26b] Finished in 1.030 seconds with exit status 0 (successful).
+  INFO [da8c1878] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [da8c1878] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [53dbed78] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [53dbed78] Finished in 3.433 seconds with exit status 0 (successful).
+  INFO [e8f8f8e6] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [e8f8f8e6] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [3fba4255] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [3fba4255] Finished in 0.058 seconds with exit status 0 (successful).
+  INFO [66af440e] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [66af440e] Finished in 1.738 seconds with exit status 0 (successful).
+  INFO [13593282] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [13593282] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [6e61631f] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [6e61631f] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [b4cc01f2] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b4cc01f2] Finished in 2.517 seconds with exit status 0 (successful).
+  INFO [79749433] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201117122311 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [79749433] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [be9eab3c] Running /usr/bin/env git archive feat/accessibility-feedback-form | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201117122311 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [be9eab3c] Finished in 0.337 seconds with exit status 0 (successful).
+  INFO [f39ebbb4] Running /usr/bin/env echo "ae48a74f6a76d878488c3126870a3b4706f333cd" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f39ebbb4] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [64680eba] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201117122311 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [64680eba] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [0b3a31f3] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201117122311/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0b3a31f3] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [871e006a] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [871e006a] Finished in 28.219 seconds with exit status 0 (successful).
+  INFO [605bd047] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [605bd047] Finished in 115.555 seconds with exit status 0 (successful).
+  INFO [fec1fb2c] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201117122311 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [fec1fb2c] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [88f95b7b] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [88f95b7b] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [19e4c1e7] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [19e4c1e7] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [45ffec10] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201023134814 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [45ffec10] Finished in 1.145 seconds with exit status 0 (successful).
+  INFO [69fc18f7] Running /usr/bin/env echo "Branch feat/accessibility-feedback-form (at ae48a74f6a76d878488c3126870a3b4706f333cd) deployed as release 20201117122311 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [69fc18f7] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-19 13:46:26 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b980b1ae] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b980b1ae] Finished in 5.953 seconds with exit status 0 (successful).
+  INFO [cd441399] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [cd441399] Finished in 0.895 seconds with exit status 0 (successful).
+  INFO [ffeee155] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [ffeee155] Finished in 0.091 seconds with exit status 0 (successful).
+  INFO [efc30f6a] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [efc30f6a] Finished in 2.044 seconds with exit status 0 (successful).
+  INFO [aab79156] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [aab79156] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [62047dfd] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [62047dfd] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [3df78f16] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [3df78f16] Finished in 1.848 seconds with exit status 0 (successful).
+  INFO [81a6c400] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [81a6c400] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [27cdd60c] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [27cdd60c] Finished in 0.057 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [9d21b2f0] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9d21b2f0] Finished in 2.797 seconds with exit status 0 (successful).
+  INFO [f1010722] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201119134639 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f1010722] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [139d2219] Running /usr/bin/env git archive test/reactplayer-enablejsapi | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201119134639 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [139d2219] Finished in 0.339 seconds with exit status 0 (successful).
+  INFO [b2d47645] Running /usr/bin/env echo "8374bfd860603c0b8e6360fbfaee735e405f69d9" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b2d47645] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [00e4af7d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201119134639 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [00e4af7d] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO [06b5edbc] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201119134639/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [06b5edbc] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [c99f2719] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c99f2719] Finished in 30.153 seconds with exit status 0 (successful).
+  INFO [a5080a77] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [a5080a77] Finished in 115.174 seconds with exit status 0 (successful).
+  INFO [fb95a173] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201119134639 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [fb95a173] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [dc206256] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [dc206256] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [28620b80] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [28620b80] Finished in 0.138 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [b1d7345f] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201023143039 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b1d7345f] Finished in 1.189 seconds with exit status 0 (successful).
+  INFO [fcaf82b5] Running /usr/bin/env echo "Branch test/reactplayer-enablejsapi (at 8374bfd860603c0b8e6360fbfaee735e405f69d9) deployed as release 20201119134639 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [fcaf82b5] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-19 14:36:44 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d044dd15] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [d044dd15] Finished in 3.673 seconds with exit status 0 (successful).
+  INFO [27e0f57c] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [27e0f57c] Finished in 0.860 seconds with exit status 0 (successful).
+  INFO [855fa6da] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [855fa6da] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [be5a87bc] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [be5a87bc] Finished in 1.929 seconds with exit status 0 (successful).
+  INFO [4793b6da] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [4793b6da] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [8d369db2] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [8d369db2] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [19c25094] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [19c25094] Finished in 1.699 seconds with exit status 0 (successful).
+  INFO [71c81b00] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [71c81b00] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [0cb1e68d] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [0cb1e68d] Finished in 0.075 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [9a4880f5] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9a4880f5] Finished in 2.282 seconds with exit status 0 (successful).
+  INFO [17e7e9be] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201119143655 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [17e7e9be] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [2a469f7d] Running /usr/bin/env git archive test/reactplayer-enablejsapi | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201119143655 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [2a469f7d] Finished in 0.361 seconds with exit status 0 (successful).
+  INFO [4e07f923] Running /usr/bin/env echo "861758aa2cefb59ac1656d4dbca9ab085a005901" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [4e07f923] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [8855a4c9] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201119143655 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [8855a4c9] Finished in 0.060 seconds with exit status 0 (successful).
+  INFO [9dea09e7] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201119143655/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9dea09e7] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [31963e29] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [31963e29] Finished in 28.054 seconds with exit status 0 (successful).
+  INFO [f40c8a81] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [f40c8a81] Finished in 113.020 seconds with exit status 0 (successful).
+  INFO [79beb43e] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201119143655 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [79beb43e] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO [6821cb4b] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [6821cb4b] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO [b1c63b39] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b1c63b39] Finished in 0.154 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [b801f6a1] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201026205808 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b801f6a1] Finished in 0.931 seconds with exit status 0 (successful).
+  INFO [2955509a] Running /usr/bin/env echo "Branch test/reactplayer-enablejsapi (at 861758aa2cefb59ac1656d4dbca9ab085a005901) deployed as release 20201119143655 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [2955509a] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-23 09:26:35 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a92b2ce5] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [a92b2ce5] Finished in 4.700 seconds with exit status 0 (successful).
+  INFO [a3ac9c11] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [a3ac9c11] Finished in 0.958 seconds with exit status 0 (successful).
+  INFO [2243d1b1] Running /usr/bin/env rm -r myhelsinki-environment as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [2243d1b1] Finished in 0.223 seconds with exit status 0 (successful).
+  INFO [24815302] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-23 09:38:16 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [465b270b] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [465b270b] Finished in 1.467 seconds with exit status 0 (successful).
+  INFO [206433a6] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [206433a6] Finished in 0.842 seconds with exit status 0 (successful).
+  INFO [2aa8c4d7] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-23 09:40:47 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7d0fdb9e] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [7d0fdb9e] Finished in 1.365 seconds with exit status 0 (successful).
+  INFO [c32908e9] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c32908e9] Finished in 0.820 seconds with exit status 0 (successful).
+  INFO [e9be6d21] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-11-26 08:41:54 +0000 cap dev deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b0c3cc6b] Running /usr/bin/env sudo chown -R myhelsinki:myhelsinki /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [b0c3cc6b] Finished in 1.725 seconds with exit status 0 (successful).
+  INFO [1e8cfe2e] Running /usr/bin/env sudo find /home/myhelsinki/myhelsinki-react -type d -name 'current' -prune -exec rm -r {} \; as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [1e8cfe2e] Finished in 0.757 seconds with exit status 0 (successful).
+  INFO [c5b032af] Running /usr/bin/env git clone git@github.com:helsinkimarketing/myhelsinki-environment.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [c5b032af] Finished in 1.960 seconds with exit status 0 (successful).
+  INFO [29d45328] Running /usr/bin/env mkdir -p /tmp as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [29d45328] Finished in 0.094 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh 100.0%
+  INFO [29d929bd] Running /usr/bin/env chmod 700 /tmp/git-ssh-myhelsinki-react-dev-vagrant.sh as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [29d929bd] Finished in 0.105 seconds with exit status 0 (successful).
+  INFO [1477b9e4] Running /usr/bin/env git ls-remote --heads git@github.com:helsinkimarketing/myhelsinki-react.git as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [1477b9e4] Finished in 2.173 seconds with exit status 0 (successful).
+  INFO [8ee68452] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared /home/myhelsinki/myhelsinki-react/releases as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [8ee68452] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [aea7c0a7] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/shared as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [aea7c0a7] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/myhelsinki/myhelsinki-react/repo
+  INFO [73d8fa02] Running /usr/bin/env git remote update --prune as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [73d8fa02] Finished in 3.092 seconds with exit status 0 (successful).
+  INFO [9f7102c1] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201126084204 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [9f7102c1] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [68f0072e] Running /usr/bin/env git archive develop | tar -x -f - -C /home/myhelsinki/myhelsinki-react/releases/20201126084204 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [68f0072e] Finished in 0.513 seconds with exit status 0 (successful).
+  INFO [5f7edf3d] Running /usr/bin/env echo "c62736b6407d1e1d40b92c8437e0328ff210fb96" >> REVISION as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [5f7edf3d] Finished in 0.092 seconds with exit status 0 (successful).
+  INFO [d01c11fc] Running /usr/bin/env mkdir -p /home/myhelsinki/myhelsinki-react/releases/20201126084204 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [d01c11fc] Finished in 0.101 seconds with exit status 0 (successful).
+  INFO [d809fca8] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/shared/.env /home/myhelsinki/myhelsinki-react/releases/20201126084204/.env as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [d809fca8] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [44075447] Running /usr/bin/env npm install --production as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [44075447] Finished in 32.754 seconds with exit status 0 (successful).
+  INFO [17d8377c] Running /usr/bin/env npm run compile as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [17d8377c] Finished in 119.028 seconds with exit status 0 (successful).
+  INFO [515bfa99] Running /usr/bin/env ln -s /home/myhelsinki/myhelsinki-react/releases/20201126084204 /home/myhelsinki/myhelsinki-react/releases/current as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [515bfa99] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [d1d685fe] Running /usr/bin/env mv /home/myhelsinki/myhelsinki-react/releases/current /home/myhelsinki/myhelsinki-react as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [d1d685fe] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [6741f593] Running /usr/bin/env sudo service myhelsinki-react-api restart as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [6741f593] Finished in 0.195 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh.dev.myhelsinki.fi
+  INFO [11eaf4fc] Running /usr/bin/env rm -rf /home/myhelsinki/myhelsinki-react/releases/20201029103016 as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [11eaf4fc] Finished in 1.732 seconds with exit status 0 (successful).
+  INFO [43e0180c] Running /usr/bin/env echo "Branch develop (at c62736b6407d1e1d40b92c8437e0328ff210fb96) deployed as release 20201126084204 by vagrant" >> /home/myhelsinki/myhelsinki-react/revisions.log as myhelsinki@ssh.dev.myhelsinki.fi
+  INFO [43e0180c] Finished in 0.099 seconds with exit status 0 (successful).

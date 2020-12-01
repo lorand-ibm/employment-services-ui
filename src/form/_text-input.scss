@@ -1,0 +1,79 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  &--collapse-margins {
+    margin-bottom: 0;
+  }
+
+  &__label {
+    font-size: rem-calc(12);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: -0.2em;
+  }
+
+  &__input {
+    box-sizing: content-box;
+    padding: 0.7em 0;
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+
+    &:focus {
+      border-width: 0;
+      box-shadow: none;
+    }
+
+    // @todo Use autoprefixer.
+    &::placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+    &::-webkit-input-placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+    &::-moz-placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+    &:-ms-input-placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+
+    // Reset some Foundation styles.
+    // @todo Do this by removing Foundation form stylesheet.
+    height: auto;
+    border: none;
+    box-shadow: none;
+  }
+
+  &--type-textarea {
+    .text-input__input {
+      resize: none;
+
+      // Reset some Foundation styles.
+      // @todo Do this by removing Foundation form stylesheet.
+      min-height: 0;
+    }
+  }
+
+  &--error {
+    .text-input__input {
+      color: $hel-metro !important;
+    }
+  }
+
+  &__underline {
+    height: 1px;
+    background-color: currentColor;
+    &--error {
+      background-color: $hel-metro;
+    }
+  }
+}

@@ -1,0 +1,278 @@
+.footer {
+  position: relative;
+  background: #0E00BF;
+  color: $hel-black;
+  padding: 30px 0 0;
+  z-index: 1501; // 1 more than loading indicators z-index.
+
+  .logo {
+    img {
+      height: 60px;
+
+      @include breakpoint(small only) {
+        height: 58.7px;
+      }
+    }
+  }
+  .logo-ja {
+    img {
+      height: 55.6px;
+      width: 147px;
+
+      @include breakpoint(small only) {
+        height: 58.7px;
+        width: 155px;
+      }
+    }
+  }
+  .logo-ru {
+    img {
+      height: 55.6px;
+      width: 143px;
+
+      @include breakpoint(small only) {
+        height: 58.7px;
+        width: 151px;
+      }
+    }
+  }
+  .logo-sv {
+    img {
+      height: 55.6px;
+      width: 159px;
+
+      @include breakpoint(small only) {
+        height: 58.7px;
+        width: 168px;
+      }
+    }
+  }
+
+  &__wrapper {
+    height: 148px;
+
+    @include breakpoint(small only) {
+      height: auto;
+    }
+
+    .row {
+      height: 100%;
+    }
+
+    .column {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      text-align: right;
+      padding-bottom: 10px;
+      width: 100%;
+      justify-content: space-between;
+
+      @include breakpoint(small only) {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px - 16.3px 0 44.4px - 16.3px;
+      }
+
+      a {
+        font-size: 15px;
+        font-weight: 500;
+        color: $hel-black;
+        margin: 0 17px;
+        display: inline-block;
+
+        @include breakpoint(small only) {
+          margin: 16.3px 0;
+          font-size: 19px;
+          font-weight: 500;
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__contact {
+    font-size: 15px;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: $hel-black;
+  }
+
+  &__bottom {
+    height: 90px;
+    background-color: $hel-fog;
+
+    @include breakpoint(small only) {
+      height: auto;
+      padding: 30px 10px 47px;
+    }
+
+    > .row {
+      height: 100%;
+    }
+
+    .column {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint(small only) {
+        flex-direction: column;
+      }
+    }
+
+    .links-wrapper {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint(small only) {
+        margin-top: 34.5px;
+        width: 100%;
+      }
+    }
+
+    .links {
+      display: inline-block;
+      margin: 0 55px 0 0;
+
+      @include breakpoint(small only) {
+        margin: 0 30px 0 0;
+      }
+
+      a {
+        font-size: 12px;
+        color: $hel-black;
+        text-transform: uppercase;
+        margin: 0 10px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .social-media-links {
+    display: flex;
+    align-items: center;
+    margin: 0 -21px;
+    justify-content: space-between;
+
+    @include breakpoint(small only) {
+      width: 100%;
+      margin: 0;
+    }
+
+    a {
+      margin: 0 21px;
+      display: inline-block;
+
+      @include breakpoint(small only) {
+        margin: 0 17px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &__facebook {
+      background: url(../assets/images/facebook.svg);
+      width: 12px;
+      height: 21px;
+      background-size: cover;
+    }
+
+    &__instagram {
+      background: url(../assets/images/instagram.svg);
+      width: 21px;
+      height: 21px;
+      background-size: cover;
+    }
+
+    &__youtube {
+      background: url(../assets/images/youtube.svg);
+      width: 28px;
+      height: 21px;
+      background-size: cover;
+    }
+
+    &__twitter {
+      background: url(../assets/images/twitter.svg);
+      width: 24px;
+      height: 21px;
+      background-size: cover;
+    }
+  }
+
+  .feedback {
+    display: flex;
+    flex: 1;
+    text-align: right;
+    justify-content: flex-end;
+    @include breakpoint(small only) {
+      justify-content: space-evenly;
+      flex-direction: column;
+      order: -1;
+      width: 100%;
+      min-height: 41px;
+    }
+
+    .button,
+    .actionLink {
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      margin-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      @include breakpoint(small only) {
+        padding-left: 53px;
+        padding-right: 53px;
+        flex: 1;
+      }
+      @include breakpoint(medium up) {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-basis: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+      @media (min-width: 1120px) {
+        padding-left: 50px;
+        padding-right: 50px;
+        flex-basis: 27%;
+      }
+    }
+    .actionLink:not(:last-child) {
+      margin-right: 10px;
+      @include breakpoint(small only) {
+        margin-right: 0;
+      }
+    }
+  }
+}

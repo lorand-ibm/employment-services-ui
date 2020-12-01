@@ -1,0 +1,81 @@
+.myhki-lift-up-square-image {
+
+  margin: 0 60px 0 60px;
+  padding: 0;
+
+  @include breakpoint(medium down) {
+    margin: 0 0 0 0;
+  }
+
+  &__row {
+    position: relative;
+    margin: 0 0 0 0;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  &__row:before{
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
+
+  &__column {
+    position: relative;
+    padding: 0;
+    min-height: 100%;
+    max-height: 100%;
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--context {
+      padding: 0 15% 2% 15%;
+      @include breakpoint(medium up) {
+        font-size: 15px;
+        line-height: 20px;
+      }
+      @include breakpoint(small down) {
+        font-size: 10px;
+        line-height: 10px;
+        padding: 0 15% 2% 15%;
+      }
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: $hel-dark-gray;
+    }
+
+    &--title {
+      padding: 0 15% 0 15%;
+      @include breakpoint(large up) {
+        font-size: 50px;
+        line-height: 50px;
+        }
+      @include breakpoint(medium only) {
+        font-size: 40px;
+        line-height: 40px;
+      }
+      @include breakpoint(small only) {
+        font-size: 24px;
+        line-height: 24px;
+        padding: 0 15% 0 15%;
+      }
+      letter-spacing: -1.13333px;
+      color: $hel-black;
+    }
+  }
+}
+
+

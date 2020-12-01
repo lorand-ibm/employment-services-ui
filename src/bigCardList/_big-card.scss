@@ -1,0 +1,77 @@
+.myhki-big-card {
+  position: relative;
+
+  margin: 20px 0;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 110%;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $hel-silver;
+
+    &-image {
+      height: calc(100% - 104px);
+      width: 100%;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+
+    &-image2 {
+      height: calc(100% - 104px);
+      width: 100%;
+      background-size:auto 130px, cover !important;
+      background-position: center !important;
+    }
+  }
+
+  &__details {
+    position: absolute;
+    color: $hel-black;
+    background: #ffffff;
+    min-height: 104px;
+    padding: 27px 0 27px 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    height: 16px;
+    line-height: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__headline {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 20px;
+    max-height: 60px; // Maximum of 3 lines.
+    overflow: hidden;
+    letter-spacing: normal;
+    text-align: center;
+    display: block;
+    margin: 8px 20px;
+  }
+}

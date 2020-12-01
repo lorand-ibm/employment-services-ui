@@ -1,0 +1,39 @@
+.toaster {
+  width: 320px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1010;
+
+  @include breakpoint(medium up) {
+    bottom: 40px;
+    left: 40px;
+  }
+
+  &__message-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__message-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $hel-dark-gray;
+    color: #ffffff;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 14px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &__remove-message {
+    background: transparent;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 100%;
+    margin: 0;
+    padding: 5px;
+  }
+}

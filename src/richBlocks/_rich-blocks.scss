@@ -1,0 +1,199 @@
+.myhki-rich-blocks {
+  padding: 0 0 90px;
+
+  &__spacer {
+    background: #ffffff;
+    overflow: hidden;
+    max-height: 257px;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 20.4%;
+    }
+  }
+
+  &__wrapper {
+    columns: 1;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    column-gap: 18px;
+    margin-top: -22%;
+
+    @include breakpoint (medium up) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+
+  &--collapse-margins {
+    padding-bottom: 0;
+    .myhki-rich-blocks__wrapper {
+      margin-top: 0;
+    }
+  }
+
+  .myhki-rich-block {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    @include breakpoint (medium up) {
+      flex: 50%;
+      max-width: 48%;
+    }
+  }
+}
+
+.myhki-rich-block {
+  position: relative;
+  padding-bottom: 30px;
+
+  &--has-link {
+    .myhki-rich-block {
+      &__image,
+      &__title {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 61.68%;
+    }
+  }
+
+  &__wrapper {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    padding: 31px 20px 38px;
+
+    @include breakpoint (medium up) {
+      margin: -17% 10px 0;
+    }
+
+    @include breakpoint (large up) {
+      padding: 39px 29px 39px;
+    }
+  }
+
+  &__wrapper-inner {
+
+  }
+
+  &__info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    display: block;
+    font-size: 27.5px;
+    font-weight: bold;
+    line-height: 1.22;
+    letter-spacing: normal;
+    color: $hel-black;
+    margin-bottom: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include breakpoint (large up) {
+      font-size: 30px;
+      line-height: 1.23;
+      letter-spacing: -1px;
+    }
+    &-opened {
+      white-space: normal;
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    min-height: 0;
+  }
+
+  &__body,
+  &__body p {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: $hel-dark-gray;
+    font-size: 16px;
+    line-height: 1.5;
+
+    @include breakpoint (large up) {
+      font-size: 18px;
+      line-height: 1.39;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    button {
+      text-decoration: underline;
+    }
+
+    button:hover {
+      color: #1e1b1c;
+    }
+  }
+
+  &__read-more {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #e22320;
+    display: block;
+    margin-top: 18px;
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 7px solid #e22320;
+      display: inline-block;
+      margin-left: 5px;
+      transform: rotate(0);
+    }
+
+    &--open {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .myhki-card-placeholder {
+    display: none;
+  }
+
+  &--no-image {
+    .myhki-card-placeholder {
+      display: block;
+    }
+  }
+}

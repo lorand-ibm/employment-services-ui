@@ -1,0 +1,133 @@
+.article-page {
+  flex: 1;
+
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.12;
+    text-align: center;
+    color: $hel-black;
+    margin: 0 0 10px;
+
+    @include breakpoint(medium only) {
+      font-size: 45px;
+    }
+
+    @include breakpoint(medium up) {
+      font-size: 67px;
+      font-weight: bold;
+      line-height: 0.9;
+      letter-spacing: -1.8px;
+      margin: 0 60px;
+      text-align: left;
+    }
+
+    @include breakpoint(large up) {
+      font-size: 60px;
+    }
+  }
+
+  .myhki-paragraphs {
+    padding-top: 20px;
+
+    @include breakpoint(medium up) {
+      padding-top: 29px;
+    }
+  }
+
+  .myhki-hero {
+    height: 60vh;
+    min-height: 200px;
+  }
+  .myhki-breadcrumbs-wrapper {
+    display: flex;
+  }
+  .myhki-breadcrumbs {
+    flex: 1 1 0%;
+    @include breakpoint(medium up) {
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+  }
+
+  &__teaser-text {
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    max-width: 500px;
+    margin: 22px auto 14px;
+    font-size: 14px;
+    text-align: center;
+    color: #001028;
+
+    @include breakpoint(medium up) {
+      font-size: 24px;
+      font-weight: bold;
+      color: $hel-black;
+      text-align: left;
+      max-width: none;
+      padding: 0 60px;
+      margin: 26px auto 24px;
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    color: #525a66;
+
+    @include breakpoint(medium up) {
+      padding: 0 60px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.42;
+      color: #979797;
+    }
+  }
+
+  &__footer {
+    border-top: solid 1px #ebedf1;
+    padding: 15px 0 0 0;
+    margin: 70px 0;
+  }
+
+  .myhki-tags {
+    margin: 20px 0;
+    padding: 3px 0 0 10px;
+    text-align: left;
+
+    @include breakpoint(large up) {
+      margin: 0;
+      text-align: right;
+    }
+  }
+
+  .myhki-share-links {
+    margin: 10px 10px 0 10px;
+  }
+
+  &__related-articles {
+    &-wrapper {
+      background: #ebedf1;
+      padding: 0 0 196px;
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+
+    .related-articles-card-list {
+      margin-top: 70px;
+    }
+  }
+}

@@ -1,0 +1,142 @@
+.myhki-accordion {
+  background: #ffffff;
+  margin-bottom: 1px;
+
+  &__header {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 26px 42px 26px 20px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      background-image: url(../assets/images/expand-icon.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+      transition: all 0.4s ease;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 17px;
+      height: 8.9px;
+      margin-top: 0px;
+      border-bottom: 1px solid grey;
+    }
+  }
+
+
+  &__icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: auto 10px auto 0;
+
+    > img {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    color: #0a0a0a;
+    line-height: 1.8;
+    color: rgb(0, 32, 191);
+  }
+
+  &__body {
+    border-bottom: 1px solid grey;
+    @include body-georgia-style;
+    max-height: 0;
+    height:auto;
+    overflow: auto;
+
+    &-hidden {
+      display: none;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $hel-dark-gray;
+    }
+
+    &-wrapper {
+      padding: 15px 20px 25px;
+      max-width: 80%;
+    }
+  }
+  &__source {
+    display: flex;
+    margin-top: 30px;
+
+    .myhki-accordion__source-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin-right: 20px;
+        vertical-align: middle;
+    }
+
+    .myhki-accordion__source-text {
+      .title {
+        margin-top: 2px;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        display: block;
+        color: $hel-dark-gray;
+      }
+      .text {
+        font-size: 0.89rem;
+        line-height: 1.2rem;
+        display: block;
+        color: #abb2be;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  &--open {
+    .myhki-accordion__header:after {
+      transform: rotate(0);
+    }
+
+    .myhki-accordion__body {
+      max-height: none;
+    }
+  }
+}
+
+.myhki-accordion-group {
+  + .myhki-accordion-group {
+    margin-top: 80px;
+  }
+  border-bottom: 1px solid grey;
+}
+
+.myhki-accordion-group__title {
+  margin-bottom: 30px;
+  font-size: 37px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(0, 32, 191);
+
+  @include breakpoint(medium up) {
+    font-size: 45px;
+  }
+  border-bottom: 1px solid grey;
+}
+
+.accordion-border {
+  border-bottom-color: grey;
+  margin: 1px;
+  margin-left: 47px;
+}

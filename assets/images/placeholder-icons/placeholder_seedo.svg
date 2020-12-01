@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="89px" height="80px" viewBox="0 0 89 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>placeholder_seedo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M56.9196279,0.486619535 L0.11787907,32.1383777 L6.69332093,43.9373358 C7.73213023,43.3577637 8.86057674,43.0814847 9.97428837,43.0814847 C12.3441488,43.0814847 14.6427907,44.331494 15.879293,46.549094 C17.6953674,49.8079591 16.5264,53.9214474 13.266307,55.736294 L19.8417488,67.5352521 L76.6422698,35.882266 L70.0680558,24.0833079 C70.0619163,24.0869916 70.0545488,24.0919033 70.0484093,24.095587 C69.0083721,24.6751591 67.8799256,24.9502102 66.7686698,24.9502102 C64.3975814,24.9502102 62.0977116,23.7002009 60.8624372,21.4838288 C59.0463628,18.2249637 60.2165581,14.1127033 63.4741953,12.2966288 C63.4815628,12.2917172 63.4877023,12.2892614 63.4938419,12.2855777 L56.9196279,0.486619535 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="76.5243907" height="67.0486326" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <polygon id="path-3" points="42.870653 36.2831777 28.8602344 44.0902102 34.6117507 54.41568 48.6246251 46.6074195"></polygon>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="19.7643907" height="18.1325023" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mobile" transform="translate(-1283.000000, -3330.000000)" stroke="#FFFFFF">
+            <g id="placeholder_seedo" transform="translate(1284.000000, 3331.000000)">
+                <path d="M16.7488967,48.5574586 L5.13289674,48.5574586 C3.86938047,48.5095702 2.81215256,48.0589284 1.96366884,47.2079888 C1.1127293,46.3582772 0.660859535,45.2764912 0.612971163,43.9638586 L0.612971163,9.37617488 C0.660859535,8.11388651 1.1127293,7.0554307 1.96366884,6.20449116 C2.81215256,5.35355163 3.86938047,4.90413767 5.13289674,4.8562493 L45.7962642,4.8562493 C47.1113526,4.90413767 48.1931386,5.35355163 49.0428502,6.20449116 C49.8937898,7.0554307 50.3419758,8.11388651 50.39232,9.37617488 L50.39232,24.2326214" id="Stroke-1" stroke-width="3"></path>
+                <path d="M50.2608112,18.4281823 L0.746690233,18.4281823" id="Stroke-3" stroke-width="3"></path>
+                <path d="M10.1547907,0.613953488 L10.1547907,9.20930233" id="Stroke-5" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M25.5036279,0.613953488 L25.5036279,9.20930233" id="Stroke-7" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M40.8524651,0.613953488 L40.8524651,9.20930233" id="Stroke-9" stroke-width="3" stroke-linecap="round"></path>
+                <g id="Group-13" transform="translate(11.051163, 11.421868)" stroke-width="6">
+                    <use id="Fill-11" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                </g>
+                <use id="Fill-14" mask="url(#mask-4)" stroke-width="6" xlink:href="#path-3"></use>
+                <path d="M39.3379647,62.89536 L68.834746,46.4585972" id="Stroke-16" stroke-width="3"></path>
+                <path d="M36.872573,58.4705972 L66.3693544,42.0338344" id="Stroke-18" stroke-width="3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

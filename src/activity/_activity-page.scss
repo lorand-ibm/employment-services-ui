@@ -1,0 +1,207 @@
+.activity-page {
+  flex: 1;
+  padding-bottom: 120px;
+
+  .myhki-breadcrumbs {
+    margin-bottom: 20px;
+
+    @include breakpoint(medium up) {
+      margin-bottom: 54px;
+    }
+  }
+
+  h1 {
+    margin: 14px 0 24px;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: $hel-black;
+
+    @include breakpoint(small only) {
+      text-align: center;
+    }
+  }
+
+  .similar-places {
+    margin-top: 96px;
+  }
+
+  .myhki-photo-grid {
+    margin-top: 120px;
+  }
+
+  &__details {
+    @include breakpoint(small only) {
+      .row {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+
+  &__info {
+    @include breakpoint(small only) {
+      padding: 0 5px;
+    }
+  }
+
+  .desktop-body-column {
+    @include breakpoint(small only) {
+      display: none;
+    }
+  }
+
+  &__body {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #525a66;
+    margin: 15px 0 0;
+
+    &__mobile {
+      margin: 30px 0 0;
+
+      @include breakpoint(medium up) {
+        display: none;
+      }
+    }
+  }
+
+  &__price,
+  &__duration,
+  &__where-and-when,
+  &__organiser {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $hel-black;
+  }
+
+  &__my-helsinki-actions {
+    text-align: right;
+
+    @include breakpoint(small only) {
+      margin: 20px 0 10px;
+      text-align: center;
+    }
+  }
+
+  &__save-to-my-helsinki {
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    text-align: right;
+    color: #525a66;
+
+    &:focus,
+    &:hover,
+    &:active {
+      .page-details__save-to-my-helsinki-icon {
+        background: url(../assets/images/grey-heart-with-shadow.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-icon {
+      width: 23px;
+      height: 22px;
+      margin-right: 8px;
+      background: url(../assets/images/grey-heart-outline.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
+  &__cta-buttons {
+    margin: 20px 0 0;
+    text-align: right;
+    justify-content: center;
+
+    @include breakpoint(medium up) {
+      justify-content: flex-end;
+    }
+
+    .button {
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: 0.9px;
+      text-align: center;
+      color: #525a66;
+      margin: 0 5px;
+      line-height: 44px;
+      padding: 0 14px;
+      min-width: 165px;
+    }
+
+    .website-button {
+      img {
+        width: 21px;
+        height: 21px;
+        margin: -5px 14px 0 0;
+        vertical-align: middle;
+      }
+    }
+
+    .tickets-button,
+    .book-a-table-button {
+      img {
+        width: 20px;
+        height: 20px;
+        margin: -5px 14px 0 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .myhki-directions-block {
+    margin-top: 50px;
+  }
+
+  .myhki-tags {
+    margin: 20px 0;
+
+    @include breakpoint(medium up) {
+      text-align: right;
+    }
+
+    @include breakpoint(large up) {
+      margin: 30px 0;
+    }
+
+    ul {
+      margin-left: -6px;
+      margin-right: -6px;
+    }
+
+    li {
+      margin: 0 6px;
+    }
+  }
+
+  .myhki-share-links {
+    ul {
+      justify-content: center;
+
+      @include breakpoint(medium up) {
+        justify-content: flex-end;
+      }
+    }
+  }
+}

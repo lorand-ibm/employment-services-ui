@@ -1,0 +1,39 @@
+.about-page {
+  flex: 1;
+  &__body {
+    a {
+      color: #0072c6;
+    }
+  }
+  .myhki-video-carousel {
+    margin-top: 50px;
+  }
+
+  .myhki-lift-up-carousel {
+    margin-top: 100px;
+  }
+
+  .myhki-link-list {
+    margin-top: 90px;
+    margin-bottom: 40px;
+  }
+
+  &__newsletter {
+    text-align: center;
+    padding: 40px 0 90px;
+
+    @include breakpoint(small only) {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    &-subscribe-button {
+      text-transform: uppercase;
+      font-weight: bold;
+
+      @include breakpoint(small only) {
+        display: block;
+      }
+    }
+  }
+}

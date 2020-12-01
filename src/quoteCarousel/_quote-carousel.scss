@@ -1,0 +1,118 @@
+.myhki-quote-carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 0;
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    line-height: 1.0;
+    text-align: center;
+    margin: 0 0 40px;
+
+    @include breakpoint(medium) {
+      font-size: 45px;
+    }
+  }
+
+  &__controls {
+    position: relative;
+    z-index: 3;
+    padding: 0 32px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    @include breakpoint(large up) {
+      margin-top: 58px;
+    }
+  }
+
+  &__control {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid $hel-black;
+    border-radius: 50%;
+    margin-right: 6px;
+
+    &--active {
+      background-color: $hel-black;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+
+    .myhki-simple-quote {
+      width: calc(50% - 40px);
+      padding-left: 40px;
+      word-break: break-word;
+      @include breakpoint(medium up) {
+        width: calc(40% - 45px);
+        padding-left: 45px;
+      }
+
+      .source-title {
+        margin-bottom: .9375rem;
+      }
+
+      &:only-child {
+        width: calc(80% - 45px);
+
+        @include breakpoint(small only) {
+          width: calc(100% - 40px);
+        }
+      }
+
+      &__body {
+        position: relative;
+      }
+      &__body::before {
+        left: -43px;
+        top: 5px;
+
+        @include breakpoint(medium down) {
+          left: -40px;
+          top: 3px;
+        }
+      }
+      &__body p {
+        line-height: 1;
+      }
+
+      &__source {
+        margin-top: 20px;
+        color: $hel-metro;
+        white-space: normal;
+      }
+    }
+  }
+
+  .carousel {
+    overflow: visible;
+    &:hover {
+      .control-arrow {
+        opacity: 1;
+      }
+    }
+
+    .slider {
+      margin: 0;
+    }
+
+    &--slides-1 {
+      .carousel .control-arrow {
+        display: none;
+      }
+
+      .myhki-quote-carousel {
+        &__controls {
+          display: none;
+        }
+      }
+    }
+  }
+}

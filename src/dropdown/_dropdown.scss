@@ -1,0 +1,83 @@
+@import '../normilize';
+
+.myhki-dropdown {
+  margin: -2px 0 0 22px;
+  position: relative;
+  display: inline-block;
+
+  .title {
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: $hel-black;
+    vertical-align: middle;
+    margin: 0 4px 0 7px;
+    text-transform: uppercase;
+  }
+
+  i {
+    font-size: rem-calc(12px);
+    color: $hel-black;
+  }
+
+  &__button {
+    @extend .button-reset;
+    line-height: initial;
+    vertical-align: middle;
+  }
+
+  &-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin: rem-calc(13px 0 0 0);
+    background-color: $white;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+    padding: rem-calc(15px 20px);
+    display: none;
+    z-index: 10;
+
+    &--open {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: block;
+      padding: rem-calc(8px 0);
+    }
+
+    &__button {
+      font-size: rem-calc(15px);
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: right;
+      color: $hel-dark-gray;
+      display: block;
+
+      &:hover {
+        color: $hel-black;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      &:focus {
+        font-weight: normal;
+        color: $hel-black;
+      }
+
+      &--active {
+        font-weight: bold;
+        color: $hel-black;
+      }
+    }
+  }
+}

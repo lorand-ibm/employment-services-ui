@@ -1,0 +1,39 @@
+.myhki-breadcrumbs {
+  margin: 30px 0;
+
+  @include breakpoint(small only) {
+    padding: 0 0.5rem;
+  }
+
+  .myhki-hero__subtitle & {
+    text-align: left;
+  }
+
+  ul.breadcrumbs {
+    margin: 0;
+    display: inline-block;
+
+    li {
+      color: #525a66;
+      font-weight: 500;
+
+      a {
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        color: $hel-vaakuna;
+        text-decoration: underline;
+      }
+
+      &:not(:last-child):after {
+        top: 0;
+        color: $cool-grey;
+        margin: 0 5px;
+        width: 11px;
+        height: 11px;
+        content: "›";
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.myhki-like-marker {
+  &__like {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    width: 22px;
+    height: 20px;
+    background: url(../assets/images/white-heart-outline.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    cursor: pointer;
+
+    &:focus,
+    &:hover,
+    &:active {
+      background: url(../assets/images/white-heart-with-shadow.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &--liked {
+      position: absolute;
+      top: 24px;
+      right: 20px;
+      width: 22px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 10;
+    }
+
+    &--sustainability {
+      //Fill invert svg colors from white to black
+      filter: invert(1);
+    }
+  }
+
+  &__like-small {
+    cursor: pointer;
+    position: absolute;
+
+    width: 23px;
+    height: 23px;
+    right: 10px;
+    top: 12px;
+    z-index: 10;
+    @include breakpoint(small down) {
+      width: 20px;
+      height: 20px;
+      right: 7px;
+      top: 8px;
+    }
+
+    background: url(../assets/images/white-heart-outline.svg) no-repeat;
+    background-size: contain;
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-image: url(../assets/images/white-heart-with-shadow.svg);
+    }
+
+    &--liked {
+      // Could be used when liked is actually shown on cards.
+    }
+  }
+
+  &__shadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid $hel-black-opacity45;
+    border-left: 100px solid transparent;
+    text-indent: -999px;
+    overflow: hidden;
+    z-index: 10;
+
+    &--size-small {
+      border-top-width: 75px;
+      border-left-width: 75px;
+      @include breakpoint(small down) {
+        border-top-width: 60px;
+        border-left-width: 60px;
+      }
+    }
+
+    &--sustainability {
+      border-top-color: $hel-copper;
+    }
+  }
+}

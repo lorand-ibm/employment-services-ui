@@ -1,0 +1,75 @@
+.myhki-photo-grid {
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.0;
+    letter-spacing: normal;
+    text-align: center;
+    color: $hel-black;
+    margin: 0 0 28px;
+
+    @include breakpoint(medium) {
+      font-size: 45px;
+    }
+  }
+
+  &__wrapper {
+    margin: 0;
+    position: relative;
+    @include breakpoint(medium up) {
+      padding-left: 66.666%;
+    }
+  }
+
+  &__wrapper::after {
+    @include breakpoint(medium up) {
+      content: '';
+      padding-bottom: 100%;
+      display: block;
+    }
+  }
+
+  &__photo {
+    width: 25%;
+    display: block;
+    float: left;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    vertical-align: top;
+    @include breakpoint(medium up) {
+      display: inline-block;
+      width: 50%;
+      padding: 0 8px;
+      margin-bottom: 16px;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      width: 50%;
+      position: relative;
+      @include breakpoint(medium up) {
+        width: 33.333%;
+        position: absolute;
+      }
+      top: 0;
+      left: 0;
+    }
+
+    &:nth-child(2) {
+      width: 25%;
+      @include breakpoint(medium up) {
+        width: 33.333%;
+        left: 33.333%;
+      }
+    }
+
+    &:nth-child(6) {
+      @include breakpoint(small only) {
+        display: none;
+      }
+    }
+  }
+}

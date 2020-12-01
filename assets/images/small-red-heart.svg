@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="13px" viewBox="0 0 15 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>small-red-heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-464.000000, -319.000000)" fill="#FD4F00">
+            <path d="M471.169508,320.70097 C470.456142,319.67319 469.27855,319 467.94323,319 C465.765491,319 464,320.78711 464,322.99135 C464,326.57501 469.780416,331.036 470.960398,331.90979 C471.023728,331.9564 471.096618,331.98 471.169508,331.98 C471.242398,331.98 471.315288,331.9564 471.378619,331.90979 C472.558601,331.036 478.339017,326.57501 478.339017,322.99135 C478.339017,320.78711 476.573525,319 474.395787,319 C473.061064,319 471.882874,319.67319 471.169508,320.70097 Z" id="small-red-heart"></path>
+        </g>
+    </g>
+</svg>

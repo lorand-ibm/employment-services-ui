@@ -1,0 +1,135 @@
+.myhki-hero-carousel {
+  position: relative;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 85vh;
+
+  @include breakpoint(large up) {
+    height: 70vh;
+    min-height: 700px;
+  }
+
+  .carousel.carousel-slider {
+    height: 100%;
+
+    .slider-wrapper {
+      height: 100%;
+    }
+
+    .slider {
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  &__carousel {
+    flex: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    > div {
+      height: 100%;
+    }
+  }
+
+  &__carousel-arrow {
+    top: 100%;
+    margin-top: -263px;
+    @include breakpoint(medium up) {
+      top: 50%;
+      margin-top: 0px;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 35px;
+    padding: 0 16px;
+  }
+
+  &__control {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .myhki-koro {
+    position: absolute;
+    height: 20px;
+    background-size: 137px 20px;
+    background-repeat: repeat-x;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: -1px;
+  }
+
+  &--simple {
+    height: 45vh;
+    min-height: 280px;
+
+    @include breakpoint(medium up) {
+      min-height: 500px;
+    }
+
+    .myhki-hero-carousel {
+      &-slide {
+        &__wrapper,
+        &__subpage {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--special {
+    .myhki-hero-carousel {
+      &__controls {
+        bottom: 35px;
+        top: auto;
+        padding: 0 16px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__control {
+        border-radius: 50%;
+        border-width: 2px;
+      }
+    }
+  }
+
+  &--rotated {
+    min-height: auto;
+    height: 0;
+    position: relative;
+    padding-bottom: 120%;
+    @include breakpoint(medium up) {
+      padding-bottom: 52%;
+    }
+    @include breakpoint(large up) {
+      padding-bottom: 0.52 * map-get($breakpoints, 'large');
+    }
+
+    // Make the slide taller on very large resolutions, but also ensure
+    // that it won't be taller than the viewport.
+    @include breakpoint(1500) {
+      height: 780px;
+      max-height: 80vh;
+      padding-bottom: 0;
+    }
+    @include breakpoint(2000) {
+      height: 1040px;
+      max-height: 80vh;
+      padding-bottom: 0;
+    }
+
+    .myhki-hero-carousel__controls {
+      bottom: auto;
+      top: 4%;
+    }
+  }
+}

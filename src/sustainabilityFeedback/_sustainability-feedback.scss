@@ -1,0 +1,86 @@
+.sustainability-feedback-form {
+  line-height: 1.4;
+  font-weight: 500;
+
+  hyphens: auto;
+  font-size: rem-calc(16);
+  @include breakpoint(medium up) {
+    hyphens: none;
+    font-size: rem-calc(18);
+  }
+
+  &__scroll-anchor {
+    padding-bottom: 5px;
+  }
+
+  &__logo {
+    width: 106px;
+  }
+
+  &__heading {
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: $hel-bus;
+    margin: 0.4em 0;
+
+    font-size: 2.22em;
+    @include breakpoint(medium up) {
+      font-size: 2.90em;
+    }
+    @include breakpoint(large up) {
+      font-size: 3.33em;
+      max-width: 90%;
+    }
+    @include breakpoint(xlarge up) {
+      max-width: 75%;
+    }
+  }
+
+  &__section {
+    margin: 5em 0;
+    &--first {
+      margin-top: 3em;
+    }
+    &--last {
+      margin-bottom: 3em;
+    }
+  }
+
+  &__sub-heading {
+    color: $hel-copper;
+    margin-bottom: 1.25em;
+    font-weight: 500;
+    font-size: 1.33em;
+    line-height: 1.2;
+  }
+
+  &__paragraph {
+    font-size: 18px;
+    color: $hel-bus;
+    line-height: inherit;
+    margin-bottom: 1.77em;
+    @include breakpoint(large up) {
+      max-width: 75%;
+    }
+  }
+
+  &__checkbox-group {
+    margin-bottom: 3.3em;
+  }
+
+  &__checkbox {
+    margin-bottom: 1.33em;
+  }
+
+  &__text {
+    max-width: 535px;
+    margin: 1.65em 0 2.22em;
+    font-style: inherit;
+    line-height: inherit;
+  }
+
+  &__buttons {
+    margin-bottom: 3em;
+  }
+}

@@ -1,0 +1,13 @@
+// Used to reset button styling when changing links to buttons.
+.button-reset {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border-spacing: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

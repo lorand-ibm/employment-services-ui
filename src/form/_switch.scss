@@ -1,0 +1,37 @@
+.myhki-switch {
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  display: flex;
+  justify-content: flex-end;
+  width: 83px;
+  height: 35px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--off {
+    justify-content: flex-start;
+  }
+
+  &__rocker {
+    background-color: #fff;
+    border-radius: 25px;
+    width: 31px; height: 31px;
+  }
+
+  &__rocker-label {
+    font-size: rem-calc(13);
+
+    &--on {
+      color: #fff;
+      margin-right: 10px;
+    }
+
+    &--off {
+      color: rgba(255, 255, 255, 0.6);
+      margin-left: 10px;
+    }
+  }
+}

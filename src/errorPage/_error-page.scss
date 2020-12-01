@@ -1,0 +1,18 @@
+.error-page {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding: 0 0 140px 0;
+  z-index: 1;
+
+  .myhki-hero {
+    margin-bottom: 80px;
+    background-size: 277px 247px !important;
+    background-repeat: no-repeat !important;
+
+    .myhki-koro {
+      height: 54px;
+      background-size: 102px 54px;
+    }
+  }
+}

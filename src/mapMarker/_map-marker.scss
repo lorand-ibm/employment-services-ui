@@ -1,0 +1,13 @@
+.myhki-map-marker {
+  $height: 39px;
+  $width: 27.4px;
+  width: $width;
+  height: $height;
+  margin-top: -$height;
+  margin-left: -($width/2);
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

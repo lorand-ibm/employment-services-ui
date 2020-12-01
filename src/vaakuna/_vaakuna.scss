@@ -1,0 +1,66 @@
+.myhki-vaakuna {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+  bottom: 84px;
+  z-index: 1;
+
+  @include breakpoint(large up) {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+  }
+
+  &:before {
+    content: "";
+    display: none;
+    flex: 1;
+    border: 6px solid #ffffff;
+    border-bottom: none;
+    @include breakpoint(large up) {
+      display: block;
+    }
+  }
+
+  $vaakuna-piece-size: 94px;
+  &__bottom {
+    display: flex;
+    height: $vaakuna-piece-size;
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+    height: 70px;
+    border-bottom: 6px solid #ffffff;
+  }
+
+  &__left-corner {
+    background: url(../assets/images/vaakuna-bottom-left.svg);
+    width: $vaakuna-piece-size;
+    height: $vaakuna-piece-size;
+    display: none;
+    @include breakpoint(large up) {
+      display: block;
+    }
+  }
+
+  &__center {
+    background: url(../assets/images/vaakuna-triangle.svg);
+    height: $vaakuna-piece-size;
+    width: $vaakuna-piece-size;
+  }
+
+  &__right-corner {
+    background: url(../assets/images/vaakuna-bottom-right.svg);
+    height: $vaakuna-piece-size;
+    width: $vaakuna-piece-size;
+    display: none;
+    @include breakpoint(large up) {
+      display: block;
+    }
+  }
+}

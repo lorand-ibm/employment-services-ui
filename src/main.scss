@@ -1,0 +1,178 @@
+@import '../node_modules/foundation-sites/scss/util/util';
+@import 'variables';
+@import 'font_awesome';
+@import 'foundation';
+@import '../node_modules/font-awesome/scss/font-awesome';
+@import '../node_modules/leaflet/dist/leaflet.css';
+@import '../node_modules/leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
+@import 'mixins';
+
+@import '../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
+@import '../node_modules/react-datepicker/dist/react-datepicker.min.css';
+
+@include foundation-everything(true);
+
+@import './carousel/carousel';
+@import './dropdown/dropdown';
+@import './breadcrumbs/breadcrumbs';
+@import './button/button';
+@import './form/switch';
+@import './form/text-input';
+@import './form/checkbox';
+@import './modal/modal';
+@import './vaakuna/vaakuna';
+@import './hero/hero';
+@import './heroCarousel/hero-carousel';
+@import './heroCarousel/hero-carousel-slide';
+@import './heroCarousel/hero-carousel-slide-rotated';
+@import './heroCarousel/special-hero-carousel-slide';
+@import './videoCarousel/video-carousel';
+@import './liftUps/lift-up-collection';
+@import './liftUps/lift-up-simple';
+@import './liftUps/lift-up-my-helsinki';
+@import './liftUps/lift-up-carousel';
+@import './liftUps/lift-up-square-image';
+@import './tags/tags';
+@import './photoGrid/photo-grid';
+@import './bigCardList/big-card-list';
+@import './bigCardList/big-card';
+@import './cardList/card-list';
+@import './cardList/card';
+@import './cardList/cardPlaceholder/card-placeholder';
+@import './koro/koro';
+@import './api/api';
+@import './app/app';
+@import './app/beta';
+@import './auth/auth';
+@import './toaster/toaster';
+@import './subpage/subpage';
+@import './subpage/generic-subpage';
+@import './subpage/info/info-subpage';
+@import './subpage/see-and-do-subpage';
+@import './subpage/eat-and-drink-subpage';
+@import './subpage/event-subpage';
+@import './subpage/study-subpage';
+@import './content/content-page';
+@import './accordion/accordion';
+@import './richBlocks/rich-blocks';
+@import './simpleQuote/simple-quote';
+@import './place/place-page';
+@import './event/event-page';
+@import './directionsBlock/directions-block';
+@import './mapMarker/map-marker';
+@import './readMore/read-more';
+@import './showMore/show-more';
+@import './article/article-page';
+@import './shareLinks/share-links';
+@import './eventList/event-list';
+@import './myHelsinki/local-guide-page';
+@import './ctaBlock/cta-block';
+@import './ctaCard/cta-card';
+@import './theme/theme-page';
+@import './author/author';
+@import './paragraphs/paragraphs';
+@import './errorPage/error-page';
+@import './basicPage/basic-page';
+@import './locationCarousel/location-carousel';
+@import './pageDetails/page-details';
+@import './subpage/invest-subpage';
+@import './subpage/business-subpage';
+@import './linkList/link-list';
+@import './textCarousel/text-carousel';
+@import './activity/activity-page';
+@import './about/about-page';
+@import './simpleVideo/simple-video';
+@import './quoteCarousel/quote-carousel';
+@import './imageCarousel/image-carousel';
+@import './search/search-page';
+@import './search/search-filters';
+@import './search/search-item';
+@import './datePicker/date-picker';
+@import './homepage/homepage';
+@import './subpage/work-subpage';
+@import './section/section-page';
+@import './subpage/media-subpage';
+@import './contactCards/contact-cards';
+@import './contactCards/contact-card';
+@import './contentSlideshow/content-slideshow';
+@import './subpage/contact-subpage';
+@import './staffBlocks/staff-blocks';
+@import './staffBlocks/staff-block';
+@import './staffBlocks/staff-member';
+@import './addresses/addresses';
+@import './addresses/address-group';
+@import './addresses/address';
+@import './subpage/travel-industry-subpage';
+@import './gridCardList/grid-card-list';
+@import './loadIndicator/load-indicator';
+@import './subpage/activity-subpage';
+@import './myHelsinki/onboarding-modal';
+@import './myHelsinki/my-helsinki-list';
+@import './myHelsinki/new-list';
+@import './myHelsinki/edit-list';
+@import './myHelsinki/heart-icon-carousel';
+@import './auth/login-modal';
+@import './auth/profile-page';
+@import './myHelsinki/my-helsinki-list-dropdown';
+@import './feedback/feedback';
+@import './banner/banner';
+@import './portrait/portrait';
+@import './questionnaire/questionnaire';
+@import './notification/notification';
+@import './auth/edit-profile';
+@import './twitter/twitter';
+@import './twitter/twitter-quote';
+@import './meetingsPackage/meetings-package';
+@import './survey/survey';
+@import './infoPopup/info-popup';
+@import './leadText/lead-text';
+@import './sustainability/sustainability-widget';
+@import './sustainability/sustainability-details';
+@import './sustainability/sustainability-heading';
+@import './sustainability/sustainability-criterion-group';
+@import './sustainability/sustainability-criterion';
+@import './sustainability/sustainability-service-liftup.scss';
+@import './sustainabilityFeedback/sustainability-feedback';
+@import './listing/listing';
+@import './likeMarker/like-marker';
+
+html {
+  height: 100%;
+}
+
+body {
+  overflow-y: auto;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.carousel {
+  .slider {
+    height: auto;
+    background: transparent;
+  }
+
+  .slide {
+    background: transparent;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+}
+
+// Used for 'focus-visible' polyfill
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}

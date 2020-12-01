@@ -1,0 +1,13 @@
+.myhki-staff-blocks {
+  padding: 0 10px;
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    text-align: center;
+
+    @include breakpoint(medium up) {
+      font-size: 45px;
+    }
+  }
+}

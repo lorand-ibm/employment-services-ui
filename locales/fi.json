@@ -1,0 +1,323 @@
+{
+  "common": {
+    "description": "Helsinki’s secret is in the moment when you realise that Helsinki has no secrets – that everything is within reach, just for you.",
+    "loadMore": "Lataa lisää",
+    "readMore": "Lue lisää",
+    "readLess": "Lue vähemmän",
+    "edit": "Muokkaa",
+    "save": "Tallenna",
+    "deleteSuccessText": "Poisto onnistui",
+    "deleteFailedText": "Poisto epäonnistui",
+    "saveSuccessText": "Tallennus onnistui",
+    "saveFailedText": "Tallennus epäonnistui",
+    "submissionSuccessText": "Lähetys onnistui",
+    "submissionFailedText": "Lähetys epäonnistui",
+    "saveAlreadyAddedText": "Tapahtuma on jo lisätty",
+    "myHelsinki": "My Helsinki",
+    "saveToMyHelsinki": "Tallenna My Helsinkiin",
+    "seeAllLabel": "Näytä kaikki",
+    "seeMoreLabel": "Näytä lisää",
+    "loading": "Ladataan",
+    "yes": "Kyllä",
+    "no": "Ei",
+    "search": "Hae",
+    "clear": "Tyhjennä",
+    "showMore": "Näytä enemmän",
+    "showLess": "Näytä vähemmän",
+    "close": "Sulje",
+    "home": "Sivun alkuun",
+    "primary": "Päävalikko",
+    "secondary": "Toissijainen navigointi",
+    "menu": "Valikko",
+    "openNavMenu": "Avaa navigaatiovalikko",
+    "returnNavMenu": "Palaa navigaatiovalikkoon",
+    "closeNavMenu": "Sulje navigaatiovalikko",
+    "linkWarning": "Sivu aukeaa uudelle välilehdelle selaimessa.",
+    "call": "Soita numeroon.",
+    "sendEmail": "Lähetä sähköpostiviesti osoitteeseen {{address}}"
+  },
+  "carousel": {
+    "next": "Seuraava",
+    "previous": "Edellinen",
+    "goTo": "Siirry kuvaan {{number}}"
+  },
+  "openingHours": {
+    "title": "AUKIOLOAJAT",
+    "closed": "Suljettu"
+  },
+  "breadcrumbs": {
+    "homeLabel": "Koti"
+  },
+  "hero": {
+    "copyrights": "Valokuva"
+  },
+  "login": {
+    "title": "Kirjaudu sisään",
+    "description": "Voit kirjautua sisään My Helsinkiin seuraavilla palveluilla.",
+    "providerLabelFacebook": "Facebook",
+    "providerLabelGoogle": "Google",
+    "providerLabelHelsinki": "Helsinki user",
+    "toasterLoginSuccessful": "Olet onnistuneesti kirjautunut sisään.",
+    "toasterLoginFailed": "Kirjautuminen epäonnistui, yritä hetken kuluttua uudestaan.",
+    "toasterLoggedOut": "Olet nyt kirjautunut ulos."
+  },
+  "profile": {
+    "logoutButtonLabel": "Kirjaudu ulos",
+    "profilePageTitle": "Profiili",
+    "basicSettingsHeader": "Perusasetukset",
+    "fieldNameLabel": "Nimi",
+    "fieldEmailLabel": "Sähköposti",
+    "displayNameFieldLabel": "Nimi",
+    "displayNameFieldPlaceholder": "Nimi",
+    "saveButtonText": "Tallenna"
+  },
+  "footer": {
+    "feedbackButtonLabel": "Anna palautetta",
+    "feedbackLink": "https://www.facebook.com/myhelsinki",
+    "feedbackButtonTitle": "Anna palautetta sivuistamme!",
+    "submitEventLabel": "Ilmoita tapahtuma",
+    "submitEventTitle": "Ilmoita mielenkiintoinen tapahtuma lisättäväksi tapahtumakalenteriimme!",
+    "submitEventLink": "https://my.surveypal.com/myHelsinki-tapahtumat",
+    "submitPlaceLabel": "Ilmoita paikka",
+    "submitPlaceTitle": "Vinkkaa suosikkipaikkasi tai lähetä paikkatietosi lisättäväksi sivuillemme!",
+    "submitPlaceLink": "https://places.myhelsinki.fi"
+  },
+  "error": {
+    "title": "Pahus, jotain meni pieleen",
+    "description": "Tarkista URL osoitteesi tai palaa <a href=\"/\">etusivulle</a>"
+  },
+  "about": {
+    "newsletterButton": "Tilaa uutiskirjeemme"
+  },
+  "search": {
+    "title": "Hakutulokset",
+    "filterSearchResults": "Suodata hakutuloksia",
+    "countPlural": "{{count}} hakutulosta",
+    "countSingle": "1 hakutulos",
+    "resultCount": "Löydetty {{count}} tulosta",
+    "allFiltersSummaryLabel": "Näytetään kaikki",
+    "categoryFiltersSummaryLabel": "Kategoria: {{category}}",
+    "tagsFiltersSummaryLabel": "Luokat: {{tags}}",
+    "keywordsFiltersSummaryLabel": "Avainsana: {{keywords}}",
+    "dateTitle": "Päivämäärä",
+    "categoriesTitle": "Kategoriat",
+    "tagsTitle": "Luokat",
+    "tagsAllLabel": "Kaikki",
+    "eventLabel": "Tapahtumat",
+    "placeLabel": "Paikat",
+    "articleLabel": "Artikkelit",
+    "activityLabel": "Aktiviteetit",
+    "dateFilterToday": "Tänään",
+    "dateFilterTomorrow": "Huomenna",
+    "dateFilterChoose": "Valitse",
+    "noResults": "Ei tuloksia",
+    "noResultsInfo": "Yritä muokata hakuasi.",
+    "headerActivity": "Aktiviteetti",
+    "headerArticle": "Artikkeli",
+    "headerEatAndDrink": "Syö ja juo",
+    "headerMyHelsinkiList": "My Helsinki lista",
+    "headerMyLocalGuide": "Your local guide",
+    "sortAll": "näytetään kaikki",
+    "sortLatest": "uusimmat ensin",
+    "what'sPopular": "Suosittelemme",
+    "cantFindPlace": "Eikö hakemaasi paikkaa löydy?",
+    "suggestPlaceToUs": "Vinkkaa suosikkipaikkasi meille!",
+    "searchFilters": "Hakusuodattimet",
+    "searchInputLabel": "Hae sivustolta"
+  },
+  "event": {
+    "searchTitle": "Tapahtumahaku",
+    "tickets": "Liput",
+    "website": "Verkkosivu"
+  },
+  "activity": {
+    "searchTitle": "Aktiviteettihaku",
+    "title": "Lähtöpaikka",
+    "book": "Varaa"
+  },
+  "locationCarousel": {
+    "defaultLinkText": "Paikkatiedot",
+    "activityLinkText": "Aktiviteettitiedot",
+    "eventLinkText": "Tapahtumatiedot",
+    "placeLinkText": "Lisätietoa kohteesta",
+    "shareLinksTitle": "Jaa lista",
+    "pin": "Nasta"
+  },
+  "myHelsinkiOnboarding": {
+    "title": "Tee oma #myhelsinki",
+    "description": "Lisää tapahtumia ja suosikkikohteitasi omiin listoihisi klikkaamalla sydäntä. Tallenna listasi sisäänkirjautumalla palveluun, jonka jälkeen voit jakaa listasi ystävillesi!",
+    "getStartedButtonText": "Aloita",
+    "loginButtonText": "Kirjaudu sisään nähdäksesi listat"
+  },
+  "myHelsinkiList": {
+    "myListsTitle": "Listani",
+    "newList": "Uusi lista",
+    "editList": "Muokkaa lista",
+    "titleFieldLabel": "Nimi",
+    "titleFieldPlaceholder": "Nimeä listasi",
+    "descriptionFieldLabel": "Kuvaus",
+    "descriptionFieldPlaceholder": "Kuvaile listasi",
+    "publicFieldLabel": "Julkinen",
+    "privacyFieldLabel": "Yksityinen",
+    "createButtonText": "Luo lista",
+    "saveButtonText": "Tallenna",
+    "deleteButtonText": "Poista lista",
+    "cancelButtonText": "Tee myöhemmin",
+    "localGuidesTitle": "Your local guides",
+    "privateListLabel": "Yksityinen lista",
+    "publicListLabel": "Julkinen lista",
+    "editListItemsTitle": "Muokkaa listan sisältöä",
+    "noItemsText": "Klikkaa <span class=\"heart\"></span> tapahtumissa ja paikoissa lisätäksesi ne omaan #myhelsinki-listaasi.",
+    "noItemsBrowseLabel": "Selaa",
+    "noItemsBrowseSightsLabel": "#nähtävyydet",
+    "noItemsBrowseRestaurantsLabel": "#ravintolat",
+    "noItemsBrowseActivitiesLabel": "#aktiviteetit",
+    "noItemsBrowseEventsLabel": "#tapahtumat",
+    "logInToSaveButtonLabel": "Kirjaudu sisään tallentamista ja jakamista varten",
+    "instructions": "Lista sisältää {{itemsLength}} kohdetta. Paina välilyöntiä ja käytä nuolinäppäimiä siirtääksesi valittua kohdetta.",
+    "status": "`Siirretty kohtaan {{itemPosition}}/{{itemsLength}}.",
+    "removeItemFromList": "Poista {{item}} listalta"
+  },
+  "myHelsinkiBanner": {
+    "text": "Koronavirus (COVID-19): tietoa vierailijoille",
+    "buttonText": "Lue lisää",
+    "buttonTextMobile": "Koronavirus: tietoa vierailijoille",
+    "buttonLink": "/fi/koronavirus-covid-19-tietoa-vierailijoille"
+  },
+  "myHelsinkiListDropdown": {
+    "title": "Valitse lista",
+    "createListButtonLabel": "Luo uusi lista"
+  },
+  "form": {
+    "fieldRequired": "Virhe: kenttä on pakollinen.",
+    "fieldEmail": "Virhe: kenttä vaatii sähköpostiosoitteen."
+  },
+  "article": {
+    "dateNotChanged": "{{created}}",
+    "dateChanged": "{{created}}, päivitetty {{changed}}"
+  },
+  "feedback": {
+    "modalHeader": "Palaute",
+    "messageFieldLabel": "Palaute",
+    "messageFieldPlaceholder": "Anna verkkosivustosta palautetta",
+    "mailFieldLabel": "Sähköposti",
+    "mailFieldPlaceholder": "Jos haluat vastauksen",
+    "sendButtonText": "Lähetä palaute",
+    "sentHeading": "Kiitos palautteestasi!",
+    "sentInfo": "Arvostamme apuasi palvelun kehittämisessä. Mikäli ilmoitit meille sähköpostiosoitteesi, olemme sinuun yhteydessä."
+  },
+  "eatAndDrinkSubpage": {
+    "allRestaurantsLabel": "Kaikki ravintolat"
+  },
+  "author": {
+    "label": "Your local guide"
+  },
+  "study": {
+    "relatedArticlesLabel": "Aiheeseen liittyviä artikkeleita",
+    "study": "Opiskelu"
+  },
+  "place": {
+    "bookTableButton": "Varaa pöytä",
+    "websiteButton": "Verkkosivu",
+    "getDirectionsLabel": "Hae reittiohjeet",
+    "suggestAnEdit": "Ehdota kohteen tietojen muokkausta",
+    "placeIsClosed": "Ilmoita kohde lopettaneeksi"
+  },
+  "questionnaire": {
+    "sendFailed": "Vastausten tallennus epäonnistui"
+  },
+  "survey": {
+    "title": "Tervetuloa vastaamaan Myhelsinki.fi kävijätutkimukseen",
+    "body": "Kyselyn tarkoituksena on tutkia ketkä käyttävät palveluamme ja millaista tietoa he etsivät. Samalla selvitämme mielipiteitä liittyen sivuston käytettävyyteen, sisältöön ja ulkoasuun. Kiitos jos käytät muutaman minuutin vastataksesi kyselyyn, ja autat meitä kehittämään palveluamme paremmaksi.",
+    "agree": "Osallistu kyselyyn",
+    "dismiss": "Ohita",
+    "url": "https://my.surveypal.com/Myhelsinki.fi-kavijatutkimus-2019"
+  },
+  "sustainabilityDetails": {
+    "feedbackButton": "Anna palautetta",
+    "title": "Kohti parempaa elämää arkisten tekojen avulla - tutustu vastuullisempien valintojen kriteereihin.",
+    "link": "https://www.myhelsinki.fi/fi/valitse-vastuullisemmin/vastuullisempien-valintojen-kriteerist%C3%B6",
+    "linkText": "Lue lisää",
+    "linkTextMobile": "Löydä vastuullisemmat valinnat"
+  },
+  "sustainabilityWidget": {
+    "criterionCountSummary": "Täyttää {{active}}/{{total}} vastuullisempien valintojen kriteeriä"
+  },
+  "sustainabilityFeedbackForm": {
+    "formHeading": "Anna palautetta Valitse vastuullisemmin -palvelusta",
+    "formHelp": "Valitse vastuullisemmin -palvelu auttaa valitsemaan kestävämpiä tapoja elää, asua ja viihtyä Helsingissä. Haluamme kaupunkina mahdollistaa sen, että kaikilla helsinkiläisillä ja täällä vierailevilla on mahdollisuus entistä parempaan elämäntapaan. Palvelun kivijalkana toimiva kriteeristö on yrityksille työkalu kirittää itseään ja toisiaan kohti vastuullisempaa toimintaa. Käyttämällä palvelua ja antamalla siitä palautetta sinä voit olla osa ratkaisua ja kehittää kriteeristöä sekä koko palvelua.",
+    "formButtonSubmit": "Lähetä palaute",
+
+    "serviceHeading": "Palautetta palveluntarjoajan vastuullisemmista ratkaisuista",
+    "serviceNameLabel": "Mikä palveluntarjoaja on kyseessä?",
+    "serviceNamePlaceholder": "Palveluntarjoajan nimi",
+
+    "serviceExemplaryCheckLabel": "Palveluntarjoaja toimii mielestäni esimerkillisesti",
+    "serviceExemplaryTextLabel": "Lähetä terveisesi palveluntarjoajalle",
+    "serviceProblemCheckLabel": "Palveluntarjoaja ei täytä ilmoittamaansa kriteeriä tai toiminnan vastuullisuudessa on muita puutteita",
+    "serviceProblemTextLabel": "Kerro tarkemmin siitä, mitä havaintosi koskee",
+    "serviceIncompleteCheckLabel": "En saa tarpeeksi tietoa siitä, millä perusteella palveluntarjoaja täyttää kriteerit",
+    "serviceIncompleteTextLabel": "Millaista tietoa jäät kaipaamaan?",
+
+    "criteriaHeading": "Palautetta Valitse vastuullisemmin -palvelusta",
+    "criteriaUsefulCheckLabel": "Palvelun tarpeellisuus",
+    "criteriaUsefulTextLabel": "Onko palvelusta mielestäsi hyötyä ja jos niin millaista? Muita mielipiteitä?",
+    "criteriaClearCheckLabel": "Palvelun ymmärrettävyys",
+    "criteriaClearTextLabel": "Onko sinun helppo/vaikea ymmärtää kriteerit, joihin palvelu perustuu? Muita mielipiteitä?",
+    "criteriaCoverageCheckLabel": "Palvelun kattavuus",
+    "criteriaCoverageTextLabel": "Sisältävätkö kriteerit sinusta vastuullisuuden kannalta olennaiset asiat vai puuttuuko niistä jotain? Muita mielipiteitä?",
+    "criteriaReliableCheckLabel": "Palvelun toimivuus ja luotettavuus",
+    "criteriaReliableTextLabel": "Antaako palvelu mielestäsi luotettavaa tietoa? Toimiiko palvelu teknisesti hyvin? Muita mielipiteitä?",
+    "criteriaFeedbackLabel": "Palvelun kehitysehdotukset",
+    "criteriaFeedbackPlaceholder": "Kerro kehitysehdotuksesi",
+
+    "additionHeading": "Ehdota uutta palveluntarjoajaa",
+    "additionHelp": "Valitse vastuullisemmin -palvelun pilottivaiheeseen on valittu mukaan rajattu määrä palveluntarjoajia. Uusia toimijoita lisätään mukaan syksyllä 2019 ja tavoitteemme on avata palvelu kaikille toimijoille vuoden 2020 aikana.",
+    "additionNameLabel": "Mikä palveluntarjoaja on kyseessä?",
+    "additionNamePlaceholder": "Palveluntarjoajan nimi",
+    "additionMessageLabel": "Perustelut ehdotukselle",
+    "additionMessagePlaceholder": "Kerro miksi palveluntarjoaja olisi hyvä lisä palveluun",
+
+    "contactMailLabel": "Sähköposti",
+    "contactMailPlaceholder": "Toivon että minuun ollaan yhteydessä palvelun jatkokehityksestä",
+
+    "tellMore": "Kerro lisää!",
+
+    "sentHeading": "Kiitos palautteestasi!",
+    "sentInfo": "<p>Meille on arvokasta, että osallistut palvelun kehittämiseen. Haluamme olla kaupunki, jossa parempaa elämää opetellaan ja oivalletaan yhdessä, emmekä pelkää tehdä matkalla virheitä.</p><p>Palvelua ja kriteeristöä tullaan kehittämään säännöllisesti niin käyttäjien, asiantuntijoiden kuin palveluntarjoajien palautteen perusteella.</p><p>Toivottavasti sinä löydät palvelumme kautta kestävämpiä tapoja elää ja viihtyä. Mikään teko ei ole liian pieni. Aitoa vaikutusta syntyy vasta silloin, kun tarpeeksi suuri ja moninainen joukko tulee omilla teoillaan osaksi isompaa muutosta.</p><p>Helsinki ei ole vielä valmis, mutta olemme valmiita tekemään hartiavoimin töitä vastuullisuuden eteen.</p>",
+    "sentButtonReturn": "Palaa palveluun"
+  },
+  "sustainabilityMarker": {
+    "sustainableService": "Vastuullisempi valinta"
+  },
+  "sustainabilityServiceLiftup": {
+    "takeALookAtTheCriteria": "Tutustu kriteereihin"
+  },
+  "reittiopas": {
+    "title": "Reittiopas",
+    "searchOriginPlaceholder": "Hae lähtöpaikkaa",
+    "searchDestinationPlaceholder": "Hae määränpäätä",
+    "transporationTypes": {
+      "WALK": "Kävely",
+      "BICYCLE": "Pyöräily",
+      "ALL": "Julkinen liikenne",
+      "CAR": "Autoilu"
+    },
+    "info": "CO₂ grammaa/henkilö/matka. Perustuu HSL:n tietoihin.",
+    "infoZeroEmissions": "Raideliikenteen käyttösähkö on uusiutuvaa ja katsotaan siksi päästöttömäksi.",
+    "errorMessage": "Reittioppaaseen ei voida muodostaa yhteyttä. Siirry reittioppaaseen tai yritä myöhemmin uudelleen.",
+    "noResultsMessage": "Ei hakutuloksia valitsemallesi reitille.",
+    "linkText": "Siirry HSL:n reittioppaaseen",
+    "cityBikePopupText": "Kaupunkipyöriä saatavilla"
+  },
+  "shareLinks": {
+    "__comment": "TODO: check translations",
+    "copyLinkToClipboard": "Kopioi linkki leikepöydälle",
+    "shareOnFacebook": "Jaa Facebookissa",
+    "shareOnTwitter": "Jaa Twitterissä",
+    "shareOnLinkedin": "Jaa Linkedinissä"
+  },
+  "instagram": {
+    "photoDescription": "Kuva Instagramissa"
+  }
+}

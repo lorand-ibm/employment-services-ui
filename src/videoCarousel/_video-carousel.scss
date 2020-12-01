@@ -1,0 +1,131 @@
+.myhki-video-carousel {
+  display: flex;
+  flex-direction: column;
+  color: $hel-black;
+  padding: 46px 0 0;
+
+  &__carousel {
+    order: 1;
+    position: relative;
+  }
+
+  &__carousel-arrow {
+    margin-top: -25px;
+  }
+
+  &--has-background {
+    padding: 2rem 0 1.5rem;
+    @include breakpoint(medium up) {
+      padding: 4rem 0 2.5rem;
+    }
+  }
+
+  &__controls {
+    order: 2;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 15px;
+
+    @include breakpoint(medium up) {
+      margin-top: 0;
+    }
+  }
+
+  &__control {
+    color: inherit;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    margin: 0 2.5px;
+
+    &--active {
+      background: currentColor;
+    }
+  }
+
+  .control-arrow {
+    @include breakpoint(small only){
+      display: none !important; // Hide arrows for VideoCarousel as they get in the way when watching a video
+    }
+  }
+
+  &--slides-1 {
+    .control-arrow {
+      display: none !important;
+    }
+
+    .myhki-video-carousel {
+      &__controls {
+        display: none;
+      }
+    }
+  }
+
+  &-slide {
+    &__inner {
+      padding: 0 20px;
+    }
+
+    &__video {
+      width: 100%;
+      position: relative;
+      margin: 0 auto;
+      @include breakpoint(large up){
+        width: 67%;
+      }
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 56%;
+      }
+
+      > div {
+        position: absolute;
+      }
+      iframe {
+        margin: 0 !important;
+        width: 100% !important;
+      }
+    }
+
+    &__video-info {
+      margin: 0 auto;
+      @include breakpoint(large up){
+        width: 67%;
+      }
+    }
+
+    &__video-title,
+    &__video-description {
+      font-size: 23px;
+      margin: 1.5rem 0 1rem;
+      @include breakpoint(medium up) {
+        margin: 2rem 0 1rem 0;
+      }
+
+    }
+
+    &__video-title{
+      display: none;
+    }
+
+    &__video-description {
+      display: none;
+      letter-spacing: -1.17px;
+      line-height: 25px;
+      @include breakpoint(medium up){
+        display: block;
+      }
+    }
+  }
+
+  .carousel {
+    &:hover {
+      .control-arrow {
+        opacity: 1;
+      }
+    }
+  }
+}

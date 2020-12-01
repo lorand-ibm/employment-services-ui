@@ -1,0 +1,61 @@
+.myhki-share-links {
+  z-index: 10;
+  ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint(large up) {
+      justify-content: flex-end;
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 11px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__title {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    text-align: right;
+    text-transform: uppercase;
+  }
+}
+
+.myhki-share-link {
+  display: block;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &--link {
+    background-image: url(../assets/images/ico-link.svg);
+  }
+
+  &--facebook {
+    background-image: url(../assets/images/ico-fb.svg);
+  }
+
+  &--twitter {
+    background-image: url(../assets/images/ico-twitter.svg);
+  }
+
+  &--linkedin {
+    background-image: url(../assets/images/ico-linkedin.svg);
+  }
+}

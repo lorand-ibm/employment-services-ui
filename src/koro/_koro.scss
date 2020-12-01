@@ -1,0 +1,10 @@
+.myhki-koro {
+  background-size: contain;
+  background-position-x: center !important;
+
+  &-vertical {
+    background-position-x: left !important;
+    background-position-y: top;
+    background-size: contain;
+  }
+}

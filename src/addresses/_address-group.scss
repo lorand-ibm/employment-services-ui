@@ -1,0 +1,21 @@
+.address-group {
+  + .address-group {
+    margin-top: 40px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    text-align: center;
+
+    @include breakpoint(medium up) {
+      font-size: 45px;
+    }
+  }
+}

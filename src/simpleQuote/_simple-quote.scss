@@ -1,0 +1,258 @@
+.myhki-simple-quote {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+
+  &--type-quote {
+    padding-left: 40px;
+
+    @include breakpoint(medium up) {
+      padding-left: 45px;
+    }
+    .myhki-simple-quote__body {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 25px;
+        height: 17px;
+        margin: 0 auto 7px;
+        background-image: url(../assets/images/quote.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      @include breakpoint(large up) {
+        &:before {
+          width: 32px;
+          height: 21px;
+        }
+      }
+    }
+  }
+
+  &--centered {
+    margin: 0 20px;
+
+    @include breakpoint(medium up) {
+      max-width: 500px;
+      padding-left: 0;
+      margin: 0 auto;
+      text-align: center;
+
+      .myhki-simple-quote__body {
+        &:before {
+          top: -35px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    &.myhki-simple-quote--source-full {
+      padding-bottom: 42px;
+      text-align: left;
+
+      .myhki-simple-quote__source {
+        // position: absolute;
+        // left: 50%;
+        // transform: translateX(-50%);
+        margin: 0;
+        max-width: 300px;
+
+        @include breakpoint(small only) {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &--type-twitter {
+    text-align: center;
+
+    .myhki-simple-quote {
+      &__body {
+        font-weight: bold;
+        letter-spacing: -1.2px;
+        text-align: center;
+        color: $hel-black;
+
+        @include breakpoint(medium up) {
+          font-size: 35px;
+          line-height: 1;
+        }
+
+        p {
+          margin: 0;
+
+          @include breakpoint(medium up) {
+            line-height: 1;
+          }
+        }
+      }
+
+      &__source {
+        .source-image {
+          display: none;
+        }
+
+        .source-text {
+          display: none;
+        }
+
+        .source-title {
+          font-size: 15px;
+          font-weight: bold;
+          line-height: 1.13;
+          letter-spacing: -0.3px;
+          text-align: center;
+          color: $hel-vaakuna;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  &__source-icon {
+    margin: 0 0 10px;
+    display: inline-block;
+
+    &-twitter {
+      background: url(../assets/images/twitter.svg) no-repeat;
+      background-size: cover;
+      width: 30px;
+      height: 25px;
+    }
+  }
+
+  &__body {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: $hel-black;
+    border: none;
+    padding: 0;
+
+    @include breakpoint(large up) {
+      font-size: 35px;
+    }
+
+    p {
+      line-height: inherit;
+      color: inherit;
+    }
+  }
+
+  &--source-full {
+    .myhki-simple-quote__source {
+      position: relative;
+      padding-left: 42px + 17px;
+      text-align: left;
+      flex-direction: column;
+      justify-content: center;
+      display: flex;
+      height: 42px;
+    }
+
+    .source-image {
+      top: 0;
+      left: 0;
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .source-text {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #525a66;
+    }
+
+    .source-title {
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      color: #abb2be;
+    }
+  }
+
+  &--source-image {
+    .myhki-simple-quote__source {
+      margin: 0;
+      display: inline-block;
+
+      img {
+        max-height: 42px;
+      }
+    }
+
+    .source-text,
+    .source-title {
+      display: none;
+    }
+  }
+  &--source-text {
+    .myhki-simple-quote__source {
+      color: #abb2be;
+    }
+  }
+}
+
+.myhki-paragraph {
+  .myhki-simple-quote {
+    text-align: left;
+    margin: 0;
+
+    &__body {
+      text-align: left;
+      display: flex;
+      margin: 0;
+
+      &:before {
+        margin-top: 15px;
+      }
+
+      > div {
+        flex: 1;
+        padding-left: 17px;
+      }
+    }
+
+    .source-text {
+      padding-left: 37px;
+    }
+
+    .source-title {
+      padding-left: 37px;
+    }
+
+    &--source-full {
+      .source-text {
+        padding-left: 0;
+      }
+
+      .source-title {
+        padding-left: 0;
+      }
+
+      .myhki-simple-quote__source {
+        margin-left: 37px;
+      }
+    }
+  }
+}

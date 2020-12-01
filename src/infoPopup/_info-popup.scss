@@ -1,0 +1,75 @@
+.info-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  top: 20%;
+  left: 0;
+  right: 0;
+  width: 65%;
+  background-color: $hel-purple;
+  color: white;
+  margin: 0 auto;
+  border-radius: 4px;
+  outline: none;
+
+  @include breakpoint(small only) {
+    display: unset;
+    width: 90%;
+    top: 70px;
+    overflow: auto;
+    padding: 20px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+
+    @include breakpoint(medium down) {
+      font-size: 16px;
+  }
+}
+
+  &__body {
+    margin-bottom: 25px;
+    font-size: 24px;
+    @include breakpoint(medium down) {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    margin-bottom: 25px;
+    border: 1px solid white;
+    padding: 8px;
+    color: white;
+    width: 40%;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.50)
+    }
+
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.50);
+  z-index: 10000;
+}

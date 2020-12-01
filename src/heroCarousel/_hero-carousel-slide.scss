@@ -1,0 +1,222 @@
+.myhki-hero-carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0 26px;
+  background-position: center !important;
+  background-size: cover !important;
+
+  > .row {
+    height: 100%;
+
+    > .columns {
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+
+    .loaded & {
+      display: block;
+    }
+
+    iframe {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto !important;
+      height: auto !important;
+      overflow: hidden;
+
+      @include breakpoint(small only) {
+        height: 105% !important;
+      }
+    }
+  }
+
+  &__bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  &__bg2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center !important;
+    background-size: auto 160px, cover !important;
+  }
+
+  &__wrapper {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 90px;
+    text-align: left;
+    padding: 0 20px;
+    transform: translateZ(0);
+
+    @include breakpoint(medium up) {
+      left: 20px;
+      padding: 0 30px;
+    }
+
+    @include breakpoint(large up) {
+      left: 80px;
+      width: 50%;
+    }
+
+    .myhki-koro {
+      display: none;
+    }
+  }
+
+  &__subpage {
+    font-size: 33px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 38px;
+    letter-spacing: normal;
+    color: $white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    &--desktop {
+      @include breakpoint(medium down) {
+        // display: none;
+      }
+    }
+
+    &--mobile {
+      position: absolute;
+      top: 60px;
+      left: 0px;
+      width: 100%;
+      text-align: center;
+
+      @include breakpoint(medium only) {
+        font-size: 40px;
+      }
+
+      // @include breakpoint(large up) {
+        display: none;
+      // }
+    }
+
+    &--black-text {
+      color: $hel-black;
+      text-shadow: none;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: 2.25rem;
+    line-height: 1.15;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    overflow: hidden;
+    letter-spacing: -0.9px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    color: $white;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $white;
+    }
+
+    &--black-text {
+      text-shadow: none;
+
+      color: $hel-black;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $hel-black;
+      }
+    }
+    
+    @include breakpoint(medium down) {
+      max-height: 7.8rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    @include breakpoint(large up) {
+      font-size: 4.2rem;
+      line-height: 1.1;
+    }
+  }
+
+  &__read-more {
+    font-size: 15px;
+    letter-spacing: -0.1px;
+    line-height: 17px;
+    margin-top: 15px;
+    display: block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    color: $white;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $white;
+    }
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-left: 4px solid #ffffff;
+      border-bottom: 4px solid transparent;
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    &--black-text {
+      text-shadow: none;
+
+      color: $hel-black;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $hel-black;
+      }
+      &:after {
+        border-left: 4px solid $hel-black;
+      }
+    }
+  }
+}

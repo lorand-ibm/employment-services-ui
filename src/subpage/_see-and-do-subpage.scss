@@ -1,0 +1,16 @@
+.subpage--see-and-do {
+  .myhki-lift-up-carousel {
+    margin-top: 150px;
+    @include breakpoint(medium up) {
+      margin: 160px -60px 0;
+    }
+  }
+
+  .myhki-video-carousel {
+    margin-top: 150px;
+  }
+
+  .myhki-photo-grid {
+    margin-top: 150px;
+  }
+}

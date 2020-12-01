@@ -1,0 +1,132 @@
+$day-width: 44px;
+
+.myhki-datepicker {
+  background: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  display: inline-block;
+
+  &__wrapper {
+    display: flex;
+    padding: 31px 21px 20px;
+  }
+
+  &__date {
+
+  }
+
+  .react-datepicker {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: 0.5px;
+
+    &__month-container {
+      margin: 0 10px;
+      white-space: nowrap;
+
+      @include breakpoint(small only) {
+        width: 100%;
+        max-width: 7 * $day-width;
+        margin: 0;
+      }
+    }
+
+    &__navigation {
+      &--previous,
+      &--next {
+        width: 9px;
+        height: 14px;
+        border: none;
+        top: 12px;
+      }
+
+      &--previous {
+        background: url(../assets/images/datepicker-prev.svg);
+      }
+
+      &--next {
+        background: url(../assets/images/datepicker-next.svg);
+      }
+    }
+
+    &__header {
+      background: transparent;
+      border-bottom: solid 1px #001028;
+    }
+
+    &__month {
+      margin: 10px 0 0 0;
+    }
+
+    &__week,
+    &__day-names {
+      @include breakpoint(small only) {
+        display: flex;
+      }
+    }
+
+    &__current-month {
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.33;
+      letter-spacing: 0.5px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    &__day-name,
+    &__day {
+      width: $day-width;
+      line-height: $day-width;
+      margin: 0;
+      border-radius: 0;
+
+      @include breakpoint(small only) {
+        width: auto;
+        max-width: $day-width;
+        flex: 1 1 $day-width;
+      }
+    }
+
+    &__day-name {
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    &__day {
+      &--selected,
+      &--range-start,
+      &--range-end {
+        background-color: $hel-fog !important;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: $hel-black;
+      }
+
+      &--in-range {
+        background-color: #dfedfa;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: $hel-black;
+      }
+
+      &--in-selecting-range {
+        background-color: #dfedfa;
+        color: $hel-black;
+        font-weight: 900;
+      }
+    }
+  }
+}

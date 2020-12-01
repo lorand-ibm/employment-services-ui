@@ -1,0 +1,640 @@
+@import './search-bar';
+@import './top-navigation-submenu';
+@import './user-menu-link';
+@import '../../normilize';
+
+$step_duration: 200ms;
+
+// Common styles for both mobile and desktop.
+.top-navigation {
+  color: $hel-dark-gray;
+  z-index: 100;
+  transition: margin 0.2s linear;
+  position: fixed;
+  width: 100%;
+
+  &__bar-wrapper {
+    height: 100%;
+    transition: background 0.3s linear;
+    background: $white;
+  }
+
+  &__row {
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__wrapper {
+    display: flex;
+    height: $header-height;
+    align-items: center;
+    z-index: 2;
+  }
+
+  &__mobile-menu-toggle {
+    z-index: 1;
+    display: none;
+    padding: 0 0 0 7px;
+    width: 90px;
+  }
+
+  &__open {
+    display: block;
+    width: 24px;
+    height: 17px;
+    background: url(../assets/images/hamburger.svg);
+  }
+
+  &__close {
+    display: none;
+    width: 22px;
+    height: 22px;
+    background: url(../assets/images/close-black.svg);
+    z-index: 10;
+  }
+
+  &__logo {
+    user-select: none;
+    padding: 0 33px 0 0;
+
+    a.logo img {
+      height: 50px;
+    }
+    a.logo-ja img {
+      height: 50px;
+      width: 105px;
+    }
+    a.logo-ru img {
+      height: 50px;
+      width: 103px;
+    }
+    a.logo-sv img {
+      height: 50px;
+      width: 115px;
+    }
+    a {
+      display: inline-block;
+    }
+  }
+
+  &__links {
+    flex: 1;
+  }
+
+  &__link {
+    font-size: 20px;
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: $hel-black;
+    margin: 0 16px;
+    border-bottom: 3px solid transparent;
+    padding: 0 0 2px 0;
+    text-align: center;
+    user-select: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: inherit;
+      outline: none;
+    }
+
+    &--active {
+      font-weight: bold;
+      border-bottom-color: $hel-dark-gray;
+      color: $hel-dark-gray;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__user-menu {
+    &--buttons {
+      display: flex;
+      align-items: start;
+      height: 28px;
+    }
+
+    .user-menu-link {
+      @extend .button-reset;
+      padding: 3px 0 0 0;
+
+      &--home-link {
+        display: none;
+
+        .icon {
+          width: 32px;
+          height: 30px;
+          background-image: url(../assets/images/mobile-home-link.svg);
+        }
+      }
+
+      &--search {
+        .icon {
+          width: 24px;
+          height: 24px;
+          background-image: url(../assets/images/search.svg);
+        }
+      }
+
+      &--likes {
+        .icon {
+          width: 27px;
+          height: 24px;
+          background-image: url(../assets/images/like.svg);
+        }
+      }
+
+      &--user {
+        .icon {
+          width: 21px;
+          height: 24px;
+          background-image: url(../assets/images/user.svg);
+        }
+      }
+    }
+
+    .my-helsinki-list-dropdown--open .user-menu-link--likes .icon {
+      background-image: url(../assets/images/like-fill.svg);
+    }
+  }
+}
+
+.title {
+  @extend .button-reset;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+// Styles for mobile version of the component.
+.top-navigation-type-wrap--mobile {
+  .top-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $header-height-mobile;
+    width: 100%;
+    z-index: 100;
+
+    &--scrolling-down:not(.top-navigation--is-open) {
+      margin-top: -$header-height-mobile;
+    }
+
+    &__bar-wrapper {
+      background: #ffffff;
+    }
+
+    &__wrapper {
+      height: $header-height-mobile;
+    }
+
+    &__mobile-menu-toggle {
+      display: block;
+    }
+
+    &__logo {
+      flex: 1;
+      padding: 3px 0 0 0;
+      text-align: center;
+    }
+
+    &__links {
+      display: none;
+    }
+
+    &__link {
+      font-size: 16px;
+      @include breakpoint(320) {
+      font-size: 18px;
+      }
+      @include breakpoint(420) {
+        font-size: 24px;
+      }
+
+      position: absolute;
+      color: $hel-black;
+      margin: 0;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.16;
+      letter-spacing: normal;
+      text-align: left;
+      padding: 20px;
+      border: none;
+
+      .title {
+        position: relative;
+        text-align: inherit;
+      }
+
+      &--see-and-do {
+        top: 0px;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: $hel-spora;
+      }
+
+      &--eat-and-drink {
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: $hel-suomenlinna;
+      }
+
+      &--work-and-study {
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 67%;
+        background: $light-blue;
+      }
+
+      &--business-and-invest {
+        display: flex;
+        bottom: 0;
+        left: 0;
+        align-items: flex-end;
+        width: 60%;
+        padding-bottom: 5vh;
+        min-height: 40%;
+        height: 50vw;
+        max-height: 50%;
+
+        // This is needed because we want to show the triangle on top of the
+        // right bottom box. Z-index can't be set to the business-and-invest
+        // div because it would cover the right bottom box partially and the
+        // link in that box wouldn't be clickable.
+        .title, &:before {
+          z-index: 1;
+        }
+
+        &:before {
+          content: '';
+          display: block;
+          width: 400%;
+          height: 200%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: $hel-summer-2;
+          transform: rotate(34deg);
+          transform-origin: 0 0;
+        }
+      }
+
+      &--info {
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 78%;
+        background: $white;
+        text-align: left;
+      }
+
+      &--think-sustainably {
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 52%;
+        background: $hel-copper;
+        hyphens: auto;
+      }
+    }
+
+    &__user-menu {
+      width: 90px;
+      .user-menu-link {
+        &--likes {
+          margin-right: 10px;
+        }
+        &--user {
+          display: none;
+        }
+      }
+    }
+
+    &--opening {
+      .top-navigation {
+        &__user-menu--buttons {
+          animation: openUserMenu 0.2s both;
+          animation-delay: $step_duration * 2;
+        }
+
+        &__link {
+          animation-duration: $step_duration;
+          animation-fill-mode: both;
+          .title {
+            animation-duration: $step_duration;
+            animation-fill-mode: both;
+          }
+
+          &--see-and-do {
+            animation-name: linkSlideDown;
+            animation-delay: $step_duration * 1;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 2;
+            }
+          }
+          &--eat-and-drink {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 1;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 2;
+            }
+          }
+
+          &--work-and-study {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 2;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 3;
+            }
+          }
+          &--info {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 2;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 3;
+            }
+          }
+
+          &--business-and-invest {
+            animation-name: linkMoveUpDiagonally;
+            animation-delay: $step_duration * 3;
+            .title {
+              animation-name: titleFadeIn;
+              animation-delay: $step_duration * 4;
+            }
+          }
+          &--think-sustainably {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 3;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 4;
+            }
+          }
+        }
+      }
+    }
+
+    &--closing {
+      .top-navigation {
+        &__close {
+          display: none !important;
+        }
+
+        &__link {
+          animation-duration: $step_duration;
+          animation-fill-mode: both;
+          animation-direction: reverse;
+          .title {
+            animation-duration: $step_duration;
+            animation-fill-mode: both;
+            animation-direction: reverse;
+            animation-timing-function: linear;
+          }
+
+          &--work-and-study {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 1;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 0;
+            }
+          }
+          &--info {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 1;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 0;
+            }
+          }
+
+          &--business-and-invest {
+            animation-name: linkMoveUpDiagonally;
+            animation-delay: $step_duration * 1;
+            .title {
+              animation-name: titleFadeIn;
+              animation-delay: $step_duration * 0;
+            }
+          }
+          &--think-sustainably {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 1;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 0;
+            }
+          }
+
+          &--see-and-do {
+            animation-name: linkSlideDown;
+            animation-delay: $step_duration * 2;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 0;
+            }
+          }
+          &--eat-and-drink {
+            animation-name: linkSlideUp;
+            animation-delay: $step_duration * 2;
+            .title {
+              animation-name: titleSlideUp;
+              animation-delay: $step_duration * 0;
+            }
+          }
+        }
+
+        &__user-menu--buttons {
+          animation: openUserMenu $step_duration * 2 reverse both;
+        }
+      }
+    }
+
+    &--is-open {
+      height: 100%;
+      width: 100%;
+      left: 0;
+      z-index: 100;
+      background: transparent;
+
+      .row {
+        height: 100%;
+        > .column {
+          height: 100%;
+          padding: 0;
+        }
+      }
+
+      .top-navigation {
+        &__open {
+          display: none;
+        }
+
+        &__close {
+          display: block;
+          position: absolute;
+          top: 25px;
+          left: 20px;
+        }
+
+        &__logo {
+          display: none;
+        }
+
+        &__wrapper {
+          flex-direction: column;
+          height: 100%;
+        }
+
+        &__user-menu {
+          width: 100%;
+          height: 70px;
+          background: $white;
+
+          &--buttons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: inherit;
+          }
+
+          .user-menu-link {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 11px 20px;
+
+            &--home-link {
+              display: flex;
+              order: 1;
+            }
+
+            &--user {
+              display: flex;
+              order: 2;
+              .icon {
+                width: 26px;
+                height: 30px;
+              }
+            }
+          }
+
+          .myhki-language-chooser {
+            display: flex;
+            order: 3;
+            margin: 0 20px 24px 4px;
+
+            .title {
+              font-size: 30px;
+              font-weight: bold;
+              color: $hel-black;
+              .fa-caret-down {
+                color: $hel-black;
+              }
+            }
+
+            .icon {
+              display: none;
+            }
+          }
+        }
+
+        &__links {
+          position: absolute;
+          top: 70px;
+          height: calc(100% - 70px);
+          left: 0;
+          order: 5;
+          display: block;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+    }
+
+    &--is-closed {
+      .myhki-language-chooser {
+        display: none;
+      }
+    }
+  }
+}
+
+.myhki-language-chooser {
+  .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    --background: url(../assets/images/globe.svg);
+    vertical-align: middle;
+    background-size: contain;
+  }
+
+}
+
+@keyframes openUserMenu {
+  0%   { opacity: 0; height: 0; }
+  100% { opacity: 1; height: 70px; }
+}
+
+@keyframes linkSlideDown {
+  0%   { opacity: 0; top: -100%; }
+  100% { opacity: 1; top: 0; }
+}
+
+@keyframes linkSlideUp {
+  0%   { opacity: 0; bottom: -100%; }
+  100% { opacity: 1; bottom: 0; }
+}
+
+@keyframes linkMoveUpDiagonally {
+  0%   { bottom: -100%; left: -100%; }
+  100% { bottom: 0; left: 0; }
+}
+
+@keyframes titleSlideUp {
+  0%   { opacity: 0; top: 1em; }
+  100% { opacity: 1; top: 0; }
+}
+
+@keyframes titleFadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.myhki-language-chooser {
+  display: flex;
+  order: 3;
+  margin: 0 20px 24px 4px;
+
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: $hel-black;
+
+    .fa-caret-down {
+      color: $hel-black;
+    }
+  }
+}

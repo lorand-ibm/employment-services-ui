@@ -1,0 +1,510 @@
+.myhki-location-carousel {
+  margin: 90px 0 0 0;
+  background-color: $hel-fog;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+
+  @include breakpoint(large up) {
+    background-color: transparent;
+  }
+
+  &--collapse-margins {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--slides-1.myhki-location-carousel {
+    .carousel .control-arrow {
+      display: none;
+    }
+
+    .myhki-location-carousel {
+      &__controls {
+        display: none;
+      }
+    }
+  }
+
+  &__titleContainer{
+    background-color: #fefefe;
+  }
+
+  &__title {
+    font-size: 37px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.0;
+    letter-spacing: normal;
+    text-align: center;
+    color: $hel-black;
+    margin: 0 70px 10px;
+
+    @include breakpoint(large up) {
+      font-size: 45px;
+      text-transform: none;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__see-all-link {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.9px;
+    color: $hel-dark-gray;
+    display: inline-block;
+    margin: 0 0 20px;
+
+    @include breakpoint(large up) {
+      margin-bottom: 40px;
+    }
+
+    &:after {
+      content: "";
+      height: 1px;
+      background: $cool-grey;
+      margin-top: 2px;
+      display: block;
+    }
+  }
+
+  .myhki-share-links {
+    order: 4;
+
+    @include breakpoint(large up) {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      width: 320px;
+      margin-left: -160px;
+    }
+
+    ul {
+      justify-content: center;
+      margin: 0 -20px;
+    }
+
+    li {
+      margin: 0 20px;
+
+      &:first-child {
+        width: 100%;
+        text-align: center;
+        margin: 15px 0 20px;
+
+        @include breakpoint(large up) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .myhki-share-link {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    background-size: 24px;
+    margin-bottom: 60px;
+
+    @include breakpoint(large up) {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      margin-bottom: 0;
+    }
+  }
+
+  &__carousel {
+    margin: -50px auto 0 auto;
+    z-index: 1;
+    position: relative;
+    order: 2;
+
+    @include breakpoint(large up) {
+      order: 2;
+    }
+
+    @include breakpoint(medium up) {
+      margin: 0 auto 25px auto;
+    }
+
+    @include breakpoint(medium only) {
+      margin: 25px auto 0 auto;
+    }
+  }
+
+  &__carousel {
+    position: relative;
+    max-width: 75rem;
+    width: 100%;
+    padding: 0 35px;
+  }
+
+  &__carousel-arrow {
+    top: 30%;
+
+    &--prev {
+      margin-left: 16px;
+    }
+
+    &--next {
+      margin-right: 16px;
+    }
+  }
+
+  &__controls {
+    margin: 15px 0 0 0;
+    padding: 0 16px;
+    order: 3;
+    display: flex;
+
+    @include breakpoint(large up) {
+      margin: 0 0 15px 0;
+      order: 1;
+    }
+  }
+
+  &__controls-arrow {
+    margin: auto 0;
+  }
+
+  &__control {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid $hel-black;
+    margin: 0 2.5px;
+
+    &--active {
+      background: $hel-black;
+    }
+  }
+
+  &-slide {
+    display: flex;
+    height: 100%;
+    min-height: 420px;
+  }
+
+  &-card {
+    width: 100%;
+    padding: 0 8px;
+    text-align: left;
+    height: 100%;
+    position: relative;
+
+    @include breakpoint(medium up) {
+      width: 50%;
+    }
+
+    @include breakpoint(xlarge up) {
+      width: 33.333%;
+    }
+
+    &:before {
+      content: "";
+      padding-bottom: 128%;
+      display: block;
+    }
+
+    &__wrapper {
+      background-color: #ffffff;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 8px;
+      right: 8px;
+    }
+
+    &__content {
+      height: 100%;
+      position: relative;
+      opacity: 1;
+      transition: opacity .25s ease-in;
+      display: flex;
+      flex-direction: column;
+
+      .myhki-location-carousel-card__title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    &__content.myhki-location-carousel-card__content--open {
+      .myhki-location-carousel-card__title {
+        white-space: normal;
+      }
+    }
+
+    &__image {
+      height: 47%;
+      background-position: center;
+      background-size: cover;
+      cursor: pointer;
+      order: 2;
+      position: relative;
+
+      @include breakpoint(large up) {
+        order: 1;
+      }
+      &__background {
+        height: 100%;
+      }
+    }
+
+    &__info {
+      height: 53%;
+      min-height: 240px;
+      position: relative;
+      padding: 25px 0 0;
+      flex-direction: column;
+      order: 1;
+      display: flex;
+
+      @include breakpoint(large up) {
+        order: 2;
+      }
+    }
+
+    &__title {
+      margin: 0 20px 12px 20px;
+      font-size: 30px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.0;
+      letter-spacing: -1.1px;
+      cursor: pointer;
+      padding: 0 5px 5px 5px;
+      overflow: hidden;
+
+      @include breakpoint(small only) {
+        padding: 0 20px;
+      }
+    }
+
+    &__description {
+      $line-height: 25px;
+      flex-grow: 1;
+      flex-basis: 0;
+      background-color: #ffffff;
+      min-height: 0;
+
+      * {
+        font-size: 18px;
+        line-height: $line-height;
+      }
+
+      .myhki-show-more {
+        padding: 0 25px 36px;
+        background-color: #ffffff;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint(small only) {
+          padding: 0 20px 25px;
+        }
+
+        &__read-more {
+          font-size: 15px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 20px;
+          letter-spacing: normal;
+          color: $hel-brick;
+          display: block;
+          margin-top: 10px;
+
+          @include breakpoint(large up) {
+            margin-top: 18px;
+          }
+        }
+      }
+    }
+
+    .myhki-card-placeholder {
+      display: none;
+    }
+
+    &--no-image {
+      .myhki-card-placeholder {
+        display: block;
+      }
+    }
+
+    &__content-link {
+      display: none;
+
+      @include breakpoint(medium down) {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .carousel {
+    @include breakpoint(large only) {
+      width: 80% !important;
+    }
+
+    @include breakpoint(xlarge up) {
+      width: 100% !important;
+    }
+
+    &:hover {
+      .control-arrow {
+        opacity: 1;
+      }
+    }
+
+    .control-dots {
+      display: none;
+    }
+
+    &.carousel-slider {
+      overflow: visible;
+    }
+
+    .slider-wrapper {
+      overflow: visible;
+      margin: 0 -8px;
+      width: auto;
+
+      @include breakpoint(small only) {
+        max-width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    .slider {
+      margin: 0;
+    }
+
+    .slide {
+      transition: padding .25s ease-in;
+
+      &:not(.selected) {
+        .myhki-location-carousel-card__content {
+          opacity: 0.3;
+        }
+
+        .myhki-location-carousel-card {
+          transition: opacity .25s ease-in;
+        }
+      }
+    }
+
+  }
+
+  &__map {
+    margin: 0;
+    position: relative;
+    order: 1;
+    z-index: -1;
+
+    @include breakpoint(large up) {
+      order: 3;
+    }
+
+    &-container {
+      height: 350px;
+
+      @include breakpoint(medium up) {
+        height: 500px;
+      }
+    }
+
+    a[href^="http://maps.google.com/maps"] {
+      display: none !important
+    }
+    a[href^="https://maps.google.com/maps"] {
+      display: none !important
+    }
+
+    .gmnoprint a,
+    .gmnoprint span,
+    .gm-style-cc {
+      &:not(.gm-bundled-control) {
+        display: none;
+      }
+    }
+
+    .gm-bundled-control {
+      margin-bottom: 24px !important;
+    }
+  }
+
+  &__custom-icon {
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+  }
+
+  &-map-marker {
+    $height: 62px;
+    $width: 47px;
+    position: relative;
+    width: $width;
+    height: $height;
+    margin-top: -$height;
+    margin-left: -($width/2);
+    transition: all .25s ease-in;
+    user-select: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 23.5px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+      line-height: 20px;
+
+    }
+
+    &--selected {
+      $height: 81.67px;
+      $width: 61.2px;
+      width: $width;
+      height: $height;
+      margin-top: -$height;
+      margin-left: -($width/2);
+
+      .myhki-location-carousel-map-marker__text {
+        font-size: 28.5px;
+      }
+    }
+  }
+  &__marker-selected {
+    z-index: 1000 !important;
+    .myhki-location-carousel-map-marker {
+      $height: 81.67px;
+      $width: 61.2px;
+      width: $width;
+      height: $height;
+      margin-top: -$height;
+      margin-left: -($width/2);
+    }
+  }
+}

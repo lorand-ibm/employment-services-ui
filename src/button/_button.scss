@@ -1,0 +1,35 @@
+.button {
+  position: relative;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &--expand {
+    width: 100%;
+  }
+
+  &--wide {
+    width: 100%;
+    @include breakpoint(medium up) {
+      width: auto;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .button {
+      &__loader-container {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &--borderless {
+    border-color: transparent !important;
+  }
+
+  &__loader-container {
+    margin-right: 0.5rem;
+  }
+}

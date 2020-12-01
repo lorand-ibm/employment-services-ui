@@ -1,0 +1,85 @@
+.my-helsinki-banner {
+  background-color: $hel-my-helsinki;
+  padding: 25px 35px 25px 35px;
+  display: flex;
+  align-items: center;
+  margin: 40px 0 20px 0;
+
+  @include breakpoint(large up) {
+    padding: 35px;
+  }
+
+  @include breakpoint(small only) {
+    padding-right: 17px;
+  }
+
+  &__icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 19px 0 0;
+
+    @include breakpoint(medium up) {
+      margin: 0 25px 0 0;
+      width: 49px;
+      height: 49px;
+    }
+  }
+
+  &__text {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 0.97;
+    letter-spacing: -0.5px;
+    color: $hel-black;
+    margin: 0;
+    flex: 1;
+    display: none;
+
+    @include breakpoint(medium only) {
+      display: block;
+    }
+
+    @include breakpoint(large up) {
+      padding-right: 120px;
+      display: block;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 50px;
+    min-width: 228px;
+    color: #001028;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint(small down) {
+      flex: 1;
+    }
+
+    @include breakpoint(medium up) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__linktext {
+    line-height: 44px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.banner-mobile-no-icon-centered {
+  @include breakpoint(medium down) {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,66 @@
+.sustainability-criterion {
+
+  &__heading {
+    font-size: inherit; // Override generic "h3" tag style.
+    margin: 0; // Override generic "h3" tag style.
+    display: flex;
+  }
+
+  &__heading-button {
+    width: 100%;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  &__column--centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    line-height: 1.2;
+    padding: 1.25em 0;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  &__arrow-icon {
+    color: $hel-black;
+    font-size: 1.45em; // Define icon size relative to current font-size.
+  }
+
+  &__body {
+    margin-top: -0.2em;
+    margin-bottom: 1.5em;
+    a {
+      text-decoration: underline;
+      color: $hel-dark-gray;
+    }
+  }
+
+  &__check-icon {
+    display: inline-block;
+    width: 1em; // Define icon size relative to current font-size.
+    height: 100%;
+    background: url(../assets/images/ts-check.svg) no-repeat center center;
+    background-size: contain;
+  }
+
+  &__horizontal-rule {
+    margin: 0;
+    border-bottom: 2px solid $hel-copper;
+  }
+
+  &--inactive {
+    .sustainability-criterion {
+      &__label {
+        font-weight: normal;
+        font-size: 0.9em;
+      }
+      &__body {
+        font-size: 0.9em;
+      }
+    }
+  }
+}

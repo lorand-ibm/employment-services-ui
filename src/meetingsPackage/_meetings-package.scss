@@ -1,0 +1,66 @@
+.meetings-package {
+  &__container {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(39, 41, 39, 0.46);
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    #mp-widget {
+      * {font-family: inherit !important;}
+      background-color: transparent !important;
+
+      #mp-searchform {
+        background-color: transparent !important;
+        .mp-searchform-header {
+          background-color: transparent !important;
+            .mp-search-fomt-title {
+              font-weight: bold;
+              font-size: 45px !important;
+              color: white;
+            }
+        }
+        .mp-form-inputs {
+          margin-top: 20px;
+          background-color: rgba(189, 189, 189, 0.6) !important;
+          .mp-form-input {
+            min-width: 124px !important;
+
+            .mp-label {
+              color: white;
+              font-size: 16px !important;
+              font-weight: 900;
+            }
+            #meeting-length-button, #city-select-button {
+              height: 48px;
+            }
+            .mp-form-input-text {
+              height: 48px;
+              cursor: pointer;
+            }
+            .mp-button {
+              height: 48px;
+              cursor: pointer;
+              background-color: #cdcdcd !important;
+              width: 25px;
+            }
+            .mp-form-search {
+              background-color: #cdcdcd !important;
+              height: 48px;
+              cursor: pointer;
+              color: white !important;
+              font-weight: bold;
+            }
+          }
+          .mp-poweredby {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

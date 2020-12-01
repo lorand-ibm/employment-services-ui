@@ -1,0 +1,89 @@
+.auth-login-modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10001;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  &__close {
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-image: url('../assets/images/close-blue.svg');
+    background-size: cover;
+    z-index: 10;
+
+    @include breakpoint(medium down) {
+      width: 20px;
+      height: 20px;
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  &__wrapper {
+    padding: 66px 30px 0;
+
+    @include breakpoint(large up) {
+      padding: 200px 0 0;
+    }
+  }
+
+  &__title {
+    font-size: 27.5px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 0 0 12px 0;
+  }
+
+  &__description {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #525a66;
+    margin: 0 0 44px;
+  }
+
+  &__providers {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 0 15px;
+      display: block;
+    }
+  }
+
+  &__provider {
+    border: solid 2px #525a66;
+    display: block;
+    line-height: 44px;
+    text-align: center;
+
+    &--facebook {
+      border-color: $hel-vaakuna;
+      color: $hel-vaakuna;
+    }
+
+    &--google {
+      border-color: $hel-brick;
+      color: $hel-brick;
+    }
+  }
+}

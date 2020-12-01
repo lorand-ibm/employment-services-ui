@@ -1,0 +1,49 @@
+.subpage--media {
+  .lift-up-carousel{
+    padding: 60px 0;
+
+    &__wrapper {
+      position: relative;
+      padding: 30px 0;
+      background: $light-blue;
+      @include breakpoint(large up) {
+        padding: 80px 0;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  .myhki-simple-quote {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .accordion {
+    margin: 60px 0;
+    @include breakpoint(large up) {
+      margin: 80px 0;
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: 30px 0;
+      background: $hel-fog;
+      @include breakpoint(large up) {
+        padding: 80px 0;
+      }
+    }
+
+    .myhki-koro {
+      height: 14px;
+      background-size: 96px 14px;
+    }
+  }
+
+  &__text-carousel {
+    padding: 90px 0 60px;
+  }
+}
