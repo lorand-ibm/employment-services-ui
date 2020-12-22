@@ -2,9 +2,17 @@
   color: $hel-black;
   text-align: left;
   font-weight: bold;
-  margin: 1rem auto 0;
+  margin-left: 20px;
   font-size: 1.6rem;
   line-height: 1.2;
+  height: 43px;
+  width: 792px;
+  color: #1A1A1A;
+  font-family: "HelsinkiGrotesk";
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 43px;
 
   &--collapse-margins {
     margin-top: 0;

@@ -6,7 +6,7 @@
   display: inline-block;
 
   .title {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 15px;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -80,4 +80,11 @@
       }
     }
   }
+}
+
+.svg-caret-down {
+  background: url(../assets/images/lang-expanse.svg);
+  height: 24px;
+  width: 24px;
+  margin-top: 5px;
 }

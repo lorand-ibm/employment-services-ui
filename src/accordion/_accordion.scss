@@ -10,6 +10,7 @@
     cursor: pointer;
     user-select: none;
     position: relative;
+    text-align: left;
 
     &:after {
       content: "";
@@ -25,7 +26,7 @@
       width: 17px;
       height: 8.9px;
       margin-top: 0px;
-      border-bottom: 1px solid grey;
+      border-bottom: none;
     }
   }
 
@@ -44,21 +45,31 @@
   }
 
   &__title {
-    display: inline-block;
-    font-size: 23px;
+    height: 22px;
+    --width: 259.41px;
+    color: #0000BF;
+    font-family: "HelsinkiGrotesk";
+    font-size: 18px;
     font-weight: bold;
-    text-align: left;
-    color: #0a0a0a;
-    line-height: 1.8;
-    color: rgb(0, 32, 191);
+    letter-spacing: 0;
+    line-height: 22px;
   }
 
   &__body {
-    border-bottom: 1px solid grey;
+    --margin-left: 50px;
+    --border-bottom: 1px solid grey;
     @include body-georgia-style;
     max-height: 0;
-    height:auto;
-    overflow: auto;
+    --height:auto;
+    --overflow: auto;
+
+    --height: 144px;
+    --width: 288px;
+    color: #1A1A1A;
+    font-family: "HelsinkiGrotesk";
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
 
     &-hidden {
       display: none;
@@ -119,7 +130,7 @@
   + .myhki-accordion-group {
     margin-top: 80px;
   }
-  border-bottom: 1px solid grey;
+  --border-bottom: 1px solid grey;
 }
 
 .myhki-accordion-group__title {
@@ -132,11 +143,13 @@
   @include breakpoint(medium up) {
     font-size: 45px;
   }
-  border-bottom: 1px solid grey;
+  --border-bottom: 1px solid grey;
 }
 
 .accordion-border {
-  border-bottom-color: grey;
-  margin: 1px;
-  margin-left: 47px;
+  border-bottom: 1px solid grey;
+  color: black;
+  margin-left: 20px;
+  --padding: 26px 42px 26px 20px;
+  width: 77%;
 }

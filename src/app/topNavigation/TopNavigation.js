@@ -612,7 +612,7 @@ class TopNavigation extends Component {
               <div className="top-navigation__bar-wrapper"
                 role={isMobile ? 'dialog' : null}>
                 <div className="top-navigation__row" ref="topNavigationRow" inert={this.state.showSearch ? 'true' : null}>
-                  <div className="column col-sm-12">
+                  <div className="column">
                     <div className="top-navigation__wrapper" id="top-navigation__wrapper">
                       <div className="top-navigation__mobile-menu-toggle">
                         <span className="visually-hidden">{i18n.t('menu')}</span>
@@ -633,9 +633,11 @@ class TopNavigation extends Component {
                             active={helpers.getActiveLanguage(i18n.language)}
                             activeLabel="id"
                             items={LanguageMenuItems}
-
+                            icon={false}
                             onItemClick={this.onLanguageMenuItemClick}
+                            displayCaret={true}
                           />
+
                         </div>
                       </div>
                       {type === 'mobile' && getLinks()}

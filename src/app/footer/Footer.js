@@ -10,6 +10,7 @@ import {FooterTopMenuByLanguage, FooterBottomMenuByLanguage, BypassCacheQueryPar
 import {footerMenuPageSelector} from '../../menu/selectors';
 import * as helpers from '../../helpers';
 import has from 'lodash/has';
+import Koro from '../../koro/Koro';
 
 type Props = {
   fetchMenuByName: typeof fetchMenuByName,
@@ -28,7 +29,7 @@ class Footer extends Component {
     super(props);
 
     this.state = {
-      logo: helpers.getLogo(),
+      logo: helpers.getLogoWhite(),
       logoClass: helpers.getLogoClass(),
     };
     if (global.IS_CLIENT) {
@@ -100,16 +101,17 @@ class Footer extends Component {
         <nav aria-label={i18n.t('secondary')}>
           <div className="footer__wrapper">
             <div className="row">
-              <div className="small-12 column">
+
                 <Link className={logoClass} to="/">
                   <img src={logo} alt={i18n.t('home')}/>
-                </Link>
 
+                </Link>
+              <div className="footer-name">
+                Työllisyyspalvelut
               </div>
             </div>
           </div>
         </nav>
-
       </footer>
     );
   }

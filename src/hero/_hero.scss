@@ -1,18 +1,17 @@
 .myhki-hero {
   line-height: 0;
-  background-position: center !important;
+  background-position: right !important;
   background-size: cover !important;
   background: #D0E6F7;
-  height: 45vh;
+  height: 550px;
   min-height: 1px;
   padding: 0 0px;
   position: relative;
 
   @include breakpoint(small only) {
-    min-height: 300px;
+    --min-height: 300px;
+    display: none;
   }
-
-
 
   &__wrapper {
     --position: absolute;
@@ -29,12 +28,28 @@
   }
 
   &__subtitle {
-    width: 35%;
+    --width: 35%;
     position: absolute;
-    font-size: 25px;
+    font-size: 20px;
     top: 200px;
     left: 8rem;
     line-height: 1.5;
+    width: 400px;
+    @include breakpoint(small only) {
+      position: relative;
+      height: 230px;
+      top: 50px;
+      margin: 16px;
+      left: 0;
+    }
+    @include breakpoint(medium only) {
+      position: relative;
+      height: 230px;
+      top: 50px;
+      margin: 16px;
+      left: 0;
+      width: 90%;
+    }
   }
 
   &__title {
@@ -52,8 +67,19 @@
     margin: 0 0 0;
     width: 50%;
     z-index: 1;
-    @include breakpoint(medium up) {
+    @include breakpoint(large up) {
       font-size: 50px;
+    }
+    @include breakpoint(medium only) {
+      position: relative;
+      left: 0;
+      margin: 16px;
+      width: 90%;
+    }
+    @include breakpoint(small only) {
+      position: relative;
+      left: 0;
+      margin: 16px;
     }
   }
 
@@ -71,4 +97,29 @@
 
 .myhki-diagonal-koro {
   clip-path: url(#koros);
+  height: 550px;
 }
+
+.hero-large {
+  display: none;
+  @include breakpoint(large up) {
+    display: block;
+  }
+}
+
+.hero-small {
+  display: none;
+  @include breakpoint(medium down) {
+    display: block;
+  }
+}
+
+.hero-small-koro {
+  display: none;
+  @include breakpoint(medium down) {
+    display: block;
+    padding-top: 40px;
+  }
+}
+
+

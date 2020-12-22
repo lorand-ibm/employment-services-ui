@@ -1567,6 +1567,14 @@ export const getContentParagraphs = content => {
           body: get(item, 'field_text[0].value', ''),
         });
         break;
+      case ParagraphTypes.NOTIFICATION:
+        console.log('helpers NOTIFICATION');
+        paragraphs.push({
+          type: ParagraphTypes.NOTIFICATION,
+          title: get(item, 'field_notification_title', ''),
+          body: get(item, 'field_notification_description[0].value', ''),
+        });
+        break;
       case ParagraphTypes.SMALL_CARD:
         const items = get(item, 'field_small_card_items'),
           imageStyle = ImageStyles.SQUARE_150;

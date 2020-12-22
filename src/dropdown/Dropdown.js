@@ -91,14 +91,17 @@ class Dropdown extends Component {
 
     return (
       <div className={classNames('myhki-dropdown', className)}>
-        <button className="myhki-dropdown__button" onClick={this.onLinkClick} aria-expanded={this.state.menuOpen}>
-          {icon && iconPlacement === 'left' && icon}
-          {isEmpty(active) && placeholder && <span className="title">{placeholder}</span>}
-          {!isEmpty(active) && <span className="title">{active[activeLabel]}</span>}
-          {displayCaret && <i className="fa fa-caret-down" aria-hidden="true" />}
-          {icon && iconPlacement === 'right' && icon}
-        </button>
-        {this.getMenu()}
+        <div style={{'display': 'flex'}}>
+            <button className="myhki-dropdown__button" onClick={this.onLinkClick} aria-expanded={this.state.menuOpen}>
+              {icon && iconPlacement === 'left' && icon}
+              {isEmpty(active) && placeholder && <span className="title">{placeholder}</span>}
+              {!isEmpty(active) && <span className="title">{active[activeLabel]}</span>}
+
+              {icon && iconPlacement === 'right' && icon}
+            </button>
+            {displayCaret && <div className="svg-caret-down" aria-hidden="true" onClick={this.onLinkClick}/>}
+            {this.getMenu()}
+          </div>
       </div>
     );
   }

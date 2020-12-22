@@ -331,6 +331,7 @@ export const ParagraphTypes = {
   CONTENT_SLIDESHOW: 'content_slideshow',
   LISTING: 'listing',
   ACCORDION: 'accordion',
+  NOTIFICATION: 'notification',
 };
 
 export const CardTypes = {

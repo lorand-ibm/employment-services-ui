@@ -12,6 +12,7 @@
 
 @include foundation-everything(true);
 
+@import './fonts';
 @import './carousel/carousel';
 @import './dropdown/dropdown';
 @import './breadcrumbs/breadcrumbs';
@@ -135,6 +136,8 @@
 @import './sustainabilityFeedback/sustainability-feedback';
 @import './listing/listing';
 @import './likeMarker/like-marker';
+@import './infoNotification/infoNotification';
+@import '../assets/icons/icon-info-circle';
 
 html {
   height: 100%;

@@ -34,7 +34,7 @@ const getSVG = (type, color) => {
 
 const Koro = ({className, color, type, flip, shiftX}) => {
   const isVertical = type === KoroTypes.VERTICAL_BASIC_WAVE;
-  const baseClass = classNames('myhki-koro', isVertical ? 'myhki-koro-vertical' : '');
+  const baseClass = classNames('', isVertical ? 'myhki-koro-vertical' : '');
   let transform = flip && isVertical
                   ? 'rotateY(180deg)'
                   : flip ? 'rotateX(180deg)'

@@ -28,45 +28,48 @@ class Accordion extends Component {
 
     console.log(this.props);
     return (
-      <div className='myhki-paragraph myhki-paragraph--accordion accordion-border'>
+      <div className='myhki-paragraph myhki-paragraph--accordion'>
 
-      <div
-        className={classNames('myhki-accordion', {
-          'myhki-accordion--open': open,
-          'accordion-border': true,
-        })}
-      >
-        <button
-          className="myhki-accordion__header accordion-border"
-          aria-expanded={this.state.open}
-          onClick={() => {
-            this.setState({open: !open});
-          }}
+        <div
+          className={classNames('myhki-accordion', {
+            'myhki-accordion--open': open,
+            'accordion-border': false,
+          })}
         >
-          {!!icon && (
-            <div className="myhki-accordion__icon">
-              <img src={icon} alt="" />
-            </div>
-          )}
-          <div className="myhki-accordion__title">{title}</div>
-        </button>
-        <div className={classNames('myhki-accordion__body', {
-          'myhki-accordion__body-hidden': !open,
-        })}>
-          <div className="myhki-accordion__body-wrapper">
-            <div className="text" dangerouslySetInnerHTML={{__html: body}} />
-            {(sourceIcon || sourceText || sourceTitle) && (
-              <div className="myhki-accordion__source">
-                {!!sourceIcon && <img src={sourceIcon} className="myhki-accordion__source-icon" alt="" />}
-                <div className="myhki-accordion__source-text">
-                  <div className="title">{'sourceTitle'}</div>
-
-                </div>
+          <button
+            className="myhki-accordion__header"
+            aria-expanded={this.state.open}
+            onClick={() => {
+              this.setState({open: !open});
+            }}
+          >
+            {!!icon && (
+              <div className="myhki-accordion__icon">
+                <img src={icon} alt="" />
               </div>
             )}
+            <div className="myhki-accordion__title">{title}</div>
+          </button>
+          <div className={classNames('myhki-accordion__body', {
+            'myhki-accordion__body-hidden': !open,
+          })}>
+            <div className="myhki-accordion__body-wrapper">
+              <div className="text" dangerouslySetInnerHTML={{__html: body}} />
+              {(sourceIcon || sourceText || sourceTitle) && (
+                <div className="myhki-accordion__source">
+                  {!!sourceIcon && <img src={sourceIcon} className="myhki-accordion__source-icon" alt="" />}
+                  <div className="myhki-accordion__source-text">
+                    <div className="title">{'sourceTitle'}</div>
+
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
+
         </div>
-      </div> </div>
+        <div className="accordion-border"></div>
+      </div>
     );
   }
 }

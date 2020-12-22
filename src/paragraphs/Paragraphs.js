@@ -25,6 +25,7 @@ import ContentSlideshowParagraph from './paragraph/ContentSlideshow';
 
 import {getContentParagraphs} from '../content/helpers';
 import Questionnaire from '../questionnaire/Questionnaire';
+import InfoNotification from '../infoNotification/InfoNotification';
 
 type Props = {
   className?: String,
@@ -46,15 +47,20 @@ class Paragraphs extends Component {
       paragraph,
       key: i,
     };
-    console.log('aaa-joku-tyyppi-aaa');
+    //console.log('paragraph:' + paragraph.type);
     switch (paragraph.type) {
       case 'accordion':
-        console.log('Accordion!'+paragraphProps.paragraph + ' ' + paragraphProps.i);
+        //console.log('Accordion!'+paragraphProps.paragraph + ' ' + paragraphProps.i);
         return <Accordion {...paragraphProps} key={i}/>;
       case 'accordion_group':
         return <Accordion  {...paragraphProps} />;
       case 'text':
         return <TextParagraph {...paragraphProps} />;
+      case 'notification':
+        console.log(paragraphProps);
+        return <InfoNotification {...paragraphProps.paragraph} key={paragraphProps.key}
+        className='myhki-paragraph myhki-paragraph--notification'>
+        </InfoNotification>;
       case 'media':
         return <MediaParagraph {...paragraphProps} />;
       case 'video':
@@ -76,7 +82,7 @@ class Paragraphs extends Component {
       case 'location_carousel':
         return <LocationCarouselParagraph {...paragraphProps} />;
       case 'lead_text':
-        return <LeadTextParagraph {...paragraphProps} />;
+        return <LeadTextParagraph {...paragraphProps} key={paragraphProps.key} />;
       case 'simple_liftup':
         return <LiftUpSimpleParagraph {...paragraphProps} />;
       case 'sustainability_service_liftup':
@@ -98,7 +104,7 @@ class Paragraphs extends Component {
       default:
         console.error(`getParagraph: unknown paragraph type: ${paragraph.type}`);
     }
-    console.log('xxx-Accordion-xxx');
+    console.log('not defined paragraph');
   };
 
   getParagraphs = () => {

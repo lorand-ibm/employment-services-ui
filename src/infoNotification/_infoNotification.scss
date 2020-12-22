@@ -1,0 +1,96 @@
+.notification-info-wrapper {
+  background-color: #D0E6F7;
+  display: flex;
+  heigth: 200px;
+  color: $hel-black;
+  --margin-left: 270px;
+
+  &--collapse-margins {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(medium large) {
+    font-size: 2.2rem;
+    line-height: 1;
+    --max-width: 90%;
+  }
+
+  @include breakpoint(large up) {
+    font-size: 2.2rem;
+    line-height: 1;
+    max-width: 90%;
+  }
+
+  p {
+    line-height: inherit;
+    margin-bottom: 0;
+  }
+}
+
+.notification-info-left {
+  flex: 0 0 8px;
+  height: 122px;
+  width: 8px;
+  background-color: #0062B9;
+  padding-left:0;
+  padding-right: 0;
+}
+
+.notification-info-texts {
+  width: 400px;
+  background-color: #D0E6F7;
+  padding-top: 32px;
+}
+
+.notification-title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding-top: 32px;
+  margin-left: 16px;
+
+  height: 22px;
+  width: 779px;
+  color: #1A1A1A;
+  font-family: "HelsinkiGrotesk";
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 22px;
+
+  height: 24px;
+  width: 811px;
+
+}
+
+.notification-body {
+  --padding-top: 40px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin-top: 40px;
+  padding-bottom: 40px;
+  height: 26px;
+  width: 828px;
+  color: #1A1A1A;
+  font-family: "HelsinkiGrotesk";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 26px;
+  @include breakpoint(small only) {
+    margin-top: 45px;
+    --margin-left: 15px;
+  }
+}
+
+.notification-title-row {
+  width: 100%;
+  heigth: 100%;
+  margin-left: 20px;
+}
+
+.notification-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/icons/info-circle.svg);
+  background-repeat: no-repeat;
+}

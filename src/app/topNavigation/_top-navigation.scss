@@ -1,7 +1,7 @@
 @import './search-bar';
 @import './top-navigation-submenu';
 @import './user-menu-link';
-@import '../../normilize';
+//@import '../../normilize';
 
 $step_duration: 200ms;
 
@@ -21,8 +21,8 @@ $step_duration: 200ms;
 
   &__row {
     max-width: 75rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 120px;
+    margin-right: 0px;
   }
 
   &__wrapper {
@@ -59,18 +59,19 @@ $step_duration: 200ms;
     padding: 0 33px 0 0;
 
     a.logo img {
-      height: 50px;
+      height: 47px;
+      width: 102px;
     }
     a.logo-ja img {
-      height: 50px;
+      height: 40px;
       width: 105px;
     }
     a.logo-ru img {
-      height: 50px;
+      height: 40px;
       width: 103px;
     }
     a.logo-sv img {
-      height: 50px;
+      height: 40px;
       width: 115px;
     }
     a {
@@ -83,16 +84,14 @@ $step_duration: 200ms;
   }
 
   &__link {
-    font-size: 20px;
-    display: inline-block;
+    height: 22px;
+    width: 194px;
+    color: #1A1A1A;
+    font-family: "HelsinkiGrotesk";
+    font-size: 18px;
     font-weight: bold;
-    letter-spacing: 0.5px;
-    color: $hel-black;
-    margin: 0 16px;
-    border-bottom: 3px solid transparent;
-    padding: 0 0 2px 0;
-    text-align: center;
-    user-select: none;
+    letter-spacing: 0;
+    line-height: 22px;
 
     &:hover,
     &:focus,
@@ -108,7 +107,7 @@ $step_duration: 200ms;
     }
 
     &:last-child {
-      margin-right: 0;
+      margin-right: 0px;
     }
 
     &:first-child {
@@ -119,8 +118,9 @@ $step_duration: 200ms;
   &__user-menu {
     &--buttons {
       display: flex;
-      align-items: start;
+      align-items: end;
       height: 28px;
+      right: 0px;
     }
 
     .user-menu-link {
@@ -173,8 +173,6 @@ $step_duration: 200ms;
   font-weight: inherit;
   letter-spacing: inherit;
   cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 // Styles for mobile version of the component.
@@ -216,7 +214,7 @@ $step_duration: 200ms;
     &__link {
       font-size: 16px;
       @include breakpoint(320) {
-      font-size: 18px;
+        font-size: 18px;
       }
       @include breakpoint(420) {
         font-size: 24px;
@@ -317,6 +315,7 @@ $step_duration: 200ms;
 
     &__user-menu {
       width: 90px;
+      rigth: 120px;
       .user-menu-link {
         &--likes {
           margin-right: 10px;
@@ -522,7 +521,7 @@ $step_duration: 200ms;
           .user-menu-link {
             display: none;
             flex-direction: column;
-            align-items: center;
+            align-items: right;
             margin: 0 11px 20px;
 
             &--home-link {
@@ -546,12 +545,14 @@ $step_duration: 200ms;
             margin: 0 20px 24px 4px;
 
             .title {
-              font-size: 30px;
+              height: 27px;
+              width: 15px;
+              color: #1A1A1A;
+              font-family: "Helsinki Grotesk";
+              font-size: 18px;
               font-weight: bold;
-              color: $hel-black;
-              .fa-caret-down {
-                color: $hel-black;
-              }
+              letter-spacing: 0;
+              line-height: 27px;
             }
 
             .icon {
@@ -582,15 +583,15 @@ $step_duration: 200ms;
 }
 
 .myhki-language-chooser {
+  right: 120px;
   .icon {
     display: inline-block;
     width: 16px;
     height: 16px;
-    --background: url(../assets/images/globe.svg);
+    background: url(../assets/images/globe.svg);
     vertical-align: middle;
     background-size: contain;
   }
-
 }
 
 @keyframes openUserMenu {
@@ -623,18 +624,7 @@ $step_duration: 200ms;
   100% { opacity: 1; }
 }
 
-.myhki-language-chooser {
-  display: flex;
-  order: 3;
-  margin: 0 20px 24px 4px;
-
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    color: $hel-black;
-
-    .fa-caret-down {
-      color: $hel-black;
-    }
-  }
+.svg-caret-down {
+  background: url(../assets/images/lang-expanse.svg);
+  height: 30px;
 }

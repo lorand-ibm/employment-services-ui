@@ -33,6 +33,7 @@ import LoginModal from '../auth/LoginModal';
 import NewListModal from '../myHelsinki/NewListModal';
 import FeedbackModal from '../feedback/FeedbackModal';
 import Notifications from '../notification/Notifications';
+import Koro from '../koro/Koro';
 
 import shareImagePlaceholder from '../../assets/images/share-placeholder.png';
 
@@ -121,6 +122,9 @@ class App extends Component {
         <main className="app__content">
           {children}
         </main>
+        <div>
+          <Koro className={'myhki-koro-footer'} color={'#0E00BF'} flip/>
+        </div>
         <Footer />
         <Toaster />
         <ApiErrorModal

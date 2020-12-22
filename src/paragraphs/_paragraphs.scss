@@ -65,8 +65,9 @@
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 0;
-    max-width: 80%;
+    --max-width: 80%;
     text-align: left;
+    --margin-left: 20px;
   }
 
   &--sustainability-service-liftup {

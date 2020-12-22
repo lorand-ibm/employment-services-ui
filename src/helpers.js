@@ -304,6 +304,22 @@ export const getLogo = () => {
   }
 };
 
+/**
+ * @returns {*}
+ */
+export const getLogoWhite = () => {
+  switch (i18n.language) {
+    case Languages.JA:
+      return require(`../assets/images/logo-ja-white.png`).default;
+    case Languages.RU:
+      return require(`../assets/images/logo-ru-white.png`).default;
+    case Languages.SV:
+      return require(`../assets/images/logo-sv-white.svg`).default;
+    default:
+      return require(`../assets/images/logo-white.svg`).default;
+  }
+};
+
 export const getLogoClass = () => {
   switch (i18n.language) {
     case Languages.JA:
