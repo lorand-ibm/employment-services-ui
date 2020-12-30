@@ -19,11 +19,11 @@ class InfoNotification extends React.Component {
     const {className, title, body} = this.props;
 
     return (
-      <div className='myhki-paragraph myhki-paragraph--info notification-info-wrapper' >
+      <div className='myhki-paragraph notification-info-wrapper' >
         <div className='notification-info-left'></div>
         <div className='notification-texts'>
           <div className='notification-title-row'>
-            <div className='notification-icon'></div>
+            <button className='notification-icon'></button>
             <div className='notification-title '>
               <p>{title}</p>
             </div>

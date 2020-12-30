@@ -2,9 +2,9 @@
 import express from 'express';
 import passport from 'passport';
 import {requireEnv, getAxiosBaseClient} from './helpers';
-import {Strategy as FacebookStrategy} from 'passport-facebook';
-import {Strategy as GoogleStrategy} from 'passport-google-oauth20';
-import {Strategy as HelsinkiStrategy} from 'passport-helsinki';
+//import {Strategy as FacebookStrategy} from 'passport-facebook';
+//import {Strategy as GoogleStrategy} from 'passport-google-oauth20';
+//import {Strategy as HelsinkiStrategy} from 'passport-helsinki';
 
 import {debug} from './logger';
 import get from 'lodash/get';
@@ -47,6 +47,7 @@ const profileFields = ['id', 'emails', 'name', 'displayName', 'picture.type(larg
  */
 export function setup() {
   const server = requireEnv('SERVER_ADDRESS');
+  /*
   const fbConfig = {
     clientID: requireEnv('FACEBOOK_APP_ID'),
     clientSecret: requireEnv('FACEBOOK_APP_SECRET'),
@@ -68,10 +69,10 @@ export function setup() {
     callbackURL: `${server}/auth/helsinki/callback`,
     profileFields: profileFields,
   };
-
-  passport.use(new FacebookStrategy(fbConfig, onFacebookLogin));
-  passport.use(new GoogleStrategy(googleConfig, onGoogleLogin));
-  passport.use(new HelsinkiStrategy(helsinkiConfig, onHelsinkiLogin));
+*/
+  //passport.use(new FacebookStrategy(fbConfig, onFacebookLogin));
+  //passport.use(new GoogleStrategy(googleConfig, onGoogleLogin));
+  //passport.use(new HelsinkiStrategy(helsinkiConfig, onHelsinkiLogin));
 }
 
 /**
@@ -283,7 +284,7 @@ auth.get('/logout', function(req, res) {
 
   res.redirect(redirectUrl);
 });
-
+/*
 auth.get('/facebook', function(req, res) {
   const state = getAuthState(req, res);
   if (state) {
@@ -329,7 +330,8 @@ function onGoogleLogin(accessToken, refreshToken, profile, cb) {
     cb(res.err, res.user, res.info);
   });
 }
-
+*/
+/*
 auth.get('/helsinki', function(req, res) {
   const state = getAuthState(req, res);
   if (state) {
@@ -349,3 +351,4 @@ function onHelsinkiLogin(accessToken, refreshToken, profile, cb) {
     cb(res.err, res.user, res.info);
   });
 }
+*/

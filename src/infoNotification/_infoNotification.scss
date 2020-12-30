@@ -1,7 +1,7 @@
 .notification-info-wrapper {
   background-color: #D0E6F7;
   display: flex;
-  heigth: 200px;
+  --heigth: 200px;
   color: $hel-black;
   --margin-left: 270px;
 
@@ -22,7 +22,7 @@
     max-width: 90%;
   }
 
-  p {
+  pp {
     line-height: inherit;
     margin-bottom: 0;
   }
@@ -46,8 +46,10 @@
 .notification-title {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding-top: 32px;
+  padding-top: 0px;
+  --padding-left: 10px;
   margin-left: 16px;
+  margin-top: -4px;
 
   height: 22px;
   width: 779px;
@@ -64,11 +66,12 @@
 }
 
 .notification-body {
-  --padding-top: 40px;
+  padding-top: 25px;
+  padding-left: 40px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  margin-top: 40px;
-  padding-bottom: 40px;
+  --margin-top: 40px;
+  --padding-bottom: 40px;
   height: 26px;
   width: 828px;
   color: #1A1A1A;
@@ -76,21 +79,39 @@
   font-size: 14px;
   letter-spacing: 0;
   line-height: 26px;
+
   @include breakpoint(small only) {
-    margin-top: 45px;
+    --margin-top: 45px;
     --margin-left: 15px;
+  }
+  div {
+    p {
+      word-break: break-word;
+      overflow: auto;
+    }
   }
 }
 
 .notification-title-row {
   width: 100%;
   heigth: 100%;
-  margin-left: 20px;
+  --margin-left: 20px;
+  padding-top: 20px;
+  padding-left: 35px;
+  display: flex;
 }
 
 .notification-icon {
+  --padding-top: 10px;
   width: 20px;
   height: 20px;
   background-image: url(../assets/icons/info-circle.svg);
   background-repeat: no-repeat;
+  display: block;
+}
+
+.notification-texts {
+  --display: flex;
+  word-break: break-word;
+  overflow: auto;
 }

@@ -54,7 +54,9 @@
 
     @include breakpoint(small only) {
       height: auto;
-
+      padding-left: 50px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .row {
@@ -291,4 +293,14 @@
   color: white;
   font-size: 20px;
   font-weight: bold;
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: flex-start;
+  height: 100px;
+  padding: 30px;
+
+
+
 }

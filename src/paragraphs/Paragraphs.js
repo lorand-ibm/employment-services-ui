@@ -47,7 +47,7 @@ class Paragraphs extends Component {
       paragraph,
       key: i,
     };
-    //console.log('paragraph:' + paragraph.type);
+    console.log('paragraph:' + paragraph.type);
     switch (paragraph.type) {
       case 'accordion':
         //console.log('Accordion!'+paragraphProps.paragraph + ' ' + paragraphProps.i);

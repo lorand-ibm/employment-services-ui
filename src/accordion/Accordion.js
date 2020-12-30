@@ -26,7 +26,6 @@ class Accordion extends Component {
     title = this.props.paragraph.title;
     let body = this.props.paragraph.body;
 
-    console.log(this.props);
     return (
       <div className='myhki-paragraph myhki-paragraph--accordion'>
 
