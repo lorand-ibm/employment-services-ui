@@ -1,0 +1,15 @@
+/coverage/
+/node_modules/
+/flow-typed/
+.env
+.env.demo
+.env.staging
+.env.production
+.DS_Store
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+webpack-chunks.json
+/dist/
+/log
+.idea
