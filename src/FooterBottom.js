@@ -33,7 +33,15 @@ function FooterBottom(props) {
 
   return (
     <footer className={classes.footer}>
-      <Footer title="Helsinki Design System">
+      <Footer
+        title="Työllisyyspalvelut"
+        theme={{
+          '--footer-background': 'var(--color-engel)',
+          '--footer-color': 'var(--color-black-90)',
+          '--footer-divider-color': 'var(--color-black-90)',
+          '--footer-focus-outline-color': 'var(--color-black-90)'
+        }}
+      >
           <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
           </Footer.Base>
       </Footer>

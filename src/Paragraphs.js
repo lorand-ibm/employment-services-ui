@@ -11,6 +11,8 @@ import Accord from "./Accord";
 import Subheading from "./Subheading";
 import Info from "./Info";
 import Pdf from "./Pdf";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
     toolbar: {
@@ -38,16 +40,42 @@ function Paragraphs(props) {
 
         switch(paragraph.type) {
             case 'Accordion':
-                items.push(<Accord key={index} {...paragraph}></Accord>);
+                items.push(
+                  <Container justify="center" xs={4}>
+                    <Typography paragraph={true} gutterBottom={true} >
+                      <Accord key={index} {...paragraph}></Accord>
+                    </Typography>
+                  </Container>
+                );
                 break;
             case 'Subheading':
-                items.push(<Subheading key={index} {...paragraph}></Subheading>);
+                items.push(
+                  <Container justify="center" xs={4}>
+                    <Box bb={5} mt={5} pt={6}>
+                      <Typography paragraph={true} gutterBottom={true}>
+                        <Subheading key={index} {...paragraph}></Subheading>
+                      </Typography>
+                    </Box>
+                  </Container>
+                );
                 break;
             case 'Info':
-                items.push(<Info key={index} {...paragraph}></Info>);
+                items.push(
+                  <Container justify="center" xs={8}>
+                    <Typography paragraph={true} gutterBottom={true}>
+                      <Info key={index} {...paragraph}></Info>
+                    </Typography>
+                  </Container>
+                );
                 break;
             case 'PDF':
-                items.push(<Pdf key={index} {...paragraph}></Pdf>);
+                items.push(
+                    <Container justify="center" xs={4}>
+                      <Typography paragraph={true} gutterBottom={true}>
+                        <Pdf key={index} {...paragraph}></Pdf>
+                      </Typography>
+                    </Container>
+                    );
                 break;
         }
     });

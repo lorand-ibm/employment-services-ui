@@ -4,23 +4,15 @@ import PropTypes from "prop-types";
 import Header from "./Header";
 import {makeStyles} from "@material-ui/core/styles";
 import * as React from "react";
-import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 import {Notification} from "hds-react/components/Notification";
+import Alert from "@material-ui/lab/Alert";
+import Typography from '@material-ui/core/Typography';
+import { borders } from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
-    toolbar: {
+    root: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-    },
-    toolbarTitle: {
-        flex: 1,
-    },
-    toolbarSecondary: {
-        justifyContent: 'space-between',
-        overflowX: 'auto',
-    },
-    toolbarLink: {
-        padding: theme.spacing(1),
-        flexShrink: 0,
     },
 }));
 
@@ -30,7 +22,12 @@ function Info(props) {
 
     return (
         <React.Fragment>
-
+          <Box borderLeft={10}>
+            <Alert severity="info" >
+              <Typography variant="h6" component="h6">{title}</Typography>
+              <Typography variant="h7" component="h7">{text}</Typography>
+            </Alert>
+          </Box>
         </React.Fragment>
     );
 }

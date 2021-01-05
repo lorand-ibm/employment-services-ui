@@ -34,11 +34,11 @@ function Pdf(props) {
     return (
         <React.Fragment>
             <Link display="block" variant="body1" href={text} key={title}>
-                <Grid container>
-                    <Grid item xs={1}>
+                <Grid container spacing={1}>
+                    <Grid item >
                         <Typography><LaunchIcon /></Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid item >
                         <Typography>{title}</Typography>
                     </Grid>
                 </Grid>

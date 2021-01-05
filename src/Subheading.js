@@ -29,7 +29,7 @@ function Subheading(props) {
 
     return (
         <React.Fragment>
-            <Typography variant="h4" component="h4">
+            <Typography variant="h3" component="h3">
                 {title}
             </Typography>
         </React.Fragment>
