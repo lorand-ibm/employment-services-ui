@@ -2,8 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from "prop-types";
-import { sizing } from '@material-ui/system';
-import Box from "@material-ui/core/Box";
 import Container from '@material-ui/core/Container';
 
 import {
@@ -42,7 +40,6 @@ const useStyles = makeStyles({
     sheight: 550
   },
  fiCardContent: {
-    color: "#ffffff",
     height: 550,
     color: 'black'
   },

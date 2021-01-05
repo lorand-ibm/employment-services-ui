@@ -1,5 +1,5 @@
-const data_fi = [
-    { type: "Info", title: "Helsingin työllisyyspalvelujen varsinaiset sivut aukeavat maaliskuussa 2021. ",
+const data_en = [
+    { type: "Info", title: "EN Helsingin työllisyyspalvelujen varsinaiset sivut aukeavat maaliskuussa 2021. ",
         text: "Sillä välin voit tutustua yleisimpiin kysymyksiin työllisyyden kuntakokeilusta."},
     { type: "Subheading", title: "Lyhyt esittely", text: ''},
     { type: "Accordion", title: "Lyhyt esittely", text: 'Työllisyyden kuntakokeilu tuo Helsingin työllisyyspalveluiden asiakkaaksi liki 50 000 helsinkiläistä työnhakijaa TE-toimistolta. Muutos astuu voimaan 1.3.2020. Muutoksen myötä TE-toimistosta siirtyy kaupungille myös noin 250 työntekijää sekä toimitiloja Itäkeskuksesta ja Pasilasta.'},
@@ -118,4 +118,4 @@ const data_fi = [
 
 ];
 
-export default data_fi;
+export default data_en;

@@ -1,12 +1,6 @@
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import PropTypes from "prop-types";
-import Header from "./Header";
-import {makeStyles} from "@material-ui/core/styles";
 import * as React from "react";
-import Button from "@material-ui/core/Button";
-import Toolbar from "@material-ui/core/Toolbar";
-import Link from "@material-ui/core/Link";
 import Accord from "./Accord";
 import Subheading from "./Subheading";
 import Info from "./Info";
@@ -14,25 +8,7 @@ import Pdf from "./Pdf";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
-const useStyles = makeStyles((theme) => ({
-    toolbar: {
-        borderBottom: `1px solid ${theme.palette.divider}`,
-    },
-    toolbarTitle: {
-        flex: 1,
-    },
-    toolbarSecondary: {
-        justifyContent: 'space-between',
-        overflowX: 'auto',
-    },
-    toolbarLink: {
-        padding: theme.spacing(1),
-        flexShrink: 0,
-    },
-}));
-
 function Paragraphs(props) {
-    const classes = useStyles();
     const { paragraphs } = props;
     console.log(paragraphs);
     const items = [];
@@ -41,7 +17,7 @@ function Paragraphs(props) {
         switch(paragraph.type) {
             case 'Accordion':
                 items.push(
-                  <Container justify="center" xs={4}>
+                  <Container justify="center" xs={3}>
                     <Typography paragraph={true} gutterBottom={true} >
                       <Accord key={index} {...paragraph}></Accord>
                     </Typography>
@@ -50,7 +26,7 @@ function Paragraphs(props) {
                 break;
             case 'Subheading':
                 items.push(
-                  <Container justify="center" xs={4}>
+                  <Container justify="center" xs={3}>
                     <Box bb={5} mt={5} pt={6}>
                       <Typography paragraph={true} gutterBottom={true}>
                         <Subheading key={index} {...paragraph}></Subheading>
@@ -61,7 +37,7 @@ function Paragraphs(props) {
                 break;
             case 'Info':
                 items.push(
-                  <Container justify="center" xs={8}>
+                  <Container justify="center" xs={4}>
                     <Typography paragraph={true} gutterBottom={true}>
                       <Info key={index} {...paragraph}></Info>
                     </Typography>
@@ -70,13 +46,14 @@ function Paragraphs(props) {
                 break;
             case 'PDF':
                 items.push(
-                    <Container justify="center" xs={4}>
+                    <Container justify="center" xs={3}>
                       <Typography paragraph={true} gutterBottom={true}>
                         <Pdf key={index} {...paragraph}></Pdf>
                       </Typography>
                     </Container>
                     );
                 break;
+          default: break;
         }
     });
     return (
