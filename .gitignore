@@ -1,1 +1,7 @@
 node_modules/
+.eslintcache
+.github
+.editorconfig
+.env
+.env.example
+.eslintcache
