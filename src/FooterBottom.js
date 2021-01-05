@@ -5,7 +5,6 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import {Footer} from  "hds-react/components/Footer";
-import {Base} from  "hds-react/components/Base";
 
 function Copyright() {
   return (
