@@ -16,6 +16,12 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
+  hero: {
+    height: 550
+  },
+  font: {
+
+  }
 }));
 
 const data_sv = [
@@ -68,8 +74,12 @@ export default function Blog() {
             </Navigation.Actions>
           </Navigation>
         <main>
-          <Typography paragraph={true} gutterBottom={true} >
-            <Hero title={'21'} text={'text here'}/>
+          <Typography paragraph={true} gutterBottom={true} className={classes.hero}>
+            <Hero
+              title={'Työllisyyden kuntakokeilu alkaa 2021'}
+              text={'Helsingin työllisyyspalveluiden tavoitteena on edistää nykyistä tehokkaammin työttömien työnhakijoiden työllistymistä ja koulutukseen ohjautumista, sekä tuoda uusia ratkaisuja osaavan työvoiman saatavuuteen.'}
+              className={classes.hero}
+            />
           </Typography>
           <Paragraphs paragraphs={data_fi}/>
         </main>
