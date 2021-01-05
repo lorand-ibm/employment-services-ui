@@ -21,6 +21,13 @@ function FooterBottom(props) {
         title="Työllisyyspalvelut"
         className={classes.footer}
         >
+        <br />
+        <Footer.Utilities backToTopLabel="Back to top">
+          <Footer.Item label="Contact us" />
+          <Footer.Item label="Give feedback" />
+        </Footer.Utilities>
+        <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
+        </Footer.Base>
       </Footer>
     </footer>
   );

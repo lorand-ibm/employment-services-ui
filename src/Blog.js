@@ -66,8 +66,8 @@ export default function Blog() {
         <main>
           <Typography paragraph={true} gutterBottom={true} className={classes.hero}>
             <Hero
-              title={'Työllisyyden kuntakokeilu alkaa 2021'}
-              text={'Helsingin työllisyyspalveluiden tavoitteena on edistää nykyistä tehokkaammin työttömien työnhakijoiden työllistymistä ja koulutukseen ohjautumista, sekä tuoda uusia ratkaisuja osaavan työvoiman saatavuuteen.'}
+              title={data[0].title}
+              text={data[0].text}
               className={classes.hero}
             />
           </Typography>

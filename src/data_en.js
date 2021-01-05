@@ -1,120 +1,128 @@
 const data_en = [
-    { type: "Info", title: "EN Helsingin työllisyyspalvelujen varsinaiset sivut aukeavat maaliskuussa 2021. ",
-        text: "Sillä välin voit tutustua yleisimpiin kysymyksiin työllisyyden kuntakokeilusta."},
-    { type: "Subheading", title: "Lyhyt esittely", text: ''},
-    { type: "Accordion", title: "Lyhyt esittely", text: 'Työllisyyden kuntakokeilu tuo Helsingin työllisyyspalveluiden asiakkaaksi liki 50 000 helsinkiläistä työnhakijaa TE-toimistolta. Muutos astuu voimaan 1.3.2020. Muutoksen myötä TE-toimistosta siirtyy kaupungille myös noin 250 työntekijää sekä toimitiloja Itäkeskuksesta ja Pasilasta.'},
+  { type: "Hero", title:'De kommunala sysselsättningsförsöken ',
+    text: "Helsingfors stads sysselsättningstjänster har som mål att effektivare än i dagsläget främja sysselsättning och tillgång till utbildning arbetslösa arbetssökande. Ett ytterligare mål är att utveckla nya lösningar för kompetent arbetskraft. "
+  },
+    { type: "Info", title: "Helsinki’s employment services’ website will be launched in March 2021.",
+        text: "In the meantime, you can read through the frequently asked questions about the municipal employment experiment."},
+    { type: "Subheading", title: "A brief introduction ", text: ''},
+    { type: "Accordion", title: "A brief introduction ", text: 'The municipal employment experiment will see almost 50,000 jobseekers transfer from the TE Services to Helsinki’s employment services. This change will take place on 1 March 2021, and with it roughly 250 employees and facilities in Itäkeskus and Pasila will also be transferred from the TE Services to Helsinki.  '},
 
-    { type: "Subheading", title: "Mikä työllisyyden kuntakokeilu?", text: ''},
-    { type: "Accordion", title: "Mikä työllisyyden kuntakokeilu on?",
-        text: 'Työllisyyden kuntakokeilu on 2,5 vuoden mittainen valtakunnallinen hanke, jossa osa TE-toimiston lakisääteisistä työllisyyspalveluista siirtyy kunnan järjestettäväksi. Kuntakokeilussa on mukana 125 kuntaa ja niiden muodostamat 26 kokeilualuetta. Helsinki on yksi kokeilualueista yksinään. Pääkaupunkiseudulla on Helsingin lisäksi Espoon sekä Vantaa-Keravan kokeilualueet. '},
-    { type: "Accordion", title: "Miksi tämä järjestetään?  ",
-        text: 'Kuntakokeilun tarkoitus on parantaa työllisyyspalveluiden vaikuttavuutta sekä työnhakijoiden palveluvalikoimaa ja asiakaskokemusta. Tämä on tarkoitus tehdä mm. sujuvoittamalla kuntien tarjoamien palvelujen äärelle pääsyä. Vaikuttavuutta yritetään parantaa yhdistämällä kuntien ja valtion henkilökuntaa, rahoitusta ja tiloja työllisyydenhoidossa. '},
-    { type: "Accordion", title: "Koskeeko tämä minua?",
-        text: 'Kuntakokeilu ja palvelujen siirtyminen Helsingin kaupungille koskee todennäköisesti sinua jos olet helsinkiläinen työtön työnhakija tai osallistut työllistämispalveluun ja sinua koskee jokin seuraavista: \n' +
-            '\n' +
-            'olet alle 30-vuotias \n' +
-            'tai \n' +
-            '\n' +
-            'olet vieraskielinen. Äidinkielesi on joku muu kuin suomi. \n' +
-            'tai \n' +
-            '\n' +
-            'sinulla ei ole oikeutta ansiopäivärahaan. Saat esimerkiksi Kelan työmarkkinatukea, toimeentulotukea tai sairaspäivärahaa. \n' +
-            '\n' +
-            'Saat vielä henkilökohtaisesti kirjeen TE-toimistosta sekä tiedon Oma asiointi -palvelussa mikäli siirryt kuntakokeiluun. '},
+    { type: "Subheading", title: "What is the municipal employment experiment?", text: ''},
+    { type: "Accordion", title: "What does the municipal employment experiment mean? ",
+        text: 'The municipal employment experiment is a national 2.5-year-long project where some of the statutory employment services are transferred from the TE Services to municipalities. A total of 125 municipalities and 26 test areas formed by these municipalities are taking part in the experiment. Helsinki forms one of these test areas on its own, and the other test areas within the Metropolitan Area include Espoo and Vantaa-Kerava.'},
+    { type: "Accordion", title: "Why is the experiment taking place?",
+        text: 'The purpose of the municipal experiment is to increase the effectiveness of the employment services and the range of jobseeker services, and to improve the overall customer experience. The aim is to achieve this by making the services provided by municipalities easier to access, and to improve the effectiveness by combining the state and municipal staff resources, funding and facilities in managing unemployment. '},
+  { type: "Accordion", title: "Will this affect me?",
+        text: 'The municipal experiment and service transfer to the City of Helsinki will most likely affect you too, if you live in Helsinki, are an unemployed jobseeker or taking part in an employment service, and if one of the following applies to you: \n' +
+          '\n' +
+          'you are under 30 \n' +
+          'or \n' +
+          '\n' +
+          'you are a foreign-language speaker, i.e. your first language is not Finnish \n' +
+          'or \n' +
+          '\n' +
+          'you are not entitled to earnings-related unemployment allowance and instead receive labour market subsidy, social assistance or sickness allowance from Kela. \n' +
+          '\n' +
+          'The TE Services will send you a letter and a notification via their E-Services if you are included in the experiment. '},
 
-    { type: "Subheading", title: "Muutoksen vaikutukset minuun? ", text: ''},
-    { type: "Accordion", title: "Milloin ja miten muutos tapahtuu?",
-        text: 'Eduskunnan on hyväksyttävä kokeilulaki ennen kuin mikään muuttuu. Helsingin kaupunki on varautunut siihen, että muutos tapahtuu maaliskuussa 2021. Jo olemassa olevien TE-toimistoon työnhakijaksi ilmoittautuneiden ja kokeilun kohderyhmään kuuluvien asiakkaiden palvelu siirtyisi Helsingin työllisyyspalveluille maaliskuun loppuun mennessä. (Seuraavat lauseet poistuvat: On kuitenkin mahdollista, että työllisyyden kuntakokeilujen alkuajankohta muuttuu. Pidämme tällä sivulla yllä uusinta tietoa aikatauluista.) \n' +
-            '\n' +
-            'Jos siirryt Helsingin työllisyyspalvelujen asiakkaaksi, saat henkilökohtaisesti kirjeen TE-toimistosta siirron jälkeen. Lisäksi saat tiedon Oma asiointi –palveluun siirrosta. Oma asiointi -palvelu säilyy käytössäsi TE-palvelut.fi -osoitteessa. Siirron jälkeen sinuun otetaan yhteyttä Helsingin työllisyyspalveluista. '},
-    { type: "Accordion", title: "Vaikuttaako muutos minun työttömyysturvaani? ",
-        text: 'Muutos ei vaikuta jo myönnettyyn työttömyysturvaasi. \n' +
-            '\n' +
-            'Työllisyyden kuntakokeilun alkaessa TE-palvelujen työttömyysetuutesi maksajalle (KELA tai työttömyyskassa) antama työvoimapoliittinen lausunto jää voimaan, kun asiakkuutesi siirtyy Helsingin työllisyyspalvelujen piiriin. Kuntakokeilu ei vaikuta työttömyysturva-asiasi käsittelyyn Kelassa tai työttömyyskassasi. Uudistuksen ei pitäisi vaikuttaa suuresti työttömyysetuutesi hakemisen tai myöntämisen aikatauluun Kelasta tai työttömyyskassasta.  \n' +
-            ' \n' +
-            'Muutoksen alkuvaiheessa kaupungin palvelu voi olla hivenen ruuhkautunut uusien päätösten tekemisen osalta. Sinun kannattaa välttää päätöksiä ja hyväksyntää vaativia toimenpiteitä juuri siirtymäaikana, jos siihen suinkin voit itse vaikuttaa.'},
+    { type: "Subheading", title: "How will the change affect me? ", text: ''},
+    { type: "Accordion", title: "How and when will the change take place?",
+        text: 'Parliament must first pass the experiment legislation before anything can change. The City of Helsinki has prepared for the change to happen in March 2021. In that case, the TE Services’ existing clients who have registered as jobseekers and belong to the experiment’s target group will transfer over to Helsinki’s employment services by the end of March. \n' +
+          '\n' +
+          'If you become a client of Helsinki’s employment services, you will receive a personal letter from the TE Services once the transfer has taken place. You will also be notified about the transfer via its E-Services, which you can continue to use at te-palvelut.fi/te/en. Helsinki’s employment services will also contact you once the transfer has been done. '},
+    { type: "Accordion", title: "Will this change affect my unemployment benefits? ",
+        text: 'No, the change will not affect any unemployment benefits that have already been granted to you. \n' +
+          '\n' +
+          'At the start of the experiment, after you have become a client of Helsinki’s employment services, the labour policy statement made by the TE Services to either Kela or your unemployment fund (whichever pays your unemployment benefits) will remain in effect. The municipal experiment will have no effect on how Kela or your unemployment fund processes your unemployment benefits. The change should also not have a notable impact on how long your unemployment benefit application and granting process takes at Kela or your unemployment fund.  \n' +
+          ' \n' +
+          'During the early days of the change, the City’s service may experience some bottlenecks when it comes to processing new decisions. Therefore, you should avoid things that require a decision or approval during the transition phase, if at all possible.  '},
+    { type: "Accordion", title: "What do I need to do because of this change?  ",
+        text: 'As a jobseeker, you do not need to do anything because of the change.  \n' +
+          '\n' +
+          'Your existing employment plans and other plans will remain in effect. The employment services in your experiment area, which in Helsinki’s case mean Helsinki’s employment services, will contact every jobseeker as soon as new experts have been appointed to them. When this is done, we will also send you more information about Helsinki’s employment services and your clientship.  '},
+  { type: "Accordion", title: "Will I continue to have a specific expert assigned to me? Will my appointed expert change? ",
+        text: 'n the future, nearly all jobseeker clients will have their own appointed experts to help them. \n' +
+          '\n' +
+          'However, you will likely be appointed a new expert when the City takes over the services. You will be appointed a new expert as quickly as possible after the transfer. You will be notified about your expert by post and via the E-Services as soon as one has been appointed to you. You will also be notified if your expert does not change. \n' +
+          '\n' +
+          'You can expect to hear more about your appointed expert from Helsinki’s employment services. '},
+    { type: "Accordion", title: "Will this somehow limit my access to services? ",
+        text: 'Once the municipal experiment has begun, you will only be able to use the employment services of your official home municipality.  \n' +
+          '\n' +
+          'For example: A person whose home is in Helsinki but who lives closer to Vantaa’s TE Services than Helsinki’s TE Services previously used the services in Vantaa. However, during the municipal experiment, Vantaa’s TE Services will no longer be able to serve the person.  \n' +
+          ' \n' +
+          'Jobseekers who are clients of the experiment will only be able to use their home municipality’s employment services.  '},
+    { type: "Accordion", title: "Will there be any changes to my services? ",
+        text: 'As a municipal experiment client, you will receive the same services as you did from the TE Services before. Small changes to the City of Helsinki’s services are possible, because the number of clients will increase significantly. \n' +
+          ' \n' +
+          'During the experiment, we will develop new services and solutions to promote employment and will also work more closely together with the social, healthcare and education services, amongst others, in order to achieve this. This means that the number of services available to you may rise during the experiment. '},
+  { type: "Accordion", title: "I am a TYP client. Is my service going to change? ",
+        text: 'No, you will continue to receive the same TYP service (cross-sectoral joint service promoting employment), but it will be organised differently during the experiment. This may mean that your usual office or the expert appointed to you will change.  \n' +
+          '\n' +
+          'The Act on Multisectoral Joint Services Promoting Employment will not change, and during the experiment we will be calling these services rehabilitative services that promote employment.  '},
+  { type: "Accordion", title: "Which languages will the services be available in? ",
+        text: 'Services will always be available in Finnish and Swedish, and most of the time in English too without any special arrangements or an appointment. \n' +
+          ' \n' +
+          'Interpreters will be arranged where needed to access the services, similarly to with the TE Services.'},
 
-    { type: "Accordion", title: "Mitä minun tarvitsee tehdä tämän muutoksen takia?  ",
-        text: 'Työnhakijana sinun ei tarvitse tehdä mitään muutoksen vuoksi.  \n' +
-            '\n' +
-            'Aiemmat työllistymissuunnitelmasi tai muut suunnitelmasi ovat edelleenkin voimassa. Kuntakokeilualueesi työllisyyspalvelut eli helsinkiläisten osalta Helsingin työllisyyspalvelut ovat yhteydessä jokaiseen työnhakija-asiakkaaseen heti, kun uusi vastuuasiantuntija on valittu. Valinnan yhteydessä lähetämme sinulle lisätietoa Helsingin työllisyyspalvelujen palveluista ja asiakkuudestasi.  '},
-    { type: "Accordion", title: "Onko minulla vastuuasiantuntija jatkossakin? Vaihtuuko asiantuntijani? ",
-        text: 'Jatkossakin liki jokaisella työnhakija-asiakkaalla on oma vastuuasiantuntija. \n' +
-            '\n' +
-            'Vastuuasiantuntijasi todennäköisesti vaihtuu, kun palvelu siirtyy kaupungille. Uusi vastuuasiantuntijasi määritellään siirron jälkeen niin pian kuin mahdollista. Saat tiedon vastuuasiantuntijastasi sekä kirjeitse että Oma asiointi -palvelussa heti kun tämä on tehty. Saat tämän tiedon siinäkin tapauksessa, että vastuuasiantuntijasi ei vaihdu. \n' +
-            '\n' +
-            'Voit odottaa tietoa vastuuasiantuntijastasi Helsingin työllisyyspalveluilta. '},
-    { type: "Accordion", title: "Rajoittaako tämä jotenkin asiointiani? ",
-        text: 'Kuntakokeilun myötä asioit jatkossa vain oman virallisen asuinkuntasi työllisyyspalveluissa.  \n' +
-            '\n' +
-            'Esimerkiksi: Helsinkiläinen asuu lähempänä Vantaan TE-palveluja kuin Helsingin TE-palveluja, ja hän on aiemmin asioinut siellä. Häntä ei voida enää palvella Vantaan TE-palveluissa kuntakokeilun aikana.  \n' +
-            ' \n' +
-            'Työnhakijoita, jotka ovat kuntakokeilun asiakkaita, voidaan palvella vain kotikunnan työllisyyspalveluissa.  '},
-    { type: "Accordion", title: "Muuttuuko saamani palvelut?",
-        text: 'Kuntakokeilun asiakkaana saat samoja palveluita kuin aiemminkin olet saanut TE-palveluista. Helsingin kaupungin palvelujen osalta pienet muutokset ovat mahdollisia kun asiakasmäärä muuttuu huomattavasti. \n' +
-            ' \n' +
-            'Työllisyyden kuntakokeilun aikana kehitämme uusia palveluja ja ratkaisuja työllisyydenhoitoon, sekä vahvistamme yhteistyötä mm. sosiaali- ja terveyspalvelujen ja kasvatus- ja koulutuspalvelujen kanssa työllistämisen edistämiseksi. Palvelumahdollisuutesi siis voivat laajentua kuntakokeilun aikana. '},
-    { type: "Accordion", title: "Olen TYP-asiakas. Muuttuuko palveluni?",
-        text: 'Saat TYP-palvelua jatkossakin, mutta se järjestetään kuntakokeilussa eri tavalla kuin aiemmin. Tämä voi tarkoittaa, että asiointipisteesi tai vastuuasiantuntijasi voi muuttua.  \n' +
-            '\n' +
-            'Laki työllistymistä edistävästä monialaisesta yhteispalvelusta ei muutu ja kuntakokeilun aikana kutsumme näitä palveluja työhön kuntouttaviksi palveluiksi.  '},
-    { type: "Accordion", title: "Millä kielillä saan palvelua? ",
-        text: 'Saat suomen- ja ruotsinkielistä palvelua aina. Useimmiten saat palvelua ilman erityisjärjestelyjä myös englanniksi ilman ajanvarausta.   \n' +
-            ' \n' +
-            'Tulkkauspalvelut asioinnin avuksi järjestetään niitä tarvitseville kuten TE-palveluissakin.  '},
+    { type: "Subheading", title: "Where can I access services? ", text: ''},
+    { type: "Accordion", title: "Where can I find services if I become a client of Helsinki’s employment services? What about during the transition? ",
+        text: 'You can continue to use the TE Services’ E-Services online, the same as before. \n' +
+          ' \n' +
+          'You can also continue to get employment services from the TE Services’ customer service number by calling 295 025 500 (Mon–Fri 9–16:15)  \n' +
+          '\n' +
+          'By calling this number, you can get help with accessing the services, using the online E-Services and in matters connected to employment. If necessary, you will also be directed to other services that are suitable for you. \n' +
+          ' \n' +
+          '\n' +
+          'Once the municipal employment experiment starts in early 2021, you can receive face-to-face service at the following locations:  \n' +
+          '\n' +
+          'Asiakkaankatu 3 in Itäkeskus  \n' +
+          '\n' +
+          'Ratapihantie 7 in Pasila \n' +
+          '\n' +
+          'Ohjaamo for those under 30 years old at Fredrikinkatu 48 in Kamppi.   \n' +
+    'Services are also available at Viipurinkatu 2 and Runeberginkatu 5 for clients with appointments. \n' +
+          ' \n' +
+          'Face-to-face customer services during the pandemic will be provided if and when possible.  \n' +
+          ' \n' +
+          '\n' +
+          'Helsinki-info gives advice about Helsinki’s services, including information about opening hours and similar basics.  \n' +
+          '\n' +
+          'Helsinki-info’s phone number: 09 310 11 111 (Mon–Thu 9–16, Fri 10–15) \n' +
+          'Helsinki-info’s chat (Mon–Thu 9–16, Fri 10–15) '
+    },
+    { type: "Accordion", title: "Where can I find more information? ",
+        text: 'You can get more information in Finnish on the following websites:  \n' +
+          '\n' +
+          'On the hel.fi website \n' +
+          'On the website of the Ministry of Economic Affairs and Employment \n' +
+          'From Helsinki’s employment services’ Twitter account \n' +
+          '\n' +
+          ' \n' +
+          'Please also keep an eye on the updates on this website, as well as media channels, such as newspapers and television news. \n' +
+          '\n' +
+          ' \n' +
+          'You may also send Helsinki’s employment services feedback or general enquiries via email at tyollisyyspalvelut@hel.fi. \n' +
+          'Please note! We will not be able to provide personal customer services that require identification via email. Please do not send us sensitive information about your health or life situation, for example, or any personal data, via email. We will only be able to answer general questions and pass on feedback sent to us via email. '},
+  { type: "Accordion", title: "Where do I register if I become unemployed?  ",
+        text: 'Registration will continue to take place via the TE Services. You can use their E-Services or visit their office to register as an unemployed jobseeker. The TE Services will direct all municipal employment experiment clients to the employment services provided by their home municipalities. '},
 
-    { type: "Subheading", title: "Mistä saan palvelua? ", text: ''},
-    { type: "Accordion", title: "Mistä saan palvelua, jos siirryn Helsingin työllisyyspalveluiden asiakkaaksi? Entä siirtymävaiheessa? ",
-        text: 'Verkossa voit käyttää TE-palvelujen ylläpitämää Oma asiointi -palvelua kuten ennenkin keskeytyksettä. \n' +
-            ' \n' +
-            'Puhelimitse saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: 295 025 500 (ma–pe klo 9.00–16.15)  \n' +
-            '\n' +
-            'Puhelinpalvelusta saat apua asiointiin, Oma asiointi -verkkopalvelun käyttöön ja työllistymiseen liittyviin asioihin. Tarvittaessa saat jatko-ohjauksen muihin sinulle sopiviin palveluihin. \n' +
-            ' \n' +
-            '\n' +
-            'Saat aulapalvelua työllisyyden kuntakokeilun käynnistyttyä seuraavissa osoitteissa:  \n' +
-            '\n' +
-            'Asiakkaankatu 3 Itäkeskuksessa  \n' +
-            '\n' +
-            'Ratapihantie 7 Pasilassa \n' +
-            '\n' +
-            'alle 30-vuotiaille Ohjaamo osoitteessa Fredrikinkatu 48 Kampissa.  \n' +
-            '\n' +
-            'Lisäksi palvelua ajanvarauksella annetaan osoitteissa Viipurinkatu 2 ja Runeberginkatu 5. \n' +
-            ' \n' +
-            'Kasvokkain asiakaspalvelu toteutuu koronatilanteen salliessa.  \n' +
-            ' \n' +
-            '\n' +
-            'Helsinki-infossa saat palveluneuvontaa Helsingin palveluista, eli esimerkiksi aukioloaikatietoa tai muuta perustietoa.  \n' +
-            '\n' +
-            'Helsinki-infon puhelinnumero: 09 310 11 111 (ma–to klo 9–16 ja pe klo 10–15) \n' +
-            'Helsinki-infon chatti (ma–to klo 9–16 ja pe klo 10–15) '},
-    { type: "Accordion", title: "Mistä saan lisätietoa?",
-        text: 'Voit lukea lisätietoja seuraavilta sivuilta:  \n' +
-            '\n' +
-            'Työllisyyden kuntakokeilusta hel.fi -sivulla \n' +
-            'Työllisyyden kuntakokeilusta työllisyys- ja elinkeinoministeriön sivulla \n' +
-            'Helsingin työllisyyspalveluiden twitter \n' +
-            '\n' +
-            ' \n' +
-            'Seuraathan myös tämän sivun päivityksiä sekä mediaa, kuten lehtiä ja televisiouutisointia. \n' +
-            '\n' +
-            ' \n' +
-            'Voit myös lähettää sähköpostitse palautetta tai yleisluontoisia kysymyksiä Helsingin työllisyyspalveluille osoiteeseen tyollisyyspalvelut@hel.fi. \n' +
-            'Huom! Sähköpostitse emme voi tarjota tunnistautumista edellyttävää henkilökohtaista asiakaspalvelua. Ethän lähetä meille sähköpostitse arkaluontoisia tietoja esimerkiksi terveydentilastasi tai elämäntilanteestasi tai henkilötietojasi. Voimme vastata sähköpostitse vain yleisluontoisiin kysymyksiin ja viedä palautetta eteenpäin. '},
-    { type: "Accordion", title: "Mihin ilmoittaudun työttömäksi?  ",
-        text: 'Työttömäksi ilmoittaudutaan jatkossakin TE-palvelujen kautta. Voit ilmoittautua työttömäksi Oma asiointi -palvelussa tai TE-palvelujen asiointipisteissä. TE-palvelut ohjaavat työllisyyden kuntakokeilujen asiakkaat työnhakijoiden kotikuntien työllisyyspalveluihin. ' +
-            ''},
-
-    { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
-    { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
-    { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
-    { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
-    { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
-    { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
-    { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
-    { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
-    { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
+  { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
+  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+  { type: "PDF", title: "اللغة العربية Arabia", text: 'اللغة العربية Arabia.pdf'},
+  { type: "PDF", title: "বাংলা Bengali", text: 'বাংলা Bengali.pdf'},
+  { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
+  { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
+  { type: "PDF", title: " فارسی Farsi", text: ' فارسی Farsi.pdf'},
+  { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
+  { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
+  { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
+  { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
+  { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
+  { type: "PDF", title: "TÜRKÇE Turkki", text: 'TÜRKÇE Turkki.pdf'},
+  { type: "PDF", title: "русский Venäjä", text: 'русский Venäjä.pdf'},
+  { type: "PDF", title: "VIỆT NAM Vietnam", text: 'VIỆT NAM Vietnam.pdf'},
 
 ];
 

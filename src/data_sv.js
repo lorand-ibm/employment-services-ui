@@ -1,122 +1,128 @@
-
-
 const data_sv = [
-    { type: "Info", title: "SV Helsingin työllisyyspalvelujen varsinaiset sivut aukeavat maaliskuussa 2021. ",
-        text: "Sillä välin voit tutustua yleisimpiin kysymyksiin työllisyyden kuntakokeilusta."},
-    { type: "Subheading", title: "Lyhyt esittely", text: ''},
-    { type: "Accordion", title: "Lyhyt esittely", text: 'Työllisyyden kuntakokeilu tuo Helsingin työllisyyspalveluiden asiakkaaksi liki 50 000 helsinkiläistä työnhakijaa TE-toimistolta. Muutos astuu voimaan 1.3.2020. Muutoksen myötä TE-toimistosta siirtyy kaupungille myös noin 250 työntekijää sekä toimitiloja Itäkeskuksesta ja Pasilasta.'},
+    { type: "Hero", title:'De kommunala sysselsättningsförsöken ',
+      text: "Helsingfors stads sysselsättningstjänster har som mål att effektivare än i dagsläget främja sysselsättning och tillgång till utbildning arbetslösa arbetssökande. Ett ytterligare mål är att utveckla nya lösningar för kompetent arbetskraft. "
+    },
+    { type: "Info", title: "Helsingfors sysselsättningstjänsters webbplats lanseras i mars. ",
+        text: "Under tiden kan du läsa de vanligaste frågorna om sysselsättningsförsöket."},
+    { type: "Subheading", title: "En kort presentation ", text: ''},
+    { type: "Accordion", title: "En kort presentation ", text: 'Genom kommunförsöket med sysselsättning överförs närmare 50 000 arbetssökande i Helsingfors från arbets- och näringsbyrån till Helsingfors stads sysselsättningstjänster. Ändringen träder i kraft den 1 mars 2021. I och med ändringen överförs också omkring 250 anställda från arbets- och näringsbyrån till staden. Också arbets- och näringsbyråns verksamhetslokaler i Östra centrum och Böle övergår till staden.  '},
+    { type: "Subheading", title: "Vad innebär kommunförsöken med sysselsättning?", text: ''},
+    { type: "Accordion", title: "Vad är de kommunala sysselsättningsförsöken? ",
+        text: 'Kommunförsöken med sysselsättning är ett 2,5 år långt nationellt projekt, där en del av arbets- och näringsbyråns lagstadgade sysselsättningstjänster överförs i kommunal regi. I försöken deltar 125 kommuner som bildar 26 försöksområden. I huvudstadsregionen deltar uöver Helsingfors också Esbo och Vanda-Kervo. '},
+  { type: "Accordion", title: "Varför genomförs försöken?  ",
+        text: 'Syftet med kommunförsöken är att effektivera sysselsättningstjänsterna. Ett ytterligare mål är att förbättra kundupplevelsen och serviceutbudet för arbetssökande. Detta är tänkt att bland annat göra tillgången till kommunens tjänster smidigare. Effektiviteten eftersträvas bland annat att förbättras genom finansiering, sammanföring av kommunens och statens anställda samt överföring av lokaler.  '},
+  { type: "Accordion", title: "Gäller det här mig?",
+        text: 'Kommunförsöken och överföringen av tjänsterna till Helsingfors stad gäller troligtvis dig om du bor i Helsingfors, är arbetslös arbetssökande eller deltar i sysselsättningstjänster och om \n' +
+          '\n' +
+          'du är under 30 år \n' +
+          'eller \n' +
+          '\n' +
+          'du har ett främmande språk som modersmål. Du talar något annat språk som modersmål än finska eller svenska. \n' +
+          'eller \n' +
+          '\n' +
+          'du inte har rätt till inkomstrelaterad dagpenning. Du får till exempel FPA:s arbetsmarknadsstöd, utkomststöd eller sjukdagpenning. \n' +
+          '\n' +
+          'Om du överförs till kommunförsöket kommer du att få ett individuellt meddelande från arbets- och näringsbyrån och i Mina e-tjänster. '},
 
-    { type: "Subheading", title: "Mikä työllisyyden kuntakokeilu?", text: ''},
-    { type: "Accordion", title: "Mikä työllisyyden kuntakokeilu on?",
-        text: 'Työllisyyden kuntakokeilu on 2,5 vuoden mittainen valtakunnallinen hanke, jossa osa TE-toimiston lakisääteisistä työllisyyspalveluista siirtyy kunnan järjestettäväksi. Kuntakokeilussa on mukana 125 kuntaa ja niiden muodostamat 26 kokeilualuetta. Helsinki on yksi kokeilualueista yksinään. Pääkaupunkiseudulla on Helsingin lisäksi Espoon sekä Vantaa-Keravan kokeilualueet. '},
-    { type: "Accordion", title: "Miksi tämä järjestetään?  ",
-        text: 'Kuntakokeilun tarkoitus on parantaa työllisyyspalveluiden vaikuttavuutta sekä työnhakijoiden palveluvalikoimaa ja asiakaskokemusta. Tämä on tarkoitus tehdä mm. sujuvoittamalla kuntien tarjoamien palvelujen äärelle pääsyä. Vaikuttavuutta yritetään parantaa yhdistämällä kuntien ja valtion henkilökuntaa, rahoitusta ja tiloja työllisyydenhoidossa. '},
-    { type: "Accordion", title: "Koskeeko tämä minua?",
-        text: 'Kuntakokeilu ja palvelujen siirtyminen Helsingin kaupungille koskee todennäköisesti sinua jos olet helsinkiläinen työtön työnhakija tai osallistut työllistämispalveluun ja sinua koskee jokin seuraavista: \n' +
-            '\n' +
-            'olet alle 30-vuotias \n' +
-            'tai \n' +
-            '\n' +
-            'olet vieraskielinen. Äidinkielesi on joku muu kuin suomi. \n' +
-            'tai \n' +
-            '\n' +
-            'sinulla ei ole oikeutta ansiopäivärahaan. Saat esimerkiksi Kelan työmarkkinatukea, toimeentulotukea tai sairaspäivärahaa. \n' +
-            '\n' +
-            'Saat vielä henkilökohtaisesti kirjeen TE-toimistosta sekä tiedon Oma asiointi -palvelussa mikäli siirryt kuntakokeiluun. '},
+    { type: "Subheading", title: "Vad betyder förändringen för mig? ", text: ''},
+    { type: "Accordion", title: "Hur och när kommer den att ske? ",
+        text: 'Riksdagen måste godkänna lagen om kommunförsök innan försöken kan komma igång. Helsingfors stad har berett sig på att försöken ska inledas i mars 2021. De som redan anmält sig som arbetssökande vid arbets- och näringsbyrån och som ingår i målgruppen kommer i så fall att överföras till Helsingfors sysselsättningstjänster runt den 1 mars.  \n' +
+          '\n' +
+          'Om du blir kund vid Helsingfors sysselsättningstjänster, får du ett individuellt meddelande efter att du förts över från arbets- och näringsbyrån. Informationen kommer också att finnas bland dina uppgifter i Mina e-tjänster. Du kan fortsätta använda Mina e-tjänster på webbplatsen TE-tjanster.fi. Efter att överföringen gjorts kommer du att kontaktas av Helsingfors sysselsättningstjänster. '},
+  { type: "Accordion", title: "Påverkar det här mitt arbetsmarknadstöd? ",
+        text: 'Ändringen inverkar inte på arbetsmarknadstöd som redan beviljats. \n' +
+          '\n' +
+          'När kommunförsöken med sysselsättning inleds förblir det arbetskraftspolitiska utlåtande som arbets- och näringstjänsterna har gett betalaren av din arbetslöshetsförmån (FPA eller en arbetslöshetskassa) i kraft. Det påverkas inte av att din kundrelation överförs till Helsingfors sysselsättningstjänster. Försöket påverkar inte behandlingen av ditt ärende vid FPA eller hos arbetslöshetskassan, och det borde inte påverka den tidtabell som gäller ansökan om eller beviljande av arbetslöshetsförmåner vid FPA eller arbetslöshetskassorna.  \n' +
+          ' \n' +
+          'I början av processen kan det förekomma dröjsmål i fråga om nya beslut som fattas av stadens sysselsättningstjänster. Det kan vara en bra idé att undvika beslut och åtgärder som kräver godkännande under övergångstiden, om det är något du kan påverka.  '},
+    { type: "Accordion", title: "Vad behöver jag göra med tanke på förändringen?  ",
+        text: 'Förändringen kräver inga åtgärder av dig som arbetssökande.  \n' +
+          '\n' +
+          'Dina tidigare sysselsättningsplaner eller andra planer gäller fortfarande. Sysselsättningstjänsterna i ditt försöksområde, det vill säga Helsingfors sysselsättningstjänster, kontaktar alla arbetssökande kunder genast när den nya ansvariga sakkunniga valts. I samband med att valet gjorts skickar vi dig mer information om tjänsterna och om din kundrelation vid Helsingfors sysselsättningstjänster.'},
+  { type: "Accordion", title: "Kommer jag att ha en ansvarig sakkunnig också i fortsättningen? Får jag en ny sakkunnig?",
+        text: 'I fortsättningen kommer så gott som alla arbetssökande kunder att ha en egen ansvarig sakkunnig. \n' +
+          '\n' +
+          'Det är troligt att du får en ny ansvarig sakkunnig när sysselsättningstjänsterna förs över till staden. Din nya sakkunniga kommer att utses så fort som möjligt efter överföringen. Du får information om den nya sakkunniga per post och i Mina e-tjänster på TE-tjanster.fi genast när den sakkunniga utsetts. Du får den här informationen även om personen inte byts ut. \n' +
+          '\n' +
+          'Du kan invänta information om den sakkunniga från Helsingfors sysselsättningstjänster.  '},
+    { type: "Accordion", title: "Begränsar det här mina möjligheter att uträtta ärenden? ",
+        text: 'Under kommunförsöket uträttas ärenden vid sysselsättningstjänsterna enbart i din officiella hemkommun.  \n' +
+          '\n' +
+          'Till exempel: En Helsingforsbo bor närmare arbets- och näringstjänsterna i Vanda än i Helsingfors, och har därför hittills uträttat ärenden i Vanda. Så länge försöken pågar kan den här personen inte uträtta sina ärenden vid sysselsättningstjänsterna i Vanda.  \n' +
+          ' \n' +
+          'Arbetssökande som ingår i kommunförsöket kan enbart betjänas av sysselsättningstjänsterna i sin hemkommun.'},
+    { type: "Accordion", title: "Förändras de tjänster jag får? ",
+        text: 'Som kund inom kommunförsöket får du samma tjänster som du hittills fått vid arbets- och näringsbyrån. I fråga om Helsingfors stads tjänster kan det förekomma smärre förändringar, exempelvis på grund av att antalet kunder ökar kraftigt. \n' +
+          ' \n' +
+          'Medan kommunförsöket pågår tar vi fram nya sysselsättningstjänster och lösningar. Vi kommer bland annat att stärka samarbetet med social- och hälsovårdstjänsterna och med fostrans- och utbildningstjänsterna för att främja sysselsättningen. Tillgången till service kan alltså öka medan kommunförsöket pågår. '},
+  { type: "Accordion", title: "Jag är TYP-kund. Förändras de tjänster jag får?",
+        text: 'Du får TYP-service också i fortsättningen, men inom kommunförsöket kommer den att ordnas annorlunda än hittills. Detta kan medföra ändringar i fråga om din ansvariga sakkunniga eller det verksamhetsställe där du brukat uträtta ärenden.  \n' +
+          '\n' +
+          'Lagen om sektorsövergripande samservice som främjar sysselsättningen förändras inte. Medan kommunförsöket pågår kallar vi de här tjänsterna arbetsrehabiliterande tjänster.  '},
+    { type: "Accordion", title: "Vilket språk kommer jag att betjänas på? ",
+        text: 'Du kan alltid få service på finska och svenska. Oftast går det också att ordna service på engelska utan särskilda arrangemang och utan bokning. \n' +
+          ' \n' +
+          '\n' +
+          'Tolkningstjänster ordnas för dem som behöver det, precis som vid arbets- och näringsbyrån.'},
 
-    { type: "Subheading", title: "Muutoksen vaikutukset minuun? ", text: ''},
-    { type: "Accordion", title: "Milloin ja miten muutos tapahtuu?",
-        text: 'Eduskunnan on hyväksyttävä kokeilulaki ennen kuin mikään muuttuu. Helsingin kaupunki on varautunut siihen, että muutos tapahtuu maaliskuussa 2021. Jo olemassa olevien TE-toimistoon työnhakijaksi ilmoittautuneiden ja kokeilun kohderyhmään kuuluvien asiakkaiden palvelu siirtyisi Helsingin työllisyyspalveluille maaliskuun loppuun mennessä. (Seuraavat lauseet poistuvat: On kuitenkin mahdollista, että työllisyyden kuntakokeilujen alkuajankohta muuttuu. Pidämme tällä sivulla yllä uusinta tietoa aikatauluista.) \n' +
-            '\n' +
-            'Jos siirryt Helsingin työllisyyspalvelujen asiakkaaksi, saat henkilökohtaisesti kirjeen TE-toimistosta siirron jälkeen. Lisäksi saat tiedon Oma asiointi –palveluun siirrosta. Oma asiointi -palvelu säilyy käytössäsi TE-palvelut.fi -osoitteessa. Siirron jälkeen sinuun otetaan yhteyttä Helsingin työllisyyspalveluista. '},
-    { type: "Accordion", title: "Vaikuttaako muutos minun työttömyysturvaani? ",
-        text: 'Muutos ei vaikuta jo myönnettyyn työttömyysturvaasi. \n' +
-            '\n' +
-            'Työllisyyden kuntakokeilun alkaessa TE-palvelujen työttömyysetuutesi maksajalle (KELA tai työttömyyskassa) antama työvoimapoliittinen lausunto jää voimaan, kun asiakkuutesi siirtyy Helsingin työllisyyspalvelujen piiriin. Kuntakokeilu ei vaikuta työttömyysturva-asiasi käsittelyyn Kelassa tai työttömyyskassasi. Uudistuksen ei pitäisi vaikuttaa suuresti työttömyysetuutesi hakemisen tai myöntämisen aikatauluun Kelasta tai työttömyyskassasta.  \n' +
-            ' \n' +
-            'Muutoksen alkuvaiheessa kaupungin palvelu voi olla hivenen ruuhkautunut uusien päätösten tekemisen osalta. Sinun kannattaa välttää päätöksiä ja hyväksyntää vaativia toimenpiteitä juuri siirtymäaikana, jos siihen suinkin voit itse vaikuttaa.'},
+    { type: "Subheading", title: "Var får jag service? ", text: ''},
+    { type: "Accordion", title: "Var får jag service om jag överförs till Helsingfors sysselsättningstjänster? Och vad gäller för under övergångsperioden? ",
+        text: 'På internet kan du utan avbrott använda arbets- och näringstjänsternas E-tjänster precis som hittills. \n' +
+          ' \n' +
+          'Per telefon får du utan avbrott sysselsättningsservice på arbets- och näringstjänsternas kundservicenummer: 295 025 500 (må–fr kl. 9.00–16.15)  \n' +
+          '\n' +
+          'I kundtjänsten får du hjälp med att uträtta ärenden, använda internettjänsten Mina e-tjänster och i alla frågor som gäller sysselsättning. Vid behov hänvisas du vidare till tjänster som passar dig bäst. \n' +
+          ' \n' +
+          '\n' +
+          'Efter att kommunförsöket inletts får du service vid följande servicepunkter från och med början av 2021:  \n' +
+          '\n' +
+          'Kundgatan 3, Östra centrum  \n' +
+          '\n' +
+          'Bangårdsgatan 7, Böle \n' +
+          '\n' +
+          'för person under 30 år, Navigatorn på Fredriksgatan 48 i Kampen.  \n' +
+          '\n' +
+          'Med tidsbokning får du service på Viborgsgatan 2 och Runebergsgatan 5. \n' +
+          ' \n' +
+          'Fysisk kundtjänst ordnas alltefter coronasituationen.  \n' +
+          ' \n' +
+          '\n' +
+          'Vid Helsingfors-info får du rådgivning och information om Helsingfors stads tjänster, till exempel öppettider eller annan nyttig information.  \n' +
+          '\n' +
+          'Helsingfors-infos telefonnummer: 09 310 11 111 (må–to kl. 9–16 och fr kl. 10–15) \n' +
+          'Helsingfors-infos chatt (må–to kl. 9–16 och fr kl. 10–15) '},
+    { type: "Accordion", title: "Var finns det mer information? ",
+        text: 'Du kan läsa mer på följande sidor:  \n' +
+          '\n' +
+          'Om kommunförsöken med sysselsättning på hel.fi \n' +
+          'Om kommunförsöken med sysselsättning på arbets- och näringsministeriets webbplats \n' +
+          'Helsingfors stads sysselsättningstjänsters twitter \n' +
+          '\n' +
+          ' \n' +
+          'Du kan också följa uppdateringarna på den här sidan och i medier, såsom dagstidningar och tv. \n' +
+          '\n' +
+          ' \n' +
+          'Du kan skicka respons eller allmänna frågor per e-post till Helsingfors sysselsättningstjänster, tyollisyyspalvelut@hel.fi. \n' +
+          'Obs! Vi kan inte per e-post ge personlig kundbetjäning som kräver identifiering. Skicka alltså inte konfidentiella uppgifter per e-post – till exempel inte sådant som handlar om ditt hälsotillstånd, din livssituation eller dina personuppgifter. Vi kan bara besvara allmänna frågor per e-post och vidarebefordra respons. '},
+  { type: "Accordion", title: "Var ska jag anmäla mig som arbetslös? ",
+        text: 'Också i fortsättningen anmäler du dig som arbetslös vid arbets- och näringsbyråns tjänster. Du kan anmäla dig som arbetslös i Mina e-tjänsterna eller vid arbets- och näringsbyråernas serviceställen. Därifrån hänvisas kunder som omfattas av sysselsättningsförsöken vidare till sysselsättningstjänsterna i kundernas hemkommuner. '},
 
-    { type: "Accordion", title: "Mitä minun tarvitsee tehdä tämän muutoksen takia?  ",
-        text: 'Työnhakijana sinun ei tarvitse tehdä mitään muutoksen vuoksi.  \n' +
-            '\n' +
-            'Aiemmat työllistymissuunnitelmasi tai muut suunnitelmasi ovat edelleenkin voimassa. Kuntakokeilualueesi työllisyyspalvelut eli helsinkiläisten osalta Helsingin työllisyyspalvelut ovat yhteydessä jokaiseen työnhakija-asiakkaaseen heti, kun uusi vastuuasiantuntija on valittu. Valinnan yhteydessä lähetämme sinulle lisätietoa Helsingin työllisyyspalvelujen palveluista ja asiakkuudestasi.  '},
-    { type: "Accordion", title: "Onko minulla vastuuasiantuntija jatkossakin? Vaihtuuko asiantuntijani? ",
-        text: 'Jatkossakin liki jokaisella työnhakija-asiakkaalla on oma vastuuasiantuntija. \n' +
-            '\n' +
-            'Vastuuasiantuntijasi todennäköisesti vaihtuu, kun palvelu siirtyy kaupungille. Uusi vastuuasiantuntijasi määritellään siirron jälkeen niin pian kuin mahdollista. Saat tiedon vastuuasiantuntijastasi sekä kirjeitse että Oma asiointi -palvelussa heti kun tämä on tehty. Saat tämän tiedon siinäkin tapauksessa, että vastuuasiantuntijasi ei vaihdu. \n' +
-            '\n' +
-            'Voit odottaa tietoa vastuuasiantuntijastasi Helsingin työllisyyspalveluilta. '},
-    { type: "Accordion", title: "Rajoittaako tämä jotenkin asiointiani? ",
-        text: 'Kuntakokeilun myötä asioit jatkossa vain oman virallisen asuinkuntasi työllisyyspalveluissa.  \n' +
-            '\n' +
-            'Esimerkiksi: Helsinkiläinen asuu lähempänä Vantaan TE-palveluja kuin Helsingin TE-palveluja, ja hän on aiemmin asioinut siellä. Häntä ei voida enää palvella Vantaan TE-palveluissa kuntakokeilun aikana.  \n' +
-            ' \n' +
-            'Työnhakijoita, jotka ovat kuntakokeilun asiakkaita, voidaan palvella vain kotikunnan työllisyyspalveluissa.  '},
-    { type: "Accordion", title: "Muuttuuko saamani palvelut?",
-        text: 'Kuntakokeilun asiakkaana saat samoja palveluita kuin aiemminkin olet saanut TE-palveluista. Helsingin kaupungin palvelujen osalta pienet muutokset ovat mahdollisia kun asiakasmäärä muuttuu huomattavasti. \n' +
-            ' \n' +
-            'Työllisyyden kuntakokeilun aikana kehitämme uusia palveluja ja ratkaisuja työllisyydenhoitoon, sekä vahvistamme yhteistyötä mm. sosiaali- ja terveyspalvelujen ja kasvatus- ja koulutuspalvelujen kanssa työllistämisen edistämiseksi. Palvelumahdollisuutesi siis voivat laajentua kuntakokeilun aikana. '},
-    { type: "Accordion", title: "Olen TYP-asiakas. Muuttuuko palveluni?",
-        text: 'Saat TYP-palvelua jatkossakin, mutta se järjestetään kuntakokeilussa eri tavalla kuin aiemmin. Tämä voi tarkoittaa, että asiointipisteesi tai vastuuasiantuntijasi voi muuttua.  \n' +
-            '\n' +
-            'Laki työllistymistä edistävästä monialaisesta yhteispalvelusta ei muutu ja kuntakokeilun aikana kutsumme näitä palveluja työhön kuntouttaviksi palveluiksi.  '},
-    { type: "Accordion", title: "Millä kielillä saan palvelua? ",
-        text: 'Saat suomen- ja ruotsinkielistä palvelua aina. Useimmiten saat palvelua ilman erityisjärjestelyjä myös englanniksi ilman ajanvarausta.   \n' +
-            ' \n' +
-            'Tulkkauspalvelut asioinnin avuksi järjestetään niitä tarvitseville kuten TE-palveluissakin.  '},
-
-    { type: "Subheading", title: "Mistä saan palvelua? ", text: ''},
-    { type: "Accordion", title: "Mistä saan palvelua, jos siirryn Helsingin työllisyyspalveluiden asiakkaaksi? Entä siirtymävaiheessa? ",
-        text: 'Verkossa voit käyttää TE-palvelujen ylläpitämää Oma asiointi -palvelua kuten ennenkin keskeytyksettä. \n' +
-            ' \n' +
-            'Puhelimitse saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: 295 025 500 (ma–pe klo 9.00–16.15)  \n' +
-            '\n' +
-            'Puhelinpalvelusta saat apua asiointiin, Oma asiointi -verkkopalvelun käyttöön ja työllistymiseen liittyviin asioihin. Tarvittaessa saat jatko-ohjauksen muihin sinulle sopiviin palveluihin. \n' +
-            ' \n' +
-            '\n' +
-            'Saat aulapalvelua työllisyyden kuntakokeilun käynnistyttyä seuraavissa osoitteissa:  \n' +
-            '\n' +
-            'Asiakkaankatu 3 Itäkeskuksessa  \n' +
-            '\n' +
-            'Ratapihantie 7 Pasilassa \n' +
-            '\n' +
-            'alle 30-vuotiaille Ohjaamo osoitteessa Fredrikinkatu 48 Kampissa.  \n' +
-            '\n' +
-            'Lisäksi palvelua ajanvarauksella annetaan osoitteissa Viipurinkatu 2 ja Runeberginkatu 5. \n' +
-            ' \n' +
-            'Kasvokkain asiakaspalvelu toteutuu koronatilanteen salliessa.  \n' +
-            ' \n' +
-            '\n' +
-            'Helsinki-infossa saat palveluneuvontaa Helsingin palveluista, eli esimerkiksi aukioloaikatietoa tai muuta perustietoa.  \n' +
-            '\n' +
-            'Helsinki-infon puhelinnumero: 09 310 11 111 (ma–to klo 9–16 ja pe klo 10–15) \n' +
-            'Helsinki-infon chatti (ma–to klo 9–16 ja pe klo 10–15) '},
-    { type: "Accordion", title: "Mistä saan lisätietoa?",
-        text: 'Voit lukea lisätietoja seuraavilta sivuilta:  \n' +
-            '\n' +
-            'Työllisyyden kuntakokeilusta hel.fi -sivulla \n' +
-            'Työllisyyden kuntakokeilusta työllisyys- ja elinkeinoministeriön sivulla \n' +
-            'Helsingin työllisyyspalveluiden twitter \n' +
-            '\n' +
-            ' \n' +
-            'Seuraathan myös tämän sivun päivityksiä sekä mediaa, kuten lehtiä ja televisiouutisointia. \n' +
-            '\n' +
-            ' \n' +
-            'Voit myös lähettää sähköpostitse palautetta tai yleisluontoisia kysymyksiä Helsingin työllisyyspalveluille osoiteeseen tyollisyyspalvelut@hel.fi. \n' +
-            'Huom! Sähköpostitse emme voi tarjota tunnistautumista edellyttävää henkilökohtaista asiakaspalvelua. Ethän lähetä meille sähköpostitse arkaluontoisia tietoja esimerkiksi terveydentilastasi tai elämäntilanteestasi tai henkilötietojasi. Voimme vastata sähköpostitse vain yleisluontoisiin kysymyksiin ja viedä palautetta eteenpäin. '},
-    { type: "Accordion", title: "Mihin ilmoittaudun työttömäksi?  ",
-        text: 'Työttömäksi ilmoittaudutaan jatkossakin TE-palvelujen kautta. Voit ilmoittautua työttömäksi Oma asiointi -palvelussa tai TE-palvelujen asiointipisteissä. TE-palvelut ohjaavat työllisyyden kuntakokeilujen asiakkaat työnhakijoiden kotikuntien työllisyyspalveluihin. ' +
-            ''},
-
-    { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
-    { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
-    { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
-    { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
-    { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
-    { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
-    { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
-    { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
-    { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
+  { type: "Subheading", title: "Sammanfattning på andra språk", text: ''},
+  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+  { type: "PDF", title: "اللغة العربية Arabia", text: 'اللغة العربية Arabia.pdf'},
+  { type: "PDF", title: "বাংলা Bengali", text: 'বাংলা Bengali.pdf'},
+  { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
+  { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
+  { type: "PDF", title: " فارسی Farsi", text: ' فارسی Farsi.pdf'},
+  { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
+  { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
+  { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
+  { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
+  { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
+  { type: "PDF", title: "TÜRKÇE Turkki", text: 'TÜRKÇE Turkki.pdf'},
+  { type: "PDF", title: "русский Venäjä", text: 'русский Venäjä.pdf'},
+  { type: "PDF", title: "VIỆT NAM Vietnam", text: 'VIỆT NAM Vietnam.pdf'},
 
 ];
 

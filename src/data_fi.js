@@ -1,4 +1,6 @@
 const data_fi = [
+  { type: "Hero", title:'Työllisyyden kuntakokeilu alkaa 2021',
+    text: 'Helsingin työllisyyspalveluiden tavoitteena on edistää nykyistä tehokkaammin työttömien työnhakijoiden työllistymistä ja koulutukseen ohjautumista, sekä tuoda uusia ratkaisuja osaavan työvoiman saatavuuteen.' },
     { type: "Info", title: "Helsingin työllisyyspalvelujen varsinaiset sivut aukeavat maaliskuussa 2021. ",
         text: "Sillä välin voit tutustua yleisimpiin kysymyksiin työllisyyden kuntakokeilusta."},
     { type: "Subheading", title: "Lyhyt esittely", text: ''},
@@ -108,13 +110,21 @@ const data_fi = [
 
     { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
     { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+    { type: "PDF", title: "اللغة العربية Arabia", text: 'اللغة العربية Arabia.pdf'},
+    { type: "PDF", title: "বাংলা Bengali", text: 'বাংলা Bengali.pdf'},
     { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
     { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
+    { type: "PDF", title: " فارسی Farsi", text: ' فارسی Farsi.pdf'},
     { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
     { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
     { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
     { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
     { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
+    { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
+    { type: "PDF", title: "TÜRKÇE Turkki", text: 'TÜRKÇE Turkki.pdf'},
+    { type: "PDF", title: "русский Venäjä", text: 'русский Venäjä.pdf'},
+    { type: "PDF", title: "VIỆT NAM Vietnam", text: 'VIỆT NAM Vietnam.pdf'},
+
 
 ];
 
