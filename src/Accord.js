@@ -34,7 +34,7 @@ function Accord(props) {
         <React.Fragment>
             <Accordion
               heading={title}
-              theme={{'--header-font-color': 'var(--color-coat-of-arms)'}}
+              theme={{'--header-font-color': '#0E00BF'}}
               >
               {text}
             </Accordion>

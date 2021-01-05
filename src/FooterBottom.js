@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import {Footer} from  "hds-react/components/Footer";
+import {Base} from  "hds-react/components/Base";
 
 function Copyright() {
   return (
@@ -21,7 +22,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#0E00BF',
     // marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0),
   },
@@ -35,15 +36,9 @@ function FooterBottom(props) {
     <footer className={classes.footer}>
       <Footer
         title="Työllisyyspalvelut"
-        theme={{
-          '--footer-background': 'var(--color-engel)',
-          '--footer-color': 'var(--color-black-90)',
-          '--footer-divider-color': 'var(--color-black-90)',
-          '--footer-focus-outline-color': 'var(--color-black-90)'
-        }}
-      >
-          <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
-          </Footer.Base>
+        className={classes.footer}
+        >
+        <Base />
       </Footer>
     </footer>
   );

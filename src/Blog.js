@@ -34,7 +34,7 @@ const sections = [
 export default function Blog() {
   const classes = useStyles();
 
-  console.log(data_fi);
+  //console.log(data_fi);
 
   return (
     <React.Fragment>
@@ -49,6 +49,7 @@ export default function Blog() {
             title="Työllisyyspalvelut"
             titleAriaLabel="Helsinki: Työllisyyspalvelut"
             titleUrl="https://tyollisyyspalvelut.hel.fi"
+            style={{'--header-divider-color':'white'}}
         >
           <Navigation.Actions>
               <Navigation.LanguageSelector label="FI">
