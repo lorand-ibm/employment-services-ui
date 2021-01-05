@@ -38,7 +38,6 @@ function FooterBottom(props) {
         title="Työllisyyspalvelut"
         className={classes.footer}
         >
-        <Base />
       </Footer>
     </footer>
   );
