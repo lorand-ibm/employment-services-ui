@@ -49,7 +49,9 @@ export default function Blog() {
             menuToggleAriaLabel="Menu"
             skipTo="#content"
             skipToContentLabel="Skip to main content"
-            theme="light"
+            theme={{
+              '--header-divider-color': 'white',
+            }}
             title="Työllisyyspalvelut"
             titleAriaLabel="Helsinki: Työllisyyspalvelut"
             titleUrl="https://tyollisyyspalvelut.hel.fi"
