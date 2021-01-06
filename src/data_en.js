@@ -1,7 +1,6 @@
 const data_en = [
-  { type: "Hero", title:'De kommunala sysselsättningsförsöken ',
-    text: "Helsingfors stads sysselsättningstjänster har som mål att effektivare än i dagsläget främja sysselsättning och tillgång till utbildning arbetslösa arbetssökande. Ett ytterligare mål är att utveckla nya lösningar för kompetent arbetskraft. "
-  },
+  { type: "Hero", title:'A municipal employment experiment to begin in 2021',
+    text: 'The aim of Helsinki’s employment services is for unemployed jobseekers to find work and training opportunities more efficiently and to develop new solutions for finding skilled labour.' },
     { type: "Info", title: "Helsinki’s employment services’ website will be launched in March 2021.",
         text: "In the meantime, you can read through the frequently asked questions about the municipal employment experiment."},
     { type: "Subheading", title: "A brief introduction ", text: ''},
