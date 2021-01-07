@@ -23,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+let appNames = {
+  fi: { name: 'Työllisyyspalvelut'},
+  sv: { name: 'Arbetstjänster'},
+  en: { name: 'Employment services'}
+};
+
 //const sections = [
 //];
 
@@ -32,18 +38,19 @@ export default function Blog() {
 
   let data = data_fi;
   let logolang = 'fi';
+  let appName = appNames.fi.name;
   switch(lang) {
-    case 'EN': data = data_en; break;
-    case 'SV': data = data_sv; logolang = 'sv'; break;
+    case 'EN': data = data_en; logolang = 'en'; appName = appNames.en.name; break;
+    case 'SV': data = data_sv; logolang = 'sv'; appName = appNames.sv.name; break;
     case 'FI':
     default:
+      appName = appNames.fi.name;
       data = data_fi;
   }
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="xl">
         <Navigation
             logoLanguage={logolang}
             menuToggleAriaLabel="Menu"
@@ -52,7 +59,7 @@ export default function Blog() {
             theme={{
               '--header-divider-color': 'white',
             }}
-            title="Työllisyyspalvelut"
+            title={appName}
             titleAriaLabel="Helsinki: Työllisyyspalvelut"
             titleUrl="https://tyollisyyspalvelut.hel.fi"
             style={{'--header-divider-color':'white'}}
@@ -65,20 +72,23 @@ export default function Blog() {
               </Navigation.LanguageSelector>
             </Navigation.Actions>
           </Navigation>
+      <Typography paragraph={true} gutterBottom={true} className={classes.hero}>
+        <Hero
+          title={data[0].title}
+          text={data[0].text}
+          className={classes.hero}
+        />
+      </Typography>
+      <Container maxWidth="xl">
         <main>
-          <Typography paragraph={true} gutterBottom={true} className={classes.hero}>
-            <Hero
-              title={data[0].title}
-              text={data[0].text}
-              className={classes.hero}
-            />
-          </Typography>
+
           <Paragraphs paragraphs={data}/>
         </main>
       </Container>
       <FooterBottom
-        title="Työllisyyspalvelut"
+        title={appName}
         description=""
+        lang={logolang}
       />
     </React.Fragment>
   );

@@ -41,7 +41,8 @@ const useStyles = makeStyles({
   },
  fiCardContent: {
     height: 550,
-    color: 'black'
+    color: 'black',
+    width: '40%'
   },
   fiCardContentTextSecondary: {
     color: "black"
@@ -68,16 +69,18 @@ function Hero(props) {
                          height="550"
             />
             <FiCardContent className={classes.fiCardContent}>
-              <Typography gutterBottom variant="h2" component="h1" maxWidth={3}>
-                {title}
-              </Typography>
-              <Typography maxWidth={3}
-                variant="h6"
-                className={classes.fiCardContentTextSecondary}
-                component="p"
-              >
-                {text}
-              </Typography>
+
+                <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left">
+                  {title}
+                </Typography>
+                <Typography maxWidth={3}
+                  variant="h6"
+                  className={classes.fiCardContentTextSecondary}
+                  component="p"
+                >
+                  {text}
+                </Typography>
+
             </FiCardContent>
           </FiCardActionArea>
         </FiCard>

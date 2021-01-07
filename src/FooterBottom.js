@@ -11,31 +11,65 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const footerTexts = {
+  fi: { feedback: 'Anna palautetta', goup: 'Sivun alkuun'},
+  sv: { feedback: 'Ge respons', goup: 'Till början av sidan'},
+  en: { feedback: 'Give feedback', goup: 'Back to the top'},
+}
+
 function FooterBottom(props) {
   const classes = useStyles();
-  //const { description, title } = props;
+  const { title, lang } = props;
+
+  let texts = footerTexts.en;
+  switch(lang) {
+    case 'SV':
+    case 'sv':
+      texts = footerTexts.sv;
+      break;
+    case 'EN':
+    case 'en':
+      texts = footerTexts.en;
+      break;
+    case 'fi':
+    default:
+      texts = footerTexts.fi;
+      break;
+  }
+
+  const scrollToTop = () => {
+    console.log('SCROLL');
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
-    <footer className={classes.footer}>
-      <Footer
-        title="Työllisyyspalvelut"
-        className={classes.footer}
+    <React.Fragment>
+        <Footer
+          logoLanguage={lang}
+          title={title}
+          theme={{
+            '--footer-background': '#0E00BF',
+            '--footer-color': 'white',
+            '--footer-divider-color': '#0172C6',
+            '--footer-focus-outline-color': 'var(--color-black-90)',
+          }}
         >
-        <br />
-        <Footer.Utilities backToTopLabel="Back to top">
-          <Footer.Item label="Contact us" />
-          <Footer.Item label="Give feedback" />
-        </Footer.Utilities>
-        <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
-        </Footer.Base>
-      </Footer>
-    </footer>
+          <Footer.Navigation navigationAriaLabel="{title} navigation"></Footer.Navigation>
+          <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
+              <div onClick={scrollToTop}><Footer.Item label={texts.feedback} /></div>
+              <Footer.Item label={texts.goup} />
+          </Footer.Base>
+        </Footer>
+    </React.Fragment>
   );
 }
 
 FooterBottom.propTypes = {
-  description: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-export default Footer;
+export default FooterBottom;
