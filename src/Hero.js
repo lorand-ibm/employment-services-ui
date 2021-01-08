@@ -18,7 +18,7 @@ import {
   FiCardMedia
 } from "./FullImageCard";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   container: {
     height: 550
   },
@@ -32,9 +32,51 @@ const useStyles = makeStyles({
     height: 550,
     color: 'black',
     width: '40%',
+   [theme.breakpoints.only("xs")]: {
+     top: '40px',
+     left: '50px',
+     padding: '30px',
+   },
+   [theme.breakpoints.only("sm")]: {
+     top: '0px',
+     left: '0px',
+   },
+    [theme.breakpoints.only("md")]: {
+      top: '0px',
+      left: '0px',
+    },
+   [theme.breakpoints.only("lg")]: {
+     top: '40px',
+     left: '60px',
+   },
+   [theme.breakpoints.only("xl")]: {
+     top: '50px',
+     left: '100px',
+   },
+  },
+  title: {
+    fontWeight: 'bold',
+    [theme.breakpoints.only("xs")]: {
+      fontSize: '36px',
+    },
+    [theme.breakpoints.only("sm")]: {
+      fontSize: '36px',
+    },
+    [theme.breakpoints.only("md")]: {
+      fontSize: '45px',
+    },
+    [theme.breakpoints.only("lg")]: {
+      fontSize: '52px',
+    },
+    [theme.breakpoints.only("xl")]: {
+      fontSize: '52px',
+    },
   },
   fiCardContentTextSecondary: {
     color: "black",
+    fontSize: '20px',
+    left: '120px',
+    fontWeigth: '400px'
   },
   mediaPic : {
     clipPath: 'url(#koros)'
@@ -44,7 +86,11 @@ const useStyles = makeStyles({
     color: '#D0E6F7',
     background: 'transparent',
   },
-});
+  smallCard : {
+    padding: '20px',
+    marginTop: '100px',
+  }
+}));
 
 function Hero(props) {
   const classes = useStyles();
@@ -52,7 +98,7 @@ function Hero(props) {
 
   return (
     <React.Fragment>
-      <Hidden mdDown>
+      <Hidden xsDown>
         <Container maxWidth="xl" className={classes.container}>
           <FiCard className={classes.card}>
             <FiCardActionArea>
@@ -65,13 +111,16 @@ function Hero(props) {
               />
               <FiCardContent className={classes.fiCardContent}>
 
-                  <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left">
+                  <Typography
+                    gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
+                    className={classes.title}
+                  >
                     {title}
                   </Typography>
-                  <Typography maxWidth={3}
+                  <Typography maxWidth={2}
                     variant="h6"
                     className={classes.fiCardContentTextSecondary}
-                    component="p"
+                    component="div"
                   >
                     {text}
                   </Typography>
@@ -92,20 +141,21 @@ function Hero(props) {
           </svg>
         </Container>
       </Hidden>
-      <Hidden lgUp>
+      <Hidden smUp>
         <Typography className={classes.card}>
-          <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left">
+          <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
+                      className={classes.title}>
             {title}
           </Typography>
           <Typography maxWidth={3}
                       variant="h6"
                       className={classes.fiCardContentTextSecondary}
-                      component="p"
+                      component="div"
           >
             {text}
           </Typography>
 
-          <FiCard className={classes.card}>
+          <FiCard className={classes.smallCard}>
             <FiCardActionArea>
               <FiCardMedia className={classes.mediaPic}
                            media="picture"
