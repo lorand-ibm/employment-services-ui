@@ -7,6 +7,7 @@ import Info from "./Info";
 import Pdf from "./Pdf";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 
 function Paragraphs(props) {
     const { paragraphs } = props;
@@ -17,40 +18,54 @@ function Paragraphs(props) {
         switch(paragraph.type) {
             case 'Accordion':
                 items.push(
-                  <Container justify="center" xs={3}>
-                    <Typography paragraph={true} gutterBottom={true} >
-                      <Accord key={index} {...paragraph}></Accord>
-                    </Typography>
-                  </Container>
+                  <Grid container spacing={1}>
+                    <Grid item xs></Grid>
+                    <Grid item xs={6}>
+                      <Typography paragraph={true} gutterBottom={true} >
+                        <Accord key={index} {...paragraph}></Accord>
+                      </Typography>
+                    </Grid>
+                    <Grid item xs></Grid>
+                  </Grid>
                 );
                 break;
             case 'Subheading':
                 items.push(
-                  <Container justify="center" xs={3}>
-                    <Box bb={5} mt={5} pt={6}>
+                  <Grid container spacing={1}>
+                    <Grid item xs></Grid>
+                    <Grid item xs={6}>
                       <Typography paragraph={true} gutterBottom={true}>
                         <Subheading key={index} {...paragraph}></Subheading>
                       </Typography>
-                    </Box>
-                  </Container>
+                    </Grid>
+                    <Grid item xs></Grid>
+                  </Grid>
                 );
                 break;
             case 'Info':
                 items.push(
-                  <Container justify="center" xs={4}>
+                  <Grid container spacing={1}>
+                    <Grid item xs></Grid>
+                    <Grid item xs={7}>
                     <Typography paragraph={true} gutterBottom={true}>
                       <Info key={index} {...paragraph}></Info>
                     </Typography>
-                  </Container>
+                    </Grid>
+                    <Grid item xs></Grid>
+                  </Grid>
                 );
                 break;
             case 'PDF':
                 items.push(
-                    <Container justify="center" xs={3}>
+                  <Grid container spacing={1}>
+                    <Grid item xs></Grid>
+                    <Grid item xs={6}>
                       <Typography paragraph={true} gutterBottom={true}>
                         <Pdf key={index} {...paragraph}></Pdf>
                       </Typography>
-                    </Container>
+                    </Grid>
+                    <Grid item xs></Grid>
+                  </Grid>
                     );
                 break;
           default: break;

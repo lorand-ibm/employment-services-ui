@@ -1,17 +1,33 @@
 import PropTypes from "prop-types";
 import * as React from "react";
 import {Accordion} from "hds-react/components/Accordion";
+import {makeStyles} from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles((theme) => ({
+  title: {
+    fontSize: '16px',
+  }
+}));
 
 function Accord(props) {
+    const classes = useStyles();
     const { title, text } = props;
 
     return (
         <React.Fragment>
             <Accordion
               heading={title}
-              theme={{'--header-font-color': '#0E00BF'}}
+              theme={{
+                '--header-font-color': '#0E00BF',
+                '--header-font-size': '18px',
+                '--header-font-family': 'HelsinkiGrotesk',
+                '--header-font-weigth': 'bold',
+              }}
               >
-              {text}
+              <Typography className={classes.title}>
+                {text}
+              </Typography>
             </Accordion>
         </React.Fragment>
     );

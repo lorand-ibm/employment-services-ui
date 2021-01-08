@@ -78,13 +78,15 @@ export default function Blog() {
           text={data[0].text}
           className={classes.hero}
         />
+
       </Typography>
-      <Container maxWidth="xl">
-        <main>
+      <main>
+
 
           <Paragraphs paragraphs={data}/>
-        </main>
-      </Container>
+
+
+      </main>
       <FooterBottom
         title={appName}
         description=""
