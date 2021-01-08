@@ -58,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     [theme.breakpoints.only("xs")]: {
       fontSize: '36px',
+      paddingLeft: '20px',
+      paddingTop: '20px',
     },
     [theme.breakpoints.only("sm")]: {
       fontSize: '36px',
@@ -76,7 +78,11 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: '20px',
     left: '120px',
-    fontWeigth: '400px'
+    fontWeigth: '400px',
+      [theme.breakpoints.only("xs")]: {
+        paddingLeft: '20px',
+        paddingTop: '20px',
+      },
   },
   mediaPic : {
     clipPath: 'url(#koros)'
@@ -110,7 +116,6 @@ function Hero(props) {
                            height="550"
               />
               <FiCardContent className={classes.fiCardContent}>
-
                   <Typography
                     gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
                     className={classes.title}
@@ -124,7 +129,6 @@ function Hero(props) {
                   >
                     {text}
                   </Typography>
-
               </FiCardContent>
             </FiCardActionArea>
           </FiCard>
@@ -165,9 +169,6 @@ function Hero(props) {
                            height="550"
               />
               <FiCardContent className={classes.fiCardContent}>
-
-
-
               </FiCardContent>
             </FiCardActionArea>
           </FiCard>
