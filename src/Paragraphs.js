@@ -8,8 +8,28 @@ import Pdf from "./Pdf";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import {makeStyles} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: 0,
+    marginTop: 0,
+    marginBottom: 16
+  },
+  accord: {
+    padding: 0,
+    marginTop: 0,
+    marginBottom: 10
+  },
+  subheading: {
+    padding: 0,
+    marginTop: 24,
+    marginBottom: 32
+  }
+}));
 
 function Paragraphs(props) {
+    const classes = useStyles();
     const { paragraphs } = props;
     console.log(paragraphs);
     const items = [];
@@ -18,10 +38,10 @@ function Paragraphs(props) {
         switch(paragraph.type) {
             case 'Accordion':
                 items.push(
-                  <Grid container spacing={1}>
+                  <Grid container spacing={1} className={classes.accord}>
                     <Grid item xs></Grid>
                     <Grid item xs={6}>
-                      <Typography paragraph={true} gutterBottom={true} >
+                      <Typography paragraph={true} gutterBottom={false} >
                         <Accord key={index} {...paragraph}></Accord>
                       </Typography>
                     </Grid>
@@ -31,7 +51,7 @@ function Paragraphs(props) {
                 break;
             case 'Subheading':
                 items.push(
-                  <Grid container spacing={1}>
+                  <Grid container spacing={1} className={classes.subheading}>
                     <Grid item xs></Grid>
                     <Grid item xs={6}>
                       <Typography paragraph={true} gutterBottom={true}>
@@ -44,7 +64,7 @@ function Paragraphs(props) {
                 break;
             case 'Info':
                 items.push(
-                  <Grid container spacing={1}>
+                  <Grid container spacing={1} className={classes.container}>
                     <Grid item xs></Grid>
                     <Grid item xs={7}>
                     <Typography paragraph={true} gutterBottom={true}>
@@ -57,7 +77,7 @@ function Paragraphs(props) {
                 break;
             case 'PDF':
                 items.push(
-                  <Grid container spacing={1}>
+                  <Grid container spacing={1} className={classes.container}>
                     <Grid item xs></Grid>
                     <Grid item xs={6}>
                       <Typography paragraph={true} gutterBottom={true}>

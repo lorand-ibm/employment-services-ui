@@ -20,7 +20,8 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: 550
+    height: 550,
+    marginBottom: 32,
   },
   card: {
     backgroundColor: '#D0E6F7'

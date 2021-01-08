@@ -5,7 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
+  text: {
     fontSize: '16px',
   }
 }));
@@ -25,7 +25,7 @@ function Accord(props) {
                 '--header-font-weigth': 'bold',
               }}
               >
-              <Typography className={classes.title}>
+              <Typography className={classes.text}>
                 {text}
               </Typography>
             </Accordion>

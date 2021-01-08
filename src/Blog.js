@@ -72,20 +72,13 @@ export default function Blog() {
               </Navigation.LanguageSelector>
             </Navigation.Actions>
           </Navigation>
-      <Typography paragraph={true} gutterBottom={true} className={classes.hero}>
+      <main>
         <Hero
           title={data[0].title}
           text={data[0].text}
           className={classes.hero}
         />
-
-      </Typography>
-      <main>
-
-
-          <Paragraphs paragraphs={data}/>
-
-
+         <Paragraphs paragraphs={data}/>
       </main>
       <FooterBottom
         title={appName}
