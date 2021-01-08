@@ -122,8 +122,8 @@ const data_fi = [
     { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
     { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
     { type: "PDF", title: "TÜRKÇE Turkki", text: 'TÜRKÇE Turkki.pdf'},
-    { type: "PDF", title: "русский Venäjä", text: 'русский Venäjä.pdf'},
-    { type: "PDF", title: "VIỆT NAM Vietnam", text: 'VIỆT NAM Vietnam.pdf'},
+    { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},
+    { type: "PDF", title: "VIỆT NAM Vietnam", text: 'Vietnam.pdf'},
 
 
 ];

@@ -146,33 +146,35 @@ function Hero(props) {
         </Container>
       </Hidden>
       <Hidden smUp>
-        <Typography className={classes.card}>
-          <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
-                      className={classes.title}>
-            {title}
-          </Typography>
-          <Typography maxWidth={3}
-                      variant="h6"
-                      className={classes.fiCardContentTextSecondary}
-                      component="div"
-          >
-            {text}
-          </Typography>
+        <Container maxWidth="xs" className={classes.container}>
+          <Typography className={classes.card}>
+            <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
+                        className={classes.title}>
+              {title}
+            </Typography>
+            <Typography maxWidth={3}
+                        variant="h6"
+                        className={classes.fiCardContentTextSecondary}
+                        component="div"
+            >
+              {text}
+            </Typography>
 
-          <FiCard className={classes.smallCard}>
-            <FiCardActionArea>
-              <FiCardMedia className={classes.mediaPic}
-                           media="picture"
-                           alt={title}
-                           image="herokuva.jpg"
-                           title={title}
-                           height="550"
-              />
-              <FiCardContent className={classes.fiCardContent}>
-              </FiCardContent>
-            </FiCardActionArea>
-          </FiCard>
-        </Typography>
+            <FiCard className={classes.smallCard}>
+              <FiCardActionArea>
+                <FiCardMedia className={classes.mediaPic}
+                             media="picture"
+                             alt={title}
+                             image="herokuva.jpg"
+                             title={title}
+                             height="550"
+                />
+                <FiCardContent className={classes.fiCardContent}>
+                </FiCardContent>
+              </FiCardActionArea>
+            </FiCard>
+          </Typography>
+        </Container>
       </Hidden>
     </React.Fragment>
   );
