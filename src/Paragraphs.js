@@ -101,9 +101,9 @@ function Paragraphs(props) {
                 items.push(
                   <Grid container spacing={1} className={classes.container}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
-                    <Typography paragraph={true} gutterBottom={true}>
-                      <Info key={index} {...paragraph}></Info>
-                    </Typography>
+                      <Grid item xs={12} sm={7}>
+                        <Info key={index} {...paragraph}></Info>
+                      </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                   </Grid>
                 );
