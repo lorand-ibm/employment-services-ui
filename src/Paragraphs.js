@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
   pdf: {
     marginBottom: 10,
     padding: 0,
+    [theme.breakpoints.only("xs")]: {
+
+    },
   },
 }));
 

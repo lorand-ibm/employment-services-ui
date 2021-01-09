@@ -20,6 +20,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    padding: 0,
     height: 550,
     marginBottom: 32,
   },
@@ -35,54 +36,54 @@ const useStyles = makeStyles((theme) => ({
     width: '40%',
    [theme.breakpoints.only("xs")]: {
      top: '40px',
-     left: '50px',
-     padding: '30px',
+     left: 50,
+     padding: 30,
    },
    [theme.breakpoints.only("sm")]: {
-     top: '0px',
-     left: '0px',
+     top: 0,
+     left: '0',
    },
     [theme.breakpoints.only("md")]: {
-      top: '0px',
-      left: '0px',
+      top: 0,
+      left: 0,
     },
    [theme.breakpoints.only("lg")]: {
-     top: '40px',
-     left: '60px',
+     top: 40,
+     left: 60,
    },
    [theme.breakpoints.only("xl")]: {
-     top: '50px',
-     left: '100px',
+     top: 50,
+     left: 100,
    },
   },
   title: {
     fontWeight: 'bold',
     [theme.breakpoints.only("xs")]: {
-      fontSize: '36px',
-      paddingLeft: '20px',
-      paddingTop: '20px',
+      fontSize: 36,
+      paddingLeft: 20,
+      paddingTop: 20,
     },
     [theme.breakpoints.only("sm")]: {
-      fontSize: '36px',
+      fontSize: 36,
     },
     [theme.breakpoints.only("md")]: {
-      fontSize: '45px',
+      fontSize: 45,
     },
     [theme.breakpoints.only("lg")]: {
-      fontSize: '52px',
+      fontSize: 52,
     },
     [theme.breakpoints.only("xl")]: {
-      fontSize: '52px',
+      fontSize: 52,
     },
   },
   fiCardContentTextSecondary: {
     color: "black",
-    fontSize: '20px',
-    left: '120px',
-    fontWeigth: '400px',
+    fontSize: 20,
+    left: 120,
+    fontWeigth: 400,
       [theme.breakpoints.only("xs")]: {
-        paddingLeft: '20px',
-        paddingTop: '20px',
+        paddingLeft: 20,
+        paddingTop: 20,
       },
   },
   mediaPic : {
@@ -94,8 +95,36 @@ const useStyles = makeStyles((theme) => ({
     background: 'transparent',
   },
   smallCard : {
-    padding: '20px',
-    marginTop: '100px',
+    padding: 0,
+    marginTop: -100,
+  },
+  mobileContainer: {
+    backgroundColor: '#D0E6F7',
+    padding: 0
+  },
+  mobileCard: {
+    padding: 0,
+    margin: 0
+  },
+  mobileTitle: {
+    fontWeight: 'bold',
+    [theme.breakpoints.only("xs")]: {
+      fontSize: 36,
+      paddingLeft: 20,
+      paddingTop: 20,
+      backgroundColor: '#D0E6F7'
+    },
+  },
+  mobileText: {
+    backgroundColor: '#D0E6F7',
+    color: "black",
+    fontSize: 20,
+    left: 120,
+    fontWeigth: 400,
+    [theme.breakpoints.only("xs")]: {
+      paddingLeft: 20,
+      paddingTop: 20,
+    },
   }
 }));
 
@@ -147,34 +176,31 @@ function Hero(props) {
         </Container>
       </Hidden>
       <Hidden smUp>
-        <Container maxWidth="xs" className={classes.container}>
-          <Typography className={classes.card}>
-            <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
-                        className={classes.title}>
-              {title}
-            </Typography>
-            <Typography maxWidth={3}
-                        variant="h6"
-                        className={classes.fiCardContentTextSecondary}
-                        component="div"
-            >
-              {text}
-            </Typography>
-
-            <FiCard className={classes.smallCard}>
-              <FiCardActionArea>
-                <FiCardMedia className={classes.mediaPic}
-                             media="picture"
-                             alt={title}
-                             image="herokuva.jpg"
-                             title={title}
-                             height="550"
-                />
-                <FiCardContent className={classes.fiCardContent}>
-                </FiCardContent>
-              </FiCardActionArea>
-            </FiCard>
+        <Container maxWidth="lg" className={classes.mobileContainer}>
+          <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
+                      className={classes.mobileTitle}
+          >
+            {title}
           </Typography>
+          <Typography maxWidth={3}
+                      variant="h6"
+                      className={classes.mobileText}
+          >
+            {text}
+          </Typography>
+          <Card width={1} className={classes.mobileCard}>
+            <CardActionArea>
+              <Koros type="basic" flipHorizontal className={classes.koro}/>
+              <CardMedia className={classes.smallCard}
+                component="img"
+                alt="Contemplative Reptile"
+                height="440"
+                image="herokuva.jpg"
+                title={title}
+              >
+              </CardMedia>
+            </CardActionArea>
+          </Card>
         </Container>
       </Hidden>
     </React.Fragment>

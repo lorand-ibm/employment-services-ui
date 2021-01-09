@@ -18,9 +18,6 @@ const useStyles = makeStyles((theme) => ({
   hero: {
     height: 550
   },
-  font: {
-
-  }
 }));
 
 let appNames = {
