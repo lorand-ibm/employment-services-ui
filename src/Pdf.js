@@ -27,7 +27,7 @@ function Pdf(props) {
                         <Typography><LaunchIcon /></Typography>
                     </Grid>
                     <Grid item >
-                        <Typography>{title} className={classes.text}</Typography>
+                        <Typography className={classes.text}>{title}</Typography>
                     </Grid>
                 </Grid>
             </Link>

@@ -14,18 +14,26 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
     marginTop: 0,
-    marginBottom: 16
+    marginBottom: 16,
   },
   accord: {
     padding: 0,
     marginTop: 0,
-    marginBottom: 10
+    marginBottom: 10,
   },
   subheading: {
     padding: 0,
-    marginTop: 24,
-    marginBottom: 32
-  }
+    marginTop: 32,
+    marginBottom: 24,
+  },
+  info: {
+    marginTop: 32,
+    marginBottom: 32,
+  },
+  pdf: {
+    marginBottom: 10,
+    padding: 0,
+  },
 }));
 
 function Paragraphs(props) {
@@ -77,7 +85,7 @@ function Paragraphs(props) {
                 break;
             case 'PDF':
                 items.push(
-                  <Grid container spacing={1} className={classes.container}>
+                  <Grid container spacing={1} className={classes.pdf}>
                     <Grid item xs></Grid>
                     <Grid item xs={6}>
                       <Typography paragraph={true} gutterBottom={true}>
