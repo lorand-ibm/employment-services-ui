@@ -2,7 +2,7 @@
 import './App.css';
 import './fonts.css';
 
-import Blog from './Blog';
+import Landing from './Landing';
 import {ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const groteskTheme = createMuiTheme({
@@ -26,7 +26,7 @@ const groteskTheme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={groteskTheme}>
-      <Blog></Blog>
+      <Landing></Landing>
     </ThemeProvider>
   );
 }

@@ -29,7 +29,7 @@ let appNames = {
 //const sections = [
 //];
 
-export default function Blog() {
+export default function Landing() {
   const [lang, setLang] = useState('FI');
   const classes = useStyles();
 

@@ -1,8 +1,8 @@
-# Blog template
+# Landing template
 
 ## Usage
 
-Simply copy the files into your project, or one of the [example applications](https://github.com/mui-org/material-ui/tree/next/examples), and import and use the `Blog` component.
+Simply copy the files into your project, or one of the [example applications](https://github.com/mui-org/material-ui/tree/next/examples), and import and use the `Landing` component.
 
 ## Demo
 

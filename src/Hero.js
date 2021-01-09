@@ -35,21 +35,22 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     width: '40%',
    [theme.breakpoints.only("xs")]: {
-     top: '40px',
+     top: 40,
      left: 50,
      padding: 30,
    },
    [theme.breakpoints.only("sm")]: {
-     top: 0,
-     left: '0',
+     top: 40,
+     left: 50,
+     padding: 30,
    },
     [theme.breakpoints.only("md")]: {
       top: 0,
       left: 0,
     },
    [theme.breakpoints.only("lg")]: {
-     top: 40,
-     left: 60,
+     top: 30,
+     left: 50,
    },
    [theme.breakpoints.only("xl")]: {
      top: 50,
@@ -65,6 +66,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.only("sm")]: {
       fontSize: 36,
+      paddingLeft: 20,
+      paddingTop: 20,
     },
     [theme.breakpoints.only("md")]: {
       fontSize: 45,
@@ -100,15 +103,22 @@ const useStyles = makeStyles((theme) => ({
   },
   mobileContainer: {
     backgroundColor: '#D0E6F7',
-    padding: 0
+    padding: 0,
+    marginBottom: 28,
   },
   mobileCard: {
     padding: 0,
-    margin: 0
+    margin: 0,
   },
   mobileTitle: {
     fontWeight: 'bold',
     [theme.breakpoints.only("xs")]: {
+      fontSize: 36,
+      paddingLeft: 20,
+      paddingTop: 20,
+      backgroundColor: '#D0E6F7'
+    },
+    [theme.breakpoints.only("sm")]: {
       fontSize: 36,
       paddingLeft: 20,
       paddingTop: 20,
@@ -125,6 +135,10 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 20,
       paddingTop: 20,
     },
+    [theme.breakpoints.only("sm")]: {
+      paddingLeft: 20,
+      paddingTop: 20,
+    },
   }
 }));
 
@@ -134,7 +148,7 @@ function Hero(props) {
 
   return (
     <React.Fragment>
-      <Hidden xsDown>
+      <Hidden smDown>
         <Container maxWidth="xl" className={classes.container}>
           <FiCard className={classes.card}>
             <FiCardActionArea>
@@ -175,7 +189,7 @@ function Hero(props) {
           </svg>
         </Container>
       </Hidden>
-      <Hidden smUp>
+      <Hidden mdUp>
         <Container maxWidth="lg" className={classes.mobileContainer}>
           <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left"
                       className={classes.mobileTitle}
