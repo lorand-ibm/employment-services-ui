@@ -5,6 +5,7 @@ import Accord from "./Accord";
 import Subheading from "./Subheading";
 import Info from "./Info";
 import Pdf from "./Pdf";
+import Text from "./Text";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -121,6 +122,17 @@ function Paragraphs(props) {
                   </Grid>
                     );
                 break;
+          case 'Text':
+            items.push(
+              <Grid container spacing={1} className={classes.accord}>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+                <Grid item xs={12} sm={6}>
+                    <Text key={index} {...paragraph}></Text>
+                </Grid>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+              </Grid>
+            );
+            break;
           default: break;
         }
     });

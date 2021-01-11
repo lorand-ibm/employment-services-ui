@@ -25,8 +25,8 @@ function Accord(props) {
                 '--header-font-weigth': 'bold',
               }}
               >
-              <Typography className={classes.text}>
-                {text}
+              <Typography className={classes.text} >
+                <div dangerouslySetInnerHTML={{__html: text}} />
               </Typography>
             </Accordion>
         </React.Fragment>

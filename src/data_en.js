@@ -12,97 +12,97 @@ const data_en = [
     { type: "Accordion", title: "Why is the experiment taking place?",
         text: 'The purpose of the municipal experiment is to increase the effectiveness of the employment services and the range of jobseeker services, and to improve the overall customer experience. The aim is to achieve this by making the services provided by municipalities easier to access, and to improve the effectiveness by combining the state and municipal staff resources, funding and facilities in managing unemployment. '},
   { type: "Accordion", title: "Will this affect me?",
-        text: 'The municipal experiment and service transfer to the City of Helsinki will most likely affect you too, if you live in Helsinki, are an unemployed jobseeker or taking part in an employment service, and if one of the following applies to you: \n' +
-          '\n' +
-          'you are under 30 \n' +
-          'or \n' +
-          '\n' +
-          'you are a foreign-language speaker, i.e. your first language is not Finnish \n' +
-          'or \n' +
-          '\n' +
-          'you are not entitled to earnings-related unemployment allowance and instead receive labour market subsidy, social assistance or sickness allowance from Kela. \n' +
-          '\n' +
+        text: 'The municipal experiment and service transfer to the City of Helsinki will most likely affect you too, if you live in Helsinki, are an unemployed jobseeker or taking part in an employment service, and if one of the following applies to you: \n<br>' +
+          '\n<br>' +
+          'you are under 30 \n<br>' +
+          'or \n<br>' +
+          '\n<br>' +
+          'you are a foreign-language speaker, i.e. your first language is not Finnish \n<br>' +
+          'or \n<br>' +
+          '\n<br>' +
+          'you are not entitled to earnings-related unemployment allowance and instead receive labour market subsidy, social assistance or sickness allowance from Kela. \n<br>' +
+          '\n<br>' +
           'The TE Services will send you a letter and a notification via their E-Services if you are included in the experiment. '},
 
     { type: "Subheading", title: "How will the change affect me? ", text: ''},
     { type: "Accordion", title: "How and when will the change take place?",
-        text: 'Parliament must first pass the experiment legislation before anything can change. The City of Helsinki has prepared for the change to happen in March 2021. In that case, the TE Services’ existing clients who have registered as jobseekers and belong to the experiment’s target group will transfer over to Helsinki’s employment services by the end of March. \n' +
-          '\n' +
+        text: 'Parliament must first pass the experiment legislation before anything can change. The City of Helsinki has prepared for the change to happen in March 2021. In that case, the TE Services’ existing clients who have registered as jobseekers and belong to the experiment’s target group will transfer over to <b>Helsinki’s employment services</b> by the end of March. \n<br>' +
+          '\n<br>' +
           'If you become a client of Helsinki’s employment services, you will receive a personal letter from the TE Services once the transfer has taken place. You will also be notified about the transfer via its E-Services, which you can continue to use at te-palvelut.fi/te/en. Helsinki’s employment services will also contact you once the transfer has been done. '},
     { type: "Accordion", title: "Will this change affect my unemployment benefits? ",
-        text: 'No, the change will not affect any unemployment benefits that have already been granted to you. \n' +
-          '\n' +
-          'At the start of the experiment, after you have become a client of Helsinki’s employment services, the labour policy statement made by the TE Services to either Kela or your unemployment fund (whichever pays your unemployment benefits) will remain in effect. The municipal experiment will have no effect on how Kela or your unemployment fund processes your unemployment benefits. The change should also not have a notable impact on how long your unemployment benefit application and granting process takes at Kela or your unemployment fund.  \n' +
-          ' \n' +
+        text: 'No, the change will not affect any unemployment benefits that have already been granted to you. \n<br>' +
+          '\n<br>' +
+          'At the start of the experiment, after you have become a client of Helsinki’s employment services, the labour policy statement made by the TE Services to either Kela or your unemployment fund (whichever pays your unemployment benefits) will remain in effect. The municipal experiment will have no effect on how Kela or your unemployment fund processes your unemployment benefits. The change should also not have a notable impact on how long your unemployment benefit application and granting process takes at Kela or your unemployment fund.  \n<br>' +
+          ' \n<br>' +
           'During the early days of the change, the City’s service may experience some bottlenecks when it comes to processing new decisions. Therefore, you should avoid things that require a decision or approval during the transition phase, if at all possible.  '},
     { type: "Accordion", title: "What do I need to do because of this change?  ",
-        text: 'As a jobseeker, you do not need to do anything because of the change.  \n' +
-          '\n' +
-          'Your existing employment plans and other plans will remain in effect. The employment services in your experiment area, which in Helsinki’s case mean Helsinki’s employment services, will contact every jobseeker as soon as new experts have been appointed to them. When this is done, we will also send you more information about Helsinki’s employment services and your clientship.  '},
+        text: 'As a jobseeker, you do not need to do anything because of the change.  \n<br>' +
+          '\n<br>' +
+          'Your existing employment plans and other plans will remain in effect. The employment services in your experiment area, which in Helsinki’s case mean <b>Helsinki’s employment services</b>, will contact every jobseeker as soon as new experts have been appointed to them. When this is done, we will also send you more information about Helsinki’s employment services and your clientship.  '},
   { type: "Accordion", title: "Will I continue to have a specific expert assigned to me? Will my appointed expert change? ",
-        text: 'n the future, nearly all jobseeker clients will have their own appointed experts to help them. \n' +
-          '\n' +
-          'However, you will likely be appointed a new expert when the City takes over the services. You will be appointed a new expert as quickly as possible after the transfer. You will be notified about your expert by post and via the E-Services as soon as one has been appointed to you. You will also be notified if your expert does not change. \n' +
-          '\n' +
+        text: 'In the future, nearly all jobseeker clients will have their own appointed experts to help them. \n<br>' +
+          '\n<br>' +
+          'However, you will likely be appointed a new expert when the City takes over the services. You will be appointed a new expert as quickly as possible after the transfer. You will be notified about your expert by post and via the E-Services as soon as one has been appointed to you. You will also be notified if your expert does not change. \n<br>' +
+          '\n<br>' +
           'You can expect to hear more about your appointed expert from Helsinki’s employment services. '},
     { type: "Accordion", title: "Will this somehow limit my access to services? ",
-        text: 'Once the municipal experiment has begun, you will only be able to use the employment services of your official home municipality.  \n' +
-          '\n' +
-          'For example: A person whose home is in Helsinki but who lives closer to Vantaa’s TE Services than Helsinki’s TE Services previously used the services in Vantaa. However, during the municipal experiment, Vantaa’s TE Services will no longer be able to serve the person.  \n' +
-          ' \n' +
+        text: 'Once the municipal experiment has begun, you will only be able to use the employment services of your official home municipality.  \n<br>' +
+          '\n<br>' +
+          'For example: A person whose home is in Helsinki but who lives closer to Vantaa’s TE Services than Helsinki’s TE Services previously used the services in Vantaa. However, during the municipal experiment, Vantaa’s TE Services will no longer be able to serve the person.  \n<br>' +
+          ' \n<br>' +
           'Jobseekers who are clients of the experiment will only be able to use their home municipality’s employment services.  '},
     { type: "Accordion", title: "Will there be any changes to my services? ",
-        text: 'As a municipal experiment client, you will receive the same services as you did from the TE Services before. Small changes to the City of Helsinki’s services are possible, because the number of clients will increase significantly. \n' +
-          ' \n' +
+        text: 'As a municipal experiment client, you will receive the same services as you did from the TE Services before. Small changes to the City of Helsinki’s services are possible, because the number of clients will increase significantly. \n<br>' +
+          ' \n<br>' +
           'During the experiment, we will develop new services and solutions to promote employment and will also work more closely together with the social, healthcare and education services, amongst others, in order to achieve this. This means that the number of services available to you may rise during the experiment. '},
   { type: "Accordion", title: "I am a TYP client. Is my service going to change? ",
-        text: 'No, you will continue to receive the same TYP service (cross-sectoral joint service promoting employment), but it will be organised differently during the experiment. This may mean that your usual office or the expert appointed to you will change.  \n' +
-          '\n' +
-          'The Act on Multisectoral Joint Services Promoting Employment will not change, and during the experiment we will be calling these services rehabilitative services that promote employment.  '},
+        text: 'No, you will continue to receive the same TYP service (cross-sectoral joint service promoting employment), but it will be organised differently during the experiment. This may mean that your usual office or the expert appointed to you will change.  \n<br>' +
+          '\n<br>' +
+          'The Act on Multisectoral Joint Services Promoting Employment will not change, and during the experiment we will be calling these services <i>rehabilitative services that promote employment.</i>  '},
   { type: "Accordion", title: "Which languages will the services be available in? ",
-        text: 'Services will always be available in Finnish and Swedish, and most of the time in English too without any special arrangements or an appointment. \n' +
-          ' \n' +
+        text: 'Services will always be available in Finnish and Swedish, and most of the time in English too without any special arrangements or an appointment. \n<br>' +
+          ' \n<br>' +
           'Interpreters will be arranged where needed to access the services, similarly to with the TE Services.'},
 
     { type: "Subheading", title: "Where can I access services? ", text: ''},
     { type: "Accordion", title: "Where can I find services if I become a client of Helsinki’s employment services? What about during the transition? ",
-        text: 'You can continue to use the TE Services’ E-Services online, the same as before. \n' +
-          ' \n' +
-          'You can also continue to get employment services from the TE Services’ customer service number by calling 295 025 500 (Mon–Fri 9–16:15)  \n' +
-          '\n' +
-          'By calling this number, you can get help with accessing the services, using the online E-Services and in matters connected to employment. If necessary, you will also be directed to other services that are suitable for you. \n' +
-          ' \n' +
-          '\n' +
-          'Once the municipal employment experiment starts in early 2021, you can receive face-to-face service at the following locations:  \n' +
-          '\n' +
-          'Asiakkaankatu 3 in Itäkeskus  \n' +
-          '\n' +
-          'Ratapihantie 7 in Pasila \n' +
-          '\n' +
-          'Ohjaamo for those under 30 years old at Fredrikinkatu 48 in Kamppi.   \n' +
-    'Services are also available at Viipurinkatu 2 and Runeberginkatu 5 for clients with appointments. \n' +
-          ' \n' +
-          'Face-to-face customer services during the pandemic will be provided if and when possible.  \n' +
-          ' \n' +
-          '\n' +
-          'Helsinki-info gives advice about Helsinki’s services, including information about opening hours and similar basics.  \n' +
-          '\n' +
-          'Helsinki-info’s phone number: 09 310 11 111 (Mon–Thu 9–16, Fri 10–15) \n' +
-          'Helsinki-info’s chat (Mon–Thu 9–16, Fri 10–15) '
+        text: 'You can continue to use the TE Services’ <u>E-Services</u> <b>online</b>, the same as before. \n<br>' +
+          ' \n<br>' +
+          'You can also continue to get employment services from the TE Services’ customer service number <b>by calling 295 025 500</b> (Mon–Fri 9–16:15)  \n<br>' +
+          '\n<br>' +
+          'By calling this number, you can get help with accessing the services, using the online E-Services and in matters connected to employment. If necessary, you will also be directed to other services that are suitable for you. \n<br>' +
+          ' \n<br>' +
+          '\n<br>' +
+          'Once the municipal employment experiment starts in early 2021, you can receive face-to-face service at the following locations:  \n<br>' +
+          '\n<br>' +
+          'Asiakkaankatu 3 in Itäkeskus  \n<br>' +
+          '\n<br>' +
+          'Ratapihantie 7 in Pasila \n<br>' +
+          '\n<br>' +
+          'Ohjaamo for those under 30 years old at Fredrikinkatu 48 in Kamppi.   \n<br>' +
+    'Services are also available at Viipurinkatu 2 and Runeberginkatu 5 for clients with appointments. \n<br>' +
+          ' \n<br>' +
+          '<b>Face-to-face</b> customer services during the pandemic will be provided if and when possible.  \n<br>' +
+          ' \n<br>' +
+          '\n<br>' +
+          '<b>Helsinki-info</b> gives advice about Helsinki’s services, including information about opening hours and similar basics.  \n<br>' +
+          '\n<br>' +
+          'Helsinki-info’s phone number: <b>09 310 11 111</b> (Mon–Thu 9–16, Fri 10–15) \n<br>' +
+          'Helsinki-info’s <u>chat</u> (Mon–Thu 9–16, Fri 10–15) '
     },
     { type: "Accordion", title: "Where can I find more information? ",
-        text: 'You can get more information in Finnish on the following websites:  \n' +
-          '\n' +
-          'On the hel.fi website \n' +
-          'On the website of the Ministry of Economic Affairs and Employment \n' +
-          'From Helsinki’s employment services’ Twitter account \n' +
-          '\n' +
-          ' \n' +
-          'Please also keep an eye on the updates on this website, as well as media channels, such as newspapers and television news. \n' +
-          '\n' +
-          ' \n' +
-          'You may also send Helsinki’s employment services feedback or general enquiries via email at tyollisyyspalvelut@hel.fi. \n' +
-          'Please note! We will not be able to provide personal customer services that require identification via email. Please do not send us sensitive information about your health or life situation, for example, or any personal data, via email. We will only be able to answer general questions and pass on feedback sent to us via email. '},
+        text: 'You can get more information in Finnish on the following websites:  \n<br>' +
+          '\n<br>' +
+          'On the hel.fi website \n<br>' +
+          'On the website of the Ministry of Economic Affairs and Employment \n<br>' +
+          'From Helsinki’s employment services’ Twitter account \n<br>' +
+          '\n<br>' +
+          ' \n<br>' +
+          'Please also keep an eye on the updates on this website, as well as media channels, such as newspapers and television news. \n<br>' +
+          '\n<br>' +
+          ' \n<br>' +
+          'You may also send Helsinki’s employment services feedback or general enquiries via email at tyollisyyspalvelut@hel.fi. \n<br>' +
+          '<b>Please note!</b> We will not be able to provide personal customer services that require identification via email. Please do not send us sensitive information about your health or life situation, for example, or any personal data, via email. We will only be able to answer general questions and pass on feedback sent to us via email. '},
   { type: "Accordion", title: "Where do I register if I become unemployed?  ",
         text: 'Registration will continue to take place via the TE Services. You can use their E-Services or visit their office to register as an unemployed jobseeker. The TE Services will direct all municipal employment experiment clients to the employment services provided by their home municipalities. '},
 
