@@ -7,8 +7,8 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   text: {
-    fontSize: '16px',
-    paddingTop: '16px',
+    fontSize: 16,
+    paddingTop: 16,
   }
 }));
 
@@ -27,7 +27,7 @@ function Info(props) {
               'paddingTop': '32px',
               'paddingBottom': '24px',
               'paddingLeft': '40px',
-              'paddigRigth': '16px',
+              'paddingRight': '16px',
             }}
           >
             <Typography className={classes.title} variant={'div'}>

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 16,
     [theme.breakpoints.only("xs")]: {
       paddingLeft: 16,
-      paddiingRight: 16
+      paddingRight: 16
     },
   },
   accord: {
