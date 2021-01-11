@@ -13,15 +13,15 @@ const data_fi = [
         text: 'Kuntakokeilun tarkoitus on parantaa työllisyyspalveluiden vaikuttavuutta sekä työnhakijoiden palveluvalikoimaa ja asiakaskokemusta. Tämä on tarkoitus tehdä mm. sujuvoittamalla kuntien tarjoamien palvelujen äärelle pääsyä. Vaikuttavuutta yritetään parantaa yhdistämällä kuntien ja valtion henkilökuntaa, rahoitusta ja tiloja työllisyydenhoidossa. '},
     { type: "Accordion", title: "Koskeeko tämä minua?",
         text: 'Kuntakokeilu ja palvelujen siirtyminen Helsingin kaupungille koskee todennäköisesti sinua jos olet helsinkiläinen työtön työnhakija tai osallistut työllistämispalveluun ja sinua koskee jokin seuraavista: \n<br>' +
-            '\n<br>' +
-            'olet alle 30-vuotias \n<br>' +
+            '\n<br><ul>' +
+            '<li>olet alle 30-vuotias \n<br>' +
             'tai \n<br>' +
             '\n<br>' +
-            'olet vieraskielinen. Äidinkielesi on joku muu kuin suomi. \n<br>' +
+            '<li>olet vieraskielinen. Äidinkielesi on joku muu kuin suomi. \n<br>' +
             'tai \n<br>' +
             '\n<br>' +
-            'sinulla ei ole oikeutta ansiopäivärahaan. Saat esimerkiksi Kelan työmarkkinatukea, toimeentulotukea tai sairaspäivärahaa. \n<br>' +
-            '\n<br>' +
+            '<li>sinulla ei ole oikeutta ansiopäivärahaan. Saat esimerkiksi Kelan työmarkkinatukea, toimeentulotukea tai sairaspäivärahaa. \n<br>' +
+            '\n<br></ul>' +
             'Saat vielä henkilökohtaisesti kirjeen TE-toimistosta sekä tiedon Oma asiointi -palvelussa mikäli siirryt kuntakokeiluun. '},
 
     { type: "Subheading", title: "Muutoksen vaikutukset minuun? ", text: ''},
@@ -67,21 +67,21 @@ const data_fi = [
 
     { type: "Subheading", title: "Mistä saan palvelua? ", text: ''},
     { type: "Accordion", title: "Mistä saan palvelua, jos siirryn Helsingin työllisyyspalveluiden asiakkaaksi? Entä siirtymävaiheessa? ",
-        text: 'Verkossa voit käyttää TE-palvelujen ylläpitämää Oma asiointi -palvelua kuten ennenkin keskeytyksettä. \n<br>' +
+        text: '<b>Verkossa</b> voit käyttää TE-palvelujen ylläpitämää Oma asiointi -palvelua kuten ennenkin keskeytyksettä. \n<br>' +
             ' \n<br>' +
-            'Puhelimitse saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: 295 025 500 (ma–pe klo 9.00–16.15)  \n<br>' +
+            '<b>Puhelimitse</b> saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: <b>295 025 500</b> (ma–pe klo 9.00–16.15)  \n<br>' +
             '\n<br>' +
             'Puhelinpalvelusta saat apua asiointiin, Oma asiointi -verkkopalvelun käyttöön ja työllistymiseen liittyviin asioihin. Tarvittaessa saat jatko-ohjauksen muihin sinulle sopiviin palveluihin. \n<br>' +
             ' \n<br>' +
             '\n<br>' +
-            'Saat aulapalvelua työllisyyden kuntakokeilun käynnistyttyä seuraavissa osoitteissa:  \n<br>' +
+            '<b>Saat aulapalvelua</b> työllisyyden kuntakokeilun käynnistyttyä seuraavissa osoitteissa:  \n<br>' +
+            '\n<br><ul>' +
+            '<li>Asiakkaankatu 3 Itäkeskuksessa  \n<br>' +
             '\n<br>' +
-            'Asiakkaankatu 3 Itäkeskuksessa  \n<br>' +
+            '<li>Ratapihantie 7 Pasilassa \n<br>' +
             '\n<br>' +
-            'Ratapihantie 7 Pasilassa \n<br>' +
-            '\n<br>' +
-            'alle 30-vuotiaille Ohjaamo osoitteessa Fredrikinkatu 48 Kampissa.  \n<br>' +
-            '\n<br>' +
+            '<li>alle 30-vuotiaille Ohjaamo osoitteessa Fredrikinkatu 48 Kampissa.  \n<br>' +
+            '\n</li></ul><br>' +
             'Lisäksi palvelua ajanvarauksella annetaan osoitteissa Viipurinkatu 2 ja Runeberginkatu 5. \n<br>' +
             ' \n<br>' +
             'Kasvokkain asiakaspalvelu toteutuu koronatilanteen salliessa.  \n<br>' +
@@ -89,8 +89,8 @@ const data_fi = [
             '\n<br>' +
             'Helsinki-infossa saat palveluneuvontaa Helsingin palveluista, eli esimerkiksi aukioloaikatietoa tai muuta perustietoa.  \n<br>' +
             '\n<br>' +
-            'Helsinki-infon puhelinnumero: 09 310 11 111 (ma–to klo 9–16 ja pe klo 10–15) \n<br>' +
-            'Helsinki-infon chatti (ma–to klo 9–16 ja pe klo 10–15) '},
+            '<b>Helsinki-infon</b> puhelinnumero: <b>09 310 11 111</b> (ma–to klo 9–16 ja pe klo 10–15) \n<br>' +
+            'Helsinki-infon <u>chatti</u> (ma–to klo 9–16 ja pe klo 10–15) '},
     { type: "Accordion", title: "Mistä saan lisätietoa?",
         text: 'Voit lukea lisätietoja seuraavilta sivuilta:  \n<br>' +
             '\n<br>' +

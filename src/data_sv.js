@@ -13,15 +13,15 @@ const data_sv = [
         text: 'Syftet med kommunförsöken är att effektivera sysselsättningstjänsterna. Ett ytterligare mål är att förbättra kundupplevelsen och serviceutbudet för arbetssökande. Detta är tänkt att bland annat göra tillgången till kommunens tjänster smidigare. Effektiviteten eftersträvas bland annat att förbättras genom finansiering, sammanföring av kommunens och statens anställda samt överföring av lokaler.  '},
   { type: "Accordion", title: "Gäller det här mig?",
         text: 'Kommunförsöken och överföringen av tjänsterna till Helsingfors stad gäller troligtvis dig om du bor i Helsingfors, är arbetslös arbetssökande eller deltar i sysselsättningstjänster och om \n<br>' +
-          '\n<br>' +
-          'du är under 30 år \n<br>' +
+          '\n<br><ul>' +
+          '<li>du är under 30 år \n<br>' +
           'eller \n<br>' +
           '\n<br>' +
-          'du har ett främmande språk som modersmål. Du talar något annat språk som modersmål än finska eller svenska. \n<br>' +
+          '<li>du har ett främmande språk som modersmål. Du talar något annat språk som modersmål än finska eller svenska. \n<br>' +
           'eller \n<br>' +
           '\n<br>' +
-          'du inte har rätt till inkomstrelaterad dagpenning. Du får till exempel FPA:s arbetsmarknadsstöd, utkomststöd eller sjukdagpenning. \n<br>' +
-          '\n<br>' +
+          '<li>du inte har rätt till inkomstrelaterad dagpenning. Du får till exempel FPA:s arbetsmarknadsstöd, utkomststöd eller sjukdagpenning. \n<br>' +
+          '\n<br></ul>' +
           'Om du överförs till kommunförsöket kommer du att få ett individuellt meddelande från arbets- och näringsbyrån och i Mina e-tjänster. '},
 
     { type: "Subheading", title: "Vad betyder förändringen för mig? ", text: ''},
@@ -75,13 +75,13 @@ const data_sv = [
           ' \n<br>' +
           '\n<br>' +
           'Efter att kommunförsöket inletts får du service vid <b>följande servicepunkter</b> från och med början av 2021:  \n<br>' +
+          '\n<br><ul>' +
+          '<li>Kundgatan 3, Östra centrum  \n<br>' +
           '\n<br>' +
-          'Kundgatan 3, Östra centrum  \n<br>' +
+          '<li>Bangårdsgatan 7, Böle \n<br>' +
           '\n<br>' +
-          'Bangårdsgatan 7, Böle \n<br>' +
-          '\n<br>' +
-          'för person under 30 år, Navigatorn på Fredriksgatan 48 i Kampen.  \n<br>' +
-          '\n<br>' +
+          '<li>för person under 30 år, Navigatorn på Fredriksgatan 48 i Kampen.  \n<br>' +
+          '\n<br></ul>' +
           'Med tidsbokning får du service på Viborgsgatan 2 och Runebergsgatan 5. \n<br>' +
           ' \n<br>' +
           'Fysisk kundtjänst ordnas alltefter coronasituationen.  \n<br>' +

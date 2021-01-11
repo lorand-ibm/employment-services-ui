@@ -13,15 +13,15 @@ const data_en = [
         text: 'The purpose of the municipal experiment is to increase the effectiveness of the employment services and the range of jobseeker services, and to improve the overall customer experience. The aim is to achieve this by making the services provided by municipalities easier to access, and to improve the effectiveness by combining the state and municipal staff resources, funding and facilities in managing unemployment. '},
   { type: "Accordion", title: "Will this affect me?",
         text: 'The municipal experiment and service transfer to the City of Helsinki will most likely affect you too, if you live in Helsinki, are an unemployed jobseeker or taking part in an employment service, and if one of the following applies to you: \n<br>' +
-          '\n<br>' +
-          'you are under 30 \n<br>' +
+          '\n<br><ul>' +
+          '<li>you are under 30 \n<br>' +
           'or \n<br>' +
           '\n<br>' +
-          'you are a foreign-language speaker, i.e. your first language is not Finnish \n<br>' +
+          '<li>you are a foreign-language speaker, i.e. your first language is not Finnish \n<br>' +
           'or \n<br>' +
           '\n<br>' +
-          'you are not entitled to earnings-related unemployment allowance and instead receive labour market subsidy, social assistance or sickness allowance from Kela. \n<br>' +
-          '\n<br>' +
+          '<li>you are not entitled to earnings-related unemployment allowance and instead receive labour market subsidy, social assistance or sickness allowance from Kela. \n<br>' +
+          '\n<br></ul>' +
           'The TE Services will send you a letter and a notification via their E-Services if you are included in the experiment. '},
 
     { type: "Subheading", title: "How will the change affect me? ", text: ''},
@@ -74,12 +74,12 @@ const data_en = [
           ' \n<br>' +
           '\n<br>' +
           'Once the municipal employment experiment starts in early 2021, you can receive face-to-face service at the following locations:  \n<br>' +
+          '\n<br><ul>' +
+          '<li>Asiakkaankatu 3 in Itäkeskus  \n<br>' +
           '\n<br>' +
-          'Asiakkaankatu 3 in Itäkeskus  \n<br>' +
+          '<li>Ratapihantie 7 in Pasila \n<br>' +
           '\n<br>' +
-          'Ratapihantie 7 in Pasila \n<br>' +
-          '\n<br>' +
-          'Ohjaamo for those under 30 years old at Fredrikinkatu 48 in Kamppi.   \n<br>' +
+          '<li>Ohjaamo for those under 30 years old at Fredrikinkatu 48 in Kamppi.   \n</li></ul><br>' +
     'Services are also available at Viipurinkatu 2 and Runeberginkatu 5 for clients with appointments. \n<br>' +
           ' \n<br>' +
           '<b>Face-to-face</b> customer services during the pandemic will be provided if and when possible.  \n<br>' +
