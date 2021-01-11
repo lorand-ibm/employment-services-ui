@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   accord: {
     padding: 0,
     marginTop: 0,
-    marginBottom: 10,
+    marginBottom: 0,
     [theme.breakpoints.only("xs")]: {
       paddingLeft: 16,
       paddingRight: 16
@@ -77,9 +77,7 @@ function Paragraphs(props) {
                   <Grid container spacing={1} className={classes.accord}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                     <Grid item xs={12} sm={6}>
-                      <Typography paragraph={true} gutterBottom={false} >
                         <Accord key={index} {...paragraph}></Accord>
-                      </Typography>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                   </Grid>
@@ -90,9 +88,7 @@ function Paragraphs(props) {
                   <Grid container spacing={1} className={classes.subheading}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                     <Grid item xs={12} sm={6}>
-                      <Typography paragraph={true} gutterBottom={true}>
                         <Subheading key={index} {...paragraph}></Subheading>
-                      </Typography>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                   </Grid>
@@ -114,9 +110,7 @@ function Paragraphs(props) {
                   <Grid container spacing={1} className={classes.pdf}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                     <Grid item xs={12} sm={6}>
-                      <Typography paragraph={true} gutterBottom={true}>
                         <Pdf key={index} {...paragraph}></Pdf>
-                      </Typography>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
                   </Grid>
