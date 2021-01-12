@@ -75,55 +75,55 @@ function Paragraphs(props) {
             case 'Accordion':
                 items.push(
                   <Grid container spacing={1} className={classes.accord}>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
-                    <Grid item xs={12} sm={6}>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                    <Grid item xs={12} sm={6} key={2}>
                         <Accord key={index} {...paragraph}></Accord>
                     </Grid>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
                   </Grid>
                 );
                 break;
             case 'Subheading':
                 items.push(
                   <Grid container spacing={1} className={classes.subheading}>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
-                    <Grid item xs={12} sm={6}>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                    <Grid item xs={12} sm={6} key={2}>
                         <Subheading key={index} {...paragraph}></Subheading>
                     </Grid>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
                   </Grid>
                 );
                 break;
             case 'Info':
                 items.push(
                   <Grid container spacing={1} className={classes.container}>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
-                      <Grid item xs={12} sm={7}>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                      <Grid item xs={12} sm={7} key={2}>
                         <Info key={index} {...paragraph}></Info>
                       </Grid>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
                   </Grid>
                 );
                 break;
             case 'PDF':
                 items.push(
                   <Grid container spacing={1} className={classes.pdf}>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
-                    <Grid item xs={12} sm={6}>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                    <Grid item xs={12} sm={6} key={2}>
                         <Pdf key={index} {...paragraph}></Pdf>
                     </Grid>
-                    <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+                    <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
                   </Grid>
                     );
                 break;
           case 'Text':
             items.push(
               <Grid container spacing={1} className={classes.accord}>
-                <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
-                <Grid item xs={12} sm={6}>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                <Grid item xs={12} sm={6} key={2}>
                     <Text key={index} {...paragraph}></Text>
                 </Grid>
-                <Hidden only={'xs'}><Grid item xs className={classes.sides}></Grid></Hidden>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
               </Grid>
             );
             break;

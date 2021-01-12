@@ -4,10 +4,10 @@ const data_en = [
     { type: "Info", title: "Helsinki’s employment services’ website will be launched in March 2021.",
         text: "In the meantime, you can read through the frequently asked questions about the municipal employment experiment."},
     { type: "Subheading", title: "A brief introduction ", text: ''},
-    { type: "Accordion", title: "A brief introduction ", text: 'The municipal employment experiment will see almost 50,000 jobseekers transfer from the TE Services to Helsinki’s employment services. This change will take place on 1 March 2021, and with it roughly 250 employees and facilities in Itäkeskus and Pasila will also be transferred from the TE Services to Helsinki.  '},
+    { type: "Text", title: "", text: 'The municipal employment experiment will see almost 50,000 jobseekers transfer from the TE Services to Helsinki’s employment services. This change will take place on 1 March 2021, and with it roughly 250 employees and facilities in Itäkeskus and Pasila will also be transferred from the TE Services to Helsinki.  '},
 
     { type: "Subheading", title: "What is the municipal employment experiment?", text: ''},
-    { type: "Accordion", title: "What does the municipal employment experiment mean? ",
+    { type: "Text", title: "",
         text: 'The municipal employment experiment is a national 2.5-year-long project where some of the statutory employment services are transferred from the TE Services to municipalities. A total of 125 municipalities and 26 test areas formed by these municipalities are taking part in the experiment. Helsinki forms one of these test areas on its own, and the other test areas within the Metropolitan Area include Espoo and Vantaa-Kerava.'},
     { type: "Accordion", title: "Why is the experiment taking place?",
         text: 'The purpose of the municipal experiment is to increase the effectiveness of the employment services and the range of jobseeker services, and to improve the overall customer experience. The aim is to achieve this by making the services provided by municipalities easier to access, and to improve the effectiveness by combining the state and municipal staff resources, funding and facilities in managing unemployment. '},

@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   hero: {
     height: 550
   },
+  main: {
+    marginBottom: 100
+  }
 }));
 
 let appNames = {
@@ -69,7 +72,7 @@ export default function Landing() {
               </Navigation.LanguageSelector>
             </Navigation.Actions>
           </Navigation>
-      <main>
+      <main className={classes.main}>
         <Hero
           title={data[0].title}
           text={data[0].text}

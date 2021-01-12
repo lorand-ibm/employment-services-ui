@@ -4,10 +4,10 @@ const data_fi = [
     { type: "Info", title: "Helsingin työllisyyspalvelujen varsinaiset sivut aukeavat maaliskuussa 2021. ",
         text: "Sillä välin voit tutustua yleisimpiin kysymyksiin työllisyyden kuntakokeilusta."},
     { type: "Subheading", title: "Lyhyt esittely", text: ''},
-    { type: "Accordion", title: "Lyhyt esittely", text: 'Työllisyyden kuntakokeilu tuo Helsingin työllisyyspalveluiden asiakkaaksi liki 50 000 helsinkiläistä työnhakijaa TE-toimistolta. Muutos astuu voimaan 1.3.2020. Muutoksen myötä TE-toimistosta siirtyy kaupungille myös noin 250 työntekijää sekä toimitiloja Itäkeskuksesta ja Pasilasta.'},
+    { type: "Text", title: "", text: 'Työllisyyden kuntakokeilu tuo Helsingin työllisyyspalveluiden asiakkaaksi liki 50 000 helsinkiläistä työnhakijaa TE-toimistolta. Muutos astuu voimaan 1.3.2020. Muutoksen myötä TE-toimistosta siirtyy kaupungille myös noin 250 työntekijää sekä toimitiloja Itäkeskuksesta ja Pasilasta.'},
 
     { type: "Subheading", title: "Mikä työllisyyden kuntakokeilu?", text: ''},
-    { type: "Accordion", title: "Mikä työllisyyden kuntakokeilu on?",
+    { type: "Text", title: "",
         text: 'Työllisyyden kuntakokeilu on 2,5 vuoden mittainen valtakunnallinen hanke, jossa osa TE-toimiston lakisääteisistä työllisyyspalveluista siirtyy kunnan järjestettäväksi. Kuntakokeilussa on mukana 125 kuntaa ja niiden muodostamat 26 kokeilualuetta. Helsinki on yksi kokeilualueista yksinään. Pääkaupunkiseudulla on Helsingin lisäksi Espoon sekä Vantaa-Keravan kokeilualueet. '},
     { type: "Accordion", title: "Miksi tämä järjestetään?  ",
         text: 'Kuntakokeilun tarkoitus on parantaa työllisyyspalveluiden vaikuttavuutta sekä työnhakijoiden palveluvalikoimaa ja asiakaskokemusta. Tämä on tarkoitus tehdä mm. sujuvoittamalla kuntien tarjoamien palvelujen äärelle pääsyä. Vaikuttavuutta yritetään parantaa yhdistämällä kuntien ja valtion henkilökuntaa, rahoitusta ja tiloja työllisyydenhoidossa. '},
