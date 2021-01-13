@@ -90,7 +90,8 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   mediaPic : {
-    clipPath: 'url(#koros)'
+    clipPath: 'url(#koros)',
+    '-webkitClipPath': 'url(#koros)'
   },
   koro: {
     fill: '#D0E6F7',
@@ -122,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 36,
       paddingLeft: 20,
       paddingTop: 20,
-      backgroundColor: '#D0E6F7'
+      backgroundColor: '#D0E6F7',
     },
   },
   mobileText: {

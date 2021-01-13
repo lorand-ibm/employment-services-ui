@@ -69,7 +69,7 @@ const data_fi = [
     { type: "Accordion", title: "Mistä saan palvelua, jos siirryn Helsingin työllisyyspalveluiden asiakkaaksi? Entä siirtymävaiheessa? ",
         text: '<b>Verkossa</b> voit käyttää TE-palvelujen ylläpitämää <a href="https://asiointi.mol.fi/omaasiointi/">Oma asiointi</a> -palvelua kuten ennenkin keskeytyksettä. \n<br>' +
             ' \n<br>' +
-            '<b>Puhelimitse</b> saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: <b>295 025 500</b> (ma–pe klo 9.00–16.15)  \n<br>' +
+            '<b>Puhelimitse</b> saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: <b>0295 025 500</b> (ma–pe klo 9.00–16.15)  \n<br>' +
             '\n<br>' +
             'Puhelinpalvelusta saat apua asiointiin, Oma asiointi -verkkopalvelun käyttöön ja työllistymiseen liittyviin asioihin. Tarvittaessa saat jatko-ohjauksen muihin sinulle sopiviin palveluihin. \n<br>' +
             ' \n<br>' +
@@ -109,21 +109,21 @@ const data_fi = [
             ''},
 
     { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
-    { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
-    { type: "PDF", title: "اللغة العربية Arabia", text: 'اللغة العربية Arabia.pdf'},
-    { type: "PDF", title: "বাংলা Bengali", text: 'বাংলা Bengali.pdf'},
-    { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
-    { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
-    { type: "PDF", title: " فارسی Farsi", text: ' فارسی Farsi.pdf'},
-    { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
-    { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
-    { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
-    { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
-    { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
-    { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
-    { type: "PDF", title: "TÜRKÇE Turkki", text: 'TÜRKÇE Turkki.pdf'},
-    { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},
-    { type: "PDF", title: "VIỆT NAM Vietnam", text: 'Vietnam.pdf'},
+  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+  { type: "PDF", title: "اللغة العربية Arabia", text: 'Arabia.pdf'},
+  { type: "PDF", title: "বাংলা Bengali", text: 'Bengali.pdf'},
+  { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
+  { type: "PDF", title: "España Espanja", text: 'Espanja.pdf'},
+  { type: "PDF", title: " فارسی Farsi", text: 'Farsi.pdf'},
+  { type: "PDF", title: "汉语 Kiina", text: 'Kiina.pdf'},
+  { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'Kurmanji.pdf'},
+  { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'Albania.pdf'},
+  { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani.pdf'},
+  { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
+  { type: "PDF", title: "TÜRKÇE Turkki", text: 'Turkki.pdf'},
+  { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},
+  { type: "PDF", title: "VIỆT NAM Vietnam", text: 'Vietnam.pdf'},
 
 
 ];

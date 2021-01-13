@@ -68,7 +68,7 @@ const data_en = [
     { type: "Accordion", title: "Where can I find services if I become a client of Helsinki’s employment services? What about during the transition? ",
         text: 'You can continue to use the TE Services’ <a href="https://asiointi.mol.fi/omaasiointi/">E-Services online</a>, the same as before. \n<br>' +
           ' \n<br>' +
-          'You can also continue to get employment services from the TE Services’ customer service number <b>by calling 295 025 500</b> (Mon–Fri 9–16:15)  \n<br>' +
+          'You can also continue to get employment services from the TE Services’ customer service number by calling <b>0295 025 500</b> (Mon–Fri 9–16:15)  \n<br>' +
           '\n<br>' +
           'By calling this number, you can get help with accessing the services, using the online E-Services and in matters connected to employment. If necessary, you will also be directed to other services that are suitable for you. \n<br>' +
           ' \n<br>' +
@@ -108,18 +108,18 @@ const data_en = [
 
   { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
   { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
-  { type: "PDF", title: "اللغة العربية Arabia", text: 'اللغة العربية Arabia.pdf'},
-  { type: "PDF", title: "বাংলা Bengali", text: 'বাংলা Bengali.pdf'},
+  { type: "PDF", title: "اللغة العربية Arabia", text: 'Arabia.pdf'},
+  { type: "PDF", title: "বাংলা Bengali", text: 'Bengali.pdf'},
   { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
-  { type: "PDF", title: "English Englanti", text: 'English Englanti.pdf'},
-  { type: "PDF", title: " فارسی Farsi", text: ' فارسی Farsi.pdf'},
-  { type: "PDF", title: "汉语 Kiina", text: '汉语 Kiina.pdf'},
-  { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'KURMANCÎ Kurmanji.pdf'},
+  { type: "PDF", title: "España Espanja", text: 'Espanja.pdf'},
+  { type: "PDF", title: " فارسی Farsi", text: 'Farsi.pdf'},
+  { type: "PDF", title: "汉语 Kiina", text: 'Kiina.pdf'},
+  { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'Kurmanji.pdf'},
   { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
-  { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
-  { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani سۆرانی.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'Albania.pdf'},
+  { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani.pdf'},
   { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
-  { type: "PDF", title: "TÜRKÇE Turkki", text: 'TÜRKÇE Turkki.pdf'},
+  { type: "PDF", title: "TÜRKÇE Turkki", text: 'Turkki.pdf'},
   { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},
   { type: "PDF", title: "VIỆT NAM Vietnam", text: 'Vietnam.pdf'},
 
