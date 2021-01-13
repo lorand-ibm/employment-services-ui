@@ -67,7 +67,7 @@ const data_sv = [
 
     { type: "Subheading", title: "Var får jag service? ", text: ''},
     { type: "Accordion", title: "Var får jag service om jag överförs till Helsingfors sysselsättningstjänster? Och vad gäller för under övergångsperioden? ",
-        text: '<b>På internet</b> kan du utan avbrott använda arbets- och näringstjänsternas E-tjänster precis som hittills. \n<br>' +
+        text: '<b>På internet</b> kan du utan avbrott använda arbets- och näringstjänsternas <a href="https://asiointi.mol.fi/omaasiointi/?kieli=sv">E-tjänster</a> precis som hittills. \n<br>' +
           ' \n<br>' +
           '<b>Per telefon</b> får du utan avbrott sysselsättningsservice på arbets- och näringstjänsternas kundservicenummer: <b>295 025 500</b> (må–fr kl. 9.00–16.15)  \n<br>' +
           '\n<br>' +
@@ -90,19 +90,19 @@ const data_sv = [
           'Vid <b>Helsingfors-info</b> får du rådgivning och information om Helsingfors stads tjänster, till exempel öppettider eller annan nyttig information.  \n<br>' +
           '\n<br>' +
           'Helsingfors-infos telefonnummer: 09 310 11 111 (må–to kl. 9–16 och fr kl. 10–15) \n<br>' +
-          'Helsingfors-infos <u>chatt</u> (må–to kl. 9–16 och fr kl. 10–15) '},
+          'Helsingfors-infos <a href="https://www.hel.fi/kanslia/neuvonta-sv/>chatt</a> (må–to kl. 9–16 och fr kl. 10–15) '},
     { type: "Accordion", title: "Var finns det mer information? ",
         text: 'Du kan läsa mer på följande sidor:  \n<br>' +
           '\n<br>' +
-          'Om kommunförsöken med sysselsättning på hel.fi \n<br>' +
-          'Om kommunförsöken med sysselsättning på arbets- och näringsministeriets webbplats \n<br>' +
-          'Helsingfors stads sysselsättningstjänsters twitter \n<br>' +
+          '<a href="https://www.hel.fi/helsinki/sv/stad-och-forvaltning/naringar/sysselsattning">Om kommunförsöken med sysselsättning på hel.fi </a>\n<br>' +
+          '<a href="https://tem.fi/sv/sysselsattningsforsoken">Om kommunförsöken med sysselsättning på arbets- och näringsministeriets webbplats </a>\n<br>' +
+          '<a href="https://twitter.com/tyollisyyshki">Helsingfors stads sysselsättningstjänsters twitter </a>\n<br>' +
           '\n<br>' +
           ' \n<br>' +
           'Du kan också följa uppdateringarna på den här sidan och i medier, såsom dagstidningar och tv. \n<br>' +
           '\n<br>' +
           ' \n<br>' +
-          'Du kan skicka respons eller allmänna frågor per e-post till Helsingfors sysselsättningstjänster, tyollisyyspalvelut@hel.fi. \n<br>' +
+          'Du kan skicka respons eller allmänna frågor per e-post till Helsingfors sysselsättningstjänster, <a href="mailto:tyollisyyspalvelut@hel.fi">tyollisyyspalvelut@hel.fi</a>. \n<br>' +
           '<b>Obs!</b> Vi kan inte per e-post ge personlig kundbetjäning som kräver identifiering. Skicka alltså inte konfidentiella uppgifter per e-post – till exempel inte sådant som handlar om ditt hälsotillstånd, din livssituation eller dina personuppgifter. Vi kan bara besvara allmänna frågor per e-post och vidarebefordra respons. '},
   { type: "Accordion", title: "Var ska jag anmäla mig som arbetslös? ",
         text: 'Också i fortsättningen anmäler du dig som arbetslös vid arbets- och näringsbyråns tjänster. Du kan anmäla dig som arbetslös i Mina e-tjänsterna eller vid arbets- och näringsbyråernas serviceställen. Därifrån hänvisas kunder som omfattas av sysselsättningsförsöken vidare till sysselsättningstjänsterna i kundernas hemkommuner. '},

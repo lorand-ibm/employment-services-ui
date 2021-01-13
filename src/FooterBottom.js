@@ -57,7 +57,6 @@ function FooterBottom(props) {
             '--footer-background': '#0E00BF',
             '--footer-divider-color': '#0E00BF',
             '--footer-color': 'white',
-            '--footer-divider-color': '#0172C6',
             '--footer-focus-outline-color': 'var(--color-black-90)',
           }}
         >

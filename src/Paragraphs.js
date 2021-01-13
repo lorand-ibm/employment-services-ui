@@ -34,15 +34,15 @@ const useStyles = makeStyles((theme) => ({
   subheading: {
     padding: 0,
     marginTop: 32,
-    marginBottom: 24,
+    marginBottom: 15,
     [theme.breakpoints.only("xs")]: {
       paddingLeft: 16,
       paddingRight: 16
     },
   },
   info: {
-    marginTop: 32,
-    marginBottom: 32,
+    marginTop: 36,
+    marginBottom: 72,
     [theme.breakpoints.only("xs")]: {
       marginTop: 24,
       marginBottom: 24,
@@ -96,7 +96,7 @@ function Paragraphs(props) {
                 break;
             case 'Info':
                 items.push(
-                  <Grid container spacing={1} className={classes.container}>
+                  <Grid container spacing={1} className={classes.info}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                       <Grid item xs={12} sm={7} key={2}>
                         <Info key={index} {...paragraph}></Info>

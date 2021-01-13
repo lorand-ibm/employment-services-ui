@@ -66,7 +66,7 @@ const data_en = [
 
     { type: "Subheading", title: "Where can I access services? ", text: ''},
     { type: "Accordion", title: "Where can I find services if I become a client of Helsinki’s employment services? What about during the transition? ",
-        text: 'You can continue to use the TE Services’ <u>E-Services</u> <b>online</b>, the same as before. \n<br>' +
+        text: 'You can continue to use the TE Services’ <a href="https://asiointi.mol.fi/omaasiointi/">E-Services online</a>, the same as before. \n<br>' +
           ' \n<br>' +
           'You can also continue to get employment services from the TE Services’ customer service number <b>by calling 295 025 500</b> (Mon–Fri 9–16:15)  \n<br>' +
           '\n<br>' +
@@ -88,20 +88,20 @@ const data_en = [
           '<b>Helsinki-info</b> gives advice about Helsinki’s services, including information about opening hours and similar basics.  \n<br>' +
           '\n<br>' +
           'Helsinki-info’s phone number: <b>09 310 11 111</b> (Mon–Thu 9–16, Fri 10–15) \n<br>' +
-          'Helsinki-info’s <u>chat</u> (Mon–Thu 9–16, Fri 10–15) '
+          'Helsinki-info’s <a href="https://www.hel.fi/kanslia/neuvonta-en/>chat</a> (Mon–Thu 9–16, Fri 10–15) '
     },
     { type: "Accordion", title: "Where can I find more information? ",
         text: 'You can get more information in Finnish on the following websites:  \n<br>' +
           '\n<br>' +
-          'On the hel.fi website \n<br>' +
-          'On the website of the Ministry of Economic Affairs and Employment \n<br>' +
-          'From Helsinki’s employment services’ Twitter account \n<br>' +
+          '<a href="https://www.hel.fi/helsinki/en/administration/enterprises/employment">On the hel.fi website </a> \n<br>' +
+          '<a href="https://tem.fi/en/local-government-pilots-on-employment">On the website of the Ministry of Economic Affairs and Employment</a> \n<br>' +
+          '<a href="https://twitter.com/tyollisyyshki">From Helsinki’s employment services’ Twitter account </a>\n<br>' +
           '\n<br>' +
           ' \n<br>' +
           'Please also keep an eye on the updates on this website, as well as media channels, such as newspapers and television news. \n<br>' +
           '\n<br>' +
           ' \n<br>' +
-          'You may also send Helsinki’s employment services feedback or general enquiries via email at tyollisyyspalvelut@hel.fi. \n<br>' +
+          'You may also send Helsinki’s employment services feedback or general enquiries via email at <a href="mailto:tyollisyyspalvelut@hel.fi">tyollisyyspalvelut@hel.fi</a>. \n<br>' +
           '<b>Please note!</b> We will not be able to provide personal customer services that require identification via email. Please do not send us sensitive information about your health or life situation, for example, or any personal data, via email. We will only be able to answer general questions and pass on feedback sent to us via email. '},
   { type: "Accordion", title: "Where do I register if I become unemployed?  ",
         text: 'Registration will continue to take place via the TE Services. You can use their E-Services or visit their office to register as an unemployed jobseeker. The TE Services will direct all municipal employment experiment clients to the employment services provided by their home municipalities. '},

@@ -67,7 +67,7 @@ const data_fi = [
 
     { type: "Subheading", title: "Mistä saan palvelua? ", text: ''},
     { type: "Accordion", title: "Mistä saan palvelua, jos siirryn Helsingin työllisyyspalveluiden asiakkaaksi? Entä siirtymävaiheessa? ",
-        text: '<b>Verkossa</b> voit käyttää TE-palvelujen ylläpitämää Oma asiointi -palvelua kuten ennenkin keskeytyksettä. \n<br>' +
+        text: '<b>Verkossa</b> voit käyttää TE-palvelujen ylläpitämää <a href="https://asiointi.mol.fi/omaasiointi/">Oma asiointi</a> -palvelua kuten ennenkin keskeytyksettä. \n<br>' +
             ' \n<br>' +
             '<b>Puhelimitse</b> saat työllisyyspalvelua keskeytyksettä TE-palvelujen ylläpitämästä asiakaspalvelunumerosta: <b>295 025 500</b> (ma–pe klo 9.00–16.15)  \n<br>' +
             '\n<br>' +
@@ -90,19 +90,19 @@ const data_fi = [
             'Helsinki-infossa saat palveluneuvontaa Helsingin palveluista, eli esimerkiksi aukioloaikatietoa tai muuta perustietoa.  \n<br>' +
             '\n<br>' +
             '<b>Helsinki-infon</b> puhelinnumero: <b>09 310 11 111</b> (ma–to klo 9–16 ja pe klo 10–15) \n<br>' +
-            'Helsinki-infon <u>chatti</u> (ma–to klo 9–16 ja pe klo 10–15) '},
+            'Helsinki-infon <a href="https://www.hel.fi/kanslia/neuvonta-fi/>chatti</a> (ma–to klo 9–16 ja pe klo 10–15) '},
     { type: "Accordion", title: "Mistä saan lisätietoa?",
         text: 'Voit lukea lisätietoja seuraavilta sivuilta:  \n<br>' +
             '\n<br>' +
-            'Työllisyyden kuntakokeilusta hel.fi -sivulla \n<br>' +
-            'Työllisyyden kuntakokeilusta työllisyys- ja elinkeinoministeriön sivulla \n<br>' +
-            'Helsingin työllisyyspalveluiden twitter \n<br>' +
+            '<a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/yritykset/tyollisyys/tyollisyyden-kuntakokeilu/">Työllisyyden kuntakokeilusta hel.fi -sivulla</a> \n<br>' +
+            '<a href="https://tem.fi/tyollisyyskokeilut">Työllisyyden kuntakokeilusta työllisyys- ja elinkeinoministeriön sivulla </a>\n<br>' +
+            '<a href="https://twitter.com/tyollisyyshki">Helsingin työllisyyspalveluiden twitter </a>\n<br>' +
             '\n<br>' +
             ' \n<br>' +
             'Seuraathan myös tämän sivun päivityksiä sekä mediaa, kuten lehtiä ja televisiouutisointia. \n<br>' +
             '\n<br>' +
             ' \n<br>' +
-            'Voit myös lähettää sähköpostitse palautetta tai yleisluontoisia kysymyksiä Helsingin työllisyyspalveluille osoiteeseen tyollisyyspalvelut@hel.fi. \n<br>' +
+            'Voit myös lähettää sähköpostitse palautetta tai yleisluontoisia kysymyksiä Helsingin työllisyyspalveluille osoiteeseen <a href="mailto:tyollisyyspalvelut@hel.fi">tyollisyyspalvelut@hel.fi</a>. \n<br>' +
             '<b>Huom!</b> Sähköpostitse emme voi tarjota tunnistautumista edellyttävää henkilökohtaista asiakaspalvelua. Ethän lähetä meille sähköpostitse arkaluontoisia tietoja esimerkiksi terveydentilastasi tai elämäntilanteestasi tai henkilötietojasi. Voimme vastata sähköpostitse vain yleisluontoisiin kysymyksiin ja viedä palautetta eteenpäin. '},
     { type: "Accordion", title: "Mihin ilmoittaudun työttömäksi?  ",
         text: 'Työttömäksi ilmoittaudutaan jatkossakin TE-palvelujen kautta. Voit ilmoittautua työttömäksi Oma asiointi -palvelussa tai TE-palvelujen asiointipisteissä. TE-palvelut ohjaavat työllisyyden kuntakokeilujen asiakkaat työnhakijoiden kotikuntien työllisyyspalveluihin. ' +

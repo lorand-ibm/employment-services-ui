@@ -16,10 +16,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   hero: {
-    height: 550
+    height: 550,
   },
   main: {
-    marginBottom: 100
+    marginBottom: 100,
+  },
+  paragraphs: {
+    marginTop: 72
   }
 }));
 
@@ -78,7 +81,7 @@ export default function Landing() {
           text={data[0].text}
           className={classes.hero}
         />
-         <Paragraphs paragraphs={data}/>
+         <Paragraphs paragraphs={data} className={classes.paragraphs}/>
       </main>
       <FooterBottom
         title={appName}
