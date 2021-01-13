@@ -87,9 +87,9 @@ const data_fi = [
             'Kasvokkain asiakaspalvelu toteutuu koronatilanteen salliessa.  \n<br>' +
             ' \n<br>' +
             '\n<br>' +
-            'Helsinki-infossa saat palveluneuvontaa Helsingin palveluista, eli esimerkiksi aukioloaikatietoa tai muuta perustietoa.  \n<br>' +
+            '<b>Helsinki-infossa</b> saat palveluneuvontaa Helsingin palveluista, eli esimerkiksi aukioloaikatietoa tai muuta perustietoa.  \n<br>' +
             '\n<br>' +
-            '<b>Helsinki-infon</b> puhelinnumero: <b>09 310 11 111</b> (ma–to klo 9–16 ja pe klo 10–15) \n<br>' +
+            'Helsinki-infon puhelinnumero: <b>09 310 11 111</b> (ma–to klo 9–16 ja pe klo 10–15) \n<br>' +
             'Helsinki-infon <a href="https://www.hel.fi/kanslia/neuvonta-fi/>chatti</a> (ma–to klo 9–16 ja pe klo 10–15) '},
     { type: "Accordion", title: "Mistä saan lisätietoa?",
         text: 'Voit lukea lisätietoja seuraavilta sivuilta:  \n<br>' +
