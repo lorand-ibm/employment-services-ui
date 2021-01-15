@@ -6,8 +6,6 @@ import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import {Koros} from  "hds-react/components/Koros";
 

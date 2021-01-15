@@ -1,4 +1,3 @@
-import Container from '@material-ui/core/Container';
 import PropTypes from "prop-types";
 import * as React from "react";
 import Accord from "./Accord";
@@ -6,8 +5,6 @@ import Subheading from "./Subheading";
 import Info from "./Info";
 import Pdf from "./Pdf";
 import Text from "./Text";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
 import Hidden from '@material-ui/core/Hidden';
@@ -67,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 function Paragraphs(props) {
     const classes = useStyles();
     const { paragraphs } = props;
-    console.log(paragraphs);
+    //console.log(paragraphs);
     const items = [];
     paragraphs.map((paragraph, index) => {
 

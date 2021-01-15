@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import {Notification} from "hds-react/components/Notification";
 import Typography from "@material-ui/core/Typography";
-import {Accordion} from "hds-react/components/Accordion";
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({

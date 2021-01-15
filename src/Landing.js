@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
 import FooterBottom from './FooterBottom';
 import data_fi from './data_fi';
 import data_sv from './data_sv';
@@ -9,7 +8,6 @@ import data_en from './data_en';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {

@@ -1,15 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 import {Footer} from  "hds-react/components/Footer";
-
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: '#0E00BF',
-    // marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0),
-  },
-}));
 
 const footerTexts = {
   fi: { feedback: 'Anna palautetta', goup: 'Sivun alkuun'},
@@ -18,7 +9,6 @@ const footerTexts = {
 }
 
 function FooterBottom(props) {
-  const classes = useStyles();
   const { title, lang } = props;
 
   let texts = footerTexts.en;

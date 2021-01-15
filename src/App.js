@@ -27,6 +27,8 @@ const groteskTheme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={groteskTheme}>
+      <Helmet >
+      </Helmet>
       <Landing></Landing>
     </ThemeProvider>
   );
