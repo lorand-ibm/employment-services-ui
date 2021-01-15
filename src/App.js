@@ -4,6 +4,7 @@ import './fonts.css';
 
 import Landing from './Landing';
 import {ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { Helmet } from 'react-helmet';
 
 const groteskTheme = createMuiTheme({
   typography: {
