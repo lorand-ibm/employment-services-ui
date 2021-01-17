@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("xs")]: {
       marginTop: 24,
       marginBottom: 24,
+      paddingLeft: 16,
+      paddingRight: 16,
     },
   },
   pdf: {
@@ -71,7 +73,7 @@ function Paragraphs(props) {
         switch(paragraph.type) {
             case 'Accordion':
                 items.push(
-                  <Grid container spacing={1} className={classes.accord}>
+                  <Grid container spacing={1} className={classes.accord} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                     <Grid item xs={12} sm={6} key={2}>
                         <Accord key={index} {...paragraph}></Accord>
@@ -82,7 +84,7 @@ function Paragraphs(props) {
                 break;
             case 'Subheading':
                 items.push(
-                  <Grid container spacing={1} className={classes.subheading}>
+                  <Grid container spacing={1} className={classes.subheading} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                     <Grid item xs={12} sm={6} key={2}>
                         <Subheading key={index} {...paragraph}></Subheading>
@@ -93,7 +95,7 @@ function Paragraphs(props) {
                 break;
             case 'Info':
                 items.push(
-                  <Grid container spacing={1} className={classes.info}>
+                  <Grid container spacing={1} className={classes.info} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                       <Grid item xs={12} sm={7} key={2}>
                         <Info key={index} {...paragraph}></Info>
@@ -104,7 +106,7 @@ function Paragraphs(props) {
                 break;
             case 'PDF':
                 items.push(
-                  <Grid container spacing={1} className={classes.pdf}>
+                  <Grid container spacing={1} className={classes.pdf} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                     <Grid item xs={12} sm={6} key={2}>
                         <Pdf key={index} {...paragraph}></Pdf>
@@ -115,7 +117,7 @@ function Paragraphs(props) {
                 break;
           case 'Text':
             items.push(
-              <Grid container spacing={1} className={classes.accord}>
+              <Grid container spacing={1} className={classes.accord} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                 <Grid item xs={12} sm={6} key={2}>
                     <Text key={index} {...paragraph}></Text>
@@ -126,6 +128,7 @@ function Paragraphs(props) {
             break;
           default: break;
         }
+        return items;
     });
     return (
         <React.Fragment>

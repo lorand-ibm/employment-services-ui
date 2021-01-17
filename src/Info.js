@@ -25,11 +25,9 @@ function Info(props) {
               'fontWeight': 'bold',
               'paddingTop': '32px',
               'paddingBottom': '24px',
-              'paddingLeft': '40px',
-              'paddingRight': '16px',
             }}
           >
-            <Typography className={classes.title} variant={'div'}>
+            <Typography className={classes.title} >
               {text}
             </Typography>
           </Notification>

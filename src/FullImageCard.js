@@ -40,12 +40,3 @@ export const FiCardMedia = withStyles({
     width: "100%"
   }
 })(CardMedia);
-
-// --- Exports --- //
-export default {
-  FiCard,
-  FiCardActionArea,
-  FiCardActions,
-  FiCardContent,
-  FiCardMedia
-};

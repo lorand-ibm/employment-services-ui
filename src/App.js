@@ -26,11 +26,23 @@ const groteskTheme = createMuiTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={groteskTheme}>
-      <Helmet >
-      </Helmet>
-      <Landing></Landing>
-    </ThemeProvider>
+
+      <ThemeProvider theme={groteskTheme}>
+
+          <Helmet htmlAttributes={{lang: 'fi'}}>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta property="og:url" content={"url"} />
+            <meta property="og:image" content={'image'} />
+            <meta property="og:description" content={'description'} />
+            <meta name="twitter:description" content={'description'} />
+            <meta name="description" content={'description'} />
+            <meta property="og:image:width" content="1980" />
+            <meta property="og:image:height" content="900" />
+          </Helmet>
+
+          <Landing></Landing>
+      </ThemeProvider>
+
   );
 }
 
