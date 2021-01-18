@@ -90,7 +90,7 @@ const data_sv = [
           'Vid <b>Helsingfors-info</b> får du rådgivning och information om Helsingfors stads tjänster, till exempel öppettider eller annan nyttig information.  \n<br>' +
           '\n<br>' +
           'Helsingfors-infos telefonnummer: <b>09 310 11 111</b> (må–to kl. 9–16 och fr kl. 10–15) \n<br>' +
-          'Helsingfors-infos <a href="https://www.hel.fi/kanslia/neuvonta-sv/>chatt</a> (må–to kl. 9–16 och fr kl. 10–15) '},
+          'Helsingfors-infos <a href="https://www.hel.fi/kanslia/neuvonta-sv"/>chatt</a> (må–to kl. 9–16 och fr kl. 10–15) '},
     { type: "Accordion", title: "Var finns det mer information? ",
         text: 'Du kan läsa mer på följande sidor:  \n<br>' +
           '\n<br>' +
