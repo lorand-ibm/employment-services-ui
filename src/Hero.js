@@ -206,7 +206,7 @@ function Hero(props) {
               <Koros type="basic" flipHorizontal className={classes.koro}/>
               <CardMedia className={classes.smallCard}
                 component="img"
-                alt="Contemplative Reptile"
+                alt="picture"
                 height="440"
                 image="herokuva.jpg"
                 title={title}
