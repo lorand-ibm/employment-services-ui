@@ -5,6 +5,7 @@ import './fonts.css';
 import Landing from './Landing';
 import {ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Helmet } from 'react-helmet';
+const axios = require('axios');
 
 const groteskTheme = createMuiTheme({
   typography: {
@@ -24,11 +25,23 @@ const groteskTheme = createMuiTheme({
     },
   });
 
+async function makeRequests() {
+  /*let [u1, u2] = await Promise.all([
+    //axios.get('https://tyollisyys.docker.sh/sv/jsonapi/node/landing/'),
+    axios.get('https://tyollisyys.docker.sh/jsonapi/file/file/')
+  ]);
+
+
+  //console.log(u1);
+  console.log(u2);
+*/
+}
+
 function App() {
+
+  makeRequests();
   return (
-
       <ThemeProvider theme={groteskTheme}>
-
           <Helmet htmlAttributes={{lang: 'fi'}}>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta property="og:url" content={"url"} />

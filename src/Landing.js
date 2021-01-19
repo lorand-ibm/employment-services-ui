@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FooterBottom from './FooterBottom';
@@ -8,6 +8,7 @@ import data_en from './data_en';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
+import {findData} from './dataHelper';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -30,11 +31,12 @@ let appNames = {
   en: { name: 'Employment services'}
 };
 
-//const sections = [
-//];
-
 export default function Landing() {
-  const [lang, setLang] = useState('FI');
+  const lang = 'FI';
+  const [appState, setAppState] = useState({
+    loading: false,
+    repos: null,
+  });
   const classes = useStyles();
 
   let data = data_fi;
@@ -49,6 +51,35 @@ export default function Landing() {
       data = data_fi;
   }
 
+  useEffect(() => {
+    setAppState({ loading: true });
+    const d_url_fi = 'https://tyollisyys.docker.sh/fi/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    const d_url_sv = 'https://tyollisyys.docker.sh/sv/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    const d_url_en = 'https://tyollisyys.docker.sh/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    fetch(d_url_fi)
+      .then((res) => res.json())
+      .then((fijson) => {
+        let data_fii = findData('fi', fijson);
+        console.log(data_fii);
+        setAppState({ loading: false, d_di:fijson  });
+      });
+    fetch(d_url_sv)
+      .then((res) => res.json())
+      .then((svjson) => {
+        let data_svsv = findData('sv', svjson);
+        setAppState({ loading: false, d_sv: svjson});
+        console.log(data_svsv);
+      });
+    fetch(d_url_en)
+      .then((res) => res.json())
+      .then((enjson) => {
+        let data_enen = findData('en', enjson);
+        console.log(data_enen);
+        setAppState({ loading: false, d_en: enjson });
+      });
+  }, [setAppState]);
+
+  let setLang = (l) => {}
   return (
     <React.Fragment>
       <CssBaseline />
