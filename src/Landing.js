@@ -53,9 +53,10 @@ export default function Landing() {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const d_url_fi = 'https://tyollisyys.docker.sh/fi/jsonapi/node/prerelease_landing?include=field_prerelease_';
-    const d_url_sv = 'https://tyollisyys.docker.sh/sv/jsonapi/node/prerelease_landing?include=field_prerelease_';
-    const d_url_en = 'https://tyollisyys.docker.sh/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    const d_url_fi = process.env.REACT_APP_DRUPAL_URL + '/fi/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    const d_url_sv = process.env.REACT_APP_DRUPAL_URL + '/sv/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    const d_url_en = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/node/prerelease_landing?include=field_prerelease_';
+    const files = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/media/image';
     fetch(d_url_fi)
       .then((res) => res.json())
       .then((fijson) => {
@@ -76,6 +77,14 @@ export default function Landing() {
         let data_enen = findData('en', enjson);
         console.log(data_enen);
         setAppState({ loading: false, d_en: enjson });
+      });
+    fetch(files)
+      .then((res) => res.json())
+      .then((filejson) => {
+        //let data_enen = findData('en', enjson);
+        console.log('files:');
+        console.log(filejson);
+        setAppState({ loading: false, files: filejson });
       });
   }, [setAppState]);
 
