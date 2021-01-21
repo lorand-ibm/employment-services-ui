@@ -9,6 +9,7 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {findData} from './dataHelper';
+const axios = require('axios');
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -35,7 +36,7 @@ export default function Landing() {
   const lang = 'FI';
   const [appState, setAppState] = useState({
     loading: false,
-    repos: null,
+    datax: null,
   });
   const classes = useStyles();
 
@@ -51,41 +52,34 @@ export default function Landing() {
       data = data_fi;
   }
 
-  useEffect(() => {
-    setAppState({ loading: true });
+  async function makeRequests() {
     const d_url_fi = process.env.REACT_APP_DRUPAL_URL + '/fi/jsonapi/node/prerelease_landing?include=field_prerelease_';
     const d_url_sv = process.env.REACT_APP_DRUPAL_URL + '/sv/jsonapi/node/prerelease_landing?include=field_prerelease_';
     const d_url_en = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/node/prerelease_landing?include=field_prerelease_';
-    const files = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/media/image';
-    fetch(d_url_fi)
-      .then((res) => res.json())
-      .then((fijson) => {
-        let data_fii = findData('fi', fijson);
-        console.log(data_fii);
-        setAppState({ loading: false, d_di:fijson  });
-      });
-    fetch(d_url_sv)
-      .then((res) => res.json())
-      .then((svjson) => {
-        let data_svsv = findData('sv', svjson);
-        setAppState({ loading: false, d_sv: svjson});
-        console.log(data_svsv);
-      });
-    fetch(d_url_en)
-      .then((res) => res.json())
-      .then((enjson) => {
-        let data_enen = findData('en', enjson);
-        console.log(data_enen);
-        setAppState({ loading: false, d_en: enjson });
-      });
-    fetch(files)
-      .then((res) => res.json())
-      .then((filejson) => {
-        //let data_enen = findData('en', enjson);
-        console.log('files:');
-        console.log(filejson);
-        setAppState({ loading: false, files: filejson });
-      });
+    const files = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/file/file';
+    const media = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/media/image';
+    const doc = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/media/document';
+    let [fi, sv, en, f, m, d] = await Promise.all([
+      axios.get(d_url_fi),
+      axios.get(d_url_sv),
+      axios.get(d_url_en),
+      axios.get(files),
+      axios.get(media),
+      axios.get(doc),
+    ]);
+    console.log(f); console.log(m);
+    let fiData = findData('fi', fi.data, f, m, d);
+    let svData = findData('sv', sv.data, f, m, d);
+    let enData = findData('en', en.data, f, m, d);
+    console.log('fi'); console.log(fi.data); console.log(fiData);
+    console.log('sv'); console.log(sv.data); console.log(svData);
+    console.log('en'); console.log(en.data); console.log(enData);
+    setAppState({loading: false, datax: {fi: fiData, sv: svData, en: enData, files: f, media: m}, doc: d});
+  }
+
+  useEffect(() => {
+    setAppState({ loading: true });
+    makeRequests();
   }, [setAppState]);
 
   let setLang = (l) => {}
