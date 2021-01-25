@@ -4,6 +4,7 @@ export const findImageUrl = (uid, files, media) => {
     return "";
   }
   const mIndex = media.data.data.findIndex(item => item.id === uid);
+  console.log(mIndex);
   const imageUid = media.data.data[mIndex].relationships.field_media_image.data.id;
   const fIndex = files.data.data.findIndex(item => item.id === imageUid);
   //console.log(files.data.data[fIndex].attributes.uri); console.log(uid); console.log(files.data.data[0].id);
@@ -46,6 +47,15 @@ export const findData = (lang, json, files, media, doc) => {
           text: item.attributes.field_accordion_text.value
         });
         break;
+      case 'paragraph--card':
+        data.push({
+          type: 'Card',
+          lang: item.attributes.langcode,
+          title: item.attributes.field_card_title,
+          text: item.attributes.field_card_text.value,
+          button_text: item.attributes.field_card_button_text.value,
+        });
+        break;
       case 'paragraph--hero':
         let url = null;
         if (!!!item.relationships.field_hero_image || !!item.relationships.field_hero_image.data) {
@@ -66,13 +76,22 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'Info',
           lang: item.attributes.langcode,
           title: item.attributes.field_info_title,
+          text: item.attributes.field_info_text.value,
+        });
+        break;
+      case 'paragraph--image_and_card':
+        data.push({
+          type: 'ImageAndCard',
+          lang: item.attributes.langcode,
+          title: '',
           text: '',
+          image: findImageUrl(item.relationships.field_ic_image.data.id, files, media),
         });
         break;
       case 'paragraph--link_internal':
         //console.log(doc);
         //console.log(item.relationships.field_link_media_pdf.data.id);
-        let pdfUrl = findPdfUrl(item.relationships.field_link_media_pdf.data.id, files, doc);
+        let pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
         //console.log(pdfUrl);
         data.push({
           type: 'Pdf',

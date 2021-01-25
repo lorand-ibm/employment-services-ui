@@ -53,12 +53,12 @@ export default function Landing() {
   }
 
   async function makeRequests() {
-    const d_url_fi = process.env.REACT_APP_DRUPAL_URL + '/fi/jsonapi/node/prerelease_landing?include=field_prerelease_';
-    const d_url_sv = process.env.REACT_APP_DRUPAL_URL + '/sv/jsonapi/node/prerelease_landing?include=field_prerelease_';
-    const d_url_en = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/node/prerelease_landing?include=field_prerelease_';
-    const files = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/file/file';
-    const media = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/media/image';
-    const doc = process.env.REACT_APP_DRUPAL_URL + '/jsonapi/media/document';
+    const d_url_fi = process.env.REACT_APP_DRUPAL_URL + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
+    const d_url_sv = process.env.REACT_APP_DRUPAL_URL + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
+    const d_url_en = process.env.REACT_APP_DRUPAL_URL + '/apijson/node/prerelease_landing?include=field_prerelease_';
+    const files = process.env.REACT_APP_DRUPAL_URL + '/apijson/file/file';
+    const media = process.env.REACT_APP_DRUPAL_URL + '/apijson/media/image';
+    const doc = process.env.REACT_APP_DRUPAL_URL + '/apijson/media/document';
     let [fi, sv, en, f, m, d] = await Promise.all([
       axios.get(d_url_fi),
       axios.get(d_url_sv),
@@ -67,14 +67,15 @@ export default function Landing() {
       axios.get(media),
       axios.get(doc),
     ]);
-    console.log(f); console.log(m);
-    let fiData = findData('fi', fi.data, f, m, d);
-    let svData = findData('sv', sv.data, f, m, d);
+    console.log(f); console.log(m); console.log(en.data);
+    //let fiData = findData('fi', fi.data, f, m, d);
+    //let svData = findData('sv', sv.data, f, m, d);
     let enData = findData('en', en.data, f, m, d);
-    console.log('fi'); console.log(fi.data); console.log(fiData);
-    console.log('sv'); console.log(sv.data); console.log(svData);
+    //console.log('fi'); console.log(fi.data); console.log(fiData);
+    //console.log('sv'); console.log(sv.data); console.log(svData);
     console.log('en'); console.log(en.data); console.log(enData);
-    setAppState({loading: false, datax: {fi: fiData, sv: svData, en: enData, files: f, media: m}, doc: d});
+    //setAppState({loading: false, datax: {fi: fiData, sv: svData, en: enData, files: f, media: m}, doc: d});
+    setAppState({loading: false, datax: {en: enData, files: f, media: m}, doc: d});
   }
 
   useEffect(() => {
