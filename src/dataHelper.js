@@ -31,8 +31,10 @@ export const findData = (lang, json, files, media, doc) => {
     return data;
   }
   json.included.map((item, index) => {
+    //console.log(item.type);
     switch(item.type) {
       case 'paragraph--accordion':
+        console.log(item);
         data.push({
           type: 'Accordion',
           lang: item.attributes.langcode,
@@ -46,7 +48,7 @@ export const findData = (lang, json, files, media, doc) => {
           lang: item.attributes.langcode,
           title: item.attributes.field_card_title,
           text: item.attributes.field_card_text.value,
-          button_text: item.attributes.field_card_button_text.value,
+          button_text: item.attributes.field_card_button_text ,
         });
         break;
       case 'paragraph--hero':

@@ -54,9 +54,9 @@ function App() {
       let svData = findData('sv', sv.data, f, m, d);
       let enData = findData('en', en.data, f, m, d);
       //setError(false);
-      //console.log(svData);
-      //console.log(fiData);
-      //console.log(enData);
+      console.log(svData);
+      console.log(fiData);
+      console.log(enData);
       setData({en: enData, fi: fiData, sv: svData, files: f, media: m});
       setLoading(false);
     }

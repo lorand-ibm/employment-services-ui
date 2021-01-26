@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import * as React from "react";
 import Accord from "./Accord";
+import SingleCard from "./SingleCard";
 import Subheading from "./Subheading";
 import Info from "./Info";
 import Pdf from "./Pdf";
+import PhoneNumberBox from "./PhoneNumberBox";
 import Text from "./Text";
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
@@ -23,6 +25,15 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     marginTop: 0,
     marginBottom: 0,
+    [theme.breakpoints.only("xs")]: {
+      paddingLeft: 16,
+      paddingRight: 16
+    },
+  },
+  card: {
+    padding: 0,
+    marginTop: 32,
+    marginBottom: 15,
     [theme.breakpoints.only("xs")]: {
       paddingLeft: 16,
       paddingRight: 16
@@ -82,6 +93,17 @@ function Paragraphs(props) {
                   </Grid>
                 );
                 break;
+            case 'Card':
+              items.push(
+                <Grid container spacing={1} className={classes.card} key={index}>
+                  <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                  <Grid item xs={12} sm={6} key={2}>
+                    <SingleCard key={index} {...paragraph}></SingleCard>
+                  </Grid>
+                  <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
+                </Grid>
+              );
+              break;
             case 'Subheading':
                 items.push(
                   <Grid container spacing={1} className={classes.subheading} key={index}>
@@ -116,6 +138,28 @@ function Paragraphs(props) {
                   </Grid>
                     );
                 break;
+          case 'Info':
+            items.push(
+              <Grid container spacing={1} className={classes.info} key={index}>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                <Grid item xs={12} sm={7} key={2}>
+                  <Info key={index} {...paragraph}></Info>
+                </Grid>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
+              </Grid>
+            );
+            break;
+          case 'PhoneNumberBox':
+            items.push(
+              <Grid container spacing={1} className={classes.card} key={index}>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                <Grid item xs={12} sm={6} key={2}>
+                  <PhoneNumberBox key={index} {...paragraph}></PhoneNumberBox>
+                </Grid>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
+              </Grid>
+            );
+            break;
           case 'Text':
             items.push(
               <Grid container spacing={1} className={classes.accord} key={index}>
