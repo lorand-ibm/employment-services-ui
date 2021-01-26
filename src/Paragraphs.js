@@ -104,6 +104,7 @@ function Paragraphs(props) {
                   </Grid>
                 );
                 break;
+            case 'Pdf':
             case 'PDF':
                 items.push(
                   <Grid container spacing={1} className={classes.pdf} key={index}>

@@ -27,8 +27,7 @@ function Info(props) {
               'paddingBottom': '24px',
             }}
           >
-            <Typography className={classes.title} >
-              {text}
+            <Typography className={classes.title} dangerouslySetInnerHTML={{__html:text}}>
             </Typography>
           </Notification>
         </React.Fragment>

@@ -15,8 +15,7 @@ function Text(props) {
 
     return (
         <React.Fragment>
-          <Typography className={classes.text}>
-            {text}
+          <Typography className={classes.text} dangerouslySetInnerHTML={{__html:text}}>
           </Typography>
         </React.Fragment>
     );

@@ -143,7 +143,9 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero(props) {
   const classes = useStyles();
-  const { title, text } = props;
+  const { title, text, url } = props;
+
+  const imagePath = process.env.REACT_APP_DRUPAL_URL + url;
 
   return (
     <React.Fragment>
@@ -154,7 +156,7 @@ function Hero(props) {
               <FiCardMedia className={classes.mediaPic}
                            media="picture"
                            alt={title}
-                           image="herokuva.jpg"
+                           image={imagePath}
                            title={title}
                            height="550"
               />
@@ -169,8 +171,9 @@ function Hero(props) {
                     variant="h6"
                     className={classes.fiCardContentTextSecondary}
                     component="div"
+                    dangerouslySetInnerHTML={{__html:text}}
                   >
-                    {text}
+
                   </Typography>
               </FiCardContent>
             </FiCardActionArea>
@@ -198,8 +201,9 @@ function Hero(props) {
           <Typography maxWidth={3}
                       variant="h6"
                       className={classes.mobileText}
+                      dangerouslySetInnerHTML={{__html:text}}
           >
-            {text}
+
           </Typography>
           <Card width={1} className={classes.mobileCard}>
             <CardActionArea>
@@ -208,7 +212,7 @@ function Hero(props) {
                 component="img"
                 alt="picture"
                 height="440"
-                image="herokuva.jpg"
+                image={imagePath}
                 title={title}
               >
               </CardMedia>

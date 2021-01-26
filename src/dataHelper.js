@@ -4,7 +4,6 @@ export const findImageUrl = (uid, files, media) => {
     return "";
   }
   const mIndex = media.data.data.findIndex(item => item.id === uid);
-  console.log(mIndex);
   const imageUid = media.data.data[mIndex].relationships.field_media_image.data.id;
   const fIndex = files.data.data.findIndex(item => item.id === imageUid);
   //console.log(files.data.data[fIndex].attributes.uri); console.log(uid); console.log(files.data.data[0].id);
@@ -26,18 +25,12 @@ export const findPdfUrl = (uid, files, pdfs) => {
 }
 
 export const findData = (lang, json, files, media, doc) => {
-  console.log(lang);
-  //console.log(json);
-  //console.log(files);
-  //onsole.log(media);
   let data = [];
   if (!!!json.included) {
     console.log('error with data');
     return data;
   }
   json.included.map((item, index) => {
-    //console.log(item);
-    //console.log(index);
     switch(item.type) {
       case 'paragraph--accordion':
         data.push({
@@ -68,8 +61,6 @@ export const findData = (lang, json, files, media, doc) => {
           text: item.attributes.field_hero_text.value,
           url: url,
         });
-        console.log('hero');
-        console.log(data);
         break;
       case 'paragraph--info':
         data.push({
@@ -89,10 +80,7 @@ export const findData = (lang, json, files, media, doc) => {
         });
         break;
       case 'paragraph--link_internal':
-        //console.log(doc);
-        //console.log(item.relationships.field_link_media_pdf.data.id);
         let pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
-        //console.log(pdfUrl);
         data.push({
           type: 'Pdf',
           lang: lang,

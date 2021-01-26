@@ -17,11 +17,12 @@ const useStyles = makeStyles((theme) => ({
 
 function Pdf(props) {
     const classes = useStyles();
-    const { title, text } = props;
+    const { title, url } = props;
+    const address = process.env.REACT_APP_DRUPAL_URL + url;
 
     return (
         <React.Fragment>
-            <Link display="block" variant="body1" href={text} key={title} className={classes.link}>
+            <Link display="block" variant="body1" href={address} key={title} className={classes.link}>
                 <Grid container spacing={1}>
                     <Grid item >
                         <Typography><LaunchIcon /></Typography>
