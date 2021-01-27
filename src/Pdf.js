@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Pdf(props) {
     const classes = useStyles();
-    const { title, url } = props;
-    const address = process.env.REACT_APP_DRUPAL_URL + url;
+    const { title, url, site } = props;
+    const address = site + url;
 
     return (
         <React.Fragment>

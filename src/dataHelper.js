@@ -30,6 +30,7 @@ export const findData = (lang, json, files, media, doc) => {
     console.log('error with data');
     return data;
   }
+  const site =
   json.included.map((item, index) => {
     //console.log(item.type);
     switch(item.type) {
@@ -79,6 +80,15 @@ export const findData = (lang, json, files, media, doc) => {
           title: '',
           text: '',
           image: findImageUrl(item.relationships.field_ic_image.data.id, files, media),
+        });
+        break;
+      case 'paragraph--image':
+        data.push({
+          type: 'Image',
+          lang: item.attributes.langcode,
+          title: '',
+          text: '',
+          image: findImageUrl(item.relationships.field_image_image.data.id, files, media),
         });
         break;
       case 'paragraph--link_internal':

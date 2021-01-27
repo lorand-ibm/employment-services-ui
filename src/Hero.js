@@ -143,9 +143,9 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero(props) {
   const classes = useStyles();
-  const { title, text, url } = props;
+  const { title, text, url, site } = props;
 
-  const imagePath = process.env.REACT_APP_DRUPAL_URL + url;
+  const imagePath = site + url;
 
   return (
     <React.Fragment>

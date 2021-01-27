@@ -35,7 +35,7 @@ export default function Landing(props) {
   const [lang, setLang] = useState('FI');
   const classes = useStyles();
 
-  const { data, loading, testing } = props;
+  const { data, loading, testing, site } = props;
   let useData = data.fi;
   if (testing) {
     useData = {en: data_en, sv: data_sv, fi: data_fi,};
@@ -98,9 +98,10 @@ export default function Landing(props) {
             title={heroTitle}
             text={heroText}
             url={heroUrl}
+            site={site}
             className={classes.hero}
           />
-          <Paragraphs paragraphs={useData} className={classes.paragraphs}/>
+          <Paragraphs paragraphs={useData} site={site} className={classes.paragraphs}/>
           }
         </main>
       }

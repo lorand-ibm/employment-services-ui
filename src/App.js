@@ -31,19 +31,20 @@ function App() {
   const [loading, setLoading] = useState(true);
   //const [error, setError] = useState({});
   const testing = false;
+  const site = process.env.REACT_APP_DRUPAL_URL;
 
   useEffect(() => {
     async function makeRequests() {
       setLoading(true);
 
-      const d_url_fi = process.env.REACT_APP_DRUPAL_URL + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
-      const d_url_sv = process.env.REACT_APP_DRUPAL_URL + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
-      const d_url_en = process.env.REACT_APP_DRUPAL_URL + '/apijson/node/prerelease_landing?include=field_prerelease_';
-      const files = process.env.REACT_APP_DRUPAL_URL + '/apijson/file/file';
-      const media = process.env.REACT_APP_DRUPAL_URL + '/apijson/media/image';
-      const doc = process.env.REACT_APP_DRUPAL_URL + '/apijson/media/document';
-      const conf = process.env.REACT_APP_DRUPAL_URL + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
-      const menus = process.env.REACT_APP_DRUPAL_URL + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
+      const d_url_fi = site + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
+      const d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
+      const d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
+      const files = site + '/apijson/file/file';
+      const media = site + '/apijson/media/image';
+      const doc = site + '/apijson/media/document';
+      const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
+      const menus = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
       let [fi, sv, en, f, m, d, configuration] = await Promise.all([
         axios.get(d_url_fi),
         axios.get(d_url_sv),
@@ -56,12 +57,13 @@ function App() {
       let fiData = findData('fi', fi.data, f, m, d);
       let svData = findData('sv', sv.data, f, m, d);
       let enData = findData('en', en.data, f, m, d);
+      console.log(en);
       //setError(false);
-      //console.log(svData);
-      //console.log(fiData);
-      //console.log(enData);
+      console.log(svData);
+      console.log(fiData);
+      console.log(enData);
       console.log(configuration);
-      setData({en: enData, fi: fiData, sv: svData, files: f, media: m, configuration: configuration});
+      setData({en: enData, fi: fiData, sv: svData, files: f, media: m, configuration: configuration, site: site});
       setLoading(false);
     }
 
@@ -70,7 +72,7 @@ function App() {
 
   return (
       <ThemeProvider theme={groteskTheme}>
-          <Landing data={data} loading={loading} testing={testing}></Landing>
+          <Landing data={data} loading={loading} testing={testing} site={site}></Landing>
       </ThemeProvider>
   );
 }

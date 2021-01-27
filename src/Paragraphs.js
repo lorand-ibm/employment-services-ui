@@ -10,6 +10,8 @@ import Text from "./Text";
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
 import Hidden from '@material-ui/core/Hidden';
+import Image from "./Image";
+import ImageAndCard from "./ImageAndCard";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -76,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Paragraphs(props) {
     const classes = useStyles();
-    const { paragraphs } = props;
+    const { paragraphs, site } = props;
     //console.log(paragraphs);
     const items = [];
     paragraphs.map((paragraph, index) => {
@@ -132,18 +134,29 @@ function Paragraphs(props) {
                   <Grid container spacing={1} className={classes.pdf} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
                     <Grid item xs={12} sm={6} key={2}>
-                        <Pdf key={index} {...paragraph}></Pdf>
+                        <Pdf key={index} {...paragraph} site={site}></Pdf>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
                   </Grid>
                     );
                 break;
-          case 'Info':
+          case 'Image':
             items.push(
               <Grid container spacing={1} className={classes.info} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                <Grid item xs={12} sm={7} key={2}>
-                  <Info key={index} {...paragraph}></Info>
+                <Grid item xs={12} sm={6} key={2}>
+                  <Image key={index} {...paragraph} site={site}></Image>
+                </Grid>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
+              </Grid>
+            );
+            break;
+          case 'ImageAndCard':
+            items.push(
+              <Grid container spacing={1} className={classes.info} key={index}>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                <Grid item xs={12} sm={6} key={2}>
+                  <ImageAndCard key={index} {...paragraph} site={site}></ImageAndCard>
                 </Grid>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
               </Grid>
