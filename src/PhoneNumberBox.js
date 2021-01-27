@@ -4,7 +4,9 @@ import {Card} from "hds-react/components/Card";
 import {Button} from "hds-react/components/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import "hds-core";
+//import "hds-core";
+import CallIcon from '@material-ui/icons/CallOutlined';
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -12,18 +14,25 @@ const useStyles = makeStyles((theme) => ({
     background: 'white',
     fontFamily: 'HelsinkiGrotesk',
     borderColor: 'red',
+    xxheight: 100,
+    marginBottom: 0,
   },
   text: {
     fontSize: 16,
     fontFamily: 'HelsinkiGrotesk'
+  },
+  textArea: {
+    margin:0,
+    padding: 0,
   },
   button: {
     color: 'black',
     background: 'white',
   },
   icon: {
-    width: 100,
-    height: 100,
+    marginTop: 15,
+    xxwidth: 100,
+    xxheight: 100,
   }
 }));
 
@@ -37,10 +46,14 @@ function PhoneNumberBox(props) {
               border
               heading={title}
               className={classes.title}
+              theme = {{
+                'card-body-margin-bottom' : 0
+              }}
               >
-              <div classNames={'hds-icon--photo', classes.icon} ></div>
-              <Typography dangerouslySetInnerHTML={{__html: text}} className={classes.text} />
-
+              <Grid container spacing={1}  justify="left" className={classes.textArea}>
+                <Grid item> <CallIcon className={classes.icon} /> </Grid>
+                <Grid item> <Typography dangerouslySetInnerHTML={{__html: text}} className={classes.text} /> </Grid>
+              </Grid>
             </Card>
         </React.Fragment>
     );

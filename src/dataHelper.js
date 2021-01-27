@@ -34,7 +34,7 @@ export const findData = (lang, json, files, media, doc) => {
     //console.log(item.type);
     switch(item.type) {
       case 'paragraph--accordion':
-        console.log(item);
+        //console.log(item);
         data.push({
           type: 'Accordion',
           lang: item.attributes.langcode,
