@@ -8,6 +8,7 @@ import data_en from './data_en';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
+import {useParams, useHistory} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +33,10 @@ let appNames = {
 };
 
 export default function Landing(props) {
-  const [lang, setLang] = useState('FI');
+  let {id, restofit} = useParams();
+  let history = useHistory();
+
+  const [lang, setLang] = useState(id);
   const classes = useStyles();
 
   const { data, loading, testing, site } = props;
@@ -43,22 +47,28 @@ export default function Landing(props) {
 
   let logolang = 'fi';
   let appName = appNames.fi.name;
+  let langSelect = 'FI';
+
+  //history.push('/foo');
 
   switch (lang) {
-    case 'EN':
+    case 'en':
       useData = data.en;
       logolang = 'en';
+      langSelect = 'EN';
       appName = appNames.en.name;
       break;
-    case 'SV':
+    case 'sv':
       useData = data.sv;
       logolang = 'sv';
       appName = appNames.sv.name;
+      langSelect = 'SV';
       break;
-    case 'FI':
+    case 'fi':
     default:
       useData = data.fi;
       appName = appNames.fi.name;
+      langSelect = 'FI';
   }
 
   const heroTitle = loading ? 'loading' : useData[0].title;
@@ -66,6 +76,15 @@ export default function Landing(props) {
   const heroUrl = loading ? 'loading' : useData[0].url;
   if (loading) {
     return <div></div>;
+  }
+
+  const setIt = (l) => {
+    let path = '/' + l;
+    if (restofit) {
+      path += '/'+restofit;
+    }
+    history.push(path);
+    setLang(l);
   }
 
   return (
@@ -85,10 +104,10 @@ export default function Landing(props) {
             style={{'--header-divider-color':'white'}}
         >
           <Navigation.Actions>
-              <Navigation.LanguageSelector label={lang}>
-                <Navigation.Item label="Suomeksi" onClick={() => setLang('FI')}/>
-                <Navigation.Item label="På svenska" onClick={() => setLang('SV')}/>
-                <Navigation.Item label="In English" onClick={() => setLang('EN')}/>
+              <Navigation.LanguageSelector label={langSelect}>
+                <Navigation.Item label="Suomeksi" onClick={() => setIt('fi')}/>
+                <Navigation.Item label="På svenska" onClick={() => setIt('sv')}/>
+                <Navigation.Item label="In English" onClick={() => setIt('en')}/>
               </Navigation.LanguageSelector>
             </Navigation.Actions>
           </Navigation>

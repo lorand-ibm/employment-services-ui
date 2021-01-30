@@ -30,7 +30,6 @@ export const findData = (lang, json, files, media, doc) => {
     console.log('error with data');
     return data;
   }
-  const site =
   json.included.map((item, index) => {
     //console.log(item.type);
     switch(item.type) {
@@ -74,12 +73,16 @@ export const findData = (lang, json, files, media, doc) => {
         });
         break;
       case 'paragraph--image_and_card':
+        let image = null;
+        if (item.relationships.field_ic_image.data) {
+          image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
+        }
         data.push({
           type: 'ImageAndCard',
           lang: item.attributes.langcode,
           title: '',
           text: '',
-          image: findImageUrl(item.relationships.field_ic_image.data.id, files, media),
+          image: image,
         });
         break;
       case 'paragraph--image':
@@ -135,6 +138,14 @@ export const findData = (lang, json, files, media, doc) => {
     return data;
   });
   return data;
+}
+
+export const getFullRelease = (conf) => {
+  console.log(conf);
+  if (!!!conf || !!!conf.data) {
+    return false;
+  }
+  return conf.data[0];
 }
 
 
