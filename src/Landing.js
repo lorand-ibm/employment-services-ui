@@ -35,9 +35,29 @@ let appNames = {
 export default function Landing(props) {
   let {id, restofit} = useParams();
   let history = useHistory();
-
   const [lang, setLang] = useState(id);
   const classes = useStyles();
+
+  const setItUrl = (l) => {
+    let path = '/' + l;
+    if (restofit) {
+      path += '/'+restofit;
+    }
+    history.push(path);
+  }
+
+  const setIt = (l) => {
+    let path = '/' + l;
+    if (restofit) {
+      path += '/'+restofit;
+    }
+    history.push(path);
+    setLang(l);
+  }
+
+  if (id != 'sv' && id != 'en' && id != 'fi') {
+    setItUrl('fi');
+  }
 
   const { data, loading, testing, site } = props;
   let useData = data.fi;
@@ -48,8 +68,6 @@ export default function Landing(props) {
   let logolang = 'fi';
   let appName = appNames.fi.name;
   let langSelect = 'FI';
-
-  //history.push('/foo');
 
   switch (lang) {
     case 'en':
@@ -78,14 +96,7 @@ export default function Landing(props) {
     return <div></div>;
   }
 
-  const setIt = (l) => {
-    let path = '/' + l;
-    if (restofit) {
-      path += '/'+restofit;
-    }
-    history.push(path);
-    setLang(l);
-  }
+
 
   return (
     <React.Fragment>

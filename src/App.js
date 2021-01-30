@@ -101,7 +101,7 @@ function App() {
       <ThemeProvider theme={groteskTheme}>
 
           <Switch>
-            <Route path="/:id/:restofit" onEnter={enterRoute}
+            <Route path="/:id/:restofit"
                    children={<Landing data={data} loading={loading} testing={testing} site={site}></Landing>}/>
             <Route path="/:id" onEnter={enterRoute}
                    children={<Landing data={data} loading={loading} testing={testing} site={site}></Landing>}/>
