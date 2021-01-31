@@ -62,6 +62,13 @@ export const findPdfUrl = (uid, files, pdfs) => {
   return files.data.data[fIndex].attributes.uri.url;
 }
 
+const getTextValue = (path) => {
+  if (!!!path || !!!path.value) {
+    return "";
+  }
+  return path.value;
+}
+
 export const findData = (lang, json, files, media, doc) => {
   let data = [];
   if (!!!json.included) {
@@ -77,7 +84,7 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'Accordion',
           lang: item.attributes.langcode,
           title: item.attributes.field_accordion_title,
-          text: item.attributes.field_accordion_text.value
+          text: getTextValue(item.attributes.field_accordion_text),
         });
         break;
       case 'paragraph--card':
@@ -85,7 +92,7 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'Card',
           lang: item.attributes.langcode,
           title: item.attributes.field_card_title,
-          text: item.attributes.field_card_text.value,
+          text: getTextValue(item.attributes.field_card_text),
           button_text: item.attributes.field_card_button_text ,
         });
         break;
@@ -98,7 +105,7 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'Hero',
           lang: item.attributes.langcode,
           title: item.attributes.field_hero_title,
-          text: item.attributes.field_hero_text.value,
+          text: getTextValue(item.attributes.field_hero_text),
           url: url,
         });
         break;
@@ -107,7 +114,7 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'Info',
           lang: item.attributes.langcode,
           title: item.attributes.field_info_title,
-          text: item.attributes.field_info_text.value,
+          text: getTextValue(item.attributes.field_info_text),
         });
         break;
       case 'paragraph--image_and_card':
@@ -155,7 +162,7 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'Text',
           lang: item.attributes.langcode,
           title: '',
-          text: item.attributes.field_text_demo.value,
+          text: getTextValue(item.attributes.field_text_demo),
 
         });
         break;
@@ -164,7 +171,7 @@ export const findData = (lang, json, files, media, doc) => {
           type: 'PhoneNumberBox',
           lang: item.attributes.langcode,
           title: item.attributes.field_pb_title,
-          text: item.attributes.field_pb_text.value,
+          text: getTextValue(item.attributes.field_pb_text),
         });
         break;
       default:

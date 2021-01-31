@@ -78,10 +78,8 @@ export default function Landing(props) {
   const getNavi = (menu, loading, isFullVersion, lang) => {
     let nav = [];
     if (loading || !!!menu || !!!isFullVersion) {
-      console.log(loading + ' ' + isFullVersion);
       return <></>;
     }
-    console.log(menu);
 
     menu.map((item, index) => {
       let subs = [];
@@ -143,11 +141,9 @@ export default function Landing(props) {
     if (fullRelease && path != "QA" ) {
       if (path) {
         let exactPath = paths + "?filter[alias]=/" + path;
-        console.log(exactPath);
         let [res] =  await Promise.all([
           axios.get(exactPath),
           ]);
-        console.log(res);
         if (res.data.meta.count>0 && res.data ) {
           let filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
           d_url_fi_full = d_url_fi_full_page + filter;
@@ -168,16 +164,16 @@ export default function Landing(props) {
       ]);
     }
 
-    console.log(sv.data);
+    //console.log(sv.data);
     let fiData = findData('fi', fi.data, f, m, d);
     let svData = findData('sv', sv.data, f, m, d);
     let enData = findData('en', en.data, f, m, d);
     //console.log(en);
     //setError(false);
-    console.log(svData);
-    console.log(fiData);
-    console.log(enData);
-    console.log(configuration);
+    //console.log(svData);
+    //console.log(fiData);
+    //console.log(enData);
+    //console.log(configuration);
     setData({
       en: enData, fi: fiData, sv: svData,
       files: f,
