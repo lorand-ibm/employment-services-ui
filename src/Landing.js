@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FooterBottom from './FooterBottom';
@@ -9,7 +9,8 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory} from "react-router-dom";
-
+import {findData, getFullRelease, makeMenu} from "./dataHelper";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -36,6 +37,8 @@ export default function Landing(props) {
   let {id, restofit} = useParams();
   let history = useHistory();
   const [lang, setLang] = useState(id);
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
   const classes = useStyles();
 
   const setItUrl = (l) => {
@@ -59,11 +62,72 @@ export default function Landing(props) {
     setItUrl('fi');
   }
 
-  const { data, loading, testing, site } = props;
+  const { testing, site } = props;
   let useData = data.fi;
   if (testing) {
     useData = {en: data_en, sv: data_sv, fi: data_fi,};
   }
+
+  useEffect(() => {
+    async function makeRequests() {
+      setLoading(true);
+
+      let d_url_fi = site + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
+      let d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
+      let d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
+      const files = site + '/apijson/file/file';
+      const media = site + '/apijson/media/image';
+      const doc = site + '/apijson/media/document';
+      const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
+      const menuData = site + '/apijson/menu_link_content/menu_link_content';
+      const paths = site + '/apijson/path_alias/path_alias';
+
+      let [f, m, d, configuration, me,] = await Promise.all([
+        axios.get(files),
+        axios.get(media),
+        axios.get(doc),
+        axios.get(conf),
+        axios.get(menuData)
+      ]);
+
+      console.log(me);
+      let menus = makeMenu(me);
+      console.log(menus);
+      const fullRelease = getFullRelease(configuration);
+
+      let [fi, sv, en,] = [null, null, null,];
+
+      if (fullRelease) {
+        [fi, sv, en,] = await Promise.all([
+          axios.get(d_url_fi),
+          axios.get(d_url_sv),
+          axios.get(d_url_en),
+        ]);
+      } else {
+        [fi, sv, en,] = await Promise.all([
+          axios.get(d_url_fi),
+          axios.get(d_url_sv),
+          axios.get(d_url_en),
+        ]);
+      }
+
+      console.log(en);
+
+      let fiData = findData('fi', fi.data, f, m, d);
+      let svData = findData('sv', sv.data, f, m, d);
+      let enData = findData('en', en.data, f, m, d);
+      console.log(en);
+      //setError(false);
+      console.log(svData);
+      console.log(fiData);
+      console.log(enData);
+      console.log(configuration);
+      setData({en: enData, fi: fiData, sv: svData, files: f, media: m, configuration: configuration, site: site});
+      setLoading(false);
+    }
+
+    makeRequests();
+  }, []);
 
   let logolang = 'fi';
   let appName = appNames.fi.name;
@@ -95,7 +159,6 @@ export default function Landing(props) {
   if (loading) {
     return <div></div>;
   }
-
 
 
   return (

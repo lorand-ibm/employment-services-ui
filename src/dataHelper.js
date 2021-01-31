@@ -1,3 +1,45 @@
+let _ = require('lodash');
+
+const findSubmenu = (m, uri) => {
+  let subs = [];
+  let name = uri.substring(10);
+  console.log("etsi: " + name);
+  m.data.data.map((item, index) => {
+    if ((item.attributes.menu_name.replace('_', '-')) === name.replace('_', '-')) {
+      console.log('found ' + name);
+      subs.push( {
+        name: item.attributes.title,
+        link: item.attributes.link.uri,
+        items: findSubmenu(m, item.attributes.link.uri),
+        weight: item.attributes.weight,
+      });
+    }
+  });
+  let subs2 = _.orderBy(subs, ['weight'],['asc']);
+  return subs2;
+}
+
+export const makeMenu = (m) => {
+  let menu = [];
+  if (!!!m || !!!m.data) {
+    console.log('no menus');
+    return menu;
+  }
+  //console.log(m.data.data);
+  m.data.data.map((item, index) => {
+    //console.log(item);
+      if (item.attributes.menu_name == 'main') {
+        menu.push({
+          name: item.attributes.title,
+          link: item.attributes.link.uri,
+          items: findSubmenu(m, item.attributes.link.uri),
+          weight: item.attributes.weight,
+        });
+      }
+  });
+  let menu2 = _.orderBy(menu, ['weight'],['asc']);
+  return menu2;
+}
 
 export const findImageUrl = (uid, files, media) => {
   if (!!!files || !!!files.data || !!!media || !!!media.data) {
