@@ -65,7 +65,7 @@ export const findPdfUrl = (uid, files, pdfs) => {
 export const findData = (lang, json, files, media, doc) => {
   let data = [];
   if (!!!json.included) {
-    console.log('error with data');
+    console.log('error with data, no json.included');
     return data;
   }
   json.included.map((item, index) => {

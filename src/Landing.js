@@ -40,7 +40,9 @@ let appNames = {
 
 export default function Landing(props) {
   let {id, restofit} = useParams();
+
   let history = useHistory();
+  const [path, setPath] = useState(restofit);
   const [lang, setLang] = useState(id);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -103,67 +105,91 @@ export default function Landing(props) {
     return nav;
   }
 
-  useEffect(() => {
-    async function makeRequests() {
-      setLoading(true);
+  async function makeRequests() {
 
-      let d_url_fi = site + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
-      let d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
-      let d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
-      const files = site + '/apijson/file/file';
-      const media = site + '/apijson/media/image';
-      const doc = site + '/apijson/media/document';
-      const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
-      const menuData = site + '/apijson/menu_link_content/menu_link_content';
-      const paths = site + '/apijson/path_alias/path_alias';
+    setLoading(true);
 
-      let [f, m, d, configuration, me,] = await Promise.all([
-        axios.get(files),
-        axios.get(media),
-        axios.get(doc),
-        axios.get(conf),
-        axios.get(menuData)
-      ]);
+    let d_url_fi = site + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
+    let d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
+    let d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
 
-      let menus = makeMenu(me);
-      const fullRelease = getFullRelease(configuration);
+    let d_url_fi_full = site + '/fi/apijson/node/landing?include=field_landing_content';
+    let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content';
+    let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content';
 
-      let [fi, sv, en,] = [null, null, null,];
+    let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content';
+    let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content';
+    let d_url_sv_full_page = site + '/sv/apijson/node/page?include=field_page_content';
 
-      if (fullRelease) {
-        [fi, sv, en,] = await Promise.all([
-          axios.get(d_url_fi),
-          axios.get(d_url_sv),
-          axios.get(d_url_en),
-        ]);
-      } else {
-        [fi, sv, en,] = await Promise.all([
-          axios.get(d_url_fi),
-          axios.get(d_url_sv),
-          axios.get(d_url_en),
-        ]);
+    const files = site + '/apijson/file/file';
+    const media = site + '/apijson/media/image';
+    const doc = site + '/apijson/media/document';
+    const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
+    const menuData = site + '/apijson/menu_link_content/menu_link_content';
+    const paths = site + '/apijson/path_alias/path_alias';
+
+    let [f, m, d, configuration, me] = await Promise.all([
+      axios.get(files),
+      axios.get(media),
+      axios.get(doc),
+      axios.get(conf),
+      axios.get(menuData),
+    ]);
+
+    let menus = makeMenu(me);
+    const fullRelease = getFullRelease(configuration);
+    let [fi, sv, en,] = [null, null, null,];
+
+    if (fullRelease && path != "QA" ) {
+      if (path) {
+        let exactPath = paths + "?filter[alias]=/" + path;
+        console.log(exactPath);
+        let [res] =  await Promise.all([
+          axios.get(exactPath),
+          ]);
+        console.log(res);
+        if (res.data.meta.count>0 && res.data ) {
+          let filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
+          d_url_fi_full = d_url_fi_full_page + filter;
+          d_url_sv_full = d_url_sv_full_page + filter;
+          d_url_en_full = d_url_en_full_page + filter;
+        }
       }
-
-      let fiData = findData('fi', fi.data, f, m, d);
-      let svData = findData('sv', sv.data, f, m, d);
-      let enData = findData('en', en.data, f, m, d);
-      //console.log(en);
-      //setError(false);
-      console.log(svData);
-      console.log(fiData);
-      console.log(enData);
-      console.log(configuration);
-      setData({
-        en: enData, fi: fiData, sv: svData,
-        files: f,
-        media: m,
-        configuration: configuration,
-        fullVersion: fullRelease,
-        site: site,
-        menu: menus,});
-      setLoading(false);
+      [fi, sv, en,] = await Promise.all([
+        axios.get(d_url_fi_full),
+        axios.get(d_url_sv_full),
+        axios.get(d_url_en_full),
+      ]);
+    } else {
+      [fi, sv, en,] = await Promise.all([
+        axios.get(d_url_fi),
+        axios.get(d_url_sv),
+        axios.get(d_url_en),
+      ]);
     }
 
+    console.log(sv.data);
+    let fiData = findData('fi', fi.data, f, m, d);
+    let svData = findData('sv', sv.data, f, m, d);
+    let enData = findData('en', en.data, f, m, d);
+    //console.log(en);
+    //setError(false);
+    console.log(svData);
+    console.log(fiData);
+    console.log(enData);
+    console.log(configuration);
+    setData({
+      en: enData, fi: fiData, sv: svData,
+      files: f,
+      media: m,
+      configuration: configuration,
+      fullVersion: fullRelease,
+      site: site,
+      menu: menus,});
+    setLoading(false);
+  }
+
+  useEffect(() => {
     makeRequests();
   }, []);
 
@@ -191,9 +217,21 @@ export default function Landing(props) {
       langSelect = 'FI';
   }
 
-  const heroTitle = loading ? 'loading' : useData[0].title;
-  const heroText = loading ? 'loading' : useData[0].text;
-  const heroUrl = loading ? 'loading' : useData[0].url;
+  let heroTitle = "";
+  let heroText = "";
+  let heroUrl = "";
+  let isHero = true;
+
+  if (!loading) {
+    if (useData[0].type === 'Hero') {
+      heroTitle = useData[0].title;
+      heroText = useData[0].text;
+      heroUrl = useData[0].url;
+    } else {
+      isHero = false;
+    }
+  }
+
   if (loading) {
     return <div></div>;
   }
@@ -232,13 +270,13 @@ export default function Landing(props) {
 
       {loading ? <div></div> :
         <main className={classes.main}>
-          <Hero
+          {!isHero ?? <Hero
             title={heroTitle}
             text={heroText}
             url={heroUrl}
             site={site}
             className={classes.hero}
-          />
+          /> }
           <Paragraphs paragraphs={useData} site={site} className={classes.paragraphs}/>
           }
         </main>
