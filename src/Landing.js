@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 let appNames = {
   fi: { name: 'Työllisyyspalvelut'},
   sv: { name: 'Arbetstjänster'},
-  en: { name: 'Employment services'}
+  en: { name: 'Employment services'},
 };
 
 export default function Landing(props) {

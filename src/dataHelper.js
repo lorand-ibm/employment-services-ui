@@ -3,10 +3,8 @@ let _ = require('lodash');
 const findSubmenu = (m, uri) => {
   let subs = [];
   let name = uri.substring(10);
-  console.log("etsi: " + name);
   m.data.data.map((item, index) => {
     if ((item.attributes.menu_name.replace('_', '-')) === name.replace('_', '-')) {
-      console.log('found ' + name);
       subs.push( {
         name: item.attributes.title,
         link: item.attributes.link.uri,
@@ -25,9 +23,7 @@ export const makeMenu = (m) => {
     console.log('no menus');
     return menu;
   }
-  //console.log(m.data.data);
   m.data.data.map((item, index) => {
-    //console.log(item);
       if (item.attributes.menu_name == 'main') {
         menu.push({
           name: item.attributes.title,
@@ -184,10 +180,10 @@ export const findData = (lang, json, files, media, doc) => {
 
 export const getFullRelease = (conf) => {
   console.log(conf);
-  if (!!!conf || !!!conf.data) {
+  if (!!!conf || !!!conf.data || !!!conf.data) {
     return false;
   }
-  return conf.data[0];
+  return conf.data.data[0].field_full_release_content;
 }
 
 
