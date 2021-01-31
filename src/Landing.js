@@ -270,13 +270,13 @@ export default function Landing(props) {
 
       {loading ? <div></div> :
         <main className={classes.main}>
-          {!isHero ?? <Hero
+          {isHero ? <Hero
             title={heroTitle}
             text={heroText}
             url={heroUrl}
             site={site}
             className={classes.hero}
-          /> }
+          /> : <></>}
           <Paragraphs paragraphs={useData} site={site} className={classes.paragraphs}/>
           }
         </main>
