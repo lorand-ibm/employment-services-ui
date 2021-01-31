@@ -13,6 +13,11 @@ import {findData, getFullRelease, makeMenu} from "./dataHelper";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
+  navi: {
+    zIndex: 10000,
+    fontFamily: 'HelsinkiGrotesk',
+    fontSize: 16,
+  },
   mainGrid: {
     marginTop: theme.spacing(3),
   },
@@ -68,6 +73,36 @@ export default function Landing(props) {
     useData = {en: data_en, sv: data_sv, fi: data_fi,};
   }
 
+  const getNavi = (menu, loading, isFullVersion, lang) => {
+    let nav = [];
+    if (loading || !!!menu || !!!isFullVersion) {
+      console.log(loading + ' ' + isFullVersion);
+      return <></>;
+    }
+    console.log(menu);
+
+    menu.map((item, index) => {
+      let subs = [];
+      item.items.map((sub, i) => {
+        subs.push(
+          <Navigation.Item
+            key={i}
+            as="a"
+            href={'/' + lang + '/' + sub.link.substr(10)}
+            label={sub.name}
+            onClick={function noRefCheck(){}}
+          />
+        );
+      });
+      nav.push(
+        <Navigation.Dropdown label={item.name} key={index}>
+          {subs}
+        </Navigation.Dropdown>
+      );
+    });
+    return nav;
+  }
+
   useEffect(() => {
     async function makeRequests() {
       setLoading(true);
@@ -90,9 +125,7 @@ export default function Landing(props) {
         axios.get(menuData)
       ]);
 
-      console.log(me);
       let menus = makeMenu(me);
-      console.log(menus);
       const fullRelease = getFullRelease(configuration);
 
       let [fi, sv, en,] = [null, null, null,];
@@ -111,18 +144,23 @@ export default function Landing(props) {
         ]);
       }
 
-      console.log(en);
-
       let fiData = findData('fi', fi.data, f, m, d);
       let svData = findData('sv', sv.data, f, m, d);
       let enData = findData('en', en.data, f, m, d);
-      console.log(en);
+      //console.log(en);
       //setError(false);
       console.log(svData);
       console.log(fiData);
       console.log(enData);
       console.log(configuration);
-      setData({en: enData, fi: fiData, sv: svData, files: f, media: m, configuration: configuration, site: site});
+      setData({
+        en: enData, fi: fiData, sv: svData,
+        files: f,
+        media: m,
+        configuration: configuration,
+        fullVersion: fullRelease,
+        site: site,
+        menu: menus,});
       setLoading(false);
     }
 
@@ -160,11 +198,12 @@ export default function Landing(props) {
     return <div></div>;
   }
 
+  const navi = getNavi(data.menu, loading, data.fullVersion, lang);
 
   return (
     <React.Fragment>
       <CssBaseline />
-        <Navigation
+        <Navigation className={classes.navi}
             logoLanguage={logolang}
             menuToggleAriaLabel="Menu"
             skipTo="#content"
@@ -184,7 +223,13 @@ export default function Landing(props) {
                 <Navigation.Item label="In English" onClick={() => setIt('en')}/>
               </Navigation.LanguageSelector>
             </Navigation.Actions>
-          </Navigation>
+
+          <Navigation.Row >
+            {navi}
+            </Navigation.Row>
+
+        </Navigation>
+
       {loading ? <div></div> :
         <main className={classes.main}>
           <Hero

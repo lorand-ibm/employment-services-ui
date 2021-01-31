@@ -179,11 +179,10 @@ export const findData = (lang, json, files, media, doc) => {
 }
 
 export const getFullRelease = (conf) => {
-  console.log(conf);
   if (!!!conf || !!!conf.data || !!!conf.data) {
     return false;
   }
-  return conf.data.data[0].field_full_release_content;
+  return conf.data.data[0].attributes.field_full_release_content;
 }
 
 
