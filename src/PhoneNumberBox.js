@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import * as React from "react";
 import {Card} from "hds-react/components/Card";
-import {Button} from "hds-react/components/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 //import "hds-core";
@@ -14,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     background: 'white',
     fontFamily: 'HelsinkiGrotesk',
     borderColor: 'red',
-    xxheight: 100,
     marginBottom: 0,
   },
   text: {
@@ -31,14 +29,12 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     marginTop: 15,
-    xxwidth: 100,
-    xxheight: 100,
   }
 }));
 
 function PhoneNumberBox(props) {
     const classes = useStyles();
-    const { title, text, button_text } = props;
+    const { title, text } = props;
 
     return (
         <React.Fragment>

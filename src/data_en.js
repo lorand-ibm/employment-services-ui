@@ -88,7 +88,7 @@ const data_en = [
           '<b>Helsinki-info</b> gives advice about Helsinki’s services, including information about opening hours and similar basics.  \n<br>' +
           '\n<br>' +
           'Helsinki-info’s phone number: <b>09 310 11 111</b> (Mon–Thu 9–16, Fri 10–15) \n<br>' +
-          "Helsinki-info’s " + '<a href="https://www.hel.fi/kanslia/neuvonta-en/">chat</a> (Mon–Thu 9–16, Fri 10–15) '
+          'Helsinki-info’s <a href="https://www.hel.fi/kanslia/neuvonta-en/">chat</a> (Mon–Thu 9–16, Fri 10–15) '
     },
     { type: "Accordion", title: "Where can I find more information? ",
         text: 'You can get more information in Finnish on the following websites:  \n<br>' +
