@@ -4,15 +4,11 @@ import './fonts.css';
 
 import Landing from './Landing';
 import {ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import React, { useEffect, useState } from 'react';
-import {findData, getFullRelease} from "./dataHelper";
+import React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  useParams
 } from "react-router-dom";
 
 const groteskTheme = createMuiTheme({
@@ -43,6 +39,9 @@ function App() {
       <ThemeProvider theme={groteskTheme}>
 
           <Switch>
+            <Route path="/QA">
+              <Redirect to={'/fi/QA'}/>
+            </Route>
             <Route path="/:id/:restofit"
                    children={<Landing loading={true} testing={testing} site={site}></Landing>}/>
             <Route path="/:id"
