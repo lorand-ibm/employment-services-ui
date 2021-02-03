@@ -197,7 +197,19 @@ export const getFullRelease = (conf) => {
 }
 
 export const findTaxonomy = (data, field) => {
-    console.log(data.$field);
-    return "Narrow";
+    console.log(data.included);
+
+    try {
+      let type = data.data[0].relationships[field].data.type;
+      let taxonomy = _.find(data.included, {type: type});
+      if (taxonomy) {
+        return taxonomy.attributes.name;
+      }
+    } catch(error) {
+      console.log(field);
+      console.log(error);
+    }
+
+    return "";
 }
 

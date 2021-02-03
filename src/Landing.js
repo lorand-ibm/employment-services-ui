@@ -113,9 +113,9 @@ export default function Landing(props) {
     let d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
     let d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
 
-    let d_url_fi_full = site + '/fi/apijson/node/landing?include=field_landing_content';
-    let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content';
-    let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content';
+    let d_url_fi_full = site + '/fi/apijson/node/landing?include=field_landing_content,field_page_width';
+    let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content,field_page_width';
+    let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content,field_page_width';
 
     let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content,field_page_width';
     let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content,field_page_width';
@@ -181,6 +181,7 @@ export default function Landing(props) {
     let fiData = findData('fi', fi.data, f, m, d);
     let svData = findData('sv', sv.data, f, m, d);
     let enData = findData('en', en.data, f, m, d);
+    const width = findTaxonomy(en.data, 'field_page_width');
     console.log(en);
     //setError(false);
     console.log(svData);
@@ -189,6 +190,7 @@ export default function Landing(props) {
     console.log(configuration);
     setData({
       en: enData, fi: fiData, sv: svData,
+      width: width,
       files: f,
       media: m,
       configuration: configuration,
@@ -246,7 +248,6 @@ export default function Landing(props) {
   }
 
   const navi = getNavi(data.menu, loading, data.fullVersion, lang);
-  const width = findTaxonomy(data, 'field_page_width');
 
   return (
     <React.Fragment>
@@ -287,7 +288,7 @@ export default function Landing(props) {
             site={site}
             className={classes.hero}
           /> : <></>}
-          <Paragraphs paragraphs={useData} width={width} site={site} className={classes.paragraphs}/>
+          <Paragraphs paragraphs={useData} width={data.width} site={site} className={classes.paragraphs}/>
           }
         </main>
       }
