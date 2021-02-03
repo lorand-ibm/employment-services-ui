@@ -44,7 +44,7 @@ function Image(props) {
         <React.Fragment>
             <Card
               border
-              heading={'image '}
+              heading={'image'}
               className={classes.title}
               theme = {{
                 'card-body-margin-bottom' : 0

@@ -9,7 +9,7 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory} from "react-router-dom";
-import {findData, getFullRelease, makeMenu} from "./dataHelper";
+import {findData, getFullRelease, makeMenu, findTaxonomy} from "./dataHelper";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +42,7 @@ export default function Landing(props) {
   let {id, restofit} = useParams();
 
   let history = useHistory();
-  const [path, setPath] = useState(restofit);
+  const [path] = useState(restofit);
   const [lang, setLang] = useState(id);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -65,7 +65,7 @@ export default function Landing(props) {
     setLang(l);
   }
 
-  if (id != 'sv' && id != 'en' && id != 'fi') {
+  if (id !== 'sv' && id !== 'en' && id !== 'fi') {
     setItUrl('fi');
   }
 
@@ -93,12 +93,14 @@ export default function Landing(props) {
             onClick={function noRefCheck(){}}
           />
         );
+        return subs;
       });
       nav.push(
         <Navigation.Dropdown label={item.name} key={index}>
           {subs}
         </Navigation.Dropdown>
       );
+      return nav;
     });
     return nav;
   }
@@ -115,9 +117,13 @@ export default function Landing(props) {
     let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content';
     let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content';
 
-    let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content';
-    let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content';
-    let d_url_sv_full_page = site + '/sv/apijson/node/page?include=field_page_content';
+    let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content,field_page_width';
+    let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content,field_page_width';
+    let d_url_sv_full_page = site + '/sv/apijson/node/page?include=field_page_content,field_page_width';
+
+    let d_url_en_full_news = site + '/apijson/node/news?include=field_page_content,field_page_width';
+    let d_url_fi_full_news = site + '/fi/apijson/node/news?include=field_page_content,field_page_width';
+    let d_url_sv_full_news = site + '/sv/apijson/node/news?include=field_page_content,field_page_width';
 
     const files = site + '/apijson/file/file';
     const media = site + '/apijson/media/image';
@@ -138,7 +144,7 @@ export default function Landing(props) {
     const fullRelease = getFullRelease(configuration);
     let [fi, sv, en,] = [null, null, null,];
 
-    if (fullRelease && path != "QA" ) {
+    if (fullRelease && path !== "QA" ) {
       if (path) {
         let exactPath = paths + "?filter[alias]=/" + path;
         let [res] =  await Promise.all([
@@ -156,6 +162,13 @@ export default function Landing(props) {
         axios.get(d_url_sv_full),
         axios.get(d_url_en_full),
       ]);
+      if (en.data.data.meta === '0') {
+        [fi, sv, en,] = await Promise.all([
+          axios.get(d_url_fi_full_news),
+          axios.get(d_url_sv_full_news),
+          axios.get(d_url_en_full_news),
+        ]);
+      }
     } else {
       [fi, sv, en,] = await Promise.all([
         axios.get(d_url_fi),
@@ -168,12 +181,12 @@ export default function Landing(props) {
     let fiData = findData('fi', fi.data, f, m, d);
     let svData = findData('sv', sv.data, f, m, d);
     let enData = findData('en', en.data, f, m, d);
-    //console.log(en);
+    console.log(en);
     //setError(false);
-    //console.log(svData);
-    //console.log(fiData);
-    //console.log(enData);
-    //console.log(configuration);
+    console.log(svData);
+    console.log(fiData);
+    console.log(enData);
+    console.log(configuration);
     setData({
       en: enData, fi: fiData, sv: svData,
       files: f,
@@ -233,6 +246,7 @@ export default function Landing(props) {
   }
 
   const navi = getNavi(data.menu, loading, data.fullVersion, lang);
+  const width = findTaxonomy(data, 'field_page_width');
 
   return (
     <React.Fragment>
@@ -273,7 +287,7 @@ export default function Landing(props) {
             site={site}
             className={classes.hero}
           /> : <></>}
-          <Paragraphs paragraphs={useData} site={site} className={classes.paragraphs}/>
+          <Paragraphs paragraphs={useData} width={width} site={site} className={classes.paragraphs}/>
           }
         </main>
       }

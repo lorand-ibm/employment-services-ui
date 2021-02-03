@@ -12,6 +12,7 @@ const findSubmenu = (m, uri) => {
         weight: item.attributes.weight,
       });
     }
+    return subs;
   });
   let subs2 = _.orderBy(subs, ['weight'],['asc']);
   return subs2;
@@ -24,7 +25,7 @@ export const makeMenu = (m) => {
     return menu;
   }
   m.data.data.map((item, index) => {
-      if (item.attributes.menu_name == 'main') {
+      if (item.attributes.menu_name === 'main') {
         menu.push({
           name: item.attributes.title,
           link: item.attributes.link.uri,
@@ -32,6 +33,7 @@ export const makeMenu = (m) => {
           weight: item.attributes.weight,
         });
       }
+      return menu;
   });
   let menu2 = _.orderBy(menu, ['weight'],['asc']);
   return menu2;
@@ -174,6 +176,8 @@ export const findData = (lang, json, files, media, doc) => {
           text: getTextValue(item.attributes.field_pb_text),
         });
         break;
+      case 'taxonomy_term--paragraph_width':
+        break;
       default:
         data.push({
           type: 'Unid',
@@ -192,4 +196,8 @@ export const getFullRelease = (conf) => {
   return conf.data.data[0].attributes.field_full_release_content;
 }
 
+export const findTaxonomy = (data, field) => {
+    console.log(data.$field);
+    return "Narrow";
+}
 

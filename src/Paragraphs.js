@@ -78,8 +78,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Paragraphs(props) {
     const classes = useStyles();
-    const { paragraphs, site } = props;
-    //console.log(paragraphs);
+    const { paragraphs, site, width } = props;
+    console.log(width);
     const items = [];
     paragraphs.map((paragraph, index) => {
 
@@ -201,6 +201,7 @@ Paragraphs.propTypes = {
             type: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             text: PropTypes.string.isRequired,
+            width: PropTypes.number.isRequired,
         }),
     ).isRequired,
 };
