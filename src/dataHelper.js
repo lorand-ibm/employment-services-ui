@@ -82,99 +82,149 @@ export const findData = (lang, json, files, media, doc) => {
     switch(item.type) {
       case 'paragraph--accordion':
         //console.log(item);
-        data.push({
-          type: 'Accordion',
-          lang: item.attributes.langcode,
-          title: item.attributes.field_accordion_title,
-          text: getTextValue(item.attributes.field_accordion_text),
-        });
+        try {
+          data.push({
+            type: 'Accordion',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_accordion_title,
+            text: getTextValue(item.attributes.field_accordion_text),
+          });
+        } catch(error) {
+          console.log("accordion");
+          console.log(error);
+        }
         break;
       case 'paragraph--card':
-        data.push({
-          type: 'Card',
-          lang: item.attributes.langcode,
-          title: item.attributes.field_card_title,
-          text: getTextValue(item.attributes.field_card_text),
-          button_text: item.attributes.field_card_button_text ,
-        });
+        try {
+          data.push({
+            type: 'Card',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_card_title,
+            text: getTextValue(item.attributes.field_card_text),
+            button_text: item.attributes.field_card_button_text ,
+          });
+        } catch(error) {
+          console.log("card");
+          console.log(error);
+        }
         break;
       case 'paragraph--hero':
-        let url = null;
-        if (!!!item.relationships.field_hero_image || !!item.relationships.field_hero_image.data) {
-          url = findImageUrl(item.relationships.field_hero_image.data.id, files, media);
+        try {
+          let url = null;
+          if (!!!item.relationships.field_hero_image || !!item.relationships.field_hero_image.data) {
+            url = findImageUrl(item.relationships.field_hero_image.data.id, files, media);
+          }
+          data.push({
+            type: 'Hero',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_hero_title,
+            text: getTextValue(item.attributes.field_hero_text),
+            url: url,
+          });
+        } catch(error) {
+          console.log("hero");
+          console.log(error);
         }
-        data.push({
-          type: 'Hero',
-          lang: item.attributes.langcode,
-          title: item.attributes.field_hero_title,
-          text: getTextValue(item.attributes.field_hero_text),
-          url: url,
-        });
         break;
       case 'paragraph--info':
-        data.push({
-          type: 'Info',
-          lang: item.attributes.langcode,
-          title: item.attributes.field_info_title,
-          text: getTextValue(item.attributes.field_info_text),
-        });
+        try {
+            data.push({
+              type: 'Info',
+              lang: item.attributes.langcode,
+              title: item.attributes.field_info_title,
+              text: getTextValue(item.attributes.field_info_text),
+            });
+        } catch(error) {
+          console.log("info");
+          console.log(error);
+        }
         break;
       case 'paragraph--image_and_card':
-        let image = null;
-        if (item.relationships.field_ic_image.data) {
-          image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
+        try {
+          let image = null;
+          if (item.relationships.field_ic_image.data) {
+            image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
+          }
+          data.push({
+            type: 'ImageAndCard',
+            lang: item.attributes.langcode,
+            title: '',
+            text: '',
+            image: image,
+          });
+        } catch(error) {
+          console.log("image and card");
+          console.log(error);
         }
-        data.push({
-          type: 'ImageAndCard',
-          lang: item.attributes.langcode,
-          title: '',
-          text: '',
-          image: image,
-        });
         break;
       case 'paragraph--image':
-        data.push({
-          type: 'Image',
-          lang: item.attributes.langcode,
-          title: '',
-          text: '',
-          image: findImageUrl(item.relationships.field_image_image.data.id, files, media),
-        });
+        try {
+          data.push({
+            type: 'Image',
+            lang: item.attributes.langcode,
+            title: '',
+            text: '',
+            image: findImageUrl(item.relationships.field_image_image.data.id, files, media),
+          });
+        } catch(error) {
+          console.log("image");
+          console.log(error);
+        }
         break;
       case 'paragraph--link_internal':
-        let pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
-        data.push({
-          type: 'Pdf',
-          lang: lang,
-          title: item.attributes.field_doc_title,
-          text: '',
-          url: pdfUrl,
-        });
+        try {
+          let pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
+          data.push({
+            type: 'Pdf',
+            lang: lang,
+            title: item.attributes.field_doc_title,
+            text: '',
+            url: pdfUrl,
+          });
+        } catch(error) {
+            console.log("pdf");
+            console.log(error);
+          }
         break;
       case 'paragraph--subheading':
-        data.push({
-          type: 'Subheading',
-          lang: item.attributes.langcode,
-          title: item.attributes.field_subheading_title,
-          text: '',
-        });
+        try {
+          data.push({
+            type: 'Subheading',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_subheading_title,
+            text: '',
+          });
+        } catch(error) {
+          console.log("subheading");
+          console.log(error);
+        }
         break;
       case 'paragraph--text':
-        data.push({
-          type: 'Text',
-          lang: item.attributes.langcode,
-          title: '',
-          text: getTextValue(item.attributes.field_text_demo),
+        try {
+          data.push({
+            type: 'Text',
+            lang: item.attributes.langcode,
+            title: '',
+            text: getTextValue(item.attributes.field_text_demo),
 
-        });
+          });
+        } catch(error) {
+            console.log("text");
+            console.log(error);
+        }
         break;
       case 'paragraph--phone_number_box':
-        data.push({
-          type: 'PhoneNumberBox',
-          lang: item.attributes.langcode,
-          title: item.attributes.field_pb_title,
-          text: getTextValue(item.attributes.field_pb_text),
-        });
+        try {
+          data.push({
+            type: 'PhoneNumberBox',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_pb_title,
+            text: getTextValue(item.attributes.field_pb_text),
+          });
+        } catch(error) {
+          console.log("text");
+          console.log(error);
+        }
         break;
       case 'taxonomy_term--paragraph_width':
         break;

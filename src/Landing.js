@@ -289,7 +289,7 @@ export default function Landing(props) {
             className={classes.hero}
           /> : <></>}
           <Paragraphs paragraphs={useData} width={data.width} site={site} className={classes.paragraphs}/>
-          
+
         </main>
       }
       <FooterBottom
