@@ -234,7 +234,7 @@ export default function Landing(props) {
   let isHero = true;
 
   if (!loading) {
-    if (useData[0].type === 'Hero') {
+    if (useData.length>0 && useData[0].type === 'Hero') {
       heroTitle = useData[0].title;
       heroText = useData[0].text;
       heroUrl = useData[0].url;
