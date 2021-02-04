@@ -101,10 +101,25 @@ export const findData = (lang, json, files, media, doc) => {
             lang: item.attributes.langcode,
             title: item.attributes.field_card_title,
             text: getTextValue(item.attributes.field_card_text),
-            button_text: item.attributes.field_card_button_text ,
+            button_text: item.attributes.field_card_button_text,
+            button_url: item.attributes.field_card_button_url,
+            width: item.attributes.field_card_width,
           });
         } catch(error) {
           console.log("card");
+          console.log(error);
+        }
+        break;
+      case 'paragraph--card_list':
+        try {
+          data.push({
+            type: 'CardList',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_card_title,
+            cards: [],
+          });
+        } catch(error) {
+          console.log("card-list");
           console.log(error);
         }
         break;

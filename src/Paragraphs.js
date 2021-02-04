@@ -12,6 +12,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import Hidden from '@material-ui/core/Hidden';
 import Image from "./Image";
 import ImageAndCard from "./ImageAndCard";
+import CardList from "./CardList";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -106,6 +107,17 @@ function Paragraphs(props) {
                 </Grid>
               );
               break;
+          case 'CardList':
+            items.push(
+              <Grid container spacing={1} className={classes.card} key={index}>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
+                <Grid item xs={12} sm={12} key={2}>
+                  <CardList key={index} {...paragraph}></CardList>
+                </Grid>
+                <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
+              </Grid>
+            );
+            break;
             case 'Subheading':
                 items.push(
                   <Grid container spacing={1} className={classes.subheading} key={index}>

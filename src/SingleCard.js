@@ -4,6 +4,9 @@ import {Card} from "hds-react/components/Card";
 import {Button} from "hds-react/components/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import LaunchIcon from "@material-ui/icons/Launch";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -23,7 +26,21 @@ const useStyles = makeStyles((theme) => ({
 
 function SingleCard(props) {
     const classes = useStyles();
-    const { title, text, button_text } = props;
+    const { title, text, button_text, button_url, width } = props;
+
+    console.log(button_url);
+
+    let button = [];
+    if (button_text) {
+      button =
+          <Link href={button_url} key={button_text}>
+            <Grid container spacing={1}>
+              <Grid item >
+                <Typography>{button_text}</Typography>
+              </Grid>
+            </Grid>
+          </Link>
+    }
 
     return (
         <React.Fragment>
@@ -36,7 +53,7 @@ function SingleCard(props) {
                 className={classes.button}
                 variant="secondary"
               >
-                {button_text}
+                {button}
               </Button>
             </Card>
         </React.Fragment>
