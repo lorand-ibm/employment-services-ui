@@ -134,7 +134,7 @@ export const findData = (lang, json, files, media, doc) => {
             title: item.attributes.field_card_list_title,
             cards: cards,
             bgColor: 'White',
-            isKoro: false,
+            isKoro: item.attributes.field_card_list_is_koro ? true : false,
           });
         } catch(error) {
           console.log("card-list");
