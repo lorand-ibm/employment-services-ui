@@ -113,17 +113,17 @@ export default function Landing(props) {
     let d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
     let d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
 
-    let d_url_fi_full = site + '/fi/apijson/node/landing?include=field_landing_content,field_page_width';
-    let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content,field_page_width';
-    let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content,field_page_width';
+    let d_url_fi_full = site + '/fi/apijson/node/landing?include=field_landing_content,field_page_width,field_page_content.field_cards';
+    let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content,field_page_width,field_page_content.field_cards';
+    let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content,field_page_width,field_page_content.field_cards';
 
-    let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content,field_page_width';
-    let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content,field_page_width';
-    let d_url_sv_full_page = site + '/sv/apijson/node/page?include=field_page_content,field_page_width';
+    let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content,field_page_width,field_page_content.field_cards';
+    let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content,field_page_width,field_page_content.field_cards';
+    let d_url_sv_full_page = site + '/sv/apijson/node/page?include=field_page_content,field_page_width,field_page_content.field_cards';
 
-    let d_url_en_full_news = site + '/apijson/node/news?include=field_page_content,field_page_width';
-    let d_url_fi_full_news = site + '/fi/apijson/node/news?include=field_page_content,field_page_width';
-    let d_url_sv_full_news = site + '/sv/apijson/node/news?include=field_page_content,field_page_width';
+    let d_url_en_full_news = site + '/apijson/node/news?include=field_page_content,field_page_width,field_page_content.field_cards';
+    let d_url_fi_full_news = site + '/fi/apijson/node/news?include=field_page_content,field_page_width,field_page_content.field_cards';
+    let d_url_sv_full_news = site + '/sv/apijson/node/news?include=field_page_content,field_page_width,field_page_content.field_cards';
 
     const files = site + '/apijson/file/file';
     const media = site + '/apijson/media/image';

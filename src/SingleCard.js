@@ -4,9 +4,6 @@ import {Card} from "hds-react/components/Card";
 import {Button} from "hds-react/components/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import LaunchIcon from "@material-ui/icons/Launch";
-import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -28,32 +25,26 @@ function SingleCard(props) {
     const classes = useStyles();
     const { title, text, button_text, button_url, width } = props;
 
-    console.log(button_url);
+    const goto = (url) => {
+      window.location.href = url;
+     }
 
-    let button = [];
-    if (button_text) {
-      button =
-          <Link href={button_url} key={button_text}>
-            <Grid container spacing={1}>
-              <Grid item >
-                <Typography>{button_text}</Typography>
-              </Grid>
-            </Grid>
-          </Link>
-    }
-
-    return (
+     return (
         <React.Fragment>
             <Card
               heading={title}
               className={classes.title}
+              style ={{
+                width: width ? width : '-1'
+              }}
               >
               <Typography dangerouslySetInnerHTML={{__html: text}} className={classes.text} />
               <Button
                 className={classes.button}
                 variant="secondary"
+                onClick={() => goto(button_url)}
               >
-                {button}
+                {button_text}
               </Button>
             </Card>
         </React.Fragment>

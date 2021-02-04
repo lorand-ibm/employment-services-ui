@@ -26,7 +26,9 @@ const useStyles = makeStyles((theme) => ({
 
 function CardList(props) {
     const classes = useStyles();
-    const { title } = props;
+    const { title, bgColor, isKoro, cards } = props;
+    console.log('cards');
+    console.log(cards)
 
     return (
         <React.Fragment>
@@ -39,7 +41,6 @@ function CardList(props) {
             }}
           >
             <Grid container spacing={1}  justify="left" className={classes.textArea}>
-
               <Grid item> <Typography dangerouslySetInnerHTML={{__html: title}} className={classes.text} /> </Grid>
             </Grid>
           </Card>

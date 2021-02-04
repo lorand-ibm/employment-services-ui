@@ -71,6 +71,18 @@ const getTextValue = (path) => {
   return path.value;
 }
 
+const getCards = (d, ids) => {
+  let cards = [];
+  ids.map((item, index) => {
+    let id = item.id;
+    let card = _.find(d, {id: id});
+    card.thisCardIsInList = true;
+    cards.push(card);
+    return cards;
+  });
+  return cards;
+}
+
 export const findData = (lang, json, files, media, doc) => {
   let data = [];
   if (!!!json.included) {
@@ -95,6 +107,9 @@ export const findData = (lang, json, files, media, doc) => {
         }
         break;
       case 'paragraph--card':
+        if (item.thisCardIsInList) {
+          break;
+        }
         try {
           data.push({
             type: 'Card',
@@ -112,11 +127,14 @@ export const findData = (lang, json, files, media, doc) => {
         break;
       case 'paragraph--card_list':
         try {
+          let cards = getCards(json.included, item.relationships.field_cards.data);
           data.push({
             type: 'CardList',
             lang: item.attributes.langcode,
-            title: item.attributes.field_card_title,
-            cards: [],
+            title: item.attributes.field_card_list_title,
+            cards: cards,
+            bgColor: 'White',
+            isKoro: false,
           });
         } catch(error) {
           console.log("card-list");
