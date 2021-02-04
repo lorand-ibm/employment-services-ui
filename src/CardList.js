@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import LaunchIcon from "@material-ui/icons/Launch";
 import Link from "@material-ui/core/Link";
+import SingleCard from "./SingleCard";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
 function CardList(props) {
     const classes = useStyles();
     const { title, bgColor, isKoro, cards } = props;
-    console.log('cards');
-    console.log(cards)
 
     return (
         <React.Fragment>
@@ -41,7 +40,16 @@ function CardList(props) {
             }}
           >
             <Grid container spacing={1}  justify="left" className={classes.textArea}>
-              <Grid item> <Typography dangerouslySetInnerHTML={{__html: title}} className={classes.text} /> </Grid>
+              {cards.map((item, i) => (
+                  <Grid item>
+                    <SingleCard
+                      key={i}
+                      {...item}
+                    >
+
+                    </SingleCard>
+                  </Grid>
+                ))}
             </Grid>
           </Card>
         </React.Fragment>

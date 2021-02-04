@@ -83,6 +83,32 @@ const getCards = (d, ids) => {
   return cards;
 }
 
+const convertCardsFromDrupal = (drupalCards, includeFromList) => {
+  let cards = [];
+  try {
+    drupalCards.map((item, index) => {
+        if (includeFromList && item.thisCardIsInList ||
+            !includeFromList && !item.thisCardIsInList
+        ) {
+          cards.push({
+            type: 'Card',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_card_title,
+            text: getTextValue(item.attributes.field_card_text),
+            button_text: item.attributes.field_card_button_text,
+            button_url: item.attributes.field_card_button_url,
+            width: item.attributes.field_card_width,
+          });
+        }
+      });
+    } catch(error) {
+      console.log("card converts");
+      console.log(error);
+    }
+
+  return cards;
+}
+
 export const findData = (lang, json, files, media, doc) => {
   let data = [];
   if (!!!json.included) {
@@ -107,27 +133,16 @@ export const findData = (lang, json, files, media, doc) => {
         }
         break;
       case 'paragraph--card':
-        if (item.thisCardIsInList) {
-          break;
-        }
-        try {
-          data.push({
-            type: 'Card',
-            lang: item.attributes.langcode,
-            title: item.attributes.field_card_title,
-            text: getTextValue(item.attributes.field_card_text),
-            button_text: item.attributes.field_card_button_text,
-            button_url: item.attributes.field_card_button_url,
-            width: item.attributes.field_card_width,
-          });
-        } catch(error) {
-          console.log("card");
-          console.log(error);
+        let cards = convertCardsFromDrupal([item], false);
+        if (cards.length>0) {
+          data.push(cards[0]);
         }
         break;
       case 'paragraph--card_list':
         try {
-          let cards = getCards(json.included, item.relationships.field_cards.data);
+          let drupalCards = getCards(json.included, item.relationships.field_cards.data);
+          let cards = convertCardsFromDrupal(drupalCards, true);
+          console.log(cards);
           data.push({
             type: 'CardList',
             lang: item.attributes.langcode,
