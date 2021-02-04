@@ -124,11 +124,11 @@ export default function Landing(props) {
     setLoading(true);
 
     const preInc = "field_prerelease_";
-    const inc = "field_page_content,field_page_width,field_page_content.field_cards";
+    const inc = "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card";
     const land = "/node/landing";
     const page = "/node/page";
     const news = "/node/news";
-    const event = "/node/event";
+    //const event = "/node/event";
     const pre = "/node/prerelease_landing";
 
     const files = site + '/apijson/file/file';

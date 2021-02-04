@@ -87,8 +87,8 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
   let cards = [];
   try {
     drupalCards.map((item, index) => {
-        if (includeFromList && item.thisCardIsInList ||
-            !includeFromList && !item.thisCardIsInList
+        if ((includeFromList && item.thisCardIsInList) ||
+          (!includeFromList && !item.thisCardIsInList)
         ) {
           cards.push({
             type: 'Card',
@@ -98,8 +98,10 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
             button_text: item.attributes.field_card_button_text,
             button_url: item.attributes.field_card_button_url,
             width: item.attributes.field_card_width,
+            height: item.attributes.field_card_height,
           });
         }
+        return cards;
       });
     } catch(error) {
       console.log("card converts");
@@ -189,6 +191,8 @@ export const findData = (lang, json, files, media, doc) => {
         break;
       case 'paragraph--image_and_card':
         try {
+          let drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
+          let cards = convertCardsFromDrupal(drupalCards, true);
           let image = null;
           if (item.relationships.field_ic_image.data) {
             image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
@@ -196,8 +200,7 @@ export const findData = (lang, json, files, media, doc) => {
           data.push({
             type: 'ImageAndCard',
             lang: item.attributes.langcode,
-            title: '',
-            text: '',
+            card: cards[0],
             image: image,
           });
         } catch(error) {
