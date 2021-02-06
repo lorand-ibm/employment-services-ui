@@ -28,12 +28,6 @@ function SingleCard(props) {
     const classes = useStyles();
     const { title, text, button_text, button_url, width, height } = props;
 
-    console.log('height' + height);
-    console.log('singlecard:' + width);
-    const goto = (url) => {
-      window.location.href = url;
-     }
-
      return (
         <React.Fragment>
             <Card
@@ -48,7 +42,7 @@ function SingleCard(props) {
               <Button
                 className={classes.button}
                 variant="secondary"
-                onClick={() => goto(button_url)}
+                onClick={()=>{window.location.href=button_url}}
               >
                 {button_text}
               </Button>

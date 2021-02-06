@@ -46,5 +46,4 @@ function CardList(props) {
 
 CardList.propTypes = {};
 
-
 export default CardList;

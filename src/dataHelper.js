@@ -135,15 +135,15 @@ export const findData = (lang, json, files, media, doc) => {
         }
         break;
       case 'paragraph--card':
-        let cards = convertCardsFromDrupal([item], false);
+        const cards = convertCardsFromDrupal([item], false);
         if (cards.length>0) {
           data.push(cards[0]);
         }
         break;
       case 'paragraph--card_list':
         try {
-          let drupalCards = getCards(json.included, item.relationships.field_cards.data);
-          let cards = convertCardsFromDrupal(drupalCards, true);
+          const drupalCards = getCards(json.included, item.relationships.field_cards.data);
+          const cards = convertCardsFromDrupal(drupalCards, true);
           console.log(cards);
           data.push({
             type: 'CardList',
@@ -191,8 +191,8 @@ export const findData = (lang, json, files, media, doc) => {
         break;
       case 'paragraph--image_and_card':
         try {
-          let drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
-          let cards = convertCardsFromDrupal(drupalCards, true);
+          const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
+          const cards = convertCardsFromDrupal(drupalCards, true);
           let image = null;
           if (item.relationships.field_ic_image.data) {
             image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
@@ -282,6 +282,7 @@ export const findData = (lang, json, files, media, doc) => {
       default:
         data.push({
           type: 'Unid',
+          drupalType: item.type,
           lang: item.attributes.langcode,
         });
     }
