@@ -105,25 +105,31 @@ export default function Landing(props) {
     return nav;
   }
 
+  // return fi, sv, en
+  const getPagePath = (page, includes, filter='') => {
+    const api = "apijson";
+    let rest = "/" + api + page + "?include=" + includes;
+    if (filter) {
+      rest += filter;
+    }
+    return [
+      site + '/fi' + rest,
+      site + '/sv' + rest,
+      site + rest,
+    ];
+  }
+
   async function makeRequests() {
 
     setLoading(true);
 
-    let d_url_fi = site + '/fi/apijson/node/prerelease_landing?include=field_prerelease_';
-    let d_url_sv = site + '/sv/apijson/node/prerelease_landing?include=field_prerelease_';
-    let d_url_en = site + '/apijson/node/prerelease_landing?include=field_prerelease_';
-
-    let d_url_fi_full = site + '/fi/apijson/node/landing?include=field_landing_content,field_page_width';
-    let d_url_sv_full = site + '/sv/apijson/node/landing?include=field_landing_content,field_page_width';
-    let d_url_en_full = site + '/apijson/node/landing?include=field_landing_content,field_page_width';
-
-    let d_url_en_full_page = site + '/apijson/node/page?include=field_page_content,field_page_width';
-    let d_url_fi_full_page = site + '/fi/apijson/node/page?include=field_page_content,field_page_width';
-    let d_url_sv_full_page = site + '/sv/apijson/node/page?include=field_page_content,field_page_width';
-
-    let d_url_en_full_news = site + '/apijson/node/news?include=field_page_content,field_page_width';
-    let d_url_fi_full_news = site + '/fi/apijson/node/news?include=field_page_content,field_page_width';
-    let d_url_sv_full_news = site + '/sv/apijson/node/news?include=field_page_content,field_page_width';
+    const preInc = "field_prerelease_";
+    const inc = "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card";
+    const land = "/node/landing";
+    const page = "/node/page";
+    const news = "/node/news";
+    //const event = "/node/event";
+    const pre = "/node/prerelease_landing";
 
     const files = site + '/apijson/file/file';
     const media = site + '/apijson/media/image';
@@ -143,6 +149,7 @@ export default function Landing(props) {
     let menus = makeMenu(me);
     const fullRelease = getFullRelease(configuration);
     let [fi, sv, en,] = [null, null, null,];
+    let [fiPage, svPage, enPage] = getPagePath(land, inc);
 
     if (fullRelease && path !== "QA" ) {
       if (path) {
@@ -152,28 +159,29 @@ export default function Landing(props) {
           ]);
         if (res.data.meta.count>0 && res.data ) {
           let filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
-          d_url_fi_full = d_url_fi_full_page + filter;
-          d_url_sv_full = d_url_sv_full_page + filter;
-          d_url_en_full = d_url_en_full_page + filter;
+          [fiPage, svPage, enPage] = getPagePath(page, inc, filter);
         }
       }
       [fi, sv, en,] = await Promise.all([
-        axios.get(d_url_fi_full),
-        axios.get(d_url_sv_full),
-        axios.get(d_url_en_full),
+        axios.get(fiPage),
+        axios.get(svPage),
+        axios.get(enPage),
       ]);
       if (en.data.data.meta === '0') {
+        console.log('data not found from path');
+        [fiPage, svPage, enPage] = getPagePath(news, inc);
         [fi, sv, en,] = await Promise.all([
-          axios.get(d_url_fi_full_news),
-          axios.get(d_url_sv_full_news),
-          axios.get(d_url_en_full_news),
+          axios.get(fiPage),
+          axios.get(svPage),
+          axios.get(enPage),
         ]);
       }
     } else {
+      [fiPage, svPage, enPage] = getPagePath(pre, preInc);
       [fi, sv, en,] = await Promise.all([
-        axios.get(d_url_fi),
-        axios.get(d_url_sv),
-        axios.get(d_url_en),
+        axios.get(fiPage),
+        axios.get(svPage),
+        axios.get(enPage),
       ]);
     }
 

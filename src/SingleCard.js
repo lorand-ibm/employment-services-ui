@@ -9,32 +9,40 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: 'white',
     background: 'blue',
-    fontFamily: 'HelsinkiGrotesk'
+    fontFamily: 'HelsinkiGrotesk',
+    fontSize: 24,
   },
   text: {
     fontSize: 16,
-    fontFamily: 'HelsinkiGrotesk'
+    fontFamily: 'HelsinkiGrotesk',
   },
   button: {
+    fontFamily: 'HelsinkiGrotesk',
     color: 'black',
     background: 'white',
+    fontSize: 16
   }
 }));
 
 function SingleCard(props) {
     const classes = useStyles();
-    const { title, text, button_text } = props;
+    const { title, text, button_text, button_url, width, height } = props;
 
-    return (
+     return (
         <React.Fragment>
             <Card
               heading={title}
               className={classes.title}
+              style ={{
+                width: width ? width : '-1',
+                height: height ? height : '-1',
+              }}
               >
               <Typography dangerouslySetInnerHTML={{__html: text}} className={classes.text} />
               <Button
                 className={classes.button}
                 variant="secondary"
+                onClick={()=>{window.location.href=button_url}}
               >
                 {button_text}
               </Button>

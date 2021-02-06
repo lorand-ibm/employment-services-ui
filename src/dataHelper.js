@@ -71,6 +71,46 @@ const getTextValue = (path) => {
   return path.value;
 }
 
+const getCards = (d, ids) => {
+  let cards = [];
+  ids.map((item, index) => {
+    let id = item.id;
+    let card = _.find(d, {id: id});
+    card.thisCardIsInList = true;
+    cards.push(card);
+    return cards;
+  });
+  return cards;
+}
+
+const convertCardsFromDrupal = (drupalCards, includeFromList) => {
+  let cards = [];
+  try {
+    drupalCards.map((item, index) => {
+        if ((includeFromList && item.thisCardIsInList) ||
+          (!includeFromList && !item.thisCardIsInList)
+        ) {
+          cards.push({
+            type: 'Card',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_card_title,
+            text: getTextValue(item.attributes.field_card_text),
+            button_text: item.attributes.field_card_button_text,
+            button_url: item.attributes.field_card_button_url,
+            width: item.attributes.field_card_width,
+            height: item.attributes.field_card_height,
+          });
+        }
+        return cards;
+      });
+    } catch(error) {
+      console.log("card converts");
+      console.log(error);
+    }
+
+  return cards;
+}
+
 export const findData = (lang, json, files, media, doc) => {
   let data = [];
   if (!!!json.included) {
@@ -95,16 +135,26 @@ export const findData = (lang, json, files, media, doc) => {
         }
         break;
       case 'paragraph--card':
+        const cards = convertCardsFromDrupal([item], false);
+        if (cards.length>0) {
+          data.push(cards[0]);
+        }
+        break;
+      case 'paragraph--card_list':
         try {
+          const drupalCards = getCards(json.included, item.relationships.field_cards.data);
+          const cards = convertCardsFromDrupal(drupalCards, true);
+          console.log(cards);
           data.push({
-            type: 'Card',
+            type: 'CardList',
             lang: item.attributes.langcode,
-            title: item.attributes.field_card_title,
-            text: getTextValue(item.attributes.field_card_text),
-            button_text: item.attributes.field_card_button_text ,
+            title: item.attributes.field_card_list_title,
+            cards: cards,
+            bgColor: 'White',
+            isKoro: item.attributes.field_card_list_is_koro ? true : false,
           });
         } catch(error) {
-          console.log("card");
+          console.log("card-list");
           console.log(error);
         }
         break;
@@ -141,6 +191,8 @@ export const findData = (lang, json, files, media, doc) => {
         break;
       case 'paragraph--image_and_card':
         try {
+          const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
+          const cards = convertCardsFromDrupal(drupalCards, true);
           let image = null;
           if (item.relationships.field_ic_image.data) {
             image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
@@ -148,8 +200,7 @@ export const findData = (lang, json, files, media, doc) => {
           data.push({
             type: 'ImageAndCard',
             lang: item.attributes.langcode,
-            title: '',
-            text: '',
+            card: cards[0],
             image: image,
           });
         } catch(error) {
@@ -231,6 +282,7 @@ export const findData = (lang, json, files, media, doc) => {
       default:
         data.push({
           type: 'Unid',
+          drupalType: item.type,
           lang: item.attributes.langcode,
         });
     }
