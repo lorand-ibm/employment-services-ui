@@ -315,3 +315,19 @@ export const findTaxonomy = (data, field) => {
     return "";
 }
 
+export const setTaxonomies = (taxonomiesRaw) => {
+  let tax = [];
+  taxonomiesRaw.map((item, index) => {
+    item[1].data.data.map((t, i) => {
+      tax.push({
+        category: item[0],
+        type: t.type,
+        name: t.attributes.name,
+        id: t.id,
+      });
+      return tax;
+    });
+    return tax;
+  });
+  return tax;
+}

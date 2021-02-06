@@ -9,7 +9,7 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory} from "react-router-dom";
-import {findData, getFullRelease, makeMenu, findTaxonomy} from "./dataHelper";
+import {findData, getFullRelease, makeMenu, findTaxonomy, setTaxonomies} from "./dataHelper";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -119,6 +119,10 @@ export default function Landing(props) {
     ];
   }
 
+  const getTaxonomyPath = (taxonomy) => {
+    return site + '/apijson/taxonomy_term/'+taxonomy+'?fields[taxonomy_term--'+taxonomy+']=id,name';
+  }
+
   async function makeRequests() {
 
     setLoading(true);
@@ -137,14 +141,21 @@ export default function Landing(props) {
     const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
     const menuData = site + '/apijson/menu_link_content/menu_link_content';
     const paths = site + '/apijson/path_alias/path_alias';
+    const taxColors = getTaxonomyPath('colors');
+    const taxWidth = getTaxonomyPath('paragraph_width');
 
-    let [f, m, d, configuration, me] = await Promise.all([
+    let [f, m, d, configuration, me, colorsTax, widthTax] = await Promise.all([
       axios.get(files),
       axios.get(media),
       axios.get(doc),
       axios.get(conf),
       axios.get(menuData),
+      axios.get(taxColors),
+      axios.get(taxWidth),
     ]);
+
+    const taxonomies = setTaxonomies([['Colors',colorsTax], ['Width', widthTax]]);
+    console.log('tax'); console.log(taxonomies);
 
     let menus = makeMenu(me);
     const fullRelease = getFullRelease(configuration);
@@ -204,7 +215,9 @@ export default function Landing(props) {
       configuration: configuration,
       fullVersion: fullRelease,
       site: site,
-      menu: menus,});
+      menu: menus,
+      taxonomies: taxonomies,
+    });
     setLoading(false);
   }
 
