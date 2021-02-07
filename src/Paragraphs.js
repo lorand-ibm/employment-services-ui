@@ -77,10 +77,32 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const paragraphWidthSettings = {
+  Full: 12,
+  Wide: 10,
+  Medium: 8,
+  Narrow: 5,
+};
+
+const getParagraphWidth = (width) => {
+  let w = paragraphWidthSettings['Narrow'];
+  try {
+    w = paragraphWidthSettings[width];
+  } catch(error) {
+    return paragraphWidthSettings['Narrow'];
+  }
+  if (!!!w) {
+    w = paragraphWidthSettings['Narrow'];
+  }
+  return w;
+}
+
 function Paragraphs(props) {
     const classes = useStyles();
     const { paragraphs, site, width } = props;
-    console.log(width);
+    const paragraphWidth = getParagraphWidth(width);
+    const infoWidth = paragraphWidth < 12 ? (paragraphWidth+1) : 12;
+    console.log(paragraphWidth);
     const items = [];
     paragraphs.map((paragraph, index) => {
 
@@ -89,7 +111,7 @@ function Paragraphs(props) {
                 items.push(
                   <Grid container spacing={1} className={classes.accord} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                    <Grid item xs={12} sm={6} key={2}>
+                    <Grid item xs={12} sm={paragraphWidth} key={2}>
                         <Accord key={index} {...paragraph}></Accord>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -100,7 +122,7 @@ function Paragraphs(props) {
               items.push(
                 <Grid container spacing={1} className={classes.card} key={index}>
                   <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                  <Grid item xs={12} sm={6} key={2}>
+                  <Grid item xs={12} sm={paragraphWidth} key={2}>
                     <SingleCard key={index} {...paragraph}></SingleCard>
                   </Grid>
                   <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -111,7 +133,7 @@ function Paragraphs(props) {
             items.push(
               <Grid container spacing={1} className={classes.card} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                <Grid item xs={12} sm={9} key={2}>
+                <Grid item xs={12} sm={paragraphWidth} key={2}>
                   <CardList key={index} {...paragraph}></CardList>
                 </Grid>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -122,7 +144,7 @@ function Paragraphs(props) {
                 items.push(
                   <Grid container spacing={1} className={classes.subheading} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                    <Grid item xs={12} sm={6} key={2}>
+                    <Grid item xs={12} sm={paragraphWidth} key={2}>
                         <Subheading key={index} {...paragraph}></Subheading>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -133,7 +155,7 @@ function Paragraphs(props) {
                 items.push(
                   <Grid container spacing={1} className={classes.info} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                      <Grid item xs={12} sm={7} key={2}>
+                      <Grid item xs={12} sm={infoWidth} key={2}>
                         <Info key={index} {...paragraph}></Info>
                       </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -145,7 +167,7 @@ function Paragraphs(props) {
                 items.push(
                   <Grid container spacing={1} className={classes.pdf} key={index}>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                    <Grid item xs={12} sm={6} key={2}>
+                    <Grid item xs={12} sm={paragraphWidth} key={2}>
                         <Pdf key={index} {...paragraph} site={site}></Pdf>
                     </Grid>
                     <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -156,7 +178,7 @@ function Paragraphs(props) {
             items.push(
               <Grid container spacing={1} className={classes.info} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                <Grid item xs={12} sm={6} key={2}>
+                <Grid item xs={12} sm={paragraphWidth} key={2}>
                   <Image key={index} {...paragraph} site={site}></Image>
                 </Grid>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -167,7 +189,7 @@ function Paragraphs(props) {
             items.push(
               <Grid container spacing={1} className={classes.info} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                <Grid item xs={12} sm={8} key={2}>
+                <Grid item xs={12} sm={paragraphWidth} key={2}>
                   <ImageAndCard key={index} {...paragraph} site={site}></ImageAndCard>
                 </Grid>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -178,7 +200,7 @@ function Paragraphs(props) {
             items.push(
               <Grid container spacing={1} className={classes.card} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                <Grid item xs={12} sm={6} key={2}>
+                <Grid item xs={12} sm={paragraphWidth} key={2}>
                   <PhoneNumberBox key={index} {...paragraph}></PhoneNumberBox>
                 </Grid>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
@@ -189,7 +211,7 @@ function Paragraphs(props) {
             items.push(
               <Grid container spacing={1} className={classes.accord} key={index}>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={1}></Grid></Hidden>
-                <Grid item xs={12} sm={6} key={2}>
+                <Grid item xs={12} sm={paragraphWidth} key={2}>
                     <Text key={index} {...paragraph}></Text>
                 </Grid>
                 <Hidden only={'xs'}><Grid item xs className={classes.sides} key={3}></Grid></Hidden>
