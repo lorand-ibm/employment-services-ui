@@ -9,7 +9,8 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory} from "react-router-dom";
-import {findData, getFullRelease, makeMenu, findTaxonomy, setTaxonomies} from "./dataHelper";
+import {findData, getFullRelease, makeMenu} from "./dataHelper";
+import {findTaxonomyValue, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -197,9 +198,10 @@ export default function Landing(props) {
     }
 
     //console.log(sv.data);
-    let fiData = findData('fi', fi.data, f, m, d);
-    let svData = findData('sv', sv.data, f, m, d);
-    let enData = findData('en', en.data, f, m, d);
+    let fiData = findData('fi', fi.data, f, m, d, taxonomies);
+    let svData = findData('sv', sv.data, f, m, d, taxonomies);
+    let enData = findData('en', en.data, f, m, d, taxonomies);
+    console.log(en.data.field_page_width);
     const width = findTaxonomy(en.data, 'field_page_width');
     console.log(en);
     //setError(false);

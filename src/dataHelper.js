@@ -1,3 +1,4 @@
+import {getColor} from "./Color.js";
 let _ = require('lodash');
 
 const findSubmenu = (m, uri) => {
@@ -99,6 +100,7 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
             button_url: item.attributes.field_card_button_url,
             width: item.attributes.field_card_width,
             height: item.attributes.field_card_height,
+            //bgColor: getColor(item.relationships.field_bg_color.data.id, taxonomies),
           });
         }
         return cards;
@@ -111,7 +113,7 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
   return cards;
 }
 
-export const findData = (lang, json, files, media, doc) => {
+export const findData = (lang, json, files, media, doc, taxonomies) => {
   let data = [];
   if (!!!json.included) {
     console.log('error with data, no json.included');
@@ -150,7 +152,7 @@ export const findData = (lang, json, files, media, doc) => {
             lang: item.attributes.langcode,
             title: item.attributes.field_card_list_title,
             cards: cards,
-            bgColor: 'White',
+            bgColor: getColor(item.relationships.field_card_list_bg_color.data.id, taxonomies),
             isKoro: item.attributes.field_card_list_is_koro ? true : false,
           });
         } catch(error) {
@@ -271,6 +273,7 @@ export const findData = (lang, json, files, media, doc) => {
             lang: item.attributes.langcode,
             title: item.attributes.field_pb_title,
             text: getTextValue(item.attributes.field_pb_text),
+            width: 100,
           });
         } catch(error) {
           console.log("text");
@@ -298,36 +301,4 @@ export const getFullRelease = (conf) => {
   return conf.data.data[0].attributes.field_full_release_content;
 }
 
-export const findTaxonomy = (data, field) => {
-    console.log(data.included);
 
-    try {
-      let type = data.data[0].relationships[field].data.type;
-      let taxonomy = _.find(data.included, {type: type});
-      if (taxonomy) {
-        return taxonomy.attributes.name;
-      }
-    } catch(error) {
-      console.log(field);
-      console.log(error);
-    }
-
-    return "";
-}
-
-export const setTaxonomies = (taxonomiesRaw) => {
-  let tax = [];
-  taxonomiesRaw.map((item, index) => {
-    item[1].data.data.map((t, i) => {
-      tax.push({
-        category: item[0],
-        type: t.type,
-        name: t.attributes.name,
-        id: t.id,
-      });
-      return tax;
-    });
-    return tax;
-  });
-  return tax;
-}
