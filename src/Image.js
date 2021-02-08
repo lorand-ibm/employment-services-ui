@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import * as React from "react";
-import {Card} from "hds-react/components/Card";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import {Button} from "hds-react/components/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -13,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     background: 'white',
     fontFamily: 'HelsinkiGrotesk',
     borderColor: 'red',
-    xxheight: 100,
     marginBottom: 0,
+    height: 400,
   },
   text: {
     color: 'black',
@@ -31,30 +35,30 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     marginTop: 15,
-    xxwidth: 100,
-    xxheight: 100,
-  }
+  },
+  media: props => ({
+    height: props.height ? props.height : 400,
+  }),
 }));
 
 function Image(props) {
-    const classes = useStyles();
-    const { title, text, button_text } = props;
+    const classes = useStyles(props);
+    const { title, text, button_text, image, site, height } = props;
 
+    const path = site + image;
+
+    console.log (height);
     return (
         <React.Fragment>
-            <Card
-              border
-              heading={'image'}
-              className={classes.title}
-              theme = {{
-                'card-body-margin-bottom' : 0
-              }}
-              >
-              <Grid container spacing={1}  justify="left" className={classes.textArea}>
-
-                <Grid item> <Typography dangerouslySetInnerHTML={{__html: text}} className={classes.text} /> </Grid>
-              </Grid>
-            </Card>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={path}
+                title="Image"
+              />
+            </CardActionArea>
+          </Card>
         </React.Fragment>
     );
 }

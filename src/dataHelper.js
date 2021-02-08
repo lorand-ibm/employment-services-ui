@@ -216,6 +216,7 @@ export const findData = (lang, json, files, media, doc) => {
             title: '',
             text: '',
             image: findImageUrl(item.relationships.field_image_image.data.id, files, media),
+            height: item.attributes.field_image_height,
           });
         } catch(error) {
           console.log("image");
