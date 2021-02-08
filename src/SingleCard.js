@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   root: props => ({
     backgroundColor: props.bgColor,
     color: theme.color,
-    maxWidth: props.width,
+    maxWidth: 200, //props.width,
   }),
   title: {
     color: 'white',
@@ -32,7 +32,10 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     background: 'white',
     fontSize: 16
-  }
+  },
+  media: {
+  height: 140,
+  },
 }));
 
 
@@ -47,13 +50,12 @@ function SingleCard(props) {
         <React.Fragment>
           <Card className={classes.root}>
             <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Contemplative Reptile"
-                height="140"
-                image="herokuva.jpg"
-                title="Contemplative Reptile"
-              />
+
+                <CardMedia
+                  className={classes.media}
+                  image="herokuva.jpg"
+                  title="-"
+                />
               <CardContent>
                 <Typography
                   gutterBottom variant="h5" component="h2"

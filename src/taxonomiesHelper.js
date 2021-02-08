@@ -19,11 +19,19 @@ export const findTaxonomy = (data, field) => {
 }
 
 export const findTaxonomyValue = (id, taxonomies) => {
-  return _.find(taxonomies, {id: id}).name;
+  try {
+    const name = _.find(taxonomies, {id: id}).name;
+    console.log(name);
+    return name;
+  } catch(error) {
+    console.log("taxonomies error: " + id);
+  }
+  return "no-value";
 }
 
 export const setTaxonomies = (taxonomiesRaw) => {
   let tax = [];
+  console.log(taxonomiesRaw);
   try {
     taxonomiesRaw.map((item, index) => {
       item[1].data.data.map((t, i) => {

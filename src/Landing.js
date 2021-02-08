@@ -120,8 +120,12 @@ export default function Landing(props) {
     ];
   }
 
-  const getTaxonomyPath = (taxonomy) => {
-    return site + '/apijson/taxonomy_term/'+taxonomy+'?fields[taxonomy_term--'+taxonomy+']=id,name';
+  const getTaxonomyPath = (taxonomy, secondPage) => {
+    let path = site + '/apijson/taxonomy_term/'+taxonomy+'?fields[taxonomy_term--'+taxonomy+']=id,name';
+    if (secondPage) {
+      path += "&page[offset]=50&page[limit]=50";
+    }
+    return path;
   }
 
   async function makeRequests() {
@@ -142,20 +146,22 @@ export default function Landing(props) {
     const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
     const menuData = site + '/apijson/menu_link_content/menu_link_content';
     const paths = site + '/apijson/path_alias/path_alias';
-    const taxColors = getTaxonomyPath('colors');
-    const taxWidth = getTaxonomyPath('paragraph_width');
+    const taxColors = getTaxonomyPath('colors', false);
+    const taxColors2 = getTaxonomyPath('colors', true);
+    const taxWidth = getTaxonomyPath('paragraph_width', true);
 
-    let [f, m, d, configuration, me, colorsTax, widthTax] = await Promise.all([
+    let [f, m, d, configuration, me, colorsTax, colorsTax2, widthTax] = await Promise.all([
       axios.get(files),
       axios.get(media),
       axios.get(doc),
       axios.get(conf),
       axios.get(menuData),
       axios.get(taxColors),
+      axios.get(taxColors2),
       axios.get(taxWidth),
     ]);
 
-    const taxonomies = setTaxonomies([['Colors',colorsTax], ['Width', widthTax]]);
+    const taxonomies = setTaxonomies([['Colors',colorsTax],['Colors',colorsTax2], ['Width', widthTax]]);
     console.log('tax'); console.log(taxonomies);
 
     let menus = makeMenu(me);

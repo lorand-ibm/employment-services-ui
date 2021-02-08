@@ -84,7 +84,7 @@ const getCards = (d, ids) => {
   return cards;
 }
 
-const convertCardsFromDrupal = (drupalCards, includeFromList) => {
+const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxonomies) => {
   let cards = [];
   try {
     drupalCards.map((item, index) => {
@@ -100,7 +100,8 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
             button_url: item.attributes.field_card_button_url,
             width: item.attributes.field_card_width,
             height: item.attributes.field_card_height,
-            //bgColor: getColor(item.relationships.field_bg_color.data.id, taxonomies),
+          //bgColor: getColor(item.relationships.field_bg_color.data.id, taxonomies),
+            //image: findImageUrl(item.relationships.field_ic_image.data.id, files, media),
           });
         }
         return cards;
@@ -137,7 +138,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         }
         break;
       case 'paragraph--card':
-        const cards = convertCardsFromDrupal([item], false);
+        const cards = convertCardsFromDrupal([item], false, files, media, taxonomies);
         if (cards.length>0) {
           data.push(cards[0]);
         }
@@ -145,7 +146,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
       case 'paragraph--card_list':
         try {
           const drupalCards = getCards(json.included, item.relationships.field_cards.data);
-          const cards = convertCardsFromDrupal(drupalCards, true);
+          const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
           console.log(cards);
           data.push({
             type: 'CardList',
@@ -194,7 +195,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
       case 'paragraph--image_and_card':
         try {
           const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
-          const cards = convertCardsFromDrupal(drupalCards, true);
+          const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
           let image = null;
           if (item.relationships.field_ic_image.data) {
             image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
