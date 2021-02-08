@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import * as React from "react";
 import Accord from "./Accord";
 import SingleCard from "./SingleCard";
@@ -77,12 +76,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function Paragraphs(props) {
+interface ParagraphsProps {
+  paragraphs: any,
+  site: string,
+  type: string;
+  title: string;
+  text: string;
+  width: "Narrow" | "Medium" | "Wide" | "Full" | null;
+}
+
+function Paragraphs(props: ParagraphsProps) {
     const classes = useStyles();
     const { paragraphs, site, width } = props;
     console.log(width);
-    const items = [];
-    paragraphs.map((paragraph, index) => {
+    const items:any[] = [];
+    paragraphs.map((paragraph: any, index: number) => {
 
         switch(paragraph.type) {
             case 'Accordion':
@@ -206,16 +214,5 @@ function Paragraphs(props) {
         </React.Fragment>
     );
 }
-
-Paragraphs.propTypes = {
-    paragraphs: PropTypes.arrayOf(
-        PropTypes.shape({
-            type: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            width: PropTypes.number.isRequired,
-        }),
-    ).isRequired,
-};
 
 export default Paragraphs;
