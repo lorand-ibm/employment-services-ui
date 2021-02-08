@@ -1,3 +1,4 @@
+import {getColor} from "./colorHelper.js";
 let _ = require('lodash');
 
 const findSubmenu = (m, uri) => {
@@ -83,7 +84,7 @@ const getCards = (d, ids) => {
   return cards;
 }
 
-const convertCardsFromDrupal = (drupalCards, includeFromList) => {
+const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxonomies) => {
   let cards = [];
   try {
     drupalCards.map((item, index) => {
@@ -93,8 +94,11 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
           cards.push({
             type: 'Card',
             lang: item.attributes.langcode,
+            bg_color: getColor(item, 'field_background_color', taxonomies),
             title: item.attributes.field_card_title,
+            title_color: getColor(item, 'field_title_color', taxonomies),
             text: getTextValue(item.attributes.field_card_text),
+            text_color: getColor(item, 'field_text_color', taxonomies),
             button_text: item.attributes.field_card_button_text,
             button_url: item.attributes.field_card_button_url,
             width: item.attributes.field_card_width,
@@ -111,7 +115,7 @@ const convertCardsFromDrupal = (drupalCards, includeFromList) => {
   return cards;
 }
 
-export const findData = (lang, json, files, media, doc) => {
+export const findData = (lang, json, files, media, doc, taxonomies) => {
   let data = [];
   if (!!!json.included) {
     console.log('error with data, no json.included');
@@ -135,7 +139,7 @@ export const findData = (lang, json, files, media, doc) => {
         }
         break;
       case 'paragraph--card':
-        const cards = convertCardsFromDrupal([item], false);
+        const cards = convertCardsFromDrupal([item], false, files, media, taxonomies);
         if (cards.length>0) {
           data.push(cards[0]);
         }
@@ -143,14 +147,14 @@ export const findData = (lang, json, files, media, doc) => {
       case 'paragraph--card_list':
         try {
           const drupalCards = getCards(json.included, item.relationships.field_cards.data);
-          const cards = convertCardsFromDrupal(drupalCards, true);
+          const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
           console.log(cards);
           data.push({
             type: 'CardList',
             lang: item.attributes.langcode,
             title: item.attributes.field_card_list_title,
             cards: cards,
-            bgColor: 'White',
+            bgColor: getColor(item, 'field_card_list_bg_color', taxonomies),
             isKoro: item.attributes.field_card_list_is_koro ? true : false,
           });
         } catch(error) {
@@ -192,7 +196,7 @@ export const findData = (lang, json, files, media, doc) => {
       case 'paragraph--image_and_card':
         try {
           const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
-          const cards = convertCardsFromDrupal(drupalCards, true);
+          const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
           let image = null;
           if (item.relationships.field_ic_image.data) {
             image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
