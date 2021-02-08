@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "http-proxy-middleware": "^1.0.6",
-    "react-scripts": "4.0.1"
+    "react-scripts": "4.0.1",
+    "typescript": "^4.1.3"
   },
   "scripts": {
     "start": "npm run start-server & npm run start-client",
@@ -52,8 +53,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "typescript": "^4.1.3"
   }
 }
