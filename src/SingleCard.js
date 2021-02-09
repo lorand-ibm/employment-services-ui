@@ -28,11 +28,11 @@ const useStyles = makeStyles(theme => ({
     color: props.title_color,
     backgroundColor: props.bg_color,
     fontFamily: 'HelsinkiGrotesk',
-    fontSize: 24,
+    fontSize: props.image ? 20 : 24,
     fontWeight: 'bold',
   }),
   text: props => ({
-    fontSize: 16,
+    fontSize: props.image ? 16 : 18,
     fontFamily: 'HelsinkiGrotesk',
     backgroundColor: props.bg_color,
     color: props.text_color,
