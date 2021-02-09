@@ -74,6 +74,9 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 16,
     },
   },
+  cardList: {
+    width: '100%',
+  }
 }));
 
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
@@ -86,6 +89,14 @@ interface ParagraphsProps {
   text: string;
   width: ParagraphWidth;
 }
+
+const FullParagraphGrid = ({ className, children }: { className: string; children: any }) => (
+  <Grid container spacing={1} className={className}>
+    <Grid item style={{ margin: "0" }} xs={12} >
+      {children}
+    </Grid>
+  </Grid>
+);
 
 const WideParagraphGrid = ({ className, children }: { className: string; children: any }) => (
   <Grid container spacing={1} className={className}>
@@ -128,8 +139,11 @@ const ParagraphGrid = ({
   paragraphWidth: ParagraphWidth;
   children: any;
 }) => {
-  if (paragraphWidth !== "Narrow") {
+  if (paragraphWidth === "Wide") {
     return <WideParagraphGrid className={className}>{children}</WideParagraphGrid>;
+  }
+  if (paragraphWidth === "Full") {
+    return <FullParagraphGrid className={className}>{children}</FullParagraphGrid>;
   }
   return <NarrowParagraphGrid className={className}>{children}</NarrowParagraphGrid>;
 };
@@ -157,7 +171,7 @@ function Paragraphs(props: ParagraphsProps) {
         break;
       case "CardList":
         items.push(
-          <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
+          <ParagraphGrid className={classes.cardList} paragraphWidth={'Full'}>
             <CardList key={index} {...paragraph} site={site}></CardList>
           </ParagraphGrid>
         );
