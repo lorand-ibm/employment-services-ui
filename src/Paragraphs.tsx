@@ -151,14 +151,14 @@ function Paragraphs(props: ParagraphsProps) {
       case "Card":
         items.push(
           <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-            <SingleCard key={index} {...paragraph}></SingleCard>
+            <SingleCard key={index} {...paragraph} site={site}></SingleCard>
           </ParagraphGrid>
         );
         break;
       case "CardList":
         items.push(
           <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-            <CardList key={index} {...paragraph}></CardList>
+            <CardList key={index} {...paragraph} site={site}></CardList>
           </ParagraphGrid>
         );
         break;

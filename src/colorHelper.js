@@ -7,7 +7,7 @@ const colors = [
   {name: 'musta-05', rgb: '#f1f1f1'},
   {name: 'musta-20', rgb: '#ccc'},
   {name: 'musta-60', rgb: '#666'},
-  {name: 'bussi', rgb: '#000bf'},
+  {name: 'bussi', rgb: '#0000bf'},
   {name: 'sumu', rgb: '#9fc9eb'},
   {name: 'metro', rgb: '#fd4f00'},
   {name: 'suomenlinna', rgb: '#f5a3c7'},
@@ -26,5 +26,5 @@ export const getColor = (item, field, taxonomies) => {
   } catch(error) {
 
   }
-  return "not-found";
+  return null;
 }
