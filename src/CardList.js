@@ -1,9 +1,7 @@
 import * as React from "react";
-import {Card} from "hds-react/components/Card";
 import {Koros} from "hds-react/components/Koros";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import SingleCard from "./SingleCard";
 import Typography from "@material-ui/core/Typography";
 
@@ -29,7 +27,6 @@ function CardList(props) {
     const classes = useStyles(props);
     const { title, cards, site, isKoro } = props;
 
-    console.log(cards);
     return (
         <React.Fragment>
           <Grid container >
