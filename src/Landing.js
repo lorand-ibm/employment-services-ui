@@ -10,7 +10,7 @@ import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory} from "react-router-dom";
 import {findData, getFullRelease, makeMenu} from "./dataHelper";
-import {getTaxonomyPath, findTaxonomyValue, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
+import {getTaxonomyPath, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -196,7 +196,7 @@ export default function Landing(props) {
     let svData = findData('sv', sv.data, f, m, d, taxonomies);
     let enData = findData('en', en.data, f, m, d, taxonomies);
     const width = findTaxonomy(en.data, 'field_page_width');
-    console.log(en);
+    //console.log(en);
     //setError(false);
     console.log(svData);
     console.log(fiData);

@@ -10,7 +10,6 @@ import {Button} from "hds-react/components/Button";
 import Box from "@material-ui/core/Box";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { positions } from '@material-ui/system';
 
 const defaultWidth = 300;
 const defaultHeight = 270;
@@ -44,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 16,
   }),
   media: {
-    height: 221,
+    height: imageHeight,
   },
   content: props => ({
     backgroundColor: props.bg_color,
@@ -60,14 +59,9 @@ const useStyles = makeStyles(theme => ({
 
 function SingleCard(props) {
   const classes = useStyles(props);
-  const { site, image, title, text, button_url, width, height, button_text } = props;
-
-  console.log('Card text:' + props.text_color);
-  console.log('Card title:' + props.title_color);
-  console.log('Card bg:' + props.bg_color);
+  const { site, image, title, text, button_url, button_text } = props;
 
   const imageAddress = image ? site + image : '';
-  console.log(imageAddress);
 
   let button =
         <Box position={"bottom"} className={classes.buttonArea}>

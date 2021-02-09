@@ -1,7 +1,6 @@
 import * as React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {ImageWithCard} from "hds-react/components/ImageWithCard";
-import SingleCard from "./SingleCard";
 import {Button} from "hds-react/components/Button";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";

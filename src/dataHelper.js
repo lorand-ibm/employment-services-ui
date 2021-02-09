@@ -128,15 +128,13 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
 
 export const findData = (lang, json, files, media, doc, taxonomies) => {
   let data = [];
-  if (!!!json.included) {
+  if (!json.included) {
     console.log('error with data, no json.included');
     return data;
   }
   json.included.map((item, index) => {
-    //console.log(item.type);
     switch(item.type) {
       case 'paragraph--accordion':
-        //console.log(item);
         try {
           data.push({
             type: 'Accordion',
@@ -159,7 +157,6 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         try {
           const drupalCards = getCards(json.included, item.relationships.field_cards.data);
           const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
-          console.log(cards);
           data.push({
             type: 'CardList',
             lang: item.attributes.langcode,
@@ -235,7 +232,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         break;
       case 'paragraph--link_internal':
         try {
-          let pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
+          const pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
           data.push({
             type: 'Pdf',
             lang: lang,
@@ -311,8 +308,6 @@ export const getFullRelease = (conf) => {
 }
 
 export const findTaxonomy = (data, field) => {
-    console.log(data.included);
-
     try {
       let type = data.data[0].relationships[field].data.type;
       let taxonomy = _.find(data.included, {type: type});
@@ -323,7 +318,6 @@ export const findTaxonomy = (data, field) => {
       console.log(field);
       console.log(error);
     }
-
     return "";
 }
 
