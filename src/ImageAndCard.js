@@ -41,11 +41,12 @@ function ImageAndCard(props) {
           <ImageWithCard
             cardLayout="hover"
             cardAlignment="right"
-            color={'White'}
+            color={props.bg_color}
             src={address}>
 
               <SingleCard
                 {...card}
+                image={null}
               >
 
               </SingleCard>
