@@ -27,14 +27,15 @@ function CardList(props) {
           className={classes.title}>
           {title}
         </Typography>
-        <Grid container direction={"row"} spacing={3} justify="left" className={classes.textArea}>
+        <Grid container alignItems="" direction={"row"} spacing={3} justify="left" className={classes.textArea}>
           {cards.map((item, i) => (
-            <Grid item key={i}>
+            <Grid item xs={12} md={4} key={i}>
               <SingleCard
                 key={i}
                 {...item}
                 site={site}
                 className={classes.title}
+                style={{height: '100%'}}
               >
               </SingleCard>
             </Grid>

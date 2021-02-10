@@ -20,8 +20,15 @@ const useStyles = makeStyles(theme => ({
   root: props => ({
     backgroundColor: props.bg_color,
     color: theme.color,
-    width: props.width ? props.width : defaultWidth,
-    height: props.height ? props.height : defaultHeight,
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    paddingBottom: '15px',
+    [theme.breakpoints.down(960)]: {
+      height: 'auto'
+    }
+    /*width: props.width ? props.width : defaultWidth,*/
+    /*height: props.height ? props.height : defaultHeight,*/
   }),
   title: props => ({
     color: props.title_color,
@@ -47,8 +54,12 @@ const useStyles = makeStyles(theme => ({
   },
   content: props => ({
     backgroundColor: props.bg_color,
-    padding: 25,
-    height: props.image ? (props.height?props.height:defaultContentHeight) : defaultContentHeight,
+    padding: '25px 25px 0 25px',
+    /*height: props.image ? (props.height?props.height:defaultContentHeight) : defaultContentHeight,*/
+    minHeight: '100px',
+  }),
+  ccontent: props => ({
+    marginTop: 'auto',
   }),
   buttonArea: props => ({
     backgroundColor: props.bgColor,
@@ -99,9 +110,11 @@ function SingleCard(props) {
             dangerouslySetInnerHTML={{__html:text}}/>
         </CardContent>
       </CardActionArea>
-      <CardActions className={classes.csontent}>
-        {button}
+      {button &&
+        <CardActions className={classes.ccontent}>
+          {button}
         </CardActions>
+      }
     </Card>
   );
 }
