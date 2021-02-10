@@ -9,7 +9,8 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory} from "react-router-dom";
-import {findData, getFullRelease, makeMenu, findTaxonomy} from "./dataHelper";
+import {findData, getFullRelease, makeMenu} from "./dataHelper";
+import {getTaxonomyPath, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -124,7 +125,7 @@ export default function Landing(props) {
     setLoading(true);
 
     const preInc = "field_prerelease_";
-    const inc = "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card";
+    const inc = "field_page_content,field_page_content.field_cards,field_page_content.field_ic_card";
     const land = "/node/landing";
     const page = "/node/page";
     const news = "/node/news";
@@ -137,15 +138,20 @@ export default function Landing(props) {
     const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
     const menuData = site + '/apijson/menu_link_content/menu_link_content';
     const paths = site + '/apijson/path_alias/path_alias';
+    const taxColors = getTaxonomyPath(site, 'colors', false);
+    const taxWidth = getTaxonomyPath(site, 'paragraph_width', false);
 
-    let [f, m, d, configuration, me] = await Promise.all([
+    let [f, m, d, configuration, me, colorsTax, widthTax] = await Promise.all([
       axios.get(files),
       axios.get(media),
       axios.get(doc),
       axios.get(conf),
       axios.get(menuData),
+      axios.get(taxColors),
+      axios.get(taxWidth),
     ]);
 
+    const taxonomies = setTaxonomies([['Colors',colorsTax], ['Width', widthTax]]);
     let menus = makeMenu(me);
     const fullRelease = getFullRelease(configuration);
     let [fi, sv, en,] = [null, null, null,];
@@ -186,11 +192,11 @@ export default function Landing(props) {
     }
 
     //console.log(sv.data);
-    let fiData = findData('fi', fi.data, f, m, d);
-    let svData = findData('sv', sv.data, f, m, d);
-    let enData = findData('en', en.data, f, m, d);
+    let fiData = findData('fi', fi.data, f, m, d, taxonomies);
+    let svData = findData('sv', sv.data, f, m, d, taxonomies);
+    let enData = findData('en', en.data, f, m, d, taxonomies);
     const width = findTaxonomy(en.data, 'field_page_width');
-    console.log(en);
+    //console.log(en);
     //setError(false);
     console.log(svData);
     console.log(fiData);
@@ -204,7 +210,9 @@ export default function Landing(props) {
       configuration: configuration,
       fullVersion: fullRelease,
       site: site,
-      menu: menus,});
+      menu: menus,
+      taxonomies: taxonomies,
+    });
     setLoading(false);
   }
 
