@@ -44,6 +44,22 @@ function ImageAndCard(props) {
     const { card, image, site } = props;
     const address = site + image;
 
+    let button =
+      <Button
+        className={classes.button}
+        onClick={() => {
+          window.location.href = card.button_url
+        }}
+        style={{
+          borderColor: 'black',
+        }}>
+        {card.button_text}
+      </Button>;
+
+    if (!card.button_text) {
+      button = "";
+    }
+
     return (
         <React.Fragment>
           <ImageWithCard
@@ -58,17 +74,7 @@ function ImageAndCard(props) {
                 {card.title}
               </Typography>
               <Typography className={classes.text} dangerouslySetInnerHTML={{__html:card.text}}/>
-              <Button
-                className={classes.button}
-                onClick={() => {
-                  window.location.href = card.button_url
-                }}
-                style={{
-                  borderColor: 'black',
-                }}>
-                {card.button_text}
-
-              </Button>
+              {button}
             </Box>
           </ImageWithCard>
 
