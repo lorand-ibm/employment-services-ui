@@ -51,6 +51,15 @@ export const findImageUrl = (uid, files, media) => {
   return files.data.data[fIndex].attributes.uri.url;
 }
 
+export const findImage = (item, field, files, media) => {
+  try {
+    return findImageUrl(item.relationships[field].data.id, files, media);
+  } catch(error) {
+    console.log('no pic: ' + field);
+  }
+  return null;
+}
+
 export const findPdfUrl = (uid, files, pdfs) => {
   if (!!!files || !!!files.data || !!!pdfs || !!!pdfs.data) {
     return "";
@@ -103,6 +112,8 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
             button_url: item.attributes.field_card_button_url,
             width: item.attributes.field_card_width,
             height: item.attributes.field_card_height,
+            image: findImage(item, 'field_ic_image', files, media),
+            button_bg_color: getColor(item, 'field_button_color', taxonomies),
           });
         }
         return cards;
@@ -117,15 +128,13 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
 
 export const findData = (lang, json, files, media, doc, taxonomies) => {
   let data = [];
-  if (!!!json.included) {
+  if (!json.included) {
     console.log('error with data, no json.included');
     return data;
   }
   json.included.map((item, index) => {
-    //console.log(item.type);
     switch(item.type) {
       case 'paragraph--accordion':
-        //console.log(item);
         try {
           data.push({
             type: 'Accordion',
@@ -148,7 +157,6 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         try {
           const drupalCards = getCards(json.included, item.relationships.field_cards.data);
           const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
-          console.log(cards);
           data.push({
             type: 'CardList',
             lang: item.attributes.langcode,
@@ -164,10 +172,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         break;
       case 'paragraph--hero':
         try {
-          let url = null;
-          if (!!!item.relationships.field_hero_image || !!item.relationships.field_hero_image.data) {
-            url = findImageUrl(item.relationships.field_hero_image.data.id, files, media);
-          }
+          const url = findImage(item, 'field_hero_image', files, media);
           data.push({
             type: 'Hero',
             lang: item.attributes.langcode,
@@ -197,10 +202,8 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         try {
           const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
           const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
-          let image = null;
-          if (item.relationships.field_ic_image.data) {
-            image = findImageUrl(item.relationships.field_ic_image.data.id, files, media);
-          }
+          const image = findImage(item, 'field_ic_image', files, media);
+
           data.push({
             type: 'ImageAndCard',
             lang: item.attributes.langcode,
@@ -219,7 +222,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             lang: item.attributes.langcode,
             title: '',
             text: '',
-            image: findImageUrl(item.relationships.field_image_image.data.id, files, media),
+            image: findImage(item, 'field_image_image', files, media),
             height: item.attributes.field_image_height,
           });
         } catch(error) {
@@ -229,7 +232,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         break;
       case 'paragraph--link_internal':
         try {
-          let pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
+          const pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
           data.push({
             type: 'Pdf',
             lang: lang,
@@ -248,6 +251,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             type: 'Subheading',
             lang: item.attributes.langcode,
             title: item.attributes.field_subheading_title,
+            title_color: getColor(item, 'field_title_color', taxonomies),
             text: '',
           });
         } catch(error) {
@@ -304,8 +308,6 @@ export const getFullRelease = (conf) => {
 }
 
 export const findTaxonomy = (data, field) => {
-    console.log(data.included);
-
     try {
       let type = data.data[0].relationships[field].data.type;
       let taxonomy = _.find(data.included, {type: type});
@@ -316,7 +318,6 @@ export const findTaxonomy = (data, field) => {
       console.log(field);
       console.log(error);
     }
-
     return "";
 }
 

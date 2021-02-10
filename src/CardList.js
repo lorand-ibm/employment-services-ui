@@ -1,8 +1,8 @@
 import * as React from "react";
-import {Card} from "hds-react/components/Card";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import SingleCard from "./SingleCard";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -10,38 +10,40 @@ const useStyles = makeStyles((theme) => ({
     nobackground: 'blue',
     fontFamily: 'HelsinkiGrotesk',
     fontSize: 36,
+    paddingBottom: 25,
+    fontWeight: 'bold',
   },
 }));
 
 function CardList(props) {
-    const classes = useStyles();
-    const { title, cards } = props;
+  const classes = useStyles(props);
+  const { title, cards, site, isKoro } = props;
 
-    return (
-        <React.Fragment>
-          <Card
-
-            heading={title}
-            theme = {{
-              'card-body-margin-bottom' : 0
-            }}
-            className = {classes.title}
-          >
-            <Grid container spacing={3}  justify="left" className={classes.textArea}>
-              {cards.map((item, i) => (
-                  <Grid item>
-                    <SingleCard
-                      key={i}
-                      {...item}
-                      className={classes.title}
-                    >
-                    </SingleCard>
-                  </Grid>
-                ))}
+  return (
+    <React.Fragment>
+      <Grid container style={{zIndex: 10}}>
+        <Typography
+          gutterBottom variant="h5" component="h2"
+          className={classes.title}>
+          {title}
+        </Typography>
+        <Grid container alignItems="" direction={"row"} spacing={3} justify="left" className={classes.textArea}>
+          {cards.map((item, i) => (
+            <Grid item xs={12} md={4} key={i}>
+              <SingleCard
+                key={i}
+                {...item}
+                site={site}
+                className={classes.title}
+                style={{height: '100%'}}
+              >
+              </SingleCard>
             </Grid>
-          </Card>
-        </React.Fragment>
-    );
+          ))}
+        </Grid >
+      </Grid>
+    </React.Fragment>
+  );
 }
 
 CardList.propTypes = {};

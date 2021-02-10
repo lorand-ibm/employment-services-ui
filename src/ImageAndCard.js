@@ -1,55 +1,83 @@
 import * as React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {ImageWithCard} from "hds-react/components/ImageWithCard";
-import SingleCard from "./SingleCard";
+import {Button} from "hds-react/components/Button";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    color: 'black',
-    background: 'white',
+  root: props => ({
+    xbackgroundColor: props.card.bg_color,
+
+  }),
+  title: props => ({
+      color: props.card.title_color,
+      backgroundColor: props.card.bg_color,
+      fontFamily: 'HelsinkiGrotesk',
+      fontSize: 36,
+      fontWeight: 'bold',
+  }),
+  text: props => ({
+    fontSize: 18,
     fontFamily: 'HelsinkiGrotesk',
-    borderColor: 'red',
-    xxheight: 100,
-    marginBottom: 0,
-  },
-  text: {
-    fontSize: 16,
-    fontFamily: 'HelsinkiGrotesk'
-  },
-  textArea: {
-    margin:0,
-    padding: 0,
-  },
-  button: {
+    backgroundColor: props.card.bg_color,
+    mlineHeight: 27,
+  }),
+  button: props => ({
     color: 'black',
-    background: 'white',
-  },
-  icon: {
-    marginTop: 15,
-    xxwidth: 100,
-    xxheight: 100,
-  }
+    backgroundColor: props.card.bg_color,
+    borderColor: 'black',
+  }),
+  box: props => ({
+    color: 'black',
+    backgroundColor: props.card.bg_color,
+    padding: 25,
+    margin: -17,
+    marginLeft: -65,
+    height: 400,
+    width: 450,
+  }),
 }));
 
 function ImageAndCard(props) {
-    //const classes = useStyles();
+    const classes = useStyles(props);
     const { card, image, site } = props;
     const address = site + image;
+
+    let button =
+      <Button
+        className={classes.button}
+        onClick={() => {
+          window.location.href = card.button_url
+        }}
+        style={{
+          borderColor: 'black',
+        }}>
+        {card.button_text}
+      </Button>;
+
+    if (!card.button_text) {
+      button = "";
+    }
 
     return (
         <React.Fragment>
           <ImageWithCard
             cardLayout="hover"
             cardAlignment="right"
-            color={'White'}
-            src={address}>
-
-              <SingleCard
-                {...card}
-              >
-
-              </SingleCard>
+            color={props.card.bg_color}
+            src={address}
+            className={classes.root}
+          >
+            <Box className={classes.box}>
+              <Typography className={classes.title}>
+                {card.title}
+              </Typography>
+              <Typography className={classes.text} dangerouslySetInnerHTML={{__html:card.text}}/>
+              {button}
+            </Box>
           </ImageWithCard>
+
         </React.Fragment>
     );
 }

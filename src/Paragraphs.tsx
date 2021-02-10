@@ -12,11 +12,12 @@ import Image from "./Image";
 import ImageAndCard from "./ImageAndCard";
 import CardList from "./CardList";
 import { Container } from "hds-react";
+import { Koros } from "hds-react/components/Koros";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
-    margin: "0 auto 16px auto",
+    margin: "0 auto 32px auto",
     [theme.breakpoints.down(768)]: {
       paddingLeft: 16,
       paddingRight: 16,
@@ -74,6 +75,9 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 16,
     },
   },
+  cardList: {
+    width: "100%",
+  },
 }));
 
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
@@ -87,9 +91,17 @@ interface ParagraphsProps {
   width: ParagraphWidth;
 }
 
+const FullParagraphGrid = ({ className, children }: { className: string; children: any }) => (
+  <Grid container spacing={1} className={className}>
+    <Grid item style={{ margin: "0", zIndex: 10 }} xs={12}>
+      {children}
+    </Grid>
+  </Grid>
+);
+
 const WideParagraphGrid = ({ className, children }: { className: string; children: any }) => (
   <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto" }} xs={12}>
+    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12}>
       {children}
     </Grid>
   </Grid>
@@ -97,7 +109,7 @@ const WideParagraphGrid = ({ className, children }: { className: string; childre
 
 const NarrowParagraphGrid = ({ className, children }: { className: string; children: any }) => (
   <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto" }} xs={12} md={8}>
+    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={8}>
       {children}
     </Grid>
   </Grid>
@@ -105,7 +117,7 @@ const NarrowParagraphGrid = ({ className, children }: { className: string; child
 
 const NarrowLargerParagraphGrid = ({ className, children }: { className: string; children: any }) => (
   <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto" }} xs={12} md={9}>
+    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={9}>
       {children}
     </Grid>
   </Grid>
@@ -113,7 +125,7 @@ const NarrowLargerParagraphGrid = ({ className, children }: { className: string;
 
 export const DefaultParagraphGrid = ({ className, children }: { className: string; children: any }) => (
   <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto" }} xs={12} md={8} key={2}>
+    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={8} key={2}>
       {children}
     </Grid>
   </Grid>
@@ -128,8 +140,11 @@ const ParagraphGrid = ({
   paragraphWidth: ParagraphWidth;
   children: any;
 }) => {
-  if (paragraphWidth !== "Narrow") {
+  if (paragraphWidth === "Wide") {
     return <WideParagraphGrid className={className}>{children}</WideParagraphGrid>;
+  }
+  if (paragraphWidth === "Full") {
+    return <FullParagraphGrid className={className}>{children}</FullParagraphGrid>;
   }
   return <NarrowParagraphGrid className={className}>{children}</NarrowParagraphGrid>;
 };
@@ -143,79 +158,108 @@ function Paragraphs(props: ParagraphsProps) {
     switch (paragraph.type) {
       case "Accordion":
         items.push(
-          <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
-            <Accord key={index} {...paragraph}></Accord>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+              <Accord key={index} {...paragraph}></Accord>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Card":
         items.push(
-          <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-            <SingleCard key={index} {...paragraph}></SingleCard>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
+              <SingleCard key={index} {...paragraph} site={site}></SingleCard>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "CardList":
+        const isKoro = paragraph.isKoro;
+        const bgColor = paragraph.bgColor;
         items.push(
-          <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-            <CardList key={index} {...paragraph}></CardList>
-          </ParagraphGrid>
+          <div style={{ paddingTop: isKoro ? "20px" : "40px", paddingBottom: "20px", backgroundColor: bgColor, position: "relative" }}>
+            <div style={{ backgroundColor: bgColor }}>
+              {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-20px" }} /> : <></>}
+              <Container className={classes.container} style={{ zIndex: 10 }}>
+                <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
+                  <CardList key={index} {...paragraph} site={site}></CardList>
+                </ParagraphGrid>
+              </Container>
+            </div>
+          </div>
         );
         break;
       case "Subheading":
         items.push(
-          <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
-            <Subheading key={index} {...paragraph}></Subheading>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
+              <Subheading key={index} {...paragraph}></Subheading>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Info":
         items.push(
           props.width === "Narrow" ? (
-            <NarrowLargerParagraphGrid className={classes.info}>
-              <Info key={index} {...paragraph}></Info>
-            </NarrowLargerParagraphGrid>
+            <Container className={classes.container}>
+              <NarrowLargerParagraphGrid className={classes.info}>
+                <Info key={index} {...paragraph}></Info>
+              </NarrowLargerParagraphGrid>
+            </Container>
           ) : (
-            <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-              <Info key={index} {...paragraph}></Info>
-            </ParagraphGrid>
+            <Container className={classes.container}>
+              <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
+                <Info key={index} {...paragraph}></Info>
+              </ParagraphGrid>
+            </Container>
           )
         );
         break;
       case "Pdf":
       case "PDF":
         items.push(
-          <ParagraphGrid className={classes.pdf} paragraphWidth={props.width}>
-            <Pdf key={index} {...paragraph} site={site}></Pdf>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.pdf} paragraphWidth={props.width}>
+              <Pdf key={index} {...paragraph} site={site}></Pdf>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Image":
         items.push(
-          <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-            <Image key={index} {...paragraph} site={site}></Image>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
+              <Image key={index} {...paragraph} site={site}></Image>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "ImageAndCard":
         items.push(
-          <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-            <ImageAndCard key={index} {...paragraph} site={site}></ImageAndCard>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
+              <ImageAndCard key={index} {...paragraph} site={site}></ImageAndCard>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "PhoneNumberBox":
         items.push(
-          <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-            <PhoneNumberBox key={index} {...paragraph}></PhoneNumberBox>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
+              <PhoneNumberBox key={index} {...paragraph}></PhoneNumberBox>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Text":
         items.push(
-          <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
-            <Text key={index} {...paragraph}></Text>
-          </ParagraphGrid>
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+              <Text key={index} {...paragraph}></Text>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       default:
@@ -227,7 +271,7 @@ function Paragraphs(props: ParagraphsProps) {
   return (
     <React.Fragment>
       {items.map((item) => {
-        return <Container className={classes.container}>{item}</Container>;
+        return item;
       })}
     </React.Fragment>
   );
