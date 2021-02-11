@@ -25,10 +25,8 @@ const data_en = [
           'The TE Services will send you a letter and a notification via their E-Services if you are included in the experiment. '},
 
     { type: "Subheading", title: "How will the change affect me? ", text: ''},
-    { type: "Accordion", title: "How and when will the change take place?",
-        text: 'Parliament must first pass the experiment legislation before anything can change. The City of Helsinki has prepared for the change to happen in March 2021. In that case, the TE Services’ existing clients who have registered as jobseekers and belong to the experiment’s target group will transfer over to <b>Helsinki’s employment services</b> by the end of March. \n<br>' +
-          '\n<br>' +
-          'If you become a client of Helsinki’s employment services, you will receive a personal letter from the TE Services once the transfer has taken place. You will also be notified about the transfer via its E-Services, which you can continue to use at te-palvelut.fi/te/en. Helsinki’s employment services will also contact you once the transfer has been done. '},
+    { type: "Accordion", title: "When will the experiment take place?",
+        text: 'The municipal experiment will take place from 1 March 2021 to 30 June 2023. '},
     { type: "Accordion", title: "Will this change affect my unemployment benefits? ",
         text: 'No, the change will not affect any unemployment benefits that have already been granted to you. \n<br>' +
           '\n<br>' +
@@ -107,17 +105,19 @@ const data_en = [
         text: 'Registration will continue to take place via the TE Services. You can use their E-Services or visit their office to register as an unemployed jobseeker. The TE Services will direct all municipal employment experiment clients to the employment services provided by their home municipalities. '},
 
   { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
-  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Somalia.pdf'},
   { type: "PDF", title: "اللغة العربية Arabia", text: 'Arabia.pdf'},
   { type: "PDF", title: "বাংলা Bengali", text: 'Bengali.pdf'},
-  { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
+  { type: "PDF", title: "Eesti Viro", text: 'Viro.pdf'},
+  { type: "PDF", title: "Englanti English", text: 'Englanti.pdf'},
   { type: "PDF", title: "España Espanja", text: 'Espanja.pdf'},
   { type: "PDF", title: " فارسی Farsi", text: 'Farsi.pdf'},
   { type: "PDF", title: "汉语 Kiina", text: 'Kiina.pdf'},
   { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'Kurmanji.pdf'},
   { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
   { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani.pdf'},
-  { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'Albania.pdf'},
+  { type: "PDF", title: "Svenska Ruotsi", text: 'Ruotsi.pdf'},
   { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
   { type: "PDF", title: "TÜRKÇE Turkki", text: 'Turkki.pdf'},
   { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},

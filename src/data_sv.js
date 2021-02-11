@@ -25,10 +25,8 @@ const data_sv = [
           'Om du överförs till kommunförsöket kommer du att få ett individuellt meddelande från arbets- och näringsbyrån och i Mina e-tjänster. '},
 
     { type: "Subheading", title: "Vad betyder förändringen för mig? ", text: ''},
-    { type: "Accordion", title: "Hur och när kommer den att ske? ",
-        text: 'Riksdagen måste godkänna lagen om kommunförsök innan försöken kan komma igång. Helsingfors stad har berett sig på att försöken ska inledas i mars 2021. De som redan anmält sig som arbetssökande vid arbets- och näringsbyrån och som ingår i målgruppen kommer i så fall att överföras till Helsingfors sysselsättningstjänster runt den 1 mars.  \n<br>' +
-          '\n<br>' +
-          'Om du blir kund vid Helsingfors sysselsättningstjänster, får du ett individuellt meddelande efter att du förts över från arbets- och näringsbyrån. Informationen kommer också att finnas bland dina uppgifter i Mina e-tjänster. Du kan fortsätta använda Mina e-tjänster på webbplatsen TE-tjanster.fi. Efter att överföringen gjorts kommer du att kontaktas av Helsingfors sysselsättningstjänster. '},
+    { type: "Accordion", title: "När pågår försöken?",
+        text: 'De kommunala sysselsättningsförsöken pågår 1.3.2021–30.6.2023.' },
   { type: "Accordion", title: "Påverkar det här mitt arbetsmarknadstöd? ",
         text: 'Ändringen inverkar inte på arbetsmarknadstöd som redan beviljats. \n<br>' +
           '\n<br>' +
@@ -108,17 +106,19 @@ const data_sv = [
         text: 'Också i fortsättningen anmäler du dig som arbetslös vid arbets- och näringsbyråns tjänster. Du kan anmäla dig som arbetslös i Mina e-tjänsterna eller vid arbets- och näringsbyråernas serviceställen. Därifrån hänvisas kunder som omfattas av sysselsättningsförsöken vidare till sysselsättningstjänsterna i kundernas hemkommuner. '},
 
   { type: "Subheading", title: "Sammanfattning på andra språk", text: ''},
-  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Somalia.pdf'},
   { type: "PDF", title: "اللغة العربية Arabia", text: 'Arabia.pdf'},
   { type: "PDF", title: "বাংলা Bengali", text: 'Bengali.pdf'},
-  { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
+  { type: "PDF", title: "Eesti Viro", text: 'Viro.pdf'},
+  { type: "PDF", title: "Englanti English", text: 'Englanti.pdf'},
   { type: "PDF", title: "España Espanja", text: 'Espanja.pdf'},
   { type: "PDF", title: " فارسی Farsi", text: 'Farsi.pdf'},
   { type: "PDF", title: "汉语 Kiina", text: 'Kiina.pdf'},
   { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'Kurmanji.pdf'},
   { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
   { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani.pdf'},
-  { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'Albania.pdf'},
+  { type: "PDF", title: "Svenska Ruotsi", text: 'Ruotsi.pdf'},
   { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
   { type: "PDF", title: "TÜRKÇE Turkki", text: 'Turkki.pdf'},
   { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},

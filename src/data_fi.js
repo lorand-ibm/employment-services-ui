@@ -25,11 +25,9 @@ const data_fi = [
             'Saat vielä henkilökohtaisesti kirjeen TE-toimistosta sekä tiedon Oma asiointi -palvelussa mikäli siirryt kuntakokeiluun. '},
 
     { type: "Subheading", title: "Muutoksen vaikutukset minuun? ", text: ''},
-    { type: "Accordion", title: "Milloin ja miten muutos tapahtuu?",
-        text: 'Eduskunnan on hyväksyttävä kokeilulaki ennen kuin mikään muuttuu. Helsingin kaupunki on varautunut siihen, että muutos tapahtuu maaliskuussa 2021. Jo olemassa olevien TE-toimistoon työnhakijaksi ilmoittautuneiden ja kokeilun kohderyhmään kuuluvien asiakkaiden palvelu siirtyisi Helsingin työllisyyspalveluille maaliskuun loppuun mennessä. \n<br>' +
-            '\n<br>' +
-            'Jos siirryt Helsingin työllisyyspalvelujen asiakkaaksi, saat henkilökohtaisesti kirjeen TE-toimistosta siirron jälkeen. Lisäksi saat tiedon Oma asiointi –palveluun siirrosta. Oma asiointi -palvelu säilyy käytössäsi TE-palvelut.fi -osoitteessa. Siirron jälkeen sinuun otetaan yhteyttä Helsingin työllisyyspalveluista. '},
-    { type: "Accordion", title: "Vaikuttaako muutos minun työttömyysturvaani? ",
+    { type: "Accordion", title: "Milloin kokeilu on käynnissä?",
+        text: "Kuntakokeilu on käynnissä 1.3.2021 – 30.6.2023." },
+  { type: "Accordion", title: "Vaikuttaako muutos minun työttömyysturvaani? ",
         text: 'Muutos ei vaikuta jo myönnettyyn työttömyysturvaasi. \n<br>' +
             '\n<br>' +
             'Työllisyyden kuntakokeilun alkaessa TE-palvelujen työttömyysetuutesi maksajalle (KELA tai työttömyyskassa) antama työvoimapoliittinen lausunto jää voimaan, kun asiakkuutesi siirtyy Helsingin työllisyyspalvelujen piiriin. Kuntakokeilu ei vaikuta työttömyysturva-asiasi käsittelyyn Kelassa tai työttömyyskassasi. Uudistuksen ei pitäisi vaikuttaa suuresti työttömyysetuutesi hakemisen tai myöntämisen aikatauluun Kelasta tai työttömyyskassasta.  \n<br>' +
@@ -109,17 +107,19 @@ const data_fi = [
             ''},
 
     { type: "Subheading", title: "Yhteenveto muilla kielillä", text: ''},
-  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Af-Soomaali Somalia.pdf'},
+  { type: "PDF", title: "Af-Soomaali Somalia", text: 'Somalia.pdf'},
   { type: "PDF", title: "اللغة العربية Arabia", text: 'Arabia.pdf'},
   { type: "PDF", title: "বাংলা Bengali", text: 'Bengali.pdf'},
-  { type: "PDF", title: "Eesti Viro", text: 'Eesti Viro.pdf'},
+  { type: "PDF", title: "Eesti Viro", text: 'Viro.pdf'},
+  { type: "PDF", title: "Englanti English", text: 'Englanti.pdf'},
   { type: "PDF", title: "España Espanja", text: 'Espanja.pdf'},
   { type: "PDF", title: " فارسی Farsi", text: 'Farsi.pdf'},
   { type: "PDF", title: "汉语 Kiina", text: 'Kiina.pdf'},
   { type: "PDF", title: "KURMANCÎ Kurmanji", text: 'Kurmanji.pdf'},
   { type: "PDF", title: "Nepali", text: 'Nepali.pdf'},
   { type: "PDF", title: "Sorani سۆرانی", text: 'Sorani.pdf'},
-  { type: "PDF", title: "SQHIP Albania", text: 'SQHIP Albania.pdf'},
+  { type: "PDF", title: "SQHIP Albania", text: 'Albania.pdf'},
+  { type: "PDF", title: "Svenska Ruotsi", text: 'Ruotsi.pdf'},
   { type: "PDF", title: "ภาษาไทย Thai", text: 'Thai.pdf'},
   { type: "PDF", title: "TÜRKÇE Turkki", text: 'Turkki.pdf'},
   { type: "PDF", title: "русский Venäjä", text: 'Venaja.pdf'},
