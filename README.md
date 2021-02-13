@@ -37,4 +37,11 @@ yarn start
 
 ## Build & Deployment
 
-TODO
+The deployments are still WIP.
+
+The project can be built and run with Docker. See `Dockerfile`.
+
+Steps:
+- Define `.env` in project root.
+- Build docker image `docker build -t node .`
+- Run docker container `docker run -d -p 127.0.0.1:9000:9000 node`. *Note*: Expose node server port as needed with the `-p` flag.
