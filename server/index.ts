@@ -1,15 +1,16 @@
-﻿require('dotenv').config();
-const express = require('express');
-const path = require('path');
+﻿import dotEnv from 'dotenv';
+import express from 'express';
+import path from 'path'
+
+import apiRouter from './api';
 
 const app = express();
-const api = require('./api');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, '../build')));
 
-app.use('/api', api);
+app.use('/api', apiRouter);
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../build/index.html'));
 });

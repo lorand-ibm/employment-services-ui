@@ -10,6 +10,11 @@ COPY yarn.lock ./
 
 RUN yarn install
 
+# Build React
+COPY ./ ./
+
+RUN yarn run build
+
 # Install server
 WORKDIR /usr/src/app/server
 
@@ -17,13 +22,8 @@ COPY server/package.json ./
 COPY server/yarn.lock ./
 
 RUN yarn install
-
-# Build React
-WORKDIR /usr/src/app
-
-COPY ./ ./
-
 RUN yarn run build
 
+
 # Run server
-CMD ["node", "server/server.js"]
+CMD ["node", "server/dist/server.js"]
