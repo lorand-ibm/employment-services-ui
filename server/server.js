@@ -1,18 +1,23 @@
 ﻿require('dotenv').config();
-const express = require('express');
-const path = require('path');
+var express = require('express')
+var router = express.Router()
+let linkedevents = require('./linkedevents')
 
 const app = express();
 const api = require('./api');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.resolve(__dirname, '../build')));
 
-app.use('/api', api);
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../build/index.html'));
-});
+router.all('/', function (req, res) {
+  res.sendStatus(404)
+})
+
+app.get('/linkedevents', function (req, res) {
+  linkedevents()
+  console.log('call ok')
+  res.sendStatus(200)
+})
 
 const port = process.env.SERVER_PORT || 9000;
 app.listen(port, () => {
