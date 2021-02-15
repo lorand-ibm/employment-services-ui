@@ -29,6 +29,7 @@ const testData = {
         "field_start_time": "2020-12-08T11:00:00Z",
         "field_end_time": "2020-12-08T12:00:00Z",
         "field_tags" : allowedTags,
+        "path" : {"alias": "/nettirekry-mehilainen-hakee-lahihoitajia"}
       }
     }
 }
@@ -94,6 +95,7 @@ async function makeRequests() {
   });
   let tags = await Promise.all(tagPromises);
   let tagNames = _.map(tags, "data.name.fi");
+  tagNames = _.intersection(tagNames, allowedTags);
 
   // Copy linked event fields to Drupal event attributes
   mapping.map((item, index) => {
@@ -112,7 +114,9 @@ async function makeRequests() {
     }
   });
 
-  tagNames = _.intersection(tagNames, allowedTags);
+  attributes.path = {};
+  let pathAlias = attributes['field_title'];
+  attributes.path.alias = "/" + pathAlias.replace(/[\s:]/g, "-");
   attributes.field_tags = tagNames;
 
   const drupalData = {
@@ -121,6 +125,7 @@ async function makeRequests() {
       "attributes" : attributes
     }
   }
+
 
   // Post new event
   let [po] = await Promise.all([
