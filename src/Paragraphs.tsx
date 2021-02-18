@@ -11,9 +11,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Image from "./Image";
 import ImageAndCard from "./ImageAndCard";
 import CardList from "./CardList";
+import EventsList from "./EventsList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import Link from "./Link";
+import Date from "./Date";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -132,7 +134,7 @@ export const DefaultParagraphGrid = ({ className, children }: { className: strin
   </Grid>
 );
 
-const ParagraphGrid = ({
+export const ParagraphGrid = ({
   className,
   paragraphWidth,
   children,
@@ -178,7 +180,14 @@ function Paragraphs(props: ParagraphsProps) {
         const isKoro = paragraph.isKoro;
         const bgColor = paragraph.bgColor;
         items.push(
-          <div style={{ paddingTop: isKoro ? "20px" : "40px", paddingBottom: "20px", backgroundColor: bgColor, position: "relative" }}>
+          <div
+            style={{
+              paddingTop: isKoro ? "20px" : "40px",
+              paddingBottom: "20px",
+              backgroundColor: bgColor,
+              position: "relative",
+            }}
+          >
             <div style={{ backgroundColor: bgColor }}>
               {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-20px" }} /> : <></>}
               <Container className={classes.container} style={{ zIndex: 10 }}>
@@ -276,6 +285,19 @@ function Paragraphs(props: ParagraphsProps) {
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
               <Text key={index} {...paragraph}></Text>
+            </ParagraphGrid>
+          </Container>
+        );
+        break;
+      case "EventsList":
+        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} />);
+        break;
+
+      case "Date":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+              <Date startTime={paragraph.startTime} endTime={paragraph.endTime} />
             </ParagraphGrid>
           </Container>
         );
