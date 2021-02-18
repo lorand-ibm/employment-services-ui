@@ -24,6 +24,7 @@ COPY server/yarn.lock ./
 RUN yarn install
 RUN yarn run build
 
+WORKDIR /usr/src/app
 
 # Run server
-CMD ["node", "server/dist/server.js"]
+CMD ["node", "server/build/index.js"]
