@@ -13,6 +13,7 @@ import ImageAndCard from "./ImageAndCard";
 import CardList from "./CardList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
+import Link from "./Link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -214,6 +215,15 @@ function Paragraphs(props: ParagraphsProps) {
               </ParagraphGrid>
             </Container>
           )
+        );
+        break;
+      case "Link":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
+              <Link key={index} url={paragraph.url} text={paragraph.url_text}></Link>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Pdf":

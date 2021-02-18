@@ -286,6 +286,32 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
           console.log(error);
         }
         break;
+      case 'paragraph--events_list':
+        try {
+          data.push({
+            type: 'EventsList',
+            lang: item.attributes.langcode,
+            title: '',
+            text: '',
+          })
+        } catch (error) {
+          console.log('events-list');
+          console.log(error);
+        }
+        break;
+      case 'paragraph--link':
+        try {
+          data.push({
+            type: 'Link',
+            lang: item.attributes.langcode,
+            url_text: item.attributes.field_url_text,
+            url: item.attributes.field_url,
+          })
+        } catch(error) {
+          console.log('link');
+          console.log(error);
+        }
+        break;
       case 'taxonomy_term--paragraph_width':
         break;
       default:
