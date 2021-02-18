@@ -245,6 +245,20 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             console.log(error);
           }
         break;
+      case 'paragraph--mainheading':
+        try {
+          data.push({
+            type: 'Mainheading',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_title,
+            title_color: getColor(item, 'field_title_color', taxonomies),
+            text: '',
+          });
+        } catch (error) {
+          console.log("subheading");
+          console.log(error);
+        }
+        break;
       case 'paragraph--subheading':
         try {
           data.push({

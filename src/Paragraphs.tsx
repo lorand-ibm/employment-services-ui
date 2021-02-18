@@ -1,7 +1,7 @@
 import * as React from "react";
 import Accord from "./Accord";
 import SingleCard from "./SingleCard";
-import Subheading from "./Subheading";
+import {Mainheading, Subheading} from "./Headings";
 import Info from "./Info";
 import Pdf from "./Pdf";
 import PhoneNumberBox from "./PhoneNumberBox";
@@ -189,6 +189,15 @@ function Paragraphs(props: ParagraphsProps) {
               </Container>
             </div>
           </div>
+        );
+        break;
+      case "Mainheading":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
+              <Mainheading key={index} {...paragraph}></Mainheading>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Subheading":
