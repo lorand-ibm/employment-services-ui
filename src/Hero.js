@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import {Koros} from  "hds-react/components/Koros";
 
@@ -152,7 +151,7 @@ function Hero(props) {
       <Hidden smDown>
         <Container maxWidth="xl" className={classes.container}>
           <FiCard className={classes.card}>
-            <FiCardActionArea>
+            <div>
               <FiCardMedia className={classes.mediaPic}
                            media="picture"
                            alt={title}
@@ -176,7 +175,7 @@ function Hero(props) {
 
                   </Typography>
               </FiCardContent>
-            </FiCardActionArea>
+            </div>
           </FiCard>
           <svg id="clip" width='0' height='0'  version="1.1">
             <defs>
@@ -206,7 +205,7 @@ function Hero(props) {
 
           </Typography>
           <Card width={1} className={classes.mobileCard}>
-            <CardActionArea>
+            <div>
               <Koros type="basic" flipHorizontal className={classes.koro}/>
               <CardMedia className={classes.smallCard}
                 component="img"
@@ -216,7 +215,7 @@ function Hero(props) {
                 title={title}
               >
               </CardMedia>
-            </CardActionArea>
+            </div>
           </Card>
         </Container>
       </Hidden>
