@@ -1,7 +1,7 @@
 import * as React from "react";
 import Accord from "./Accord";
 import SingleCard from "./SingleCard";
-import Subheading from "./Subheading";
+import {Mainheading, Subheading} from "./Headings";
 import Info from "./Info";
 import Pdf from "./Pdf";
 import PhoneNumberBox from "./PhoneNumberBox";
@@ -13,6 +13,7 @@ import ImageAndCard from "./ImageAndCard";
 import CardList from "./CardList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
+import Link from "./Link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -190,6 +191,15 @@ function Paragraphs(props: ParagraphsProps) {
           </div>
         );
         break;
+      case "Mainheading":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
+              <Mainheading key={index} {...paragraph}></Mainheading>
+            </ParagraphGrid>
+          </Container>
+        );
+        break;
       case "Subheading":
         items.push(
           <Container className={classes.container}>
@@ -214,6 +224,15 @@ function Paragraphs(props: ParagraphsProps) {
               </ParagraphGrid>
             </Container>
           )
+        );
+        break;
+      case "Link":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
+              <Link key={index} url={paragraph.url} text={paragraph.url_text}></Link>
+            </ParagraphGrid>
+          </Container>
         );
         break;
       case "Pdf":

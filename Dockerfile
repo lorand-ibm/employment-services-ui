@@ -6,9 +6,15 @@ COPY .env ./
 
 # Install React
 COPY package.json ./
-COPY yarn.lock ./
+COPY package-lock.json ./
 
-RUN yarn install
+RUN npm install
+RUN npm install -g react-scripts@4.0.1
+
+# Build React
+COPY ./ ./
+
+RUN npm run build
 
 # Install server
 WORKDIR /usr/src/app/server
@@ -17,13 +23,9 @@ COPY server/package.json ./
 COPY server/yarn.lock ./
 
 RUN yarn install
-
-# Build React
-WORKDIR /usr/src/app
-
-COPY ./ ./
-
 RUN yarn run build
 
+WORKDIR /usr/src/app
+
 # Run server
-CMD ["node", "server/server.js"]
+CMD ["node", "server/build/index.js"]

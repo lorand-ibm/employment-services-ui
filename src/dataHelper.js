@@ -245,6 +245,20 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             console.log(error);
           }
         break;
+      case 'paragraph--mainheading':
+        try {
+          data.push({
+            type: 'Mainheading',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_title,
+            title_color: getColor(item, 'field_title_color', taxonomies),
+            text: '',
+          });
+        } catch (error) {
+          console.log("subheading");
+          console.log(error);
+        }
+        break;
       case 'paragraph--subheading':
         try {
           data.push({
@@ -283,6 +297,32 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
           });
         } catch(error) {
           console.log("text");
+          console.log(error);
+        }
+        break;
+      case 'paragraph--events_list':
+        try {
+          data.push({
+            type: 'EventsList',
+            lang: item.attributes.langcode,
+            title: '',
+            text: '',
+          })
+        } catch (error) {
+          console.log('events-list');
+          console.log(error);
+        }
+        break;
+      case 'paragraph--link':
+        try {
+          data.push({
+            type: 'Link',
+            lang: item.attributes.langcode,
+            url_text: item.attributes.field_url_text,
+            url: item.attributes.field_url,
+          })
+        } catch(error) {
+          console.log('link');
           console.log(error);
         }
         break;
