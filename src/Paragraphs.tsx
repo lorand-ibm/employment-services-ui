@@ -153,7 +153,6 @@ const ParagraphGrid = ({
 function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
   const { paragraphs, site, width } = props;
-  console.log(width);
   const items: any[] = [];
   paragraphs.map((paragraph: any, index: number) => {
     switch (paragraph.type) {
