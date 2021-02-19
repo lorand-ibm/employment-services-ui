@@ -47,7 +47,6 @@ export const findImageUrl = (uid, files, media) => {
   const mIndex = media.data.data.findIndex(item => item.id === uid);
   const imageUid = media.data.data[mIndex].relationships.field_media_image.data.id;
   const fIndex = files.data.data.findIndex(item => item.id === imageUid);
-  //console.log(files.data.data[fIndex].attributes.uri); console.log(uid); console.log(files.data.data[0].id);
   return files.data.data[fIndex].attributes.uri.url;
 }
 
@@ -65,12 +64,9 @@ export const findPdfUrl = (uid, files, pdfs) => {
     return "";
   }
   const pIndex = pdfs.data.data.findIndex(item => item.id === uid);
-  //console.log(pIndex); console.log(pdfs.data.data[pIndex]);
 
   const pdfUid = pdfs.data.data[pIndex].relationships.field_media_document.data.id;
   const fIndex = files.data.data.findIndex(item => item.id === pdfUid);
-  //console.log(files.data.data[fIndex].attributes.uri); console.log(uid); console.log(files.data.data[0].id);
-  //console.log(files);
   return files.data.data[fIndex].attributes.uri.url;
 }
 

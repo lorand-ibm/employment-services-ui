@@ -191,17 +191,10 @@ export default function Landing(props) {
       ]);
     }
 
-    //console.log(sv.data);
     let fiData = findData('fi', fi.data, f, m, d, taxonomies);
     let svData = findData('sv', sv.data, f, m, d, taxonomies);
     let enData = findData('en', en.data, f, m, d, taxonomies);
     const width = findTaxonomy(en.data, 'field_page_width');
-    //console.log(en);
-    //setError(false);
-    console.log(svData);
-    console.log(fiData);
-    console.log(enData);
-    console.log(configuration);
     setData({
       en: enData, fi: fiData, sv: svData,
       width: width,
