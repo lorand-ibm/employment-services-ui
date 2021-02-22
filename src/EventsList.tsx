@@ -60,11 +60,12 @@ interface EventState {
 interface EventListProps {
   site: string;
   lang: string;
+  bgColor: string;
 }
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
-  const { lang, site } = props;
+  const { lang, site, bgColor } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
@@ -85,7 +86,6 @@ function EventsList(props: EventListProps) {
   }, [eventsIndex]);
 
   const isKoro = true;
-  const bgColor = "#f1f1f1";
   return (
     <div style={{ paddingTop: "50px" }}>
       <div

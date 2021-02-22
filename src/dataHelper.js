@@ -365,6 +365,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             lang: item.attributes.langcode,
             title: '',
             text: '',
+            bgColor: '#f1f1f1',
           })
         } catch (error) {
           console.log('events-list');

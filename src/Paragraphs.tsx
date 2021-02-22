@@ -290,7 +290,7 @@ function Paragraphs(props: ParagraphsProps) {
         );
         break;
       case "EventsList":
-        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} />);
+        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} bgColor={paragraph.bgColor} />);
         break;
 
       case "Date":

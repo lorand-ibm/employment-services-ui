@@ -26,7 +26,9 @@ const useStyles = makeStyles((theme) => ({
     height: 550,
   },
   main: {
-    marginBottom: 100,
+  },
+  footerWrapper: {
+    paddingTop: 100,
   },
   paragraphs: {
     marginTop: 72
@@ -266,6 +268,8 @@ export default function Landing(props) {
 
   const navi = getNavi(data.menu, loading, data.fullVersion, lang);
 
+  const lastParagraph = useData[useData.length - 1]
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -309,11 +313,13 @@ export default function Landing(props) {
 
         </main>
       }
-      <FooterBottom
-        title={appName}
-        description=""
-        lang={logolang}
-      />
+      <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraph.bgColor }}>
+        <FooterBottom
+          title={appName}
+          description=""
+          lang={logolang}
+        />
+      </div>
     </React.Fragment>
   );
 }
