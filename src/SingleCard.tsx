@@ -46,6 +46,10 @@ const useStyles = makeStyles((theme: any) => ({
     color: "black",
     backgroundColor: props.button_bg_color,
     fontSize: 16,
+    '&:hover': {
+      backgroundColor: props.button_bg_color,
+      color: "black",
+    }
   }),
   media: (props: SingleCardProps) => ({
     height: props.type === "event" ? 150 : defaultImageHeight,
