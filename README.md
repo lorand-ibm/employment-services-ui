@@ -26,13 +26,13 @@ Run project with the following commands in project root:
 nvm use
 
 # install server depencencies
-yarn --cwd server
+npm install --prefix server/
 
 # install front end dependencies
-yarn
+npm install
 
 # run server and front end
-yarn start
+npm start
 ```
 
 ## Build & Deployment
