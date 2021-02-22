@@ -18,11 +18,12 @@ const useStyles = makeStyles((theme: any) => ({
 
 function Location(props: LocationProps) {
   const classes = useStyles(props);
+  const { location } = props;
 
   return (
     <div className={classes.container}>
       <IconLocation className={classes.icon} />
-      <div>Internet</div>
+      <div>{location}</div>
     </div>
   );
 }

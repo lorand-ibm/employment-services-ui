@@ -155,6 +155,12 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         endTime: attributes.field_end_time,
       },
       {
+        type: 'Location',
+        lang,
+        //TODO:
+        location: "Internet",
+      },
+      {
         type: 'Image',
         lang,
         title: '',

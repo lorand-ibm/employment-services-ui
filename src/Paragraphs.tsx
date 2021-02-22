@@ -16,11 +16,21 @@ import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import Link from "./Link";
 import Date from "./Date";
+import Location from "./Location";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
     margin: "0 auto 32px auto",
+    [theme.breakpoints.down(768)]: {
+      paddingLeft: 16,
+      paddingRight: 16,
+      maxWidth: "100%",
+    },
+  },
+  container2: {
+    padding: 0,
+    margin: "0 auto 0 auto",
     [theme.breakpoints.down(768)]: {
       paddingLeft: 16,
       paddingRight: 16,
@@ -292,15 +302,24 @@ function Paragraphs(props: ParagraphsProps) {
       case "EventsList":
         items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} bgColor={paragraph.bgColor} />);
         break;
-
       case "Date":
         items.push(
-          <Container className={classes.container}>
+          <Container className={classes.container2}>
             <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
               <Date startTime={paragraph.startTime} endTime={paragraph.endTime} />
             </ParagraphGrid>
           </Container>
         );
+        break;
+      // Not used in Drupal ATM
+      case "Location":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+              <Location location={paragraph.location} />
+            </ParagraphGrid>
+          </Container>
+        )
         break;
       default:
         break;
