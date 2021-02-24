@@ -20,10 +20,10 @@ RUN npm run build
 WORKDIR /usr/src/app/server
 
 COPY server/package.json ./
-COPY server/yarn.lock ./
+COPY server/package-lock.json ./
 
-RUN yarn install
-RUN yarn run build
+RUN npm install
+RUN npm run build
 
 WORKDIR /usr/src/app
 

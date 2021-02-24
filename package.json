@@ -9,7 +9,9 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/dateformat": "^3.0.1",
     "axios": "^0.21.1",
+    "dateformat": "^4.5.1",
     "hds-core": "^0.21.0",
     "hds-react": "^0.21.0",
     "lodash": "^4.17.20",
@@ -31,7 +33,7 @@
   "scripts": {
     "start": "npm run start-server & npm run start-client",
     "start-client": "react-scripts start",
-    "start-server": "npm --cwd server start",
+    "start-server": "npm start --prefix server/",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,4 +1,4 @@
-import {getColor} from "./colorHelper.js";
+import { getColor } from "./colorHelper.js";
 let _ = require('lodash');
 
 const findSubmenu = (m, uri) => {
@@ -6,7 +6,7 @@ const findSubmenu = (m, uri) => {
   let name = uri.substring(10);
   m.data.data.map((item, index) => {
     if ((item.attributes.menu_name.replace('_', '-')) === name.replace('_', '-')) {
-      subs.push( {
+      subs.push({
         name: item.attributes.title,
         link: item.attributes.link.uri,
         items: findSubmenu(m, item.attributes.link.uri),
@@ -15,7 +15,7 @@ const findSubmenu = (m, uri) => {
     }
     return subs;
   });
-  let subs2 = _.orderBy(subs, ['weight'],['asc']);
+  let subs2 = _.orderBy(subs, ['weight'], ['asc']);
   return subs2;
 }
 
@@ -26,17 +26,17 @@ export const makeMenu = (m) => {
     return menu;
   }
   m.data.data.map((item, index) => {
-      if (item.attributes.menu_name === 'main') {
-        menu.push({
-          name: item.attributes.title,
-          link: item.attributes.link.uri,
-          items: findSubmenu(m, item.attributes.link.uri),
-          weight: item.attributes.weight,
-        });
-      }
-      return menu;
+    if (item.attributes.menu_name === 'main') {
+      menu.push({
+        name: item.attributes.title,
+        link: item.attributes.link.uri,
+        items: findSubmenu(m, item.attributes.link.uri),
+        weight: item.attributes.weight,
+      });
+    }
+    return menu;
   });
-  let menu2 = _.orderBy(menu, ['weight'],['asc']);
+  let menu2 = _.orderBy(menu, ['weight'], ['asc']);
   return menu2;
 }
 
@@ -53,7 +53,7 @@ export const findImageUrl = (uid, files, media) => {
 export const findImage = (item, field, files, media) => {
   try {
     return findImageUrl(item.relationships[field].data.id, files, media);
-  } catch(error) {
+  } catch (error) {
     console.log('no pic: ' + field);
   }
   return null;
@@ -81,7 +81,7 @@ const getCards = (d, ids) => {
   let cards = [];
   ids.map((item, index) => {
     let id = item.id;
-    let card = _.find(d, {id: id});
+    let card = _.find(d, { id: id });
     card.thisCardIsInList = true;
     cards.push(card);
     return cards;
@@ -93,43 +93,112 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
   let cards = [];
   try {
     drupalCards.map((item, index) => {
-        if ((includeFromList && item.thisCardIsInList) ||
-          (!includeFromList && !item.thisCardIsInList)
-        ) {
-          cards.push({
-            type: 'Card',
-            lang: item.attributes.langcode,
-            bg_color: getColor(item, 'field_background_color', taxonomies),
-            title: item.attributes.field_card_title,
-            title_color: getColor(item, 'field_title_color', taxonomies),
-            text: getTextValue(item.attributes.field_card_text),
-            text_color: getColor(item, 'field_text_color', taxonomies),
-            button_text: item.attributes.field_card_button_text,
-            button_url: item.attributes.field_card_button_url,
-            width: item.attributes.field_card_width,
-            height: item.attributes.field_card_height,
-            image: findImage(item, 'field_ic_image', files, media),
-            button_bg_color: getColor(item, 'field_button_color', taxonomies),
-          });
-        }
-        return cards;
-      });
-    } catch(error) {
-      console.log("card converts");
-      console.log(error);
-    }
+      if ((includeFromList && item.thisCardIsInList) ||
+        (!includeFromList && !item.thisCardIsInList)
+      ) {
+        cards.push({
+          type: 'Card',
+          lang: item.attributes.langcode,
+          bg_color: getColor(item, 'field_background_color', taxonomies),
+          title: item.attributes.field_card_title,
+          title_color: getColor(item, 'field_title_color', taxonomies),
+          text: getTextValue(item.attributes.field_card_text),
+          text_color: getColor(item, 'field_text_color', taxonomies),
+          button_text: item.attributes.field_card_button_text,
+          button_url: item.attributes.field_card_button_url,
+          width: item.attributes.field_card_width,
+          height: item.attributes.field_card_height,
+          image: findImage(item, 'field_ic_image', files, media),
+          button_bg_color: getColor(item, 'field_button_color', taxonomies),
+        });
+      }
+      return cards;
+    });
+  } catch (error) {
+    console.log("card converts");
+    console.log(error);
+  }
 
   return cards;
 }
 
 export const findData = (lang, json, files, media, doc, taxonomies) => {
+  if (!json.data || !json.data[0] || !json.data[0].type || !json.data[0].attributes) {
+    console.log('error with event data, no data');
+    return [];
+  }
+  const data = json.data[0];
+  if (data.type === 'node--event') {
+    const attributes = data.attributes;
+    const lang = attributes.langcode
+
+    const infoUrl = attributes.field_info_url;
+    const infoUrlText = infoUrl && infoUrl.startsWith("https://teams.microsoft") ? "Avaa Teams-tapahtuma" : "Tapahtuman kotisivut";
+    return [
+      {
+        type: 'Subheading',
+        lang,
+        title: attributes.field_title,
+        title_color: "",
+        text: '',
+      },
+      {
+        type: 'Text',
+        lang,
+        title: '',
+        text: attributes.field_short_description.value,
+      },
+      {
+        type: 'Date',
+        lang,
+        startTime: attributes.field_start_time,
+        endTime: attributes.field_end_time,
+      },
+      {
+        type: 'Location',
+        lang,
+        //TODO:
+        location: "Internet",
+      },
+      {
+        type: 'Image',
+        lang,
+        title: '',
+        text: '',
+        image: attributes.field_image_url,
+        height: -1,
+      },
+      {
+        type: 'Text',
+        lang,
+        title: '',
+        text: attributes.field_text.value,
+      },
+      {
+        type: 'Link',
+        url: infoUrl,
+        url_text: infoUrlText,
+      },
+      {
+        type: 'EventsList',
+        lang,
+        title: '',
+        text: '',
+        bgColor: '#f1f1f1',
+      }
+    ]
+  }
+  return findPageData(lang, json, files, media, doc, taxonomies);
+}
+
+export const findPageData = (lang, json, files, media, doc, taxonomies) => {
   let data = [];
   if (!json.included) {
     console.log('error with data, no json.included');
     return data;
   }
   json.included.map((item, index) => {
-    switch(item.type) {
+    switch (item.type) {
       case 'paragraph--accordion':
         try {
           data.push({
@@ -138,14 +207,14 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             title: item.attributes.field_accordion_title,
             text: getTextValue(item.attributes.field_accordion_text),
           });
-        } catch(error) {
+        } catch (error) {
           console.log("accordion");
           console.log(error);
         }
         break;
       case 'paragraph--card':
         const cards = convertCardsFromDrupal([item], false, files, media, taxonomies);
-        if (cards.length>0) {
+        if (cards.length > 0) {
           data.push(cards[0]);
         }
         break;
@@ -161,7 +230,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             bgColor: getColor(item, 'field_card_list_bg_color', taxonomies),
             isKoro: item.attributes.field_card_list_is_koro ? true : false,
           });
-        } catch(error) {
+        } catch (error) {
           console.log("card-list");
           console.log(error);
         }
@@ -176,20 +245,20 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             text: getTextValue(item.attributes.field_hero_text),
             url: url,
           });
-        } catch(error) {
+        } catch (error) {
           console.log("hero");
           console.log(error);
         }
         break;
       case 'paragraph--info':
         try {
-            data.push({
-              type: 'Info',
-              lang: item.attributes.langcode,
-              title: item.attributes.field_info_title,
-              text: getTextValue(item.attributes.field_info_text),
-            });
-        } catch(error) {
+          data.push({
+            type: 'Info',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_info_title,
+            text: getTextValue(item.attributes.field_info_text),
+          });
+        } catch (error) {
           console.log("info");
           console.log(error);
         }
@@ -206,7 +275,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             card: cards[0],
             image: image,
           });
-        } catch(error) {
+        } catch (error) {
           console.log("image and card");
           console.log(error);
         }
@@ -221,7 +290,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             image: findImage(item, 'field_image_image', files, media),
             height: item.attributes.field_image_height,
           });
-        } catch(error) {
+        } catch (error) {
           console.log("image");
           console.log(error);
         }
@@ -236,10 +305,10 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             text: '',
             url: pdfUrl,
           });
-        } catch(error) {
-            console.log("pdf");
-            console.log(error);
-          }
+        } catch (error) {
+          console.log("pdf");
+          console.log(error);
+        }
         break;
       case 'paragraph--mainheading':
         try {
@@ -264,7 +333,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             title_color: getColor(item, 'field_title_color', taxonomies),
             text: '',
           });
-        } catch(error) {
+        } catch (error) {
           console.log("subheading");
           console.log(error);
         }
@@ -278,9 +347,9 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             text: getTextValue(item.attributes.field_text_demo),
 
           });
-        } catch(error) {
-            console.log("text");
-            console.log(error);
+        } catch (error) {
+          console.log("text");
+          console.log(error);
         }
         break;
       case 'paragraph--phone_number_box':
@@ -291,7 +360,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             title: item.attributes.field_pb_title,
             text: getTextValue(item.attributes.field_pb_text),
           });
-        } catch(error) {
+        } catch (error) {
           console.log("text");
           console.log(error);
         }
@@ -303,6 +372,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
             lang: item.attributes.langcode,
             title: '',
             text: '',
+            bgColor: '#f1f1f1',
           })
         } catch (error) {
           console.log('events-list');
@@ -344,16 +414,16 @@ export const getFullRelease = (conf) => {
 }
 
 export const findTaxonomy = (data, field) => {
-    try {
-      let type = data.data[0].relationships[field].data.type;
-      let taxonomy = _.find(data.included, {type: type});
-      if (taxonomy) {
-        return taxonomy.attributes.name;
-      }
-    } catch(error) {
-      console.log(field);
-      console.log(error);
+  try {
+    let type = data.data[0].relationships[field].data.type;
+    let taxonomy = _.find(data.included, { type: type });
+    if (taxonomy) {
+      return taxonomy.attributes.name;
     }
-    return "";
+  } catch (error) {
+    console.log(field);
+    console.log(error);
+  }
+  return "";
 }
 

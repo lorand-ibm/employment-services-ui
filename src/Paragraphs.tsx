@@ -11,14 +11,26 @@ import { makeStyles } from "@material-ui/core/styles";
 import Image from "./Image";
 import ImageAndCard from "./ImageAndCard";
 import CardList from "./CardList";
+import EventsList from "./EventsList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import Link from "./Link";
+import Date from "./Date";
+import Location from "./Location";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
     margin: "0 auto 32px auto",
+    [theme.breakpoints.down(768)]: {
+      paddingLeft: 16,
+      paddingRight: 16,
+      maxWidth: "100%",
+    },
+  },
+  container2: {
+    padding: 0,
+    margin: "0 auto 0 auto",
     [theme.breakpoints.down(768)]: {
       paddingLeft: 16,
       paddingRight: 16,
@@ -132,7 +144,7 @@ export const DefaultParagraphGrid = ({ className, children }: { className: strin
   </Grid>
 );
 
-const ParagraphGrid = ({
+export const ParagraphGrid = ({
   className,
   paragraphWidth,
   children,
@@ -178,7 +190,14 @@ function Paragraphs(props: ParagraphsProps) {
         const isKoro = paragraph.isKoro;
         const bgColor = paragraph.bgColor;
         items.push(
-          <div style={{ paddingTop: isKoro ? "20px" : "40px", paddingBottom: "20px", backgroundColor: bgColor, position: "relative" }}>
+          <div
+            style={{
+              paddingTop: isKoro ? "20px" : "40px",
+              paddingBottom: "20px",
+              backgroundColor: bgColor,
+              position: "relative",
+            }}
+          >
             <div style={{ backgroundColor: bgColor }}>
               {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-20px" }} /> : <></>}
               <Container className={classes.container} style={{ zIndex: 10 }}>
@@ -279,6 +298,28 @@ function Paragraphs(props: ParagraphsProps) {
             </ParagraphGrid>
           </Container>
         );
+        break;
+      case "EventsList":
+        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} bgColor={paragraph.bgColor} />);
+        break;
+      case "Date":
+        items.push(
+          <Container className={classes.container2}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+              <Date startTime={paragraph.startTime} endTime={paragraph.endTime} />
+            </ParagraphGrid>
+          </Container>
+        );
+        break;
+      // Not used in Drupal ATM
+      case "Location":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+              <Location location={paragraph.location} />
+            </ParagraphGrid>
+          </Container>
+        )
         break;
       default:
         break;

@@ -4,7 +4,7 @@ function Image(props) {
   const { image, site } = props;
 
   //const height = props.height ? props.height : 400;
-  const path = site + image;
+  const path = image && (image.startsWith('https') || image.startsWith('http')) ? image : site + image;
 
   const containerStyle = {
     paddingBottom: '50%',

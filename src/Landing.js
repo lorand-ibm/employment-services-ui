@@ -8,7 +8,7 @@ import data_en from './data_en';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
-import {useParams, useHistory} from "react-router-dom";
+import {useParams, useHistory, useLocation} from "react-router-dom";
 import {findData, getFullRelease, makeMenu} from "./dataHelper";
 import {getTaxonomyPath, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
 import axios from 'axios';
@@ -26,7 +26,9 @@ const useStyles = makeStyles((theme) => ({
     height: 550,
   },
   main: {
-    marginBottom: 100,
+  },
+  footerWrapper: {
+    paddingTop: 100,
   },
   paragraphs: {
     marginTop: 72
@@ -41,6 +43,7 @@ let appNames = {
 
 export default function Landing(props) {
   let {id, restofit} = useParams();
+  const {pathname} = useLocation();
 
   let history = useHistory();
   const [path] = useState(restofit);
@@ -158,7 +161,14 @@ export default function Landing(props) {
     let [fiPage, svPage, enPage] = getPagePath(land, inc);
 
     if (fullRelease && path !== "QA" ) {
-      if (path) {
+      if (path === 'tapahtuma' || path === 'event') {
+        const pathnameSplitted = pathname.split('/');
+        const lastPath = pathnameSplitted[pathnameSplitted.length - 1];
+
+        const filter = "&filter[drupal_internal__nid]=" + lastPath;
+        [fiPage, svPage, enPage] = getPagePath('/node/event', inc, filter);
+
+      } else if (path) {
         let exactPath = paths + "?filter[alias]=/" + path;
         let [res] =  await Promise.all([
           axios.get(exactPath),
@@ -258,6 +268,8 @@ export default function Landing(props) {
 
   const navi = getNavi(data.menu, loading, data.fullVersion, lang);
 
+  const lastParagraph = useData[useData.length - 1]
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -301,11 +313,13 @@ export default function Landing(props) {
 
         </main>
       }
-      <FooterBottom
-        title={appName}
-        description=""
-        lang={logolang}
-      />
+      <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraph.bgColor }}>
+        <FooterBottom
+          title={appName}
+          description=""
+          lang={logolang}
+        />
+      </div>
     </React.Fragment>
   );
 }

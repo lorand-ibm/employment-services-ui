@@ -1,8 +1,9 @@
-﻿import dotEnv from 'dotenv';
-import express from 'express';
-import path from 'path'
+﻿import path from 'path'
+import dotEnv from 'dotenv';
+dotEnv.config({ path: path.resolve(__dirname + "/../../.env") });
 
-import apiRouter from './api';
+import express from 'express';
+import apiRouter from './api/api';
 
 const app = express();
 
