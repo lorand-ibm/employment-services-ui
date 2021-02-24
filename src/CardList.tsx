@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "HelsinkiGrotesk",
     fontSize: 36,
     paddingBottom: 25,
+    paddingTop: 15,
     fontWeight: "bold",
   },
 }));

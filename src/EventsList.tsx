@@ -12,7 +12,7 @@ import { Mainheading } from "./Headings";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
-    margin: "0 auto 32px auto",
+    margin: "0 auto 0 auto",
     [theme.breakpoints.down(768)]: {
       paddingLeft: 16,
       paddingRight: 16,
@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     paddingBottom: 20,
+    paddingTop: 15,
   },
   cardList: {
     width: "100%",
@@ -82,7 +83,6 @@ function EventsList(props: EventListProps) {
     <div
       style={{
         paddingTop: isKoro ? "20px" : "40px",
-        paddingBottom: "20px",
         backgroundColor: bgColor,
         position: "relative",
       }}

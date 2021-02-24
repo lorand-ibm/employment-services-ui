@@ -202,7 +202,7 @@ function Paragraphs(props: ParagraphsProps) {
           <div
             style={{
               paddingTop: isKoro ? "20px" : "40px",
-              paddingBottom: "20px",
+              paddingBottom: "40px",
               backgroundColor: bgColor,
               position: "relative",
             }}
