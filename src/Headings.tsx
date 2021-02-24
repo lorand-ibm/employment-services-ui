@@ -26,15 +26,17 @@ const useStyles = makeStyles((theme) => ({
 interface HeadingProps {
   title: string;
   title_color: string;
+  headingTag?: "h1" | "h2" | "h3";
 }
 
 export function Mainheading(props: HeadingProps) {
   const classes = useStyles(props);
-  const { title, title_color } = props;
+  const { title, title_color, headingTag } = props;
+  const tag = headingTag ? headingTag : "h1";
 
   return (
     <React.Fragment>
-      <Typography variant="h1" component="h1" className={classes.main} style={{ color: title_color }}>
+      <Typography variant={tag} component={tag} className={classes.main} style={{ color: title_color }}>
         {title}
       </Typography>
     </React.Fragment>
@@ -43,11 +45,12 @@ export function Mainheading(props: HeadingProps) {
 
 export function Subheading(props: HeadingProps) {
   const classes = useStyles(props);
-  const { title, title_color } = props;
+  const { title, title_color, headingTag } = props;
+  const tag = headingTag ? headingTag : "h2";
 
   return (
     <React.Fragment>
-      <Typography variant="h2" component="h2" className={classes.sub} style={{ color: title_color }}>
+      <Typography variant={tag} component={tag} className={classes.sub} style={{ color: title_color }}>
         {title}
       </Typography>
     </React.Fragment>
