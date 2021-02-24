@@ -387,10 +387,24 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             url_text: item.attributes.field_url_text,
             url: item.attributes.field_url,
           })
-        } catch(error) {
+        } catch (error) {
           console.log('link');
           console.log(error);
         }
+        break;
+      case 'paragraph--sujo_embedded':
+        try {
+          data.push(
+            {
+              type: 'SujoEmbedded',
+              training: item.attributes.field_training,
+            }
+          )
+        } catch (error) {
+          console.log('sujo');
+          console.log(error);
+        }
+        console.log('item', item);
         break;
       case 'taxonomy_term--paragraph_width':
         break;
