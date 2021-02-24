@@ -199,7 +199,7 @@ function Paragraphs(props: ParagraphsProps) {
             }}
           >
             <div style={{ backgroundColor: bgColor }}>
-              {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-20px" }} /> : <></>}
+              {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
               <Container className={classes.container} style={{ zIndex: 10 }}>
                 <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
                   <CardList key={index} {...paragraph} site={site}></CardList>
@@ -300,7 +300,7 @@ function Paragraphs(props: ParagraphsProps) {
         );
         break;
       case "EventsList":
-        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} bgColor={paragraph.bgColor} />);
+        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} title={paragraph.title} bgColor={paragraph.bgColor} />);
         break;
       case "Date":
         items.push(
