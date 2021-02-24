@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 interface HeadingProps {
   title: string;
-  title_color: string;
+  title_color?: string;
   headingTag?: "h1" | "h2" | "h3";
 }
 

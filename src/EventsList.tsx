@@ -7,6 +7,7 @@ import { ParagraphGrid } from "./Paragraphs";
 import { makeStyles } from "@material-ui/core/styles";
 
 import CardList from "./CardList";
+import { Mainheading } from "./Headings";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,12 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    nocolor: "white",
-    nobackground: "blue",
-    fontFamily: "HelsinkiGrotesk",
-    fontSize: 36,
-    paddingBottom: 25,
-    fontWeight: "bold",
+    paddingBottom: 20,
   },
   cardList: {
     width: "100%",
@@ -67,8 +63,7 @@ function EventsList(props: EventListProps) {
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -76,7 +71,7 @@ function EventsList(props: EventListProps) {
       const newEvents = {
         total: res.data.total,
         results: [...events.results, ...res.data.results],
-      }
+      };
       setEvents(newEvents);
     };
     fetchEvents();
@@ -84,50 +79,50 @@ function EventsList(props: EventListProps) {
 
   const isKoro = true;
   return (
-    <div style={{ paddingTop: "50px" }}>
-      <div
-        style={{
-          paddingTop: isKoro ? "20px" : "40px",
-          paddingBottom: "20px",
-          backgroundColor: bgColor,
-          position: "relative",
-        }}
-      >
-        <div style={{ backgroundColor: bgColor }}>
-          {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-20px" }} /> : <></>}
-          <Container className={classes.container} style={{ zIndex: 10 }}>
-            <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
-              <h1>{title}</h1>
-              <div className={classes.results}>{events.total + ""} hakutulosta</div>
-              <CardList
-                cards={events.results.map((event) => ({
-                  type: "event",
-                  title: event.title,
-                  image: event.image,
-                  title_color: "#fd4f00",
-                  dateContent: { startTime: event.startTime, endTime: event.endTime },
-                  button_url: "/fi/tapahtuma/" + event.path,
-                }))}
-                site={site}
-              ></CardList>
-              {events.total > events.results.length && (
-                <div className={classes.loadMore}>
-                  <HDSButton
-                    variant="supplementary"
-                    iconRight={<IconPlus />}
-                    onClick={() => {
-                      if (events.total > events.results.length) {
-                        setEventsIndex(eventsIndex+1);
-                      }
-                    }}
-                  >
-                    Lataa enemmän
-                  </HDSButton>
-                </div>
-              )}
-            </ParagraphGrid>
-          </Container>
-        </div>
+    <div
+      style={{
+        paddingTop: isKoro ? "20px" : "40px",
+        paddingBottom: "20px",
+        backgroundColor: bgColor,
+        position: "relative",
+      }}
+    >
+      <div style={{ backgroundColor: bgColor }}>
+        {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
+        <Container className={classes.container} style={{ zIndex: 10 }}>
+          <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
+            <div className={classes.title}>
+              <Mainheading headingTag={"h2"} title={title} />
+            </div>
+            <div className={classes.results}>{events.total + ""} hakutulosta</div>
+            <CardList
+              cards={events.results.map((event) => ({
+                type: "event",
+                title: event.title,
+                image: event.image,
+                title_color: "#fd4f00",
+                dateContent: { startTime: event.startTime, endTime: event.endTime },
+                button_url: "/fi/tapahtuma/" + event.path,
+              }))}
+              site={site}
+            ></CardList>
+            {events.total > events.results.length && (
+              <div className={classes.loadMore}>
+                <HDSButton
+                  variant="supplementary"
+                  iconRight={<IconPlus />}
+                  onClick={() => {
+                    if (events.total > events.results.length) {
+                      setEventsIndex(eventsIndex + 1);
+                    }
+                  }}
+                >
+                  Lataa enemmän
+                </HDSButton>
+              </div>
+            )}
+          </ParagraphGrid>
+        </Container>
       </div>
     </div>
   );

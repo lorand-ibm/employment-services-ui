@@ -182,7 +182,7 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
       {
         type: 'EventsList',
         lang,
-        title: '',
+        title: 'Tapahtumakalenteri',
         text: '',
         bgColor: '#f1f1f1',
       }
