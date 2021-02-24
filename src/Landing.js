@@ -268,7 +268,8 @@ export default function Landing(props) {
 
   const navi = getNavi(data.menu, loading, data.fullVersion, lang);
 
-  const lastParagraph = useData[useData.length - 1]
+  const lastParagraph = useData[useData.length - 1];
+  const lastParagraphColor = lastParagraph ? lastParagraph.bgColor : '';
 
   return (
     <React.Fragment>
@@ -313,7 +314,7 @@ export default function Landing(props) {
 
         </main>
       }
-      <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraph.bgColor }}>
+      <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraphColor }}>
         <FooterBottom
           title={appName}
           description=""

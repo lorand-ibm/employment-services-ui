@@ -17,6 +17,7 @@ import { Koros } from "hds-react/components/Koros";
 import Link from "./Link";
 import Date from "./Date";
 import Location from "./Location";
+import SujoEmbedded from "./SujoEmbedded";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -91,6 +92,14 @@ const useStyles = makeStyles((theme) => ({
   cardList: {
     width: "100%",
   },
+  sujo: {
+    marginTop: 32,
+    marginBottom: 32,
+    [theme.breakpoints.only("xs")]: {
+      paddingLeft: 16,
+      paddingRight: 16,
+    },
+  }
 }));
 
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
@@ -317,6 +326,15 @@ function Paragraphs(props: ParagraphsProps) {
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
               <Location location={paragraph.location} />
+            </ParagraphGrid>
+          </Container>
+        )
+        break;
+      case "SujoEmbedded":
+        items.push(
+          <Container className={classes.container2}>
+            <ParagraphGrid className={classes.sujo} paragraphWidth={props.width}>
+              <SujoEmbedded training={paragraph.training} />
             </ParagraphGrid>
           </Container>
         )
