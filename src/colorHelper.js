@@ -9,6 +9,7 @@ const colors = [
   {name: 'musta-60', rgb: '#666'},
   {name: 'bussi', rgb: '#0000bf'},
   {name: 'sumu', rgb: '#9fc9eb'},
+  {name: 'sumu-medium-light', rgb: '#d0e6f7'},
   {name: 'metro', rgb: '#fd4f00'},
   {name: 'suomenlinna', rgb: '#f5a3c7'},
   {name: 'suomenlinna-medium-light', rgb: '#ffdbeb'},

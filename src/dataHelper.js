@@ -370,9 +370,9 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           data.push({
             type: 'EventsList',
             lang: item.attributes.langcode,
-            title: '',
+            title: item.attributes.field_title,
             text: '',
-            bgColor: '#f1f1f1',
+            bgColor: getColor(item, 'field_background_color', taxonomies),
           })
         } catch (error) {
           console.log('events-list');

@@ -59,13 +59,14 @@ interface EventState {
 
 interface EventListProps {
   site: string;
+  title: string;
   lang: string;
   bgColor: string;
 }
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
-  const { lang, site, bgColor } = props;
+  const { lang, title, site, bgColor } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
@@ -100,7 +101,7 @@ function EventsList(props: EventListProps) {
           {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-20px" }} /> : <></>}
           <Container className={classes.container} style={{ zIndex: 10 }}>
             <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
-              <h1>Tapahtumakalenteri</h1>
+              <h1>{title}</h1>
               <div className={classes.results}>{events.total + ""} hakutulosta</div>
               <CardList
                 cards={events.results.map((event) => ({
