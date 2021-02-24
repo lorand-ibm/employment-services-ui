@@ -27,15 +27,12 @@ function FooterBottom(props) {
       break;
   }
 
-  const scrollToTop = () => {
+  const scrollToTop = (event) => {
+    event.preventDefault();
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-  };
-
-  const gotoUrl = () => {
-    window.location = "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/";
   };
 
   return (
@@ -52,8 +49,8 @@ function FooterBottom(props) {
         >
           <Footer.Navigation navigationAriaLabel="{title} navigation"></Footer.Navigation>
           <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
-              <div onClick={gotoUrl}><Footer.Item label={texts.feedback} /></div>
-              <div onClick={scrollToTop}><Footer.Item label={texts.goup} /></div>
+              <Footer.Item href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/" label={texts.feedback} />
+              <Footer.Item href="#" label={texts.goup} onClick={scrollToTop} />
           </Footer.Base>
         </Footer>
     </React.Fragment>
