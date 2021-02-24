@@ -3,14 +3,10 @@ import axios from "axios";
 
 import { Koros } from "hds-react/components/Koros";
 import { Container, Button as HDSButton, IconPlus } from "hds-react";
-import Grid from "@material-ui/core/Grid";
-
 import { ParagraphGrid } from "./Paragraphs";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Typography from "@material-ui/core/Typography";
 import CardList from "./CardList";
-import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
