@@ -133,7 +133,7 @@ function SingleCard(props: SingleCardProps) {
                 <Date startTime={dateContent.startTime} endTime={dateContent.endTime} />
               </div>
               <div style={{paddingTop: 8}}>
-                <Location location="internet" />
+                <Location location="Internet" />
               </div>
             </Typography>
           ) : (

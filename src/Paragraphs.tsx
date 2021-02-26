@@ -99,7 +99,10 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 16,
       paddingRight: 16,
     },
-  }
+  },
+  location: {
+    paddingBottom: 20,
+  },
 }));
 
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
@@ -323,8 +326,8 @@ function Paragraphs(props: ParagraphsProps) {
       // Not used in Drupal ATM
       case "Location":
         items.push(
-          <Container className={classes.container}>
-            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+          <Container className={classes.container2}>
+            <ParagraphGrid className={classes.location} paragraphWidth={props.width}>
               <Location location={paragraph.location} />
             </ParagraphGrid>
           </Container>

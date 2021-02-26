@@ -134,51 +134,51 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
 
     const infoUrl = attributes.field_info_url;
     const infoUrlText = infoUrl && infoUrl.startsWith("https://teams.microsoft") ? "Avaa Teams-tapahtuma" : "Tapahtuman kotisivut";
-    return [
-      {
-        type: 'Subheading',
-        lang,
-        title: attributes.field_title,
-        title_color: "",
-        text: '',
-      },
-      {
-        type: 'Text',
-        lang,
-        title: '',
-        text: attributes.field_short_description.value,
-      },
-      {
-        type: 'Date',
-        lang,
-        startTime: attributes.field_start_time,
-        endTime: attributes.field_end_time,
-      },
-      {
-        type: 'Location',
-        lang,
-        //TODO:
-        location: "Internet",
-      },
-      {
-        type: 'Text',
-        lang,
-        title: '',
-        text: attributes.field_text.value,
-      },
-      {
-        type: 'Link',
-        url: infoUrl,
-        url_text: infoUrlText,
-      },
-      {
-        type: 'EventsList',
-        lang,
-        title: 'Tapahtumakalenteri',
-        text: '',
-        bgColor: '#f1f1f1',
-      }
-    ]
+    console.log('infoUrl', infoUrl)
+    const paragraphs = [{
+      type: 'Subheading',
+      lang,
+      title: attributes.field_title,
+      title_color: "",
+      text: '',
+    },
+    {
+      type: 'Date',
+      lang,
+      startTime: attributes.field_start_time,
+      endTime: attributes.field_end_time,
+    },
+    {
+      type: 'Location',
+      lang,
+      //TODO:
+      location: "Internet",
+    },
+    {
+      type: 'Text',
+      lang,
+      title: '',
+      text: attributes.field_text.value,
+    }]
+
+    if (infoUrl) {
+      paragraphs.push(
+        {
+          type: 'Link',
+          url: infoUrl,
+          url_text: infoUrlText,
+        }
+      )
+    }
+    paragraphs.push({
+      type: 'EventsList',
+      lang,
+      title: 'Tapahtumakalenteri',
+      text: '',
+      bgColor: '#f1f1f1',
+    })
+
+    return paragraphs;
   }
   return findPageData(lang, json, files, media, doc, taxonomies);
 }
