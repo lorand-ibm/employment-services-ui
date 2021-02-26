@@ -192,8 +192,12 @@ export default function Landing(props) {
       if (path === 'tapahtuma' || path === 'event') {
         const pathnameSplitted = pathname.split('/');
         const lastPath = pathnameSplitted[pathnameSplitted.length - 1];
+        let exactPath = paths + "?filter[alias]=/" + lastPath;
+        let [res] =  await Promise.all([
+          axios.get(exactPath),
+          ]);
 
-        const filter = "&filter[drupal_internal__nid]=" + lastPath;
+        const filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
         [fiPage, svPage, enPage] = getPagePath('/node/event', inc, filter);
 
       } else if (path) {

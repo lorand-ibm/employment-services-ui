@@ -102,7 +102,7 @@ function EventsList(props: EventListProps) {
                 image: event.image,
                 title_color: "#fd4f00",
                 dateContent: { startTime: event.startTime, endTime: event.endTime },
-                button_url: "/fi/tapahtuma/" + event.path,
+                button_url: "/fi/tapahtuma" + event.path,
               }))}
               site={site}
             ></CardList>
