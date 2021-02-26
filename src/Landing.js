@@ -319,13 +319,6 @@ export default function Landing(props) {
             titleUrl="https://tyollisyyspalvelut.hel.fi"
             style={{'--header-divider-color':'white'}}
         >
-        <Navigation.Actions>
-          <Navigation.LanguageSelector label={langSelect}>
-            <Navigation.Item href="#" label="Suomeksi" onClick={(event) => { event.preventDefault(); setIt('fi') }} />
-            <Navigation.Item href="#" label="På svenska" onClick={(event) => { event.preventDefault(); setIt('sv') }} />
-            <Navigation.Item href="#" label="In English" onClick={(event) => { event.preventDefault(); setIt('en') }} />
-          </Navigation.LanguageSelector>
-        </Navigation.Actions>
 
           <Navigation.Row >
             {navi}
