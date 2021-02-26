@@ -161,14 +161,6 @@ export const findData = (lang, json, files, media, doc, taxonomies) => {
         location: "Internet",
       },
       {
-        type: 'Image',
-        lang,
-        title: '',
-        text: '',
-        image: attributes.field_image_url,
-        height: -1,
-      },
-      {
         type: 'Text',
         lang,
         title: '',
