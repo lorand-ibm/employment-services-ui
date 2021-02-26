@@ -351,6 +351,7 @@ export default function Landing(props) {
           title={appName}
           description=""
           lang={logolang}
+          site={site}
         />
       </div>
     </React.Fragment>
