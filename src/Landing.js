@@ -160,7 +160,7 @@ export default function Landing(props) {
     let [fi, sv, en,] = [null, null, null,];
     let [fiPage, svPage, enPage] = getPagePath(land, inc);
 
-    if (fullRelease && path !== "QA" ) {
+    if (fullRelease ) {
       if (path === 'tapahtuma' || path === 'event') {
         const pathnameSplitted = pathname.split('/');
         const lastPath = pathnameSplitted[pathnameSplitted.length - 1];
