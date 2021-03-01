@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Card } from "hds-react/components/Card";
 import { Button } from "hds-react/components/Button";

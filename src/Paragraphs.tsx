@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Accord from "./Accord";
 import SingleCard from "./SingleCard";
 import {Mainheading, Subheading} from "./Headings";
