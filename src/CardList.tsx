@@ -26,7 +26,7 @@ interface CardListProps {
 
 function CardList(props: CardListProps) {
   const classes = useStyles(props);
-  const { title, cards, site, isKoro } = props;
+  const { title, cards, site } = props;
 
   return (
     <>

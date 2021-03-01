@@ -53,13 +53,14 @@ interface EventState {
 interface EventListProps {
   site: string;
   title: string;
+  // TODO: not used
   lang: string;
   bgColor: string;
 }
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
-  const { lang, title, site, bgColor } = props;
+  const { title, site, bgColor } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
