@@ -184,7 +184,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
-              <Accord key={index} {...paragraph}></Accord>
+              <Accord {...paragraph}></Accord>
             </ParagraphGrid>
           </Container>
         );
@@ -193,7 +193,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-              <SingleCard key={index} {...paragraph} site={site}></SingleCard>
+              <SingleCard {...paragraph} site={site}></SingleCard>
             </ParagraphGrid>
           </Container>
         );
@@ -214,7 +214,7 @@ function Paragraphs(props: ParagraphsProps) {
               {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
               <Container className={classes.container} style={{ zIndex: 10 }}>
                 <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
-                  <CardList key={index} {...paragraph} site={site}></CardList>
+                  <CardList {...paragraph} site={site}></CardList>
                 </ParagraphGrid>
               </Container>
             </div>
@@ -225,7 +225,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
-              <Mainheading key={index} {...paragraph}></Mainheading>
+              <Mainheading {...paragraph}></Mainheading>
             </ParagraphGrid>
           </Container>
         );
@@ -234,7 +234,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
-              <Subheading key={index} {...paragraph}></Subheading>
+              <Subheading {...paragraph}></Subheading>
             </ParagraphGrid>
           </Container>
         );
@@ -244,13 +244,13 @@ function Paragraphs(props: ParagraphsProps) {
           props.width === "Narrow" ? (
             <Container className={classes.container}>
               <NarrowLargerParagraphGrid className={classes.info}>
-                <Info key={index} {...paragraph}></Info>
+                <Info {...paragraph}></Info>
               </NarrowLargerParagraphGrid>
             </Container>
           ) : (
             <Container className={classes.container}>
               <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-                <Info key={index} {...paragraph}></Info>
+                <Info {...paragraph}></Info>
               </ParagraphGrid>
             </Container>
           )
@@ -260,7 +260,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-              <Link key={index} url={paragraph.url} text={paragraph.url_text}></Link>
+              <Link url={paragraph.url} text={paragraph.url_text}></Link>
             </ParagraphGrid>
           </Container>
         );
@@ -270,7 +270,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.pdf} paragraphWidth={props.width}>
-              <Pdf key={index} {...paragraph} site={site}></Pdf>
+              <Pdf {...paragraph} site={site}></Pdf>
             </ParagraphGrid>
           </Container>
         );
@@ -279,7 +279,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-              <Image key={index} {...paragraph} site={site}></Image>
+              <Image {...paragraph} site={site}></Image>
             </ParagraphGrid>
           </Container>
         );
@@ -288,7 +288,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-              <ImageAndCard key={index} {...paragraph} site={site}></ImageAndCard>
+              <ImageAndCard {...paragraph} site={site}></ImageAndCard>
             </ParagraphGrid>
           </Container>
         );
@@ -297,7 +297,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-              <PhoneNumberBox key={index} {...paragraph}></PhoneNumberBox>
+              <PhoneNumberBox {...paragraph}></PhoneNumberBox>
             </ParagraphGrid>
           </Container>
         );
@@ -306,13 +306,13 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
-              <Text key={index} {...paragraph}></Text>
+              <Text {...paragraph}></Text>
             </ParagraphGrid>
           </Container>
         );
         break;
       case "EventsList":
-        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} title={paragraph.title} bgColor={paragraph.bgColor} />);
+        items.push(<EventsList lang={paragraph.lang as string} site={site} title={paragraph.title} bgColor={paragraph.bgColor} />);
         break;
       case "Date":
         items.push(
@@ -350,9 +350,11 @@ function Paragraphs(props: ParagraphsProps) {
 
   return (
     <React.Fragment>
-      {items.map((item) => {
-        return item;
-      })}
+      {items.map((item, i) =>
+        <React.Fragment key={i}>
+         {item}
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 }
