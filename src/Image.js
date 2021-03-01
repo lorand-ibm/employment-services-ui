@@ -19,7 +19,7 @@ function Image(props) {
 
   return (
     <div style={containerStyle}>
-      <img style={imgStyle}
+      <img alt="" style={imgStyle}
         src={path}></img>
     </div>
   );

@@ -92,7 +92,7 @@ function ImageAndCard(props) {
             height: 0,
             overflow: 'hidden'
           }}>
-            <img style={{ width: '100%' }} src={address}></img>
+            <img alt="" style={{ width: '100%' }} src={address}></img>
           </div>
         </div>
         <Card backgroundColor={props.card.bg_color} className={classes.box}>
