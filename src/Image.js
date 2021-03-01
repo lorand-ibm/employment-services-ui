@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 function Image(props) {
   const { image, site } = props;
@@ -19,7 +19,7 @@ function Image(props) {
 
   return (
     <div style={containerStyle}>
-      <img style={imgStyle}
+      <img alt="" style={imgStyle}
         src={path}></img>
     </div>
   );

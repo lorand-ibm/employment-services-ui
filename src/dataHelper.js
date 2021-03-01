@@ -1,5 +1,5 @@
 import { getColor } from "./colorHelper.js";
-let _ = require('lodash');
+import { orderBy, find } from 'lodash';
 
 const findSubmenu = (m, uri) => {
   let subs = [];
@@ -15,7 +15,7 @@ const findSubmenu = (m, uri) => {
     }
     return subs;
   });
-  let subs2 = _.orderBy(subs, ['weight'], ['asc']);
+  let subs2 = orderBy(subs, ['weight'], ['asc']);
   return subs2;
 }
 
@@ -36,7 +36,7 @@ export const makeMenu = (m) => {
     }
     return menu;
   });
-  let menu2 = _.orderBy(menu, ['weight'], ['asc']);
+  let menu2 = orderBy(menu, ['weight'], ['asc']);
   return menu2;
 }
 
@@ -81,7 +81,7 @@ const getCards = (d, ids) => {
   let cards = [];
   ids.map((item, index) => {
     let id = item.id;
-    let card = _.find(d, { id: id });
+    let card = find(d, { id: id });
     card.thisCardIsInList = true;
     cards.push(card);
     return cards;
@@ -422,7 +422,7 @@ export const getFullRelease = (conf) => {
 export const findTaxonomy = (data, field) => {
   try {
     let type = data.data[0].relationships[field].data.type;
-    let taxonomy = _.find(data.included, { type: type });
+    let taxonomy = find(data.included, { type: type });
     if (taxonomy) {
       return taxonomy.attributes.name;
     }
