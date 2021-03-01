@@ -178,7 +178,7 @@ function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
   const { paragraphs, site, width } = props;
   const items: any[] = [];
-  paragraphs.map((paragraph: any, index: number) => {
+  paragraphs.forEach((paragraph: any, index: number) => {
     switch (paragraph.type) {
       case "Accordion":
         items.push(
