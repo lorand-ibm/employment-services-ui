@@ -2,9 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FooterBottom from './FooterBottom';
-import data_fi from './data_fi';
-import data_sv from './data_sv';
-import data_en from './data_en';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
@@ -73,11 +70,8 @@ export default function Landing(props) {
     setItUrl('fi');
   }
 
-  const { testing, site } = props;
+  const { site } = props;
   let useData = data.fi;
-  if (testing) {
-    useData = {en: data_en, sv: data_sv, fi: data_fi,};
-  }
 
   const getNavi = (menu, loading, isFullVersion, lang) => {
     let nav = [];

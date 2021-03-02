@@ -30,8 +30,6 @@ const groteskTheme = createMuiTheme({
   });
 
 function App() {
-
-  const testing = false;
   const site = process.env.REACT_APP_DRUPAL_URL;
 
   return (
@@ -43,9 +41,9 @@ function App() {
               <Redirect to={'/fi/QA'}/>
             </Route>
             <Route path="/:id/:restofit"
-                   children={<Landing loading={true} testing={testing} site={site}></Landing>}/>
+                   children={<Landing loading={true} site={site}></Landing>}/>
             <Route path="/:id"
-                   children={<Landing loading={true} testing={testing} site={site}></Landing>}/>
+                   children={<Landing loading={true} site={site}></Landing>}/>
             <Redirect to={'/fi'}></Redirect>
           </Switch>
 
