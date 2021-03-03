@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Accord from "./Accord";
 import SingleCard from "./SingleCard";
 import {Mainheading, Subheading} from "./Headings";
@@ -178,13 +178,13 @@ function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
   const { paragraphs, site, width } = props;
   const items: any[] = [];
-  paragraphs.map((paragraph: any, index: number) => {
+  paragraphs.forEach((paragraph: any, index: number) => {
     switch (paragraph.type) {
       case "Accordion":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
-              <Accord key={index} {...paragraph}></Accord>
+            <ParagraphGrid className={classes.accord} paragraphWidth={width}>
+              <Accord {...paragraph}></Accord>
             </ParagraphGrid>
           </Container>
         );
@@ -192,8 +192,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "Card":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-              <SingleCard key={index} {...paragraph} site={site}></SingleCard>
+            <ParagraphGrid className={classes.card} paragraphWidth={width}>
+              <SingleCard {...paragraph} site={site}></SingleCard>
             </ParagraphGrid>
           </Container>
         );
@@ -214,7 +214,7 @@ function Paragraphs(props: ParagraphsProps) {
               {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
               <Container className={classes.container} style={{ zIndex: 10 }}>
                 <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
-                  <CardList key={index} {...paragraph} site={site}></CardList>
+                  <CardList {...paragraph} site={site}></CardList>
                 </ParagraphGrid>
               </Container>
             </div>
@@ -224,8 +224,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "Mainheading":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
-              <Mainheading key={index} {...paragraph}></Mainheading>
+            <ParagraphGrid className={classes.subheading} paragraphWidth={width}>
+              <Mainheading {...paragraph}></Mainheading>
             </ParagraphGrid>
           </Container>
         );
@@ -233,24 +233,24 @@ function Paragraphs(props: ParagraphsProps) {
       case "Subheading":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.subheading} paragraphWidth={props.width}>
-              <Subheading key={index} {...paragraph}></Subheading>
+            <ParagraphGrid className={classes.subheading} paragraphWidth={width}>
+              <Subheading {...paragraph}></Subheading>
             </ParagraphGrid>
           </Container>
         );
         break;
       case "Info":
         items.push(
-          props.width === "Narrow" ? (
+          width === "Narrow" ? (
             <Container className={classes.container}>
               <NarrowLargerParagraphGrid className={classes.info}>
-                <Info key={index} {...paragraph}></Info>
+                <Info {...paragraph}></Info>
               </NarrowLargerParagraphGrid>
             </Container>
           ) : (
             <Container className={classes.container}>
-              <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-                <Info key={index} {...paragraph}></Info>
+              <ParagraphGrid className={classes.info} paragraphWidth={width}>
+                <Info {...paragraph}></Info>
               </ParagraphGrid>
             </Container>
           )
@@ -259,8 +259,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "Link":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-              <Link key={index} url={paragraph.url} text={paragraph.url_text}></Link>
+            <ParagraphGrid className={classes.card} paragraphWidth={width}>
+              <Link url={paragraph.url} text={paragraph.url_text}></Link>
             </ParagraphGrid>
           </Container>
         );
@@ -269,8 +269,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "PDF":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.pdf} paragraphWidth={props.width}>
-              <Pdf key={index} {...paragraph} site={site}></Pdf>
+            <ParagraphGrid className={classes.pdf} paragraphWidth={width}>
+              <Pdf {...paragraph} site={site}></Pdf>
             </ParagraphGrid>
           </Container>
         );
@@ -278,8 +278,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "Image":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-              <Image key={index} {...paragraph} site={site}></Image>
+            <ParagraphGrid className={classes.info} paragraphWidth={width}>
+              <Image {...paragraph} site={site}></Image>
             </ParagraphGrid>
           </Container>
         );
@@ -287,8 +287,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "ImageAndCard":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.info} paragraphWidth={props.width}>
-              <ImageAndCard key={index} {...paragraph} site={site}></ImageAndCard>
+            <ParagraphGrid className={classes.info} paragraphWidth={width}>
+              <ImageAndCard {...paragraph} site={site}></ImageAndCard>
             </ParagraphGrid>
           </Container>
         );
@@ -296,8 +296,8 @@ function Paragraphs(props: ParagraphsProps) {
       case "PhoneNumberBox":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.card} paragraphWidth={props.width}>
-              <PhoneNumberBox key={index} {...paragraph}></PhoneNumberBox>
+            <ParagraphGrid className={classes.card} paragraphWidth={width}>
+              <PhoneNumberBox {...paragraph}></PhoneNumberBox>
             </ParagraphGrid>
           </Container>
         );
@@ -305,19 +305,19 @@ function Paragraphs(props: ParagraphsProps) {
       case "Text":
         items.push(
           <Container className={classes.container}>
-            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
-              <Text key={index} {...paragraph}></Text>
+            <ParagraphGrid className={classes.accord} paragraphWidth={width}>
+              <Text {...paragraph}></Text>
             </ParagraphGrid>
           </Container>
         );
         break;
       case "EventsList":
-        items.push(<EventsList key={"1"} lang={paragraph.lang as string} site={site} title={paragraph.title} bgColor={paragraph.bgColor} />);
+        items.push(<EventsList lang={paragraph.lang as string} site={site} title={paragraph.title} bgColor={paragraph.bgColor} />);
         break;
       case "Date":
         items.push(
           <Container className={classes.container2}>
-            <ParagraphGrid className={classes.accord} paragraphWidth={props.width}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={width}>
               <Date startTime={paragraph.startTime} endTime={paragraph.endTime} />
             </ParagraphGrid>
           </Container>
@@ -327,7 +327,7 @@ function Paragraphs(props: ParagraphsProps) {
       case "Location":
         items.push(
           <Container className={classes.container2}>
-            <ParagraphGrid className={classes.location} paragraphWidth={props.width}>
+            <ParagraphGrid className={classes.location} paragraphWidth={width}>
               <Location location={paragraph.location} />
             </ParagraphGrid>
           </Container>
@@ -336,7 +336,7 @@ function Paragraphs(props: ParagraphsProps) {
       case "SujoEmbedded":
         items.push(
           <Container className={classes.container2}>
-            <ParagraphGrid className={classes.sujo} paragraphWidth={props.width}>
+            <ParagraphGrid className={classes.sujo} paragraphWidth={width}>
               <SujoEmbedded training={paragraph.training} />
             </ParagraphGrid>
           </Container>
@@ -350,9 +350,11 @@ function Paragraphs(props: ParagraphsProps) {
 
   return (
     <React.Fragment>
-      {items.map((item) => {
-        return item;
-      })}
+      {items.map((item, i) =>
+        <React.Fragment key={i}>
+         {item}
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 }

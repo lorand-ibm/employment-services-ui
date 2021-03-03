@@ -2,9 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FooterBottom from './FooterBottom';
-import data_fi from './data_fi';
-import data_sv from './data_sv';
-import data_en from './data_en';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
@@ -73,11 +70,8 @@ export default function Landing(props) {
     setItUrl('fi');
   }
 
-  const { testing, site } = props;
+  const { site } = props;
   let useData = data.fi;
-  if (testing) {
-    useData = {en: data_en, sv: data_sv, fi: data_fi,};
-  }
 
   const getNavi = (menu, loading, isFullVersion, lang) => {
     let nav = [];
@@ -145,39 +139,39 @@ export default function Landing(props) {
     const taxWidth = getTaxonomyPath(site, 'paragraph_width', false);
 
     // TODO: cleanup this
-    const getRestOfData = async (data, filesUrl) => {
-      const res = await axios.get(filesUrl.href);
+    const getWithPagination = async (drupalUrl) => {
 
-      const combineData = [...res.data.data, ...data];
+      const getRestOfData = async (data, filesUrl) => {
+        const res = await axios.get(filesUrl.href);
 
-      const nextLink = res.data.links.next;
-      if (nextLink)  {
-        return await getRestOfData(combineData, nextLink);
+        const combineData = [...res.data.data, ...data];
+
+        const nextLink = res.data.links.next;
+        if (nextLink) {
+          return await getRestOfData(combineData, nextLink);
+        }
+        const newRes = { ...res, data: combineData };
+        return newRes;
       }
-      const newRes = {...res, data: combineData};
-      return newRes;
-    }
 
-    // TODO: cleanup this
-    const getFiles = async (filesUrl) => {
-      const res = await axios.get(filesUrl)
+      const res = await axios.get(drupalUrl)
 
       const nextLink = res.data.links.next;
       if (nextLink) {
         const currDrupalData = res.data.data;
 
         const drupalData = await getRestOfData(currDrupalData, nextLink)
-        return {...res, data: drupalData}
+        return { ...res, data: drupalData }
       }
       return res;
     }
 
     let [f, m, d, configuration, me, colorsTax, widthTax] = await Promise.all([
-      getFiles(files),
+      getWithPagination(files),
       axios.get(media),
       axios.get(doc),
       axios.get(conf),
-      axios.get(menuData),
+      getWithPagination(menuData),
       axios.get(taxColors),
       axios.get(taxWidth),
     ]);

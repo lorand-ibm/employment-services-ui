@@ -10,7 +10,6 @@ import {Koros} from  "hds-react/components/Koros";
 
 import {
   FiCard,
-  FiCardActionArea,
   FiCardContent,
   FiCardMedia
 } from "./FullImageCard";

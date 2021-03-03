@@ -1,10 +1,10 @@
-let _ = require('lodash');
+import { find } from 'lodash';
 
 // Taxonomy data is in: .included
 export const findTaxonomy = (data, field) => {
   try {
     let type = data.data[0].relationships[field].data.type;
-    let taxonomy = _.find(data.included, {type: type});
+    let taxonomy = find(data.included, {type: type});
     if (taxonomy) {
       return taxonomy.attributes.name;
     }
@@ -18,7 +18,7 @@ export const findTaxonomy = (data, field) => {
 
 export const findTaxonomyValue = (id, taxonomies) => {
   try {
-    const name = _.find(taxonomies, {id: id}).name;
+    const name = find(taxonomies, {id: id}).name;
     return name;
   } catch(error) {
     console.log("taxonomies error: " + id);

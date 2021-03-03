@@ -1,9 +1,8 @@
-import * as React from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Card } from "hds-react/components/Card";
 import { Button } from "hds-react/components/Button";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: props => ({
@@ -93,7 +92,7 @@ function ImageAndCard(props) {
             height: 0,
             overflow: 'hidden'
           }}>
-            <img style={{ width: '100%' }} src={address}></img>
+            <img alt="" style={{ width: '100%' }} src={address}></img>
           </div>
         </div>
         <Card backgroundColor={props.card.bg_color} className={classes.box}>
