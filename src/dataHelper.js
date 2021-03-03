@@ -1,11 +1,10 @@
 import { getColor } from "./colorHelper.js";
 import { orderBy, find } from 'lodash';
 
-const findSubmenu = (m, uri) => {
-  let subs = [];
-  let name = uri.substring(10);
-  m.data.data.map((item, index) => {
-    if ((item.attributes.menu_name.replace('_', '-')) === name.replace('_', '-')) {
+const findSubmenu = (m, id) => {
+  const subs = [];
+  m.data.data.map((item) => {
+    if (item.attributes.parent === 'menu_link_content:' + id) {
       subs.push({
         name: item.attributes.title,
         link: item.attributes.link.uri,
@@ -15,7 +14,7 @@ const findSubmenu = (m, uri) => {
     }
     return subs;
   });
-  let subs2 = orderBy(subs, ['weight'], ['asc']);
+  const subs2 = orderBy(subs, ['weight'], ['asc']);
   return subs2;
 }
 
@@ -26,11 +25,11 @@ export const makeMenu = (m) => {
     return menu;
   }
   m.data.data.map((item, index) => {
-    if (item.attributes.menu_name === 'main') {
+    if (!item.attributes.parent) {
       menu.push({
         name: item.attributes.title,
         link: item.attributes.link.uri,
-        items: findSubmenu(m, item.attributes.link.uri),
+        items: findSubmenu(m, item.id),
         weight: item.attributes.weight,
       });
     }
