@@ -10,12 +10,13 @@ The project is created with the Create React App framework.
 
 Copy `.env.example` to `.env`.
 
-Descriptions:
+Required env variables:
 
 | name                 | description                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
 | REACT_APP_DRUPAL_URL | Drupal for front end. Use `https://edit.test.tyollisyyspalvelut.hel.fi` for testing envionrment.   |
-| SERVER URL           | Use `9000` for local environment.                                                                  |
+| SERVER_PORT          | Use `9000` for local environment.                                                                  |
+| ELASTICSEARCH_URL    | Elasticsearch URL.                                                                                 |
 
 
 ## Developer's Flow
