@@ -133,7 +133,7 @@ export default function Landing(props) {
     const media = site + '/apijson/media/image';
     const doc = site + '/apijson/media/document';
     const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
-    const menuData = site + '/apijson/menu_link_content/menu_link_content';
+    const menuData = site + '/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-' + lang;
     const paths = site + '/apijson/path_alias/path_alias';
     const taxColors = getTaxonomyPath(site, 'colors', false);
     const taxWidth = getTaxonomyPath(site, 'paragraph_width', false);
