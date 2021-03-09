@@ -6,7 +6,7 @@ import Paragraphs from './Paragraphs';
 import Hero from './Hero';
 import {Navigation} from "hds-react/components/Navigation";
 import {useParams, useHistory, useLocation} from "react-router-dom";
-import {findData, getFullRelease, makeMenu} from "./dataHelper";
+import {getWithPagination, findData, getFullRelease, makeMenu} from "./dataHelper";
 import {getTaxonomyPath, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
 import axios from 'axios';
 
@@ -137,34 +137,6 @@ export default function Landing(props) {
     const paths = site + '/apijson/path_alias/path_alias';
     const taxColors = getTaxonomyPath(site, 'colors', false);
     const taxWidth = getTaxonomyPath(site, 'paragraph_width', false);
-
-    // TODO: cleanup this
-    const getWithPagination = async (drupalUrl) => {
-
-      const getRestOfData = async (data, filesUrl) => {
-        const res = await axios.get(filesUrl.href);
-
-        const combineData = [...res.data.data, ...data];
-
-        const nextLink = res.data.links.next;
-        if (nextLink) {
-          return await getRestOfData(combineData, nextLink);
-        }
-        const newRes = { ...res, data: combineData };
-        return newRes;
-      }
-
-      const res = await axios.get(drupalUrl)
-
-      const nextLink = res.data.links.next;
-      if (nextLink) {
-        const currDrupalData = res.data.data;
-
-        const drupalData = await getRestOfData(currDrupalData, nextLink)
-        return { ...res, data: drupalData }
-      }
-      return res;
-    }
 
     let [f, m, d, configuration, me, colorsTax, widthTax] = await Promise.all([
       getWithPagination(files),
