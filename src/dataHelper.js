@@ -1,5 +1,33 @@
 import { getColor } from "./colorHelper.js";
 import { orderBy, find } from 'lodash';
+import axios from 'axios';
+
+// TODO: cleanup this
+export const getWithPagination = async (drupalUrl) => {
+  const getRestOfData = async (data, filesUrl) => {
+    const res = await axios.get(filesUrl.href);
+
+    const combineData = [...res.data.data, ...data];
+
+    const nextLink = res.data.links.next;
+    if (nextLink) {
+      return await getRestOfData(combineData, nextLink);
+    }
+    const newRes = { ...res, data: combineData };
+    return newRes;
+  }
+
+  const res = await axios.get(drupalUrl)
+
+  const nextLink = res.data.links.next;
+  if (nextLink) {
+    const currDrupalData = res.data.data;
+
+    const drupalData = await getRestOfData(currDrupalData, nextLink)
+    return { ...res, data: drupalData }
+  }
+  return res;
+}
 
 const findSubmenu = (m, id) => {
   const subs = [];
