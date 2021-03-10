@@ -1,42 +1,32 @@
 import { getColor } from "./colorHelper.js";
-import { orderBy, find } from 'lodash';
+import { find } from 'lodash';
+import axios from 'axios';
 
-const findSubmenu = (m, id) => {
-  const subs = [];
-  m.data.data.map((item) => {
-    if (item.attributes.parent === 'menu_link_content:' + id) {
-      subs.push({
-        name: item.attributes.title,
-        link: item.attributes.link.uri,
-        items: findSubmenu(m, item.attributes.link.uri),
-        weight: item.attributes.weight,
-      });
+// TODO: cleanup this
+export const getWithPagination = async (drupalUrl) => {
+  const getRestOfData = async (data, filesUrl) => {
+    const res = await axios.get(filesUrl.href);
+
+    const combineData = [...res.data.data, ...data];
+
+    const nextLink = res.data.links.next;
+    if (nextLink) {
+      return await getRestOfData(combineData, nextLink);
     }
-    return subs;
-  });
-  const subs2 = orderBy(subs, ['weight'], ['asc']);
-  return subs2;
-}
-
-export const makeMenu = (m) => {
-  let menu = [];
-  if (!!!m || !!!m.data) {
-    console.log('no menus');
-    return menu;
+    const newRes = { ...res, data: combineData };
+    return newRes;
   }
-  m.data.data.map((item, index) => {
-    if (!item.attributes.parent) {
-      menu.push({
-        name: item.attributes.title,
-        link: item.attributes.link.uri,
-        items: findSubmenu(m, item.id),
-        weight: item.attributes.weight,
-      });
-    }
-    return menu;
-  });
-  let menu2 = orderBy(menu, ['weight'], ['asc']);
-  return menu2;
+
+  const res = await axios.get(drupalUrl)
+
+  const nextLink = res.data.links.next;
+  if (nextLink) {
+    const currDrupalData = res.data.data;
+
+    const drupalData = await getRestOfData(currDrupalData, nextLink)
+    return { ...res, data: drupalData }
+  }
+  return res;
 }
 
 export const findImageUrl = (uid, files, media) => {
