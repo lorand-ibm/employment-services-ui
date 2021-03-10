@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Footer} from  "hds-react/components/Footer";
 
+import {drupalUrl} from "./config";
+
 const footerTexts = {
   fi: { feedback: 'Anna palautetta', goup: 'Sivun alkuun', accessibility: 'Saavutettavuusseloste'},
   sv: { feedback: 'Ge respons', goup: 'Till början av sidan', accessibility: 'Saavutettavuusseloste'},
@@ -9,7 +11,7 @@ const footerTexts = {
 }
 
 function FooterBottom(props) {
-  const { title, lang, site } = props;
+  const { title, lang} = props;
 
   let texts = footerTexts.en;
   switch(lang) {
@@ -49,7 +51,7 @@ function FooterBottom(props) {
         >
           <Footer.Navigation navigationAriaLabel="{title} navigation"></Footer.Navigation>
           <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
-              <Footer.Item href={`${site}/sites/default/files/2021-02/saavutettavuusseloste%2026.2.2021.pdf`} label={texts.accessibility} />
+              <Footer.Item href={`${drupalUrl}/sites/default/files/2021-02/saavutettavuusseloste%2026.2.2021.pdf`} label={texts.accessibility} />
               <Footer.Item href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/" label={texts.feedback} />
               <Footer.Item href="#" label={texts.goup} onClick={scrollToTop} />
           </Footer.Base>

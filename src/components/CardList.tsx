@@ -19,14 +19,13 @@ const useStyles = makeStyles((theme) => ({
 interface CardListProps {
   title?: string;
   cards: any;
-  site: string;
   // TODO!!!
   isKoro?: boolean;
 }
 
 function CardList(props: CardListProps) {
   const classes = useStyles(props);
-  const { title, cards, site } = props;
+  const { title, cards } = props;
 
   return (
     <>
@@ -39,7 +38,7 @@ function CardList(props: CardListProps) {
         <Grid container direction={"row"} spacing={3} className={""}>
           {cards.map((item: any, i: number) => (
             <Grid item xs={12} md={4} key={i}>
-              <SingleCard key={i} {...item} site={site} className={classes.title}></SingleCard>
+              <SingleCard key={i} {...item} className={classes.title}></SingleCard>
             </Grid>
           ))}
         </Grid>

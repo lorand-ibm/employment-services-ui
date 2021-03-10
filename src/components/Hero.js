@@ -14,6 +14,8 @@ import {
   FiCardMedia
 } from "./FullImageCard";
 
+import { drupalUrl } from "../config";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
@@ -141,9 +143,9 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero(props) {
   const classes = useStyles();
-  const { title, text, url, site } = props;
+  const { title, text, url } = props;
 
-  const imagePath = site + url;
+  const imagePath = drupalUrl + url;
 
   return (
     <React.Fragment>

@@ -51,7 +51,6 @@ interface EventState {
 }
 
 interface EventListProps {
-  site: string;
   title: string;
   // TODO: not used
   lang: string;
@@ -60,7 +59,7 @@ interface EventListProps {
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
-  const { title, site, bgColor } = props;
+  const { title, bgColor } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
@@ -105,7 +104,6 @@ function EventsList(props: EventListProps) {
                 dateContent: { startTime: event.startTime, endTime: event.endTime },
                 button_url: "/fi/tapahtuma" + event.path,
               }))}
-              site={site}
             ></CardList>
             {events.total > events.results.length && (
               <div className={classes.loadMore}>
