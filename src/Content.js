@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { useParams, useLocation } from "react-router-dom";
+import axios from 'axios';
+
 import FooterBottom from './FooterBottom';
 import Paragraphs from './Paragraphs';
 import Hero from './Hero';
-import {Navigation} from "hds-react/components/Navigation";
-import {useParams, useHistory, useLocation} from "react-router-dom";
-import {getWithPagination, findData, getFullRelease, makeMenu} from "./dataHelper";
-import {getTaxonomyPath, findTaxonomy, setTaxonomies} from "./taxonomiesHelper.js";
-import axios from 'axios';
+import { getWithPagination, findData, getFullRelease } from "./dataHelper";
+import { getTaxonomyPath, findTaxonomy, setTaxonomies } from "./taxonomiesHelper.js";
+
+import { drupalUrl, getAppName } from './config';
 
 const useStyles = makeStyles((theme) => ({
   navi: {
@@ -32,79 +33,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-let appNames = {
-  fi: { name: 'Työllisyyspalvelut'},
-  sv: { name: 'Arbetstjänster'},
-  en: { name: 'Employment services'},
-};
+export default function Content(props) {
+  const { restofit } = useParams();
+  const { pathname } = useLocation();
 
-export default function Landing(props) {
-  let {id, restofit} = useParams();
-  const {pathname} = useLocation();
-
-  let history = useHistory();
   const [path] = useState(restofit);
-  const [lang, setLang] = useState(id);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const classes = useStyles();
+  const { lang } = props;
 
-  const setItUrl = (l) => {
-    let path = '/' + l;
-    if (restofit) {
-      path += '/'+restofit;
-    }
-    history.push(path);
-  }
+  const site = drupalUrl;
 
-  const setIt = (l) => {
-    let path = '/' + l;
-    if (restofit) {
-      path += '/'+restofit;
-    }
-    history.push(path);
-    setLang(l);
-  }
-
-  if (id !== 'sv' && id !== 'en' && id !== 'fi') {
-    setItUrl('fi');
-  }
-
-  const { site } = props;
-  let useData = data.fi;
-
-  const getNavi = (menu, loading, isFullVersion, lang) => {
-    let nav = [];
-    if (loading || !!!menu || !!!isFullVersion) {
-      return <></>;
-    }
-
-    menu.map((item, index) => {
-      let subs = [];
-      item.items.map((sub, i) => {
-        subs.push(
-          <Navigation.Item
-            key={i}
-            as="a"
-            href={'/' + lang + '/' + sub.link.substr(10)}
-            label={sub.name}
-            onClick={function noRefCheck(){}}
-          />
-        );
-        return subs;
-      });
-      nav.push(
-        <Navigation.Dropdown label={item.name} key={index}>
-          {subs}
-        </Navigation.Dropdown>
-      );
-      return nav;
-    });
-    return nav;
-  }
-
-  // return fi, sv, en
-  const getPagePath = (page, includes, filter='') => {
+  const getPagePath = (page, includes, filter = '') => {
     const api = "apijson";
     let rest = "/" + api + page + "?include=" + includes;
     if (filter) {
@@ -118,7 +59,6 @@ export default function Landing(props) {
   }
 
   async function makeRequests() {
-
     setLoading(true);
 
     const preInc = "field_prerelease_";
@@ -133,45 +73,42 @@ export default function Landing(props) {
     const media = site + '/apijson/media/image';
     const doc = site + '/apijson/media/document';
     const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
-    const menuData = site + '/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-' + lang;
     const paths = site + '/apijson/path_alias/path_alias';
     const taxColors = getTaxonomyPath(site, 'colors', false);
     const taxWidth = getTaxonomyPath(site, 'paragraph_width', false);
 
-    let [f, m, d, configuration, me, colorsTax, widthTax] = await Promise.all([
+    let [f, m, d, configuration, colorsTax, widthTax] = await Promise.all([
       getWithPagination(files),
       axios.get(media),
       axios.get(doc),
       axios.get(conf),
-      getWithPagination(menuData),
       axios.get(taxColors),
       axios.get(taxWidth),
     ]);
 
-    const taxonomies = setTaxonomies([['Colors',colorsTax], ['Width', widthTax]]);
-    let menus = makeMenu(me);
+    const taxonomies = setTaxonomies([['Colors', colorsTax], ['Width', widthTax]]);
     const fullRelease = getFullRelease(configuration);
     let [fi, sv, en,] = [null, null, null,];
     let [fiPage, svPage, enPage] = getPagePath(land, inc);
 
-    if (fullRelease ) {
+    if (fullRelease) {
       if (path === 'tapahtuma' || path === 'event') {
         const pathnameSplitted = pathname.split('/');
         const lastPath = pathnameSplitted[pathnameSplitted.length - 1];
         let exactPath = paths + "?filter[alias]=/" + lastPath;
-        let [res] =  await Promise.all([
+        let [res] = await Promise.all([
           axios.get(exactPath),
-          ]);
+        ]);
 
         const filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
         [fiPage, svPage, enPage] = getPagePath('/node/event', inc, filter);
 
       } else if (path) {
         let exactPath = paths + "?filter[alias]=/" + path;
-        let [res] =  await Promise.all([
+        let [res] = await Promise.all([
           axios.get(exactPath),
-          ]);
-        if (res.data.meta.count>0 && res.data ) {
+        ]);
+        if (res.data.meta.count > 0 && res.data) {
           let filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
           [fiPage, svPage, enPage] = getPagePath(page, inc, filter);
         }
@@ -211,7 +148,6 @@ export default function Landing(props) {
       configuration: configuration,
       fullVersion: fullRelease,
       site: site,
-      menu: menus,
       taxonomies: taxonomies,
     });
     setLoading(false);
@@ -221,28 +157,17 @@ export default function Landing(props) {
     makeRequests();
   }, []);
 
-  let logolang = 'fi';
-  let appName = appNames.fi.name;
-  let langSelect = 'FI';
-
+  let useData = data.fi;
   switch (lang) {
     case 'en':
       useData = data.en;
-      logolang = 'en';
-      langSelect = 'EN';
-      appName = appNames.en.name;
       break;
     case 'sv':
       useData = data.sv;
-      logolang = 'sv';
-      appName = appNames.sv.name;
-      langSelect = 'SV';
       break;
     case 'fi':
     default:
       useData = data.fi;
-      appName = appNames.fi.name;
-      langSelect = 'FI';
   }
 
   let heroTitle = "";
@@ -251,7 +176,7 @@ export default function Landing(props) {
   let isHero = true;
 
   if (!loading) {
-    if (useData.length>0 && useData[0].type === 'Hero') {
+    if (useData.length > 0 && useData[0].type === 'Hero') {
       heroTitle = useData[0].title;
       heroText = useData[0].text;
       heroUrl = useData[0].url;
@@ -261,65 +186,32 @@ export default function Landing(props) {
   }
 
   if (loading) {
-    return <div></div>;
+    return <main className={classes.main} />;
   }
 
-  const navi = getNavi(data.menu, loading, data.fullVersion, lang);
-
-  const lastParagraph = useData[useData.length - 1];
+  const lastParagraph = !useData ? undefined : useData[useData.length - 1];
   const lastParagraphColor = lastParagraph ? lastParagraph.bgColor : '';
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-        <Navigation className={classes.navi}
-            logoLanguage={logolang}
-            menuToggleAriaLabel="Menu"
-            skipTo="#content"
-            skipToContentLabel="Skip to main content"
-            theme={{
-              '--header-divider-color': 'white',
-            }}
-            title={appName}
-            titleAriaLabel="Helsinki: Työllisyyspalvelut"
-            titleUrl="https://tyollisyyspalvelut.hel.fi"
-            style={{'--header-divider-color':'white'}}
-        >
-        <Navigation.Actions>
-          <Navigation.LanguageSelector label={langSelect}>
-            <Navigation.Item href="#" label="Suomeksi" onClick={(event) => { event.preventDefault(); setIt('fi') }} />
-            <Navigation.Item href="#" label="På svenska" onClick={(event) => { event.preventDefault(); setIt('sv') }} />
-            <Navigation.Item href="#" label="In English" onClick={(event) => { event.preventDefault(); setIt('en') }} />
-          </Navigation.LanguageSelector>
-        </Navigation.Actions>
-
-          <Navigation.Row >
-            {navi}
-            </Navigation.Row>
-
-        </Navigation>
-
-      {loading ? <div></div> :
-        <main className={classes.main}>
-          {isHero ? <Hero
-            title={heroTitle}
-            text={heroText}
-            url={heroUrl}
-            site={site}
-            className={classes.hero}
-          /> : <></>}
-          <Paragraphs paragraphs={useData} width={data.width} site={site} className={classes.paragraphs}/>
-
-        </main>
-      }
+    <>
+      <main className={classes.main}>
+        {isHero ? <Hero
+          title={heroTitle}
+          text={heroText}
+          url={heroUrl}
+          site={site}
+          className={classes.hero}
+        /> : <></>}
+        <Paragraphs paragraphs={useData} width={data.width} site={site} className={classes.paragraphs} />
+      </main>
       <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraphColor }}>
         <FooterBottom
-          title={appName}
+          title={getAppName(lang)}
           description=""
-          lang={logolang}
+          lang={lang}
           site={site}
         />
       </div>
-    </React.Fragment>
+    </>
   );
 }
