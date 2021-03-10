@@ -1,5 +1,5 @@
 import { getColor } from "./colorHelper.js";
-import { orderBy, find } from 'lodash';
+import { find } from 'lodash';
 import axios from 'axios';
 
 // TODO: cleanup this
@@ -27,44 +27,6 @@ export const getWithPagination = async (drupalUrl) => {
     return { ...res, data: drupalData }
   }
   return res;
-}
-
-const findSubmenu = (m, id) => {
-  const subs = [];
-  m.data.data.map((item) => {
-    if (item.attributes.parent === 'menu_link_content:' + id) {
-      subs.push({
-        name: item.attributes.title,
-        link: item.attributes.link.uri,
-        items: findSubmenu(m, item.attributes.link.uri),
-        weight: item.attributes.weight,
-      });
-    }
-    return subs;
-  });
-  const subs2 = orderBy(subs, ['weight'], ['asc']);
-  return subs2;
-}
-
-export const makeMenu = (m) => {
-  let menu = [];
-  if (!!!m || !!!m.data) {
-    console.log('no menus');
-    return menu;
-  }
-  m.data.data.map((item, index) => {
-    if (!item.attributes.parent) {
-      menu.push({
-        name: item.attributes.title,
-        link: item.attributes.link.uri,
-        items: findSubmenu(m, item.id),
-        weight: item.attributes.weight,
-      });
-    }
-    return menu;
-  });
-  let menu2 = orderBy(menu, ['weight'], ['asc']);
-  return menu2;
 }
 
 export const findImageUrl = (uid, files, media) => {

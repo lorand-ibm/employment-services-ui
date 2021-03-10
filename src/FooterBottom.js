@@ -38,7 +38,7 @@ function FooterBottom(props) {
   return (
     <React.Fragment>
         <Footer
-          logoLanguage={lang}
+          logoLanguage={lang ? 'sv' : 'fi'}
           title={title}
           theme={{
             '--footer-background': '#0E00BF',
