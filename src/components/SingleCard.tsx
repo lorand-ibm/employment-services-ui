@@ -12,6 +12,8 @@ import Link from "./Link";
 import Date from './Date';
 import Location from './Location';
 
+import { drupalUrl } from "../config";
+
 const defaultImageHeight = 221;
 
 const useStyles = makeStyles((theme: any) => ({
@@ -84,7 +86,6 @@ interface SingleCardProps {
 
   text_color?: string;
   title_color?: string;
-  site?: string;
   image?: string;
   button_url?: string;
   button_text?: string;
@@ -95,9 +96,9 @@ interface SingleCardProps {
 
 function SingleCard(props: SingleCardProps) {
   const classes = useStyles(props as SingleCardProps);
-  const { site, image, title, text, button_url, button_text, type, dateContent } = props;
+  const { image, title, text, button_url, button_text, type, dateContent } = props;
 
-  const imageAddress = image ? (image.startsWith("http") ? image : site + image) : "";
+  const imageAddress = image ? (image.startsWith("http") ? image : drupalUrl + image) : "";
 
   const CardButton = () =>
     type === "event" ? (

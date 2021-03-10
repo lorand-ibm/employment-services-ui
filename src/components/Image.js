@@ -1,10 +1,11 @@
 import React from "react";
+import { drupalUrl } from "../config";
 
 function Image(props) {
-  const { image, site } = props;
+  const { image } = props;
 
   //const height = props.height ? props.height : 400;
-  const path = image && (image.startsWith('https') || image.startsWith('http')) ? image : site + image;
+  const path = image && (image.startsWith('https') || image.startsWith('http')) ? image : drupalUrl + image;
 
   const containerStyle = {
     paddingBottom: '50%',

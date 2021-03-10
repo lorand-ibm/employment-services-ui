@@ -48,8 +48,8 @@ export const setTaxonomies = (taxonomiesRaw) => {
   return tax;
 }
 
-export const getTaxonomyPath = (site, taxonomy, secondPage) => {
-  let path = site + '/apijson/taxonomy_term/'+taxonomy+'?fields[taxonomy_term--'+taxonomy+']=id,name';
+export const getTaxonomyPath = (drupalUrl, taxonomy, secondPage) => {
+  let path = drupalUrl + '/apijson/taxonomy_term/'+taxonomy+'?fields[taxonomy_term--'+taxonomy+']=id,name';
   if (secondPage) {
     path += "&page[offset]=50&page[limit]=50";
   }

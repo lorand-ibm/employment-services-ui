@@ -43,8 +43,6 @@ export default function Content(props) {
   const classes = useStyles();
   const { lang } = props;
 
-  const site = drupalUrl;
-
   const getPagePath = (page, includes, filter = '') => {
     const api = "apijson";
     let rest = "/" + api + page + "?include=" + includes;
@@ -52,9 +50,9 @@ export default function Content(props) {
       rest += filter;
     }
     return [
-      site + '/fi' + rest,
-      site + '/sv' + rest,
-      site + rest,
+      drupalUrl + '/fi' + rest,
+      drupalUrl + '/sv' + rest,
+      drupalUrl + rest,
     ];
   }
 
@@ -69,13 +67,13 @@ export default function Content(props) {
     //const event = "/node/event";
     const pre = "/node/prerelease_landing";
 
-    const files = site + '/apijson/file/file';
-    const media = site + '/apijson/media/image';
-    const doc = site + '/apijson/media/document';
-    const conf = site + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
-    const paths = site + '/apijson/path_alias/path_alias';
-    const taxColors = getTaxonomyPath(site, 'colors', false);
-    const taxWidth = getTaxonomyPath(site, 'paragraph_width', false);
+    const files = drupalUrl + '/apijson/file/file';
+    const media = drupalUrl + '/apijson/media/image';
+    const doc = drupalUrl + '/apijson/media/document';
+    const conf = drupalUrl + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
+    const paths = drupalUrl + '/apijson/path_alias/path_alias';
+    const taxColors = getTaxonomyPath(drupalUrl, 'colors', false);
+    const taxWidth = getTaxonomyPath(drupalUrl, 'paragraph_width', false);
 
     let [f, m, d, configuration, colorsTax, widthTax] = await Promise.all([
       getWithPagination(files),
@@ -147,7 +145,6 @@ export default function Content(props) {
       media: m,
       configuration: configuration,
       fullVersion: fullRelease,
-      site: site,
       taxonomies: taxonomies,
     });
     setLoading(false);
@@ -199,17 +196,15 @@ export default function Content(props) {
           title={heroTitle}
           text={heroText}
           url={heroUrl}
-          site={site}
           className={classes.hero}
         /> : <></>}
-        <Paragraphs paragraphs={useData} width={data.width} site={site} className={classes.paragraphs} />
+        <Paragraphs paragraphs={useData} width={data.width} className={classes.paragraphs} />
       </main>
       <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraphColor }}>
         <FooterBottom
           title={getAppName(lang)}
           description=""
           lang={lang}
-          site={site}
         />
       </div>
     </>
