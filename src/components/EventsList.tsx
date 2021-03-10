@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Koros } from "hds-react/components/Koros";
 import { Container, Button as HDSButton, IconPlus } from "hds-react";
-import { ParagraphGrid } from "./Paragraphs";
+import { ParagraphGrid } from "../Paragraphs";
 import { makeStyles } from "@material-ui/core/styles";
 
 import CardList from "./CardList";

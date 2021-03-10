@@ -1,23 +1,23 @@
 import React from "react";
-import Accord from "./Accord";
-import SingleCard from "./SingleCard";
-import {Mainheading, Subheading} from "./Headings";
-import Info from "./Info";
-import Pdf from "./Pdf";
-import PhoneNumberBox from "./PhoneNumberBox";
-import Text from "./Text";
+import Accord from "./components/Accord";
+import SingleCard from "./components/SingleCard";
+import {Mainheading, Subheading} from "./components/Headings";
+import Info from "./components/Info";
+import Pdf from "./components/Pdf";
+import PhoneNumberBox from "./components/PhoneNumberBox";
+import Text from "./components/Text";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import Image from "./Image";
-import ImageAndCard from "./ImageAndCard";
-import CardList from "./CardList";
-import EventsList from "./EventsList";
+import Image from "./components/Image";
+import ImageAndCard from "./components/ImageAndCard";
+import CardList from "./components/CardList";
+import EventsList from "./components/EventsList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
-import Link from "./Link";
-import Date from "./Date";
-import Location from "./Location";
-import SujoEmbedded from "./SujoEmbedded";
+import Link from "./components/Link";
+import Date from "./components/Date";
+import Location from "./components/Location";
+import SujoEmbedded from "./components/SujoEmbedded";
 
 const useStyles = makeStyles((theme) => ({
   container: {

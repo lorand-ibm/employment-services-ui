@@ -5,9 +5,9 @@ import axios from 'axios';
 
 import FooterBottom from './FooterBottom';
 import Paragraphs from './Paragraphs';
-import Hero from './Hero';
-import { getWithPagination, findData, getFullRelease } from "./dataHelper";
-import { getTaxonomyPath, findTaxonomy, setTaxonomies } from "./taxonomiesHelper.js";
+import Hero from './components/Hero';
+import { getWithPagination, findData, getFullRelease } from "./helpers/dataHelper";
+import { getTaxonomyPath, findTaxonomy, setTaxonomies } from "./helpers/taxonomiesHelper";
 
 import { drupalUrl, getAppName } from './config';
 
