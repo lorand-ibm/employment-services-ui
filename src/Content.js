@@ -6,10 +6,11 @@ import axios from 'axios';
 import FooterBottom from './FooterBottom';
 import Paragraphs from './Paragraphs';
 import Hero from './components/Hero';
-import { getWithPagination, findData, getFullRelease } from "./helpers/dataHelper";
-import { getTaxonomyPath, findTaxonomy, setTaxonomies } from "./helpers/taxonomiesHelper";
+import { findData } from "./helpers/dataHelper";
+import { findTaxonomy, setTaxonomies } from "./helpers/taxonomiesHelper";
 
-import { drupalUrl, getAppName } from './config';
+import { fetchFiles, fetchImages, fetchDocuments, fetchColorsTaxonomy, fetchWidthTaxonomy, getLandingPagePath, getEventPagePath, getDrupalNidFromPathAlias, getPagePagePath } from './helpers/fetchHelper';
+import { getAppName } from './config';
 
 const useStyles = makeStyles((theme) => ({
   navi: {
@@ -43,108 +44,49 @@ export default function Content(props) {
   const classes = useStyles();
   const { lang } = props;
 
-  const getPagePath = (page, includes, filter = '') => {
-    const api = "apijson";
-    let rest = "/" + api + page + "?include=" + includes;
-    if (filter) {
-      rest += filter;
-    }
-    return [
-      drupalUrl + '/fi' + rest,
-      drupalUrl + '/sv' + rest,
-      drupalUrl + rest,
-    ];
-  }
-
   async function makeRequests() {
     setLoading(true);
 
-    const preInc = "field_prerelease_";
-    const inc = "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card";
-    const land = "/node/landing";
-    const page = "/node/page";
-    const news = "/node/news";
-    //const event = "/node/event";
-    const pre = "/node/prerelease_landing";
-
-    const files = drupalUrl + '/apijson/file/file';
-    const media = drupalUrl + '/apijson/media/image';
-    const doc = drupalUrl + '/apijson/media/document';
-    const conf = drupalUrl + '/apijson/config_pages/release_settings?fields[config_pages--release_settings]=field_prerelease_content,field_full_release_content';
-    const paths = drupalUrl + '/apijson/path_alias/path_alias';
-    const taxColors = getTaxonomyPath(drupalUrl, 'colors', false);
-    const taxWidth = getTaxonomyPath(drupalUrl, 'paragraph_width', false);
-
-    let [f, m, d, configuration, colorsTax, widthTax] = await Promise.all([
-      getWithPagination(files),
-      axios.get(media),
-      axios.get(doc),
-      axios.get(conf),
-      axios.get(taxColors),
-      axios.get(taxWidth),
+    const [files, media, documents, colorsTax, widthTax] = await Promise.all([
+      fetchFiles(),
+      fetchImages(),
+      fetchDocuments(),
+      fetchColorsTaxonomy(),
+      fetchWidthTaxonomy(),
     ]);
 
     const taxonomies = setTaxonomies([['Colors', colorsTax], ['Width', widthTax]]);
-    const fullRelease = getFullRelease(configuration);
-    let [fi, sv, en,] = [null, null, null,];
-    let [fiPage, svPage, enPage] = getPagePath(land, inc);
+    let [fi, sv, en,] = [null, null, null, null];
+    let [fiPage, svPage, enPage,] = getLandingPagePath();
 
-    if (fullRelease) {
-      if (path === 'tapahtuma' || path === 'event') {
-        const pathnameSplitted = pathname.split('/');
-        const lastPath = pathnameSplitted[pathnameSplitted.length - 1];
-        let exactPath = paths + "?filter[alias]=/" + lastPath;
-        let [res] = await Promise.all([
-          axios.get(exactPath),
-        ]);
+    if (path === 'tapahtuma' || path === 'event') {
+      const pathnameSplitted = pathname.split('/');
+      const lastPath = pathnameSplitted[pathnameSplitted.length - 1];
 
-        const filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
-        [fiPage, svPage, enPage] = getPagePath('/node/event', inc, filter);
+      const nid = await getDrupalNidFromPathAlias(lastPath);
+      const filter = "&filter[drupal_internal__nid]=" + nid;
+      [fiPage, svPage, enPage] = getEventPagePath(filter);
 
-      } else if (path) {
-        let exactPath = paths + "?filter[alias]=/" + path;
-        let [res] = await Promise.all([
-          axios.get(exactPath),
-        ]);
-        if (res.data.meta.count > 0 && res.data) {
-          let filter = "&filter[drupal_internal__nid]=" + res.data.data[0].attributes.path.substr(6);
-          [fiPage, svPage, enPage] = getPagePath(page, inc, filter);
-        }
-      }
-      [fi, sv, en,] = await Promise.all([
-        axios.get(fiPage),
-        axios.get(svPage),
-        axios.get(enPage),
-      ]);
-      if (en.data.data.meta === '0') {
-        console.log('data not found from path');
-        [fiPage, svPage, enPage] = getPagePath(news, inc);
-        [fi, sv, en,] = await Promise.all([
-          axios.get(fiPage),
-          axios.get(svPage),
-          axios.get(enPage),
-        ]);
-      }
-    } else {
-      [fiPage, svPage, enPage] = getPagePath(pre, preInc);
-      [fi, sv, en,] = await Promise.all([
-        axios.get(fiPage),
-        axios.get(svPage),
-        axios.get(enPage),
-      ]);
+    } else if (path) {
+      const nid = await getDrupalNidFromPathAlias(path)
+      let filter = "&filter[drupal_internal__nid]=" + nid;
+      [fiPage, svPage, enPage] = getPagePagePath(filter);
     }
+    [fi, sv, en,] = await Promise.all([
+      axios.get(fiPage),
+      axios.get(svPage),
+      axios.get(enPage),
+    ]);
 
-    let fiData = findData('fi', fi.data, f, m, d, taxonomies);
-    let svData = findData('sv', sv.data, f, m, d, taxonomies);
-    let enData = findData('en', en.data, f, m, d, taxonomies);
+    let fiData = findData('fi', fi.data, files, media, documents, taxonomies);
+    let svData = findData('sv', sv.data, files, media, documents, taxonomies);
+    let enData = findData('en', en.data, files, media, documents, taxonomies);
     const width = findTaxonomy(en.data, 'field_page_width');
     setData({
       en: enData, fi: fiData, sv: svData,
       width: width,
-      files: f,
-      media: m,
-      configuration: configuration,
-      fullVersion: fullRelease,
+      files: files,
+      media: media,
       taxonomies: taxonomies,
     });
     setLoading(false);
