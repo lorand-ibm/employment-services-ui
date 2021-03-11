@@ -54,8 +54,8 @@ function App() {
         <Route path="/QA">
           <Redirect to={"/fi/QA"} />
         </Route>
-        <Route path="/:id/:restofit" children={<Content lang={lang} loading={true} />} />
-        <Route path="/:id" children={<Content lang={lang} loading={true} />} />
+        <Route path="/:id/:restofit" children={<Content lang={lang} />} />
+        <Route path="/:id" children={<Content lang={lang} />} />
         <Redirect to={"/fi"}></Redirect>
       </Switch>
     </ThemeProvider>
