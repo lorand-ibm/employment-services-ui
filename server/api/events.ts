@@ -13,7 +13,7 @@ eventsRouter.get("/all/:index", async (req, res) => {
   }
   const body = {
     size: 9,
-    from: (9*index-1),
+    from: (9*index),
     query: {
       match_all: {},
     },
