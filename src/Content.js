@@ -40,13 +40,10 @@ export default function Content(props) {
 
   const [path] = useState(restofit);
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
   const classes = useStyles();
   const { lang } = props;
 
   async function makeRequests() {
-    setLoading(true);
-
     const [files, media, documents, colorsTax, widthTax] = await Promise.all([
       fetchFiles(),
       fetchImages(),
@@ -66,7 +63,6 @@ export default function Content(props) {
       const nid = await getDrupalNidFromPathAlias(lastPath);
       const filter = "&filter[drupal_internal__nid]=" + nid;
       [fiPage, svPage, enPage] = getEventPagePath(filter);
-
     } else if (path) {
       const nid = await getDrupalNidFromPathAlias(path)
       let filter = "&filter[drupal_internal__nid]=" + nid;
@@ -89,7 +85,6 @@ export default function Content(props) {
       media: media,
       taxonomies: taxonomies,
     });
-    setLoading(false);
   }
 
   useEffect(() => {
@@ -114,7 +109,7 @@ export default function Content(props) {
   let heroUrl = "";
   let isHero = true;
 
-  if (!loading) {
+  if (useData) {
     if (useData.length > 0 && useData[0].type === 'Hero') {
       heroTitle = useData[0].title;
       heroText = useData[0].text;
@@ -124,7 +119,7 @@ export default function Content(props) {
     }
   }
 
-  if (loading) {
+  if (!useData) {
     return <main className={classes.main} />;
   }
 
