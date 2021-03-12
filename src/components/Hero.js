@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import PropTypes from "prop-types";
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Card from '@material-ui/core/Card';
@@ -223,11 +222,5 @@ function Hero(props) {
     </React.Fragment>
   );
 }
-
-Hero.propTypes = {
-  text: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
 
 export default Hero;

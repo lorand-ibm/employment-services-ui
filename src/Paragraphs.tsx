@@ -19,6 +19,8 @@ import Date from "./components/Date";
 import Location from "./components/Location";
 import SujoEmbedded from "./components/SujoEmbedded";
 
+import { Lang } from "./types";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
@@ -109,10 +111,8 @@ type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
 
 interface ParagraphsProps {
   paragraphs: any;
-  type: string;
-  title: string;
-  text: string;
   width: ParagraphWidth;
+  lang: Lang;
 }
 
 const FullParagraphGrid = ({ className, children }: { className: string; children: any }) => (
@@ -175,7 +175,7 @@ export const ParagraphGrid = ({
 
 function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
-  const { paragraphs, width } = props;
+  const { paragraphs, width, lang } = props;
   const items: any[] = [];
   paragraphs.forEach((paragraph: any, index: number) => {
     switch (paragraph.type) {
@@ -311,7 +311,7 @@ function Paragraphs(props: ParagraphsProps) {
         );
         break;
       case "EventsList":
-        items.push(<EventsList lang={paragraph.lang as string} title={paragraph.title} bgColor={paragraph.bgColor} />);
+        items.push(<EventsList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} />);
         break;
       case "Date":
         items.push(

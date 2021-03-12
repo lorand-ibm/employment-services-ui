@@ -9,6 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardList from "./CardList";
 import { Mainheading } from "./Headings";
 
+import { Lang } from "../types";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 0,
@@ -52,8 +54,8 @@ interface EventState {
 
 interface EventListProps {
   title: string;
-  // TODO: not used
-  lang: string;
+  // TODO:
+  lang: Lang;
   bgColor: string;
 }
 
