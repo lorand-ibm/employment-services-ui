@@ -2,7 +2,7 @@ import "./App.css";
 import "./fonts.css";
 
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Nav from "./Nav";
@@ -38,7 +38,6 @@ const strToLang = (langParam: LangParam): Lang => {
 function App() {
   const history = useHistory();
   const location = useLocation();
-  console.log('location path', location.pathname);
 
   const [, langPath] = location.pathname.split("/");
   const [lang, setLang] = useState<Lang>(strToLang(langPath));
@@ -49,6 +48,16 @@ function App() {
     history.replace([empty, newLang, ...rest].join("/"));
     setLang(newLang);
   };
+
+  useEffect(() => {
+    const { pathname } = location;
+    const [, pathLang,] = pathname.split("/");
+    const newLang = strToLang(pathLang);
+    if (newLang !== lang) {
+      console.log("change!!!");
+      changeLang(newLang);
+    }
+  });
 
   return (
     <ThemeProvider theme={groteskTheme}>
