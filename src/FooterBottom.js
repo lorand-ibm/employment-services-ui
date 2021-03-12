@@ -6,8 +6,8 @@ import {drupalUrl} from "./config";
 
 const footerTexts = {
   fi: { feedback: 'Anna palautetta', goup: 'Sivun alkuun', accessibility: 'Saavutettavuusseloste'},
-  sv: { feedback: 'Ge respons', goup: 'Till början av sidan', accessibility: 'Saavutettavuusseloste'},
-  en: { feedback: 'Give feedback', goup: 'Back to the top', accessibility: 'Saavutettavuusseloste'},
+  sv: { feedback: 'Ge respons', goup: 'Till början av sidan', accessibility: 'Tillgänglighetsutlåtande'},
+  en: { feedback: 'Give feedback', goup: 'Back to the top', accessibility: 'Accessibility statement'},
 }
 
 function FooterBottom(props) {
