@@ -2,12 +2,12 @@ import "./App.css";
 import "./fonts.css";
 
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import React, { useEffect, useState } from "react";
-import { Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Nav from "./Nav";
 
-import { LangParam, Lang } from "./types";
+import { Lang } from "./types";
 
 import Landing from "./pages/Landing";
 import Page from "./pages/Page";
@@ -24,40 +24,26 @@ const groteskTheme = createMuiTheme({
   overrides: {},
 });
 
-const strToLang = (langParam: LangParam): Lang => {
+const strToLang = (langParam: string): Lang => {
   switch (langParam) {
-    case "fi":
-      return "fi";
+    case "en":
+      return "en";
     case "sv":
       return "sv";
     default:
-      return "en";
+      return "fi";
   }
 };
 
 function App() {
-  const history = useHistory();
   const location = useLocation();
 
   const [, langPath] = location.pathname.split("/");
   const [lang, setLang] = useState<Lang>(strToLang(langPath));
 
   const changeLang = (newLang: Lang) => {
-    const { pathname } = location;
-    const [empty, , ...rest] = pathname.split("/");
-    history.replace([empty, newLang, ...rest].join("/"));
     setLang(newLang);
   };
-
-  useEffect(() => {
-    const { pathname } = location;
-    const [, pathLang,] = pathname.split("/");
-    const newLang = strToLang(pathLang);
-    if (newLang !== lang) {
-      console.log("change!!!");
-      changeLang(newLang);
-    }
-  });
 
   return (
     <ThemeProvider theme={groteskTheme}>
@@ -67,11 +53,11 @@ function App() {
         <Route path="/QA">
           <Redirect to={"/fi/QA"} />
         </Route>
-        <Route path="/fi/tapahtuma/:urlAlias" strict children={<Event lang={"fi"} />} />
-        <Route path="/en/event/:urlAlias" strict children={<Event lang={"en"} />} />
-        <Route path="/sv/event-sv/:urlAlias" strict children={<Event lang={"sv"} />} />
-        <Route path="/:id/:restofit" strict children={<Page lang={lang} />} />
-        <Route path="/:id" strict children={<Landing lang={lang} />} />
+        <Route path="/fi/tapahtuma/:urlAlias" strict children={<Event lang={lang} />} />
+        <Route path="/en/event/:urlAlias" strict children={<Event lang={lang} />} />
+        <Route path="/sv/evenemang/:urlAlias" strict children={<Event lang={lang} />} />
+        <Route path="/:langParam/:urlAlias" strict children={<Page lang={lang} />} />
+        <Route path="/:langParam" strict children={<Landing lang={lang} />} />
         <Redirect to={"/fi"}></Redirect>
       </Switch>
     </ThemeProvider>

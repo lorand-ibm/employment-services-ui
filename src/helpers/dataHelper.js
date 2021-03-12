@@ -381,3 +381,10 @@ export const findTaxonomy = (data, field) => {
   return "";
 }
 
+export const getUrlAlias = (data) => {
+  if (!data || !data.data || !data.data.data[0] || !data.data.data[0].attributes || !data.data.data[0].attributes.path || !data.data.data[0].attributes.path.alias) {
+    return null;
+  }
+  return data.data.data[0].attributes.path.alias.substring(1);
+}
+
