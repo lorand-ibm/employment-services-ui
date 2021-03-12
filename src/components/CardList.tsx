@@ -4,6 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import SingleCard from "./SingleCard";
 import Typography from "@material-ui/core/Typography";
 
+import { Lang } from "../types";
+
 const useStyles = makeStyles((theme) => ({
   title: {
     nocolor: "white",
@@ -19,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
 interface CardListProps {
   title?: string;
   cards: any;
+  lang: Lang;
   // TODO!!!
   isKoro?: boolean;
 }
 
 function CardList(props: CardListProps) {
   const classes = useStyles(props);
-  const { title, cards } = props;
+  const { title, cards, lang } = props;
 
   return (
     <>
@@ -38,7 +41,7 @@ function CardList(props: CardListProps) {
         <Grid container direction={"row"} spacing={3} className={""}>
           {cards.map((item: any, i: number) => (
             <Grid item xs={12} md={4} key={i}>
-              <SingleCard key={i} {...item} className={classes.title}></SingleCard>
+              <SingleCard key={i} {...item} className={classes.title} lang={lang}></SingleCard>
             </Grid>
           ))}
         </Grid>
