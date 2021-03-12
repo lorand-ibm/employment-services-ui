@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     top: '9%',
     right: '0',
     width: 450,
-    height: 430,
     marginLeft: 'auto',
     display: 'flex',
     flexDirection: 'column',
