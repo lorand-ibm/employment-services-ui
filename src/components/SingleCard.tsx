@@ -9,10 +9,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Link from "./Link";
-import Date from './Date';
-import Location from './Location';
+import Date from "./Date";
+import Location from "./Location";
 
 import { drupalUrl } from "../config";
+
+import { Lang } from "../types";
 
 const defaultImageHeight = 221;
 
@@ -46,10 +48,10 @@ const useStyles = makeStyles((theme: any) => ({
     color: "black",
     backgroundColor: props.button_bg_color,
     fontSize: 16,
-    '&:hover': {
+    "&:hover": {
       backgroundColor: props.button_bg_color,
       color: "black",
-    }
+    },
   }),
   media: (props: SingleCardProps) => ({
     height: props.type === "event" ? 150 : defaultImageHeight,
@@ -80,6 +82,7 @@ interface SingleCardProps {
   text: string;
   title: string;
   type: CardType;
+  lang: Lang;
 
   dateContent?: EventContent;
   location?: string;
@@ -96,17 +99,18 @@ interface SingleCardProps {
 
 function SingleCard(props: SingleCardProps) {
   const classes = useStyles(props as SingleCardProps);
-  const { image, title, text, button_url, button_text, type, dateContent } = props;
+  const { image, title, lang, text, button_url, button_text, type, dateContent } = props;
 
   const imageAddress = image ? (image.startsWith("http") ? image : drupalUrl + image) : "";
 
-  const CardButton = () =>
-    type === "event" ? (
-      <Link text="Lue lisää" url={button_url ? button_url : ""}></Link>
-    ) : (
+  const CardButton = () => {
+    if (type === "event") {
+      const readMoreText = lang === "fi" ? "Lue lisää" : lang === "sv" ? "Läs mer" : "Read more";
+      return <Link text={readMoreText} url={button_url ? button_url : ""}></Link>;
+    }
+    return (
       <Box position={"bottom"} className={classes.buttonArea}>
         <Button
-
           className={classes.button}
           onClick={() => {
             window.location.href = button_url ? button_url : "";
@@ -116,6 +120,7 @@ function SingleCard(props: SingleCardProps) {
         </Button>
       </Box>
     );
+  };
 
   return (
     <Card className={classes.root}>
@@ -131,7 +136,7 @@ function SingleCard(props: SingleCardProps) {
               <div>
                 <Date startTime={dateContent.startTime} endTime={dateContent.endTime} />
               </div>
-              <div style={{paddingTop: 8}}>
+              <div style={{ paddingTop: 8 }}>
                 <Location location="Internet" />
               </div>
             </Typography>
