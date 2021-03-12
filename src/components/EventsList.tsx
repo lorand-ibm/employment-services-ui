@@ -82,6 +82,7 @@ function EventsList(props: EventListProps) {
 
   const resultsText = lang === "fi" ? "hakutulosta" : lang === "sv" ? "sökresultat" : "search results";
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
+  const eventUrl = lang === "fi" ? "/fi/tapahtuma" : lang === "sv" ? "/sv/evenemang" : "/en/event";
 
   const isKoro = true;
   return (
@@ -108,7 +109,7 @@ function EventsList(props: EventListProps) {
                 image: event.image,
                 title_color: "#fd4f00",
                 dateContent: { startTime: event.startTime, endTime: event.endTime },
-                button_url: "/fi/tapahtuma" + event.path,
+                button_url: `${eventUrl}${event.path}`,
               }))}
             ></CardList>
             {events.total > events.results.length && (

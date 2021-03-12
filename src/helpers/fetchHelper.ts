@@ -62,6 +62,7 @@ export const getDrupalNidFromPathAlias = async (pathAlias: string) => {
   const paths = drupalUrl + "/apijson/path_alias/path_alias";
   const exactPath = paths + "?filter[alias]=/" + pathAlias;
   const res = await axios.get(exactPath);
+  if (!res || !res.data || !res.data.data[0] || !res.data.data[0].attributes || !res.data.data[0].attributes.path) return null;
   return res.data.data[0].attributes.path.substr(6);
 };
 

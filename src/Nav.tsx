@@ -76,7 +76,7 @@ function Nav(props: NavProps) {
           text: "E-Tjänster",
           link: "https://asiointi.mol.fi/omaasiointi/?kieli=sv",
         }
-      : lang == "fi"
+      : lang === "fi"
       ? {
           text: "Oma asiointi",
           link: "https://asiointi.mol.fi/omaasiointi/",

@@ -7,7 +7,7 @@ import Hero from "../components/Hero";
 
 import { getAppName } from "../config";
 
-import { Lang } from "../types";
+import { Lang, ParagraphData } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   navi: {
@@ -32,28 +32,15 @@ const useStyles = makeStyles((theme) => ({
 
 interface PageUsingParagraphsProps {
   lang: Lang;
-  enData: any;
-  fiData: any;
-  svData: any;
+  paragraphData: ParagraphData 
   width: any;
 }
 
 export default function ParagraphsPage(props: PageUsingParagraphsProps) {
   const classes = useStyles();
-  const { lang, enData, fiData, svData, width } = props;
+  const { lang, paragraphData, width } = props;
 
-  let useData: any = fiData;
-  switch (lang) {
-    case "en":
-      useData = enData;
-      break;
-    case "sv":
-      useData = svData;
-      break;
-    case "fi":
-    default:
-      useData = fiData;
-  }
+  const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
 
   let heroTitle = "";
   let heroText = "";

@@ -1,4 +1,8 @@
+import { string } from "prop-types";
+
 export type Lang = "fi" | "en" | "sv";
-export type LangParam = string;
-export type Params = { langParam: LangParam; restofit: string };
-export type EventParams = {urlAlias: string};
+export type Params = { langParam: string; urlAlias: string };
+export type EventParams = { urlAlias: string };
+// TODO type "any"
+export type ParagraphData = {[k in Lang]: any};
+export type UrlAliases = {[k in Lang]: string};
