@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { orderBy } from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
-import { Navigation } from "hds-react/components/Navigation";
+import { Navigation, Button } from "hds-react/components";
 import axios from "axios";
 
 import { drupalUrl, getAppName } from "./config";
@@ -51,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "HelsinkiGrotesk",
     fontSize: 16,
   },
+  navButton: {
+    backgroundColor: "transparent !important",
+    color: "var(--color-bus) !important",
+    borderColor: "var(--color-bus) !important",
+  },
 }));
 
 interface NavProps {
@@ -64,6 +69,22 @@ function Nav(props: NavProps) {
   const [menu, setMenu] = useState(null);
   const classes = useStyles(props);
   const menuData = drupalUrl + "/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-" + lang;
+
+  const eServiceTexts: { text: string; link: string } =
+    lang === "sv"
+      ? {
+          text: "E-Tjänster",
+          link: "https://asiointi.mol.fi/omaasiointi/?kieli=sv",
+        }
+      : lang == "fi"
+      ? {
+          text: "Oma asiointi",
+          link: "https://asiointi.mol.fi/omaasiointi/",
+        }
+      : {
+          text: "E-Services",
+          link: "https://asiointi.mol.fi/omaasiointi/",
+        };
 
   useEffect(() => {
     const getMenu = async () => {
@@ -150,7 +171,21 @@ function Nav(props: NavProps) {
           />
         </Navigation.LanguageSelector>
       </Navigation.Actions>
-      <Navigation.Row>{getNavi(menu, lang)}</Navigation.Row>
+      <Navigation.Row>
+        {getNavi(menu, lang)}
+        <div style={{ marginLeft: "auto" }}>
+          <Button
+            className={classes.navButton}
+            size="small"
+            variant="secondary"
+            onClick={() => {
+              window.location.href = eServiceTexts.link;
+            }}
+          >
+            {eServiceTexts.text}
+          </Button>
+        </div>
+      </Navigation.Row>
     </Navigation>
   );
 }
