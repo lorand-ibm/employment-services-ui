@@ -61,7 +61,7 @@ interface EventListProps {
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
-  const { title, bgColor } = props;
+  const { title, bgColor, lang } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
@@ -80,6 +80,9 @@ function EventsList(props: EventListProps) {
     fetchEvents();
   }, [eventsIndex]);
 
+  const resultsText = lang === "fi" ? "hakutulosta" : lang === "sv" ? "sökresultat" : "search results";
+  const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
+
   const isKoro = true;
   return (
     <div
@@ -96,8 +99,9 @@ function EventsList(props: EventListProps) {
             <div className={classes.title}>
               <Mainheading headingTag={"h2"} title={title} />
             </div>
-            <div className={classes.results}>{events.total + ""} hakutulosta</div>
+            <div className={classes.results}>{`${events.total} ${resultsText}`}</div>
             <CardList
+              lang={lang}
               cards={events.results.map((event) => ({
                 type: "event",
                 title: event.title,
@@ -118,7 +122,7 @@ function EventsList(props: EventListProps) {
                     }
                   }}
                 >
-                  Lataa enemmän
+                  {loadMoreText}
                 </HDSButton>
               </div>
             )}

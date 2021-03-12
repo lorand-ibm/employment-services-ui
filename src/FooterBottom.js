@@ -5,9 +5,9 @@ import {Footer} from  "hds-react/components/Footer";
 import {drupalUrl} from "./config";
 
 const footerTexts = {
-  fi: { feedback: 'Anna palautetta', goup: 'Sivun alkuun', accessibility: 'Saavutettavuusseloste'},
-  sv: { feedback: 'Ge respons', goup: 'Till början av sidan', accessibility: 'Saavutettavuusseloste'},
-  en: { feedback: 'Give feedback', goup: 'Back to the top', accessibility: 'Saavutettavuusseloste'},
+  fi: { feedback: 'Anna palautetta', feedbackLink: 'https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/', goup: 'Sivun alkuun', accessibility: 'Saavutettavuusseloste'},
+  sv: { feedback: 'Ge respons', feedbackLink: 'https://www.hel.fi/helsinki/sv/stad-och-forvaltning/delta/feedback', goup: 'Till början av sidan', accessibility: 'Tillgänglighetsutlåtande'},
+  en: { feedback: 'Give feedback', feedbackLink: 'https://www.hel.fi/helsinki/en/administration/participate/feedback', goup: 'Back to the top', accessibility: 'Accessibility statement'},
 }
 
 function FooterBottom(props) {
@@ -52,7 +52,7 @@ function FooterBottom(props) {
           <Footer.Navigation navigationAriaLabel="{title} navigation"></Footer.Navigation>
           <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
               <Footer.Item href={`${drupalUrl}/sites/default/files/2021-02/saavutettavuusseloste%2026.2.2021.pdf`} label={texts.accessibility} />
-              <Footer.Item href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/" label={texts.feedback} />
+              <Footer.Item href={texts.feedbackLink} label={texts.feedback} />
               <Footer.Item href="#" label={texts.goup} onClick={scrollToTop} />
           </Footer.Base>
         </Footer>
