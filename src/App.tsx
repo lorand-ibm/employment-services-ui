@@ -2,13 +2,16 @@ import "./App.css";
 import "./fonts.css";
 
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Nav from "./Nav";
-import Content from "./Content";
 
 import { LangParam, Lang } from "./types";
+
+import Landing from "./pages/Landing";
+import Page from "./pages/Page";
+import Event from "./pages/Event";
 
 const groteskTheme = createMuiTheme({
   typography: {
@@ -46,6 +49,16 @@ function App() {
     setLang(newLang);
   };
 
+  useEffect(() => {
+    const { pathname } = location;
+    const [, pathLang,] = pathname.split("/");
+    const newLang = strToLang(pathLang);
+    if (newLang !== lang) {
+      console.log("change!!!");
+      changeLang(newLang);
+    }
+  });
+
   return (
     <ThemeProvider theme={groteskTheme}>
       <Nav lang={lang} changeLang={changeLang} />
@@ -54,8 +67,11 @@ function App() {
         <Route path="/QA">
           <Redirect to={"/fi/QA"} />
         </Route>
-        <Route path="/:id/:restofit" children={<Content lang={lang} loading={true} />} />
-        <Route path="/:id" children={<Content lang={lang} loading={true} />} />
+        <Route path="/fi/tapahtuma/:urlAlias" strict children={<Event lang={"fi"} />} />
+        <Route path="/en/event/:urlAlias" strict children={<Event lang={"en"} />} />
+        <Route path="/sv/event-sv/:urlAlias" strict children={<Event lang={"sv"} />} />
+        <Route path="/:id/:restofit" strict children={<Page lang={lang} />} />
+        <Route path="/:id" strict children={<Landing lang={lang} />} />
         <Redirect to={"/fi"}></Redirect>
       </Switch>
     </ThemeProvider>

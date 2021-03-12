@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import PropTypes from "prop-types";
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Card from '@material-ui/core/Card';
@@ -13,6 +12,8 @@ import {
   FiCardContent,
   FiCardMedia
 } from "./FullImageCard";
+
+import { drupalUrl } from "../config";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -141,9 +142,9 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero(props) {
   const classes = useStyles();
-  const { title, text, url, site } = props;
+  const { title, text, url } = props;
 
-  const imagePath = site + url;
+  const imagePath = drupalUrl + url;
 
   return (
     <React.Fragment>
@@ -221,11 +222,5 @@ function Hero(props) {
     </React.Fragment>
   );
 }
-
-Hero.propTypes = {
-  text: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
 
 export default Hero;

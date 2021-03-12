@@ -3,11 +3,13 @@ import axios from "axios";
 
 import { Koros } from "hds-react/components/Koros";
 import { Container, Button as HDSButton, IconPlus } from "hds-react";
-import { ParagraphGrid } from "./Paragraphs";
+import { ParagraphGrid } from "../Paragraphs";
 import { makeStyles } from "@material-ui/core/styles";
 
 import CardList from "./CardList";
 import { Mainheading } from "./Headings";
+
+import { Lang } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -51,16 +53,15 @@ interface EventState {
 }
 
 interface EventListProps {
-  site: string;
   title: string;
-  // TODO: not used
-  lang: string;
+  // TODO:
+  lang: Lang;
   bgColor: string;
 }
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
-  const { title, site, bgColor } = props;
+  const { title, bgColor } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
@@ -105,7 +106,6 @@ function EventsList(props: EventListProps) {
                 dateContent: { startTime: event.startTime, endTime: event.endTime },
                 button_url: "/fi/tapahtuma" + event.path,
               }))}
-              site={site}
             ></CardList>
             {events.total > events.results.length && (
               <div className={classes.loadMore}>

@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import LaunchIcon from '@material-ui/icons/Launch';
 import {makeStyles} from "@material-ui/core/styles";
 
+import {drupalUrl} from '../config';
+
 const useStyles = makeStyles((theme) => ({
   text: {
     fontSize: 16,
@@ -17,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Pdf(props) {
     const classes = useStyles();
-    const { title, url, site } = props;
-    const address = site + url;
+    const { title, url } = props;
+    const address = drupalUrl + url;
 
     return (
         <React.Fragment>

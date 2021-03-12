@@ -1,33 +1,5 @@
 import { getColor } from "./colorHelper.js";
 import { find } from 'lodash';
-import axios from 'axios';
-
-// TODO: cleanup this
-export const getWithPagination = async (drupalUrl) => {
-  const getRestOfData = async (data, filesUrl) => {
-    const res = await axios.get(filesUrl.href);
-
-    const combineData = [...res.data.data, ...data];
-
-    const nextLink = res.data.links.next;
-    if (nextLink) {
-      return await getRestOfData(combineData, nextLink);
-    }
-    const newRes = { ...res, data: combineData };
-    return newRes;
-  }
-
-  const res = await axios.get(drupalUrl)
-
-  const nextLink = res.data.links.next;
-  if (nextLink) {
-    const currDrupalData = res.data.data;
-
-    const drupalData = await getRestOfData(currDrupalData, nextLink)
-    return { ...res, data: drupalData }
-  }
-  return res;
-}
 
 export const findImageUrl = (uid, files, media) => {
   if (!!!files || !!!files.data || !!!media || !!!media.data) {
@@ -111,65 +83,59 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
   return cards;
 }
 
-export const findData = (lang, json, files, media, doc, taxonomies) => {
+export const findEventData = (lang, json) => {
   if (!json.data || !json.data[0] || !json.data[0].type || !json.data[0].attributes) {
     console.log('error with event data, no data');
     return [];
   }
-  const data = json.data[0];
-  if (data.type === 'node--event') {
-    const attributes = data.attributes;
-    const lang = attributes.langcode
+  const attributes = json.data[0].attributes;
 
-    const infoUrl = attributes.field_info_url;
-    const infoUrlText = infoUrl && infoUrl.startsWith("https://teams.microsoft") ? "Avaa Teams-tapahtuma" : "Tapahtuman kotisivut";
-    console.log('infoUrl', infoUrl)
-    const paragraphs = [{
-      type: 'Subheading',
-      lang,
-      title: attributes.field_title,
-      title_color: "",
-      text: '',
-    },
-    {
-      type: 'Date',
-      lang,
-      startTime: attributes.field_start_time,
-      endTime: attributes.field_end_time,
-    },
-    {
-      type: 'Location',
-      lang,
-      //TODO:
-      location: "Internet",
-    },
-    {
-      type: 'Text',
-      lang,
-      title: '',
-      text: attributes.field_text.value,
-    }]
+  const infoUrl = attributes.field_info_url;
+  const infoUrlText = infoUrl && infoUrl.startsWith("https://teams.microsoft") ? "Avaa Teams-tapahtuma" : "Tapahtuman kotisivut";
+  const paragraphs = [{
+    type: 'Subheading',
+    lang,
+    title: attributes.field_title,
+    title_color: "",
+    text: '',
+  },
+  {
+    type: 'Date',
+    lang,
+    startTime: attributes.field_start_time,
+    endTime: attributes.field_end_time,
+  },
+  {
+    type: 'Location',
+    lang,
+    //TODO:
+    location: "Internet",
+  },
+  {
+    type: 'Text',
+    lang,
+    title: '',
+    text: attributes.field_text.value,
+  }]
 
-    if (infoUrl) {
-      paragraphs.push(
-        {
-          type: 'Link',
-          url: infoUrl,
-          url_text: infoUrlText,
-        }
-      )
-    }
-    paragraphs.push({
-      type: 'EventsList',
-      lang,
-      title: 'Tapahtumakalenteri',
-      text: '',
-      bgColor: '#f1f1f1',
-    })
-
-    return paragraphs;
+  if (infoUrl) {
+    paragraphs.push(
+      {
+        type: 'Link',
+        url: infoUrl,
+        url_text: infoUrlText,
+      }
+    )
   }
-  return findPageData(lang, json, files, media, doc, taxonomies);
+  paragraphs.push({
+    type: 'EventsList',
+    lang,
+    title: 'Tapahtumakalenteri',
+    text: '',
+    bgColor: '#f1f1f1',
+  })
+
+  return paragraphs;
 }
 
 export const findPageData = (lang, json, files, media, doc, taxonomies) => {
@@ -399,13 +365,6 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
     return data;
   });
   return data;
-}
-
-export const getFullRelease = (conf) => {
-  if (!!!conf || !!!conf.data || !!!conf.data) {
-    return false;
-  }
-  return conf.data.data[0].attributes.field_full_release_content;
 }
 
 export const findTaxonomy = (data, field) => {

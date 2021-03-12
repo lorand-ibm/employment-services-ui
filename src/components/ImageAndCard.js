@@ -4,6 +4,8 @@ import { Card } from "hds-react/components/Card";
 import { Button } from "hds-react/components/Button";
 import Typography from "@material-ui/core/Typography";
 
+import { drupalUrl } from "../config";
+
 const useStyles = makeStyles((theme) => ({
   root: props => ({
     backgroundColor: props.card.bg_color,
@@ -64,8 +66,8 @@ const useStyles = makeStyles((theme) => ({
 
 function ImageAndCard(props) {
   const classes = useStyles(props);
-  const { card, image, site } = props;
-  const address = site + image;
+  const { card, image } = props;
+  const address = drupalUrl + image;
 
   let button =
     <Button
