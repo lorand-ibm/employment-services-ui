@@ -34,11 +34,11 @@ export function Mainheading(props: HeadingProps) {
   const tag = headingTag ? headingTag : "h1";
 
   return (
-    <React.Fragment>
+    <>
       <Typography variant={tag} component={tag} className={classes.main} style={{ color: title_color }}>
         {title}
       </Typography>
-    </React.Fragment>
+    </>
   );
 }
 
