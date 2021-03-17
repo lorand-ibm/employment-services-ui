@@ -4,9 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import FooterBottom from "../FooterBottom";
 import Paragraphs from "../Paragraphs";
 import Hero from "../components/Hero";
-
 import { getAppName } from "../config";
-
 import { Lang, ParagraphData } from "../types";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
     height: 550,
   },
   main: {},
-  footerWrapper: {
-    paddingTop: 100,
-  },
   paragraphs: {
     marginTop: 72,
   },
@@ -72,9 +67,7 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
           <Paragraphs paragraphs={useData} width={width} lang={lang} />
         </div>
       </main>
-      <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraphColor }}>
-        <FooterBottom title={getAppName(lang)} lang={lang} />
-      </div>
+      <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor={lastParagraphColor} />
     </>
   );
 }

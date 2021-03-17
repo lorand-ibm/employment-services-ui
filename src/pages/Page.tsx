@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory, Redirect } from "react-router-dom";
+import { useParams, useHistory, Redirect, Route } from "react-router-dom";
 import axios from "axios";
 import {
   fetchFiles,
@@ -7,16 +7,14 @@ import {
   fetchDocuments,
   fetchColorsTaxonomy,
   fetchWidthTaxonomy,
-  getDrupalNidFromPathAlias,
+  getDrupalNodeDataFromPathAlias,
   getPagePagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-
 import { findPageData, getUrlAlias } from "../helpers/dataHelper";
-
 import PageUsingParagraphs from "./ParagraphsPage";
-
 import { Lang, Params, ParagraphData } from "../types";
+import NotFound from "./NotFound";
 
 type Data = null | {
   paragraphData: ParagraphData;
@@ -43,15 +41,24 @@ function Page(props: LandingPage) {
       fetchColorsTaxonomy(),
       fetchWidthTaxonomy(),
     ]);
+
     const taxonomies = setTaxonomies([
       ["Colors", colorsTax],
       ["Width", widthTax],
     ]);
-    const nid = await getDrupalNidFromPathAlias(urlAlias);
+
+    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias) || {};
+
     if (!nid) {
       setRedirect(true);
       return;
     };
+
+    if (nodeLang !== langParam) {
+      setRedirect(true);
+      return;
+    }
+
     let filter = "&filter[drupal_internal__nid]=" + nid;
 
     const [fiPage, svPage, enPage] = getPagePagePath(filter);
@@ -85,12 +92,13 @@ function Page(props: LandingPage) {
   }, [lang]);
 
   if (redirect) {
-    return <Redirect to={`/${lang}`}/>
+    return <NotFound lang={lang} />;
   }
 
   if (!data) {
     return <></>;
   }
+
   return <PageUsingParagraphs lang={lang} paragraphData={data.paragraphData} width={data.width} />;
 }
 

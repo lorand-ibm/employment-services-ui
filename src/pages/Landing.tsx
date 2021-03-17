@@ -10,11 +10,8 @@ import {
   getLandingPagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-
 import { findPageData } from "../helpers/dataHelper";
-
 import PageUsingParagraphs from "./ParagraphsPage";
-
 import { Lang, ParagraphData } from "../types";
 
 type Data = null | {

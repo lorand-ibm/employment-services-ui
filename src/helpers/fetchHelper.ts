@@ -58,12 +58,15 @@ export const getEventPagePath = (filter: string) =>
     filter
   );
 
-export const getDrupalNidFromPathAlias = async (pathAlias: string) => {
+export const getDrupalNodeDataFromPathAlias = async (pathAlias: string) : Promise<any> => {
   const paths = drupalUrl + "/apijson/path_alias/path_alias";
   const exactPath = paths + "?filter[alias]=/" + pathAlias;
   const res = await axios.get(exactPath);
   if (!res || !res.data || !res.data.data[0] || !res.data.data[0].attributes || !res.data.data[0].attributes.path) return null;
-  return res.data.data[0].attributes.path.substr(6);
+  return { 
+    nid: res.data.data[0].attributes.path.substr(6),
+    nodeLang: res.data.data[0].attributes.langcode
+  }
 };
 
 export const fetchFiles = () => fetchWithPagination(drupalUrl + "/apijson/file/file");

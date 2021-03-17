@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory, useLocation, Redirect } from "react-router-dom";
 import axios from "axios";
-import { getDrupalNidFromPathAlias, getEventPagePath } from "../helpers/fetchHelper";
+import { getDrupalNodeDataFromPathAlias, getEventPagePath } from "../helpers/fetchHelper";
 import { findTaxonomy } from "../helpers/taxonomiesHelper";
-
 import { findEventData } from "../helpers/dataHelper";
-
 import PageUsingParagraphs from "./ParagraphsPage";
-
-import { Lang, EventParams, ParagraphData, UrlAliases } from "../types";
+import { Lang, EventParams, ParagraphData } from "../types";
+import NotFound from "./NotFound";
 
 type Data = null | {
   paragraphData: ParagraphData;
   width: any;
 };
-
 interface EventProps {
   lang: Lang;
 }
@@ -22,15 +19,22 @@ interface EventProps {
 function Event(props: EventProps) {
   const [data, setData] = useState<Data>(null);
   const [redirect, setRedirect] = useState(false);
-  const { urlAlias } = useParams<EventParams>();
+  const { langParam, urlAlias } = useParams<EventParams>();
+
   const history = useHistory();
   const location = useLocation();
   const { lang } = props;
 
   const fetchData = async () => {
-    const nid = await getDrupalNidFromPathAlias(urlAlias);
+    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias) || {};
+
     if (!nid) {
       setRedirect(true);
+    }
+
+    if (nodeLang !== langParam) {
+      setRedirect(true);
+      return;
     }
     const filter = "&filter[drupal_internal__nid]=" + nid;
     const [fiPage, svPage, enPage] = getEventPagePath(filter);
@@ -65,7 +69,7 @@ function Event(props: EventProps) {
   }, [lang]);
 
   if (redirect) {
-    return <Redirect to={`/${lang}`} />;
+    return <NotFound lang={lang} />;
   }
 
   if (!data) {

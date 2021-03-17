@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {Footer} from  "hds-react/components/Footer";
+import { makeStyles } from "@material-ui/core/styles";
+import { Footer } from  "hds-react/components/Footer";
+import { drupalUrl } from "./config";
+import { Lang } from "./types";
 
-import {drupalUrl} from "./config";
 
 const footerTexts = {
   fi: { feedback: 'Anna palautetta', feedbackLink: 'https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/', goup: 'Sivun alkuun', accessibility: 'Saavutettavuusseloste'},
@@ -10,16 +11,27 @@ const footerTexts = {
   en: { feedback: 'Give feedback', feedbackLink: 'https://www.hel.fi/helsinki/en/administration/participate/feedback', goup: 'Back to the top', accessibility: 'Accessibility statement'},
 }
 
-function FooterBottom(props) {
-  const { title, lang} = props;
+const useStyles = makeStyles((theme) => ({
+  footerWrapper: {
+    paddingTop: 100,
+  },
+}));
+
+interface FooterProps {
+  title: string;
+  lang: Lang;
+  lastParagraphColor?: string;
+}
+
+function FooterBottom(props: FooterProps) {
+  const classes = useStyles();
+  const { title, lang, lastParagraphColor = '' } = props;
 
   let texts = footerTexts.en;
   switch(lang) {
-    case 'SV':
     case 'sv':
       texts = footerTexts.sv;
       break;
-    case 'EN':
     case 'en':
       texts = footerTexts.en;
       break;
@@ -29,7 +41,7 @@ function FooterBottom(props) {
       break;
   }
 
-  const scrollToTop = (event) => {
+  const scrollToTop = (event: any) => {
     event.preventDefault();
     window.scrollTo({
       top: 0,
@@ -38,7 +50,8 @@ function FooterBottom(props) {
   };
 
   return (
-    <React.Fragment>
+    <>
+      <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraphColor }}>
         <Footer
           logoLanguage={lang ? 'sv' : 'fi'}
           title={title}
@@ -56,13 +69,9 @@ function FooterBottom(props) {
               <Footer.Item href="#" label={texts.goup} onClick={scrollToTop} />
           </Footer.Base>
         </Footer>
-    </React.Fragment>
+      </div>
+    </>
   );
 }
-
-FooterBottom.propTypes = {
-  lang: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default FooterBottom;

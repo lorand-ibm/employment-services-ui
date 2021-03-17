@@ -5,10 +5,9 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
 import Nav from "./Nav";
-
 import { Lang } from "./types";
-
 import Landing from "./pages/Landing";
 import Page from "./pages/Page";
 import Event from "./pages/Event";
@@ -37,7 +36,6 @@ const strToLang = (langParam: string): Lang => {
 
 function App() {
   const location = useLocation();
-
   const [, langPath] = location.pathname.split("/");
   const [lang, setLang] = useState<Lang>(strToLang(langPath));
 
