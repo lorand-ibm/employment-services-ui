@@ -1,7 +1,7 @@
 import React from "react";
 import Accord from "./components/Accord";
 import SingleCard from "./components/SingleCard";
-import {Mainheading, Subheading} from "./components/Headings";
+import { Mainheading, Subheading } from "./components/Headings";
 import Info from "./components/Info";
 import Pdf from "./components/Pdf";
 import PhoneNumberBox from "./components/PhoneNumberBox";
