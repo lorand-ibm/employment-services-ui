@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory, useLocation, Redirect } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { getDrupalNodeDataFromPathAlias, getEventPagePath } from "../helpers/fetchHelper";
 import { findTaxonomy } from "../helpers/taxonomiesHelper";
@@ -17,25 +17,27 @@ interface EventProps {
 }
 
 function Event(props: EventProps) {
+  const { urlAlias } = useParams<EventParams>();
+  const history = useHistory();
   const [data, setData] = useState<Data>(null);
   const [redirect, setRedirect] = useState(false);
-  const { langParam, urlAlias } = useParams<EventParams>();
-
-  const history = useHistory();
   const location = useLocation();
   const { lang } = props;
 
   const fetchData = async () => {
     const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias) || {};
-
+ 
     if (!nid) {
-      setRedirect(true);
-    }
-
-    if (nodeLang !== langParam) {
       setRedirect(true);
       return;
     }
+
+    // TODO: change this when there's lang support for events
+    if (lang !== 'fi') {
+      setRedirect(true);
+      return;
+    }
+
     const filter = "&filter[drupal_internal__nid]=" + nid;
     const [fiPage, svPage, enPage] = getEventPagePath(filter);
 
