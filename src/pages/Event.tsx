@@ -25,14 +25,14 @@ function Event(props: EventProps) {
   const { lang } = props;
 
   const fetchData = async () => {
-    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias) || {};
- 
+    // TODO: Change langParam here when there's lang support for events
+    const { nid } = await getDrupalNodeDataFromPathAlias(urlAlias, 'en') || {};
     if (!nid) {
       setRedirect(true);
       return;
     }
 
-    // TODO: change this when there's lang support for events
+    // TODO: change also this when there's lang support for events
     if (lang !== 'fi') {
       setRedirect(true);
       return;
