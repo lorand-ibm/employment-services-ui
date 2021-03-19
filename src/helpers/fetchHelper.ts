@@ -58,14 +58,21 @@ export const getEventPagePath = (filter: string) =>
     filter
   );
 
-export const getDrupalNodeDataFromPathAlias = async (pathAlias: string) : Promise<any> => {
+export const getDrupalNodeDataFromPathAlias = async (pathAlias: string, langParam: string) : Promise<any> => {
   const paths = drupalUrl + "/apijson/path_alias/path_alias";
   const exactPath = paths + "?filter[alias]=/" + pathAlias;
   const res = await axios.get(exactPath);
   if (!res || !res.data || !res.data.data[0] || !res.data.data[0].attributes || !res.data.data[0].attributes.path) return null;
+
+  const nodeData = res.data.data.filter(function (d: any) {
+    return d.attributes.langcode === langParam;
+  });
+
+  if (!nodeData.length) return null;
+
   return { 
-    nid: res.data.data[0].attributes.path.substr(6),
-    nodeLang: res.data.data[0].attributes.langcode
+    nid: nodeData[0].attributes.path.substr(6),
+    nodeLang: nodeData[0].attributes.langcode
   }
 };
 

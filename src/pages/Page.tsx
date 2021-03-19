@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory, Redirect, Route } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import {
   fetchFiles,
@@ -47,7 +47,7 @@ function Page(props: LandingPage) {
       ["Width", widthTax],
     ]);
 
-    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias) || {};
+    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias, langParam) || {};
 
     if (!nid) {
       setRedirect(true);
@@ -72,7 +72,7 @@ function Page(props: LandingPage) {
       },
       urlAliases: {
         fi: getUrlAlias(fi),
-        en: getUrlAlias(sv),
+        en: getUrlAlias(en),
         sv: getUrlAlias(sv),
       },
       width: findTaxonomy(en.data, "field_page_width"),
@@ -86,7 +86,7 @@ function Page(props: LandingPage) {
   useEffect(() => {
     if (!data) return;
     const urlAlias = data.urlAliases[lang];
-    if (langParam !== lang || urlAlias !== urlAlias) {
+    if (langParam !== lang) {
       history.replace(`/${lang}/${urlAlias}`);
     }
   }, [lang]);
