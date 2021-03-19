@@ -14,7 +14,7 @@ const notFoundTexts = {
   en: { text: "Sorry! We can't find the page you were looking for.", linkText: 'Return to our Homepage'},
 }
 
-interface NotFound {
+interface NotFoundProps {
   lang: Lang;
 }
 
@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function NotFound(props: NotFound) {
+function NotFound(props: NotFoundProps) {
   const classes = useStyles();
-  const { langParam, urlAlias } = useParams<Params>();
+  const { langParam } = useParams<Params>();
   const { lang } = props;
 
   let texts = notFoundTexts.en;
