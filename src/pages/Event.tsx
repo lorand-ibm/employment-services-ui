@@ -32,12 +32,6 @@ function Event(props: EventProps) {
       return;
     }
 
-    // TODO: change also this when there's lang support for events
-    if (lang !== 'fi') {
-      setRedirect(true);
-      return;
-    }
-
     const filter = "&filter[drupal_internal__nid]=" + nid;
     const [fiPage, svPage, enPage] = getEventPagePath(filter);
 

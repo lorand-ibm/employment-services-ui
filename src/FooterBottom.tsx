@@ -53,7 +53,7 @@ function FooterBottom(props: FooterProps) {
     <>
       <div className={classes.footerWrapper} style={{ backgroundColor: lastParagraphColor }}>
         <Footer
-          logoLanguage={lang ? 'sv' : 'fi'}
+          logoLanguage={lang === "sv" ? "sv" : "fi"}
           title={title}
           theme={{
             '--footer-background': '#0E00BF',
