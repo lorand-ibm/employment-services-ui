@@ -5,12 +5,14 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { Helmet } from "react-helmet";
 
 import Nav from "./Nav";
 import { Lang } from "./types";
 import Landing from "./pages/Landing";
 import Page from "./pages/Page";
 import Event from "./pages/Event";
+import { getAppName } from "./config";
 
 const groteskTheme = createMuiTheme({
   typography: {
@@ -45,6 +47,10 @@ function App() {
 
   return (
     <ThemeProvider theme={groteskTheme}>
+      <Helmet>
+        <html lang={lang} />
+        <title>{getAppName(lang)}</title>
+      </Helmet>
       <Nav lang={lang} changeLang={changeLang} />
       <CssBaseline />
       <Switch>
