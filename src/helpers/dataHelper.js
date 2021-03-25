@@ -1,5 +1,6 @@
-import { getColor } from "./colorHelper.js";
 import { find } from 'lodash';
+import { getColor } from "./colorHelper.js";
+import { getEventListTitle } from "../config";
 
 export const findImageUrl = (uid, files, media) => {
   if (!!!files || !!!files.data || !!!media || !!!media.data) {
@@ -130,7 +131,7 @@ export const findEventData = (lang, json) => {
   paragraphs.push({
     type: 'EventsList',
     lang,
-    title: 'Tapahtumakalenteri',
+    title: getEventListTitle(lang),
     text: '',
     bgColor: '#f1f1f1',
   })
