@@ -4,8 +4,7 @@ import { map, intersection } from "lodash";
 
 require("dotenv").config();
 
-const linkedEventUrl =
-  "https://api.hel.fi/linkedevents/v1/event/?publisher=ahjo:u02120030,ahjo:u021200&keyword=yso:p9607&include=location";
+const linkedEventUrl = process.env.LINKEDEVENTS_URL || '';
 const drupalEventUrl = process.env.DRUPAL_URL + "/apijson/node/event";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -105,6 +104,10 @@ const axiosConfig = {
 };
 
 const syncLinkedEvents = async () => {
+  if (!linkedEventUrl) {
+    throw "Set LINKEDEVENTS_URL";
+  }
+
   const linkedEvents = await axios.get(linkedEventUrl);
   const drupalEvents = await axios.get(drupalEventUrl, axiosConfig);
 

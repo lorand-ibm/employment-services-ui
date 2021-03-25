@@ -1,15 +1,18 @@
-import PropTypes from "prop-types";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   text: {
     fontSize: '16px',
   }
 }));
 
-function Text(props) {
+interface TextProps {
+  text: string;
+}
+
+function Text(props: TextProps) {
     const classes = useStyles();
     const { text } = props;
 
@@ -20,10 +23,5 @@ function Text(props) {
       </>
     );
 }
-
-Text.propTypes = {
-    text: PropTypes.string.isRequired,
-};
-
 
 export default Text;

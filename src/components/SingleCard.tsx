@@ -13,8 +13,7 @@ import Date from "./Date";
 import Location from "./Location";
 
 import { drupalUrl } from "../config";
-
-import { Lang } from "../types";
+import { SingleCardProps } from "../types";
 
 const defaultImageHeight = 221;
 
@@ -70,32 +69,6 @@ const useStyles = makeStyles((theme: any) => ({
     paddingLeft: 20,
   }),
 }));
-
-type CardType = "event" | null;
-
-type EventContent = {
-  startTime: string;
-  endTime: string;
-};
-
-interface SingleCardProps {
-  text: string;
-  title: string;
-  type: CardType;
-  lang: Lang;
-
-  dateContent?: EventContent;
-  location?: string;
-
-  text_color?: string;
-  title_color?: string;
-  image?: string;
-  button_url?: string;
-  button_text?: string;
-  button_bg_color?: string;
-  bgColor?: string;
-  bg_color?: string;
-}
 
 function SingleCard(props: SingleCardProps) {
   const classes = useStyles(props as SingleCardProps);
