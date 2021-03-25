@@ -24,6 +24,6 @@ const syncEvents = async () => {
 syncEvents();
 
 // Sync every hour
-cron.schedule("0 * * * *", async () => {
+cron.schedule("*/30 * * * *", async () => {
   syncEvents();
 });

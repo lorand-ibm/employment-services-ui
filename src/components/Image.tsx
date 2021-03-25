@@ -1,7 +1,11 @@
 import React from "react";
 import { drupalUrl } from "../config";
 
-function Image(props) {
+interface ImageProps {
+  image: string;
+}
+
+function Image(props: ImageProps) {
   const { image } = props;
 
   //const height = props.height ? props.height : 400;
