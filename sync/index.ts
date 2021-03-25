@@ -23,7 +23,7 @@ const syncEvents = async () => {
 
 syncEvents();
 
-// Sync every hour
+// Sync every half an hour
 cron.schedule("*/30 * * * *", async () => {
   syncEvents();
 });
