@@ -141,7 +141,7 @@ function Nav(props: NavProps) {
       }}
       title={getAppName(lang)}
       titleAriaLabel="Helsinki: Työllisyyspalvelut"
-      titleUrl="https://tyollisyyspalvelut.hel.fi"
+      titleUrl={`/${lang}`}
     >
       <Navigation.Actions>
         <Navigation.LanguageSelector label={lang.toUpperCase()}>
