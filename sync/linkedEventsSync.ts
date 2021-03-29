@@ -137,7 +137,7 @@ const syncLinkedEvents = async () => {
       const currentDrupalEvent = existingDrupalEvents[linkedEvent.id];
       if (currentDrupalEvent) {
         const eventModified = currentDrupalEvent.attributes.field_last_modified_time !== linkedEvent.last_modified_time;
-        const linkedEventStartTime = new Date(linkedEvent.start_time).setHours(0, 0, 0, 0);
+        const linkedEventTime = linkedEvent.end_time ? new Date(linkedEvent.end_time).setHours(0, 0, 0, 0) : new Date(linkedEvent.start_time).setHours(0, 0, 0, 0);
         const dateNow = new Date().setHours(0, 0, 0, 0);
         if (eventModified) {
           modified = true;
@@ -147,7 +147,7 @@ const syncLinkedEvents = async () => {
           await addEventToDrupal(tags, linkedEvent);
           await sleep(5000);
           console.log(linkedEvent.id, "- modified and updated");
-        } else if (dateNow > linkedEventStartTime) {
+        } else if (dateNow > linkedEventTime) {
           modified = true;
           await deleteDrupalEvent(currentDrupalEvent!.id);
           await sleep(5000);
@@ -157,14 +157,14 @@ const syncLinkedEvents = async () => {
         }
         delete existingDrupalEvents[linkedEvent.id];
       } else {
-        const linkedEventStartTime = new Date(linkedEvent.start_time).setHours(0, 0, 0, 0);
+        const linkedEventTime = linkedEvent.end_time ? new Date(linkedEvent.end_time).setHours(0, 0, 0, 0) : new Date(linkedEvent.start_time).setHours(0, 0, 0, 0);
         const dateNow = new Date().setHours(0, 0, 0, 0);
-        if (dateNow <= linkedEventStartTime) {
+        if (dateNow <= linkedEventTime) {
           modified = true;
           await addEventToDrupal(tags, linkedEvent);
           await sleep(5000);
         } else {
-          console.log(linkedEvent.id, "- ignore: start_time passed");
+          console.log(linkedEvent.id, "- ignore: event passed");
         }
       }
     }
