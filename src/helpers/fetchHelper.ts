@@ -31,7 +31,7 @@ const fetchWithPagination = async (drupalUrl: string) => {
 
 const getPagePath = (page: string, includes: string, filter = "") => {
   const api = "apijson";
-  let rest = "/" + api + page + "?include=" + includes;
+  let rest = "/" + api + page + includes;
   if (filter) {
     rest += filter;
   }
@@ -41,20 +41,27 @@ const getPagePath = (page: string, includes: string, filter = "") => {
 export const getLandingPagePath = () =>
   getPagePath(
     "/node/landing",
-    "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card"
+    "?include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card"
   );
 
 export const getPagePagePath = (filter: string) =>
   getPagePath(
     "/node/page",
-    "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
+    "?include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
     filter
   );
+
+export const getNewsPagePath = (filter: string) =>
+getPagePath(
+  "/node/news",
+  "?fields[node--news]=created&include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
+  filter
+);
 
 export const getEventPagePath = (filter: string) =>
   getPagePath(
     "/node/event",
-    "field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
+    "?include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
     filter
   );
 
@@ -62,7 +69,8 @@ export const getDrupalNodeDataFromPathAlias = async (pathAlias: string, langPara
   const paths = drupalUrl + "/apijson/path_alias/path_alias";
   const exactPath = paths + "?filter[alias]=/" + pathAlias;
   const res = await axios.get(exactPath);
-  if (!res || !res.data || !res.data.data[0] || !res.data.data[0].attributes || !res.data.data[0].attributes.path) return null;
+
+  if (!res || !res.data || !res.data.data[0]) return null;
 
   const nodeData = res.data.data.filter(function (d: any) {
     return d.attributes.langcode === langParam;

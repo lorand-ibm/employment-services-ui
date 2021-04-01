@@ -63,13 +63,14 @@ const useStyles = makeStyles((theme: any) => ({
 }));
 interface ImageAndCardProps {
   card: SingleCardProps;
-  image: string;
+  imageUrl: string;
 }
 
 function ImageAndCard(props: ImageAndCardProps) {
   const classes = useStyles(props);
-  const { card, image } = props;
-  const address = drupalUrl + image;
+  const { card, imageUrl } = props;
+
+  const imagePath = imageUrl && (imageUrl.startsWith('https') || imageUrl.startsWith('http')) ? imageUrl : drupalUrl + imageUrl;
 
   let button =
     <Button
@@ -96,7 +97,7 @@ function ImageAndCard(props: ImageAndCardProps) {
             height: 0,
             overflow: 'hidden'
           }}>
-            <img alt="" style={{ width: '100%' }} src={address}></img>
+            <img alt="" style={{ width: '100%' }} src={imagePath}></img>
           </div>
         </div>
 

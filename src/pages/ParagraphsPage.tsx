@@ -26,24 +26,25 @@ const useStyles = makeStyles((theme) => ({
 
 interface PageUsingParagraphsProps {
   lang: Lang;
-  paragraphData: ParagraphData 
+  nodeData?: any;
+  paragraphData: ParagraphData;
   width: any;
 }
 
 export default function ParagraphsPage(props: PageUsingParagraphsProps) {
   const classes = useStyles();
-  const { lang, paragraphData, width } = props;
+  const { lang, nodeData, paragraphData, width } = props;
+
   const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
 
   let heroTitle = "";
   let heroText = "";
   let heroUrl = "";
   let isHero = true;
-
   if (useData.length > 0 && useData[0].type === "Hero") {
     heroTitle = useData[0].title;
     heroText = useData[0].text;
-    heroUrl = useData[0].url;
+    heroUrl = useData[0].imageUrl;
   } else {
     isHero = false;
   }
@@ -57,13 +58,13 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
       <main className={classes.main}>
         {isHero ? (
           <div className={classes.hero}>
-            <Hero title={heroTitle} text={heroText} url={heroUrl} />
+            <Hero title={heroTitle} text={heroText} imageUrl={heroUrl} />
           </div>
         ) : (
           <></>
         )}
         <div className={classes.paragraphs}>
-          <Paragraphs paragraphs={useData} width={width} lang={lang} lastParagraphColor={lastParagraphColor} />
+          <Paragraphs paragraphs={useData} nodeData={nodeData} width={width} lang={lang} lastParagraphColor={lastParagraphColor} />
         </div>
       </main>
       <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor={lastParagraphColor} />

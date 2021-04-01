@@ -18,17 +18,23 @@ const useStyles = makeStyles((theme: any) => ({
   text: () => ({
     paddingTop: 1,
   }),
+  date: () => ({
+    color: "#666",
+    paddingTop: 16,
+    fontSize: 18,
+    lineHeight: 1.6875,
+  }),
 }));
 
 interface DateProps {
   startTime: string;
-  endTime: string;
+  endTime?: string;
 }
 
-function DateComponent(props: DateProps) {
+export function DateWithIcon(props: DateProps) {
   const classes = useStyles(props);
 
-  const { startTime, endTime } = props;
+  const { startTime, endTime = '' } = props;
 
   const startDate = new Date(startTime);
   const endDate = new Date(endTime);
@@ -67,4 +73,14 @@ function DateComponent(props: DateProps) {
   );
 }
 
-export default DateComponent;
+
+export function DateComponent(props: DateProps) {
+  const classes = useStyles(props);
+  const { startTime } = props;
+
+  return (
+    <div className={classes.container}>
+      <div className={classes.date}>{`${dateformat(startTime, "dd.mm.yyyy · HH:MM")}`}</div>
+    </div>
+  );
+}

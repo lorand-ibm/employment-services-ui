@@ -16,7 +16,7 @@ import EventsList from "./components/EventsList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import Link from "./components/Link";
-import Date from "./components/Date";
+import { DateWithIcon } from "./components/Date";
 import Location from "./components/Location";
 import SujoEmbedded from "./components/SujoEmbedded";
 import { ImportReactAndShare } from './hooks/ImportScripts';
@@ -78,6 +78,14 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 16,
     },
   },
+  image: {
+    marginTop: 32,
+    marginBottom: 24,
+    [theme.breakpoints.only("xs")]: {
+      paddingLeft: 16,
+      paddingRight: 16,
+    },
+  },
   pdf: {
     marginBottom: 10,
     padding: 0,
@@ -116,6 +124,7 @@ const useStyles = makeStyles((theme) => ({
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
 interface ParagraphsProps {
   paragraphs: any;
+  nodeData?: any;
   width: ParagraphWidth;
   lang: Lang;
   lastParagraphColor: string;
@@ -181,7 +190,7 @@ export const ParagraphGrid = ({
 
 function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
-  const { paragraphs, width, lang, lastParagraphColor } = props;
+  const { paragraphs, nodeData, width, lang, lastParagraphColor } = props;
   const items: any[] = [];
   const [cookieConsent, setCookieConsent] = useState(getCookieConsentValue('tyollisyyspalvelut_cookie_consent'));
   ImportReactAndShare(cookieConsent, lang);
@@ -233,7 +242,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.subheading} paragraphWidth={width}>
-              <Mainheading {...paragraph}></Mainheading>
+              <Mainheading {...paragraph} nodeData={nodeData}></Mainheading>
             </ParagraphGrid>
           </Container>
         );
@@ -285,8 +294,8 @@ function Paragraphs(props: ParagraphsProps) {
         break;
       case "Image":
         items.push(
-          <Container className={classes.container}>
-            <ParagraphGrid className={classes.info} paragraphWidth={width}>
+          <Container className={classes.container2}>
+            <ParagraphGrid className={classes.image} paragraphWidth={width}>
               <Image {...paragraph}></Image>
             </ParagraphGrid>
           </Container>
@@ -326,7 +335,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container2}>
             <ParagraphGrid className={classes.accord} paragraphWidth={width}>
-              <Date startTime={paragraph.startTime} endTime={paragraph.endTime} />
+              <DateWithIcon startTime={paragraph.startTime} endTime={paragraph.endTime} />
             </ParagraphGrid>
           </Container>
         );

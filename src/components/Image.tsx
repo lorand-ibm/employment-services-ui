@@ -1,31 +1,39 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import { drupalUrl } from "../config";
 
+const useStyles = makeStyles((theme: any) => ({
+  container: () => ({
+    overflow: 'hidden'
+  }),
+  img: () => ({
+    maxWidth: '100%',
+    height: 'auto'
+  }),
+  caption: () => ({
+    color: "#666",
+    fontSize: 16,
+    lineHeight: 1.5,
+    paddingTop: 8
+  }),
+}));
+
 interface ImageProps {
-  image: string;
+  imageUrl: string;
+  caption: string;
+  alt?: string;
 }
 
 function Image(props: ImageProps) {
-  const { image } = props;
+  const classes = useStyles(props);
+  const { imageUrl, caption, alt = '' } = props;
 
-  //const height = props.height ? props.height : 400;
-  const path = image && (image.startsWith('https') || image.startsWith('http')) ? image : drupalUrl + image;
-
-  const containerStyle = {
-    paddingBottom: '50%',
-    height: 0,
-    overflow: 'hidden'
-  };
-
-  const imgStyle = {
-    maxWidth: '100%',
-    height: 'auto'
-  }
+  const imagePath = imageUrl && (imageUrl.startsWith('https') || imageUrl.startsWith('http')) ? imageUrl : drupalUrl + imageUrl;
 
   return (
-    <div style={containerStyle}>
-      <img alt="" style={imgStyle}
-        src={path}></img>
+    <div className={classes.container}>
+      <img alt={alt} className={classes.img} src={imagePath} />
+      {caption && <div className={classes.caption}>{caption}</div>}
     </div>
   );
 }
