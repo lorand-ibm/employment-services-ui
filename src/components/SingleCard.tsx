@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Link from "./Link";
-import Date from "./Date";
+import { DateWithIcon } from "./Date";
 import Location from "./Location";
 
 import { drupalUrl } from "../config";
@@ -107,7 +107,7 @@ function SingleCard(props: SingleCardProps) {
           {dateContent ? (
             <Typography variant="body2" color="textSecondary" className={classes.text}>
               <div>
-                <Date startTime={dateContent.startTime} endTime={dateContent.endTime} />
+                <DateWithIcon startTime={dateContent.startTime} endTime={dateContent.endTime} />
               </div>
               <div style={{ paddingTop: 8 }}>
                 <Location location="Internet" />

@@ -2,19 +2,31 @@ import { find } from 'lodash';
 import { getColor } from "./colorHelper.js";
 import { getEventListTitle } from "../config";
 
-export const findImageUrl = (uid, files, media) => {
+export const findImageUrl = (uuid, files, media, imageStyle) => {
   if (!!!files || !!!files.data || !!!media || !!!media.data) {
     return "";
   }
-  const mIndex = media.data.data.findIndex(item => item.id === uid);
+  const mIndex = media.data.data.findIndex(item => item.id === uuid);
   const imageUid = media.data.data[mIndex].relationships.field_media_image.data.id;
   const fIndex = files.data.data.findIndex(item => item.id === imageUid);
-  return files.data.data[fIndex].attributes.uri.url;
+  
+  return files.data.data[fIndex].attributes.image_style_uri.filter(imgStyle => imgStyle[imageStyle])[0][imageStyle];
 }
 
-export const findImage = (item, field, files, media) => {
+export const findImageAlt = (item, field, files, media) => {
+  if (!!!files || !!!files.data || !!!media || !!!media.data) {
+    return "";
+  }
+
+  const mIndex = media.data.data.findIndex(i => i.id === item.relationships[field].data.id);
+  const imgAlt = media.data.data[mIndex].relationships.field_media_image.data.meta.alt;
+
+  return imgAlt;
+}
+
+export const findImage = (item, field, files, media, imageStyle) => {
   try {
-    return findImageUrl(item.relationships[field].data.id, files, media);
+    return findImageUrl(item.relationships[field].data.id, files, media, imageStyle);
   } catch (error) {
     console.log('no pic: ' + field);
   }
@@ -70,7 +82,7 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
           button_url: item.attributes.field_card_button_url,
           width: item.attributes.field_card_width,
           height: item.attributes.field_card_height,
-          image: findImage(item, 'field_ic_image', files, media),
+          image: findImage(item, 'field_ic_image', files, media, 'wide_s'),
           button_bg_color: getColor(item, 'field_button_color', taxonomies),
         });
       }
@@ -195,13 +207,12 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
         break;
       case 'paragraph--hero':
         try {
-          const url = findImage(item, 'field_hero_image', files, media);
           data.push({
             type: 'Hero',
             lang: item.attributes.langcode,
             title: item.attributes.field_hero_title,
             text: getTextValue(item.attributes.field_hero_text),
-            url: url,
+            imageUrl: findImage(item, 'field_hero_image', files, media, 'hero'),
           });
         } catch (error) {
           console.log("hero");
@@ -225,13 +236,13 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
         try {
           const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
           const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
-          const image = findImage(item, 'field_ic_image', files, media);
+          const imageUrl = findImage(item, 'field_ic_image', files, media, 'regular_s');
 
           data.push({
             type: 'ImageAndCard',
             lang: item.attributes.langcode,
             card: cards[0],
-            image: image,
+            imageUrl: imageUrl,
           });
         } catch (error) {
           console.log("image and card");
@@ -245,8 +256,10 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             lang: item.attributes.langcode,
             title: '',
             text: '',
-            image: findImage(item, 'field_image_image', files, media),
+            alt: findImageAlt(item, 'field_image_image', files, media),
+            imageUrl: findImage(item, 'field_image_image', files, media, 'wide_s'),
             height: item.attributes.field_image_height,
+            caption: item.attributes.field_caption,
           });
         } catch (error) {
           console.log("image");
@@ -276,6 +289,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             title: item.attributes.field_title,
             title_color: getColor(item, 'field_title_color', taxonomies),
             text: '',
+            showDate: item.attributes.field_show_date, 
           });
         } catch (error) {
           console.log("subheading");

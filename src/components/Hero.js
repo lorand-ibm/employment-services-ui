@@ -130,12 +130,12 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero(props) {
   const classes = useStyles();
-  const { title, text, url } = props;
-
-  const imagePath = drupalUrl + url;
+  const { title, text, imageUrl } = props;
+  
+  const imagePath = imageUrl && (imageUrl.startsWith('https') || imageUrl.startsWith('http')) ? imageUrl : drupalUrl + imageUrl;
 
   return (
-    <React.Fragment>
+    <>
       <Hidden smDown>
         <Container maxWidth="xl" className={classes.container}>
           <FiCard className={classes.card}>
@@ -200,7 +200,7 @@ function Hero(props) {
           </Card>
         </Container>
       </Hidden>
-    </React.Fragment>
+    </>
   );
 }
 

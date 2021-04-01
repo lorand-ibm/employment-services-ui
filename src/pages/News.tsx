@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import {
   fetchFiles,
@@ -8,7 +8,7 @@ import {
   fetchColorsTaxonomy,
   fetchWidthTaxonomy,
   getDrupalNodeDataFromPathAlias,
-  getPagePagePath,
+  getNewsPagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
 import { findPageData, getUrlAlias } from "../helpers/dataHelper";
@@ -16,21 +16,24 @@ import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, Params, ParagraphData } from "../types";
 import NotFound from "./NotFound";
 
+
 type Data = null | {
+  nodeData: any;
   paragraphData: ParagraphData;
   urlAliases: { [k in Lang]: any };
   width: any;
 };
 
-interface PageProps {
+interface NewsProps {
   lang: Lang;
 }
 
-function Page(props: PageProps) {
-  const { langParam, urlAlias } = useParams<Params>();
+function News(props: NewsProps) {
+  const { urlAlias } = useParams<Params>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);
   const [redirect, setRedirect] = useState(false);
+  const location = useLocation();
   const { lang } = props;
 
   const fetchData = async () => {
@@ -47,24 +50,27 @@ function Page(props: PageProps) {
       ["Width", widthTax],
     ]);
 
-    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias, langParam) || {};
+    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias, lang) || {};
 
     if (!nid) {
       setRedirect(true);
       return;
     };
 
-    if (nodeLang !== langParam) {
+    if (nodeLang !== lang) {
       setRedirect(true);
       return;
     }
 
     let filter = "&filter[drupal_internal__nid]=" + nid;
 
-    const [fiPage, svPage, enPage] = getPagePagePath(filter);
+    const [fiPage, svPage, enPage] = getNewsPagePath(filter);
     const [fi, sv, en] = await Promise.all([axios.get(fiPage), axios.get(svPage), axios.get(enPage)]);
 
     setData({
+      nodeData: {
+        created: lang === 'fi' ? fi.data.data[0].attributes.created : lang === 'sv' ? sv.data.data[0].attributes.created : en.data.data[0].attributes.created,
+      },
       paragraphData: {
         fi: findPageData("fi", fi.data, files, media, documents, taxonomies),
         en: findPageData("en", en.data, files, media, documents, taxonomies),
@@ -84,10 +90,15 @@ function Page(props: PageProps) {
   }, []);
 
   useEffect(() => {
-    if (!data) return;
-    const urlAlias = data.urlAliases[lang];
-    if (langParam !== lang) {
-      history.replace(`/${lang}/${urlAlias}`);
+    const [, langPath] = location.pathname.split("/");
+    if (lang !== langPath) {
+      const newPath =
+        lang === "fi"
+          ? `/fi/uutiset/${urlAlias}`
+          : lang === "sv"
+          ? `/sv/nyheter/${urlAlias}`
+          : `/en/news/${urlAlias}`;
+      history.replace(newPath);
     }
   }, [lang]);
 
@@ -98,8 +109,8 @@ function Page(props: PageProps) {
   if (!data) {
     return <></>;
   }
-  
-  return <PageUsingParagraphs lang={lang} paragraphData={data.paragraphData} width={data.width} />;
+
+  return <PageUsingParagraphs lang={lang} nodeData={data.nodeData} paragraphData={data.paragraphData} width={data.width} />;
 }
 
-export default Page;
+export default News;

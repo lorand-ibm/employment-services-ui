@@ -13,6 +13,7 @@ import { Lang } from "./types";
 import Landing from "./pages/Landing";
 import Page from "./pages/Page";
 import Event from "./pages/Event";
+import News from "./pages/News";
 import { getAppName } from "./config";
 import { ImportMatomo } from './hooks/ImportScripts';
 
@@ -69,6 +70,9 @@ function App() {
         <Route path="/fi/tapahtuma/:urlAlias" strict children={<Event lang={lang} />} />
         <Route path="/en/event/:urlAlias" strict children={<Event lang={lang} />} />
         <Route path="/sv/evenemang/:urlAlias" strict children={<Event lang={lang} />} />
+        <Route path="/fi/uutiset/:urlAlias" strict children={<News lang={lang} />} />
+        <Route path="/en/news/:urlAlias" strict children={<News lang={lang} />} />
+        <Route path="/sv/nyheter/:urlAlias" strict children={<News lang={lang} />} />
         <Route path="/:langParam/:urlAlias" strict children={<Page lang={lang} />} />
         <Route path="/:langParam" strict children={<Landing lang={lang} />} />
         <Redirect to={"/fi"}></Redirect>
