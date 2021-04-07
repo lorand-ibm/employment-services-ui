@@ -1,10 +1,12 @@
-import {Router} from 'express';
+import { Router } from 'express';
 
 import eventsRouter from './events';
+import newsRouter from './news';
 
 const apiRouter = Router();
 
 apiRouter.use("/events", eventsRouter)
+apiRouter.use("/news", newsRouter)
 
 // TODO
 apiRouter.get("/search/:query", (req, res) => {

@@ -1,6 +1,6 @@
 import { find } from 'lodash';
 import { getColor } from "./colorHelper.js";
-import { getEventListTitle } from "../config";
+import { getEventsListTitle, getNewsListTitle } from "../config";
 
 export const findImageUrl = (uuid, files, media, imageStyle) => {
   if (!!!files || !!!files.data || !!!media || !!!media.data) {
@@ -130,7 +130,6 @@ export const findEventData = (lang, json) => {
     title: '',
     text: attributes.field_text.value,
   }]
-
   if (infoUrl) {
     paragraphs.push(
       {
@@ -144,7 +143,7 @@ export const findEventData = (lang, json) => {
   paragraphs.push({
     type: 'EventsList',
     lang,
-    title: getEventListTitle(lang),
+    title: getEventsListTitle(lang),
     text: '',
     bgColor: '#f1f1f1',
   })
@@ -162,10 +161,13 @@ export const findEventData = (lang, json) => {
 
 export const findPageData = (lang, json, files, media, doc, taxonomies) => {
   let data = [];
+  
   if (!json.included) {
     console.log('error with data, no json.included');
     return data;
   }
+
+  const pageType = json.data[0].type;
 
   json.included.map((item, index) => {
     switch (item.type) {
@@ -385,7 +387,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           drupalType: item.type,
           lang: item.attributes.langcode,
         });
-    }
+      }
     return data;
   });
 
@@ -394,6 +396,16 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
     lang,
     bgColor: '#fff',
   });
+
+  if (pageType === 'node--news') {
+    data.push({
+      type: 'NewsList',
+      lang,
+      title: getNewsListTitle(lang),
+      text: '',
+      bgColor: '#f1f1f1',
+    })
+  }
 
   return data;
 }
