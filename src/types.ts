@@ -5,7 +5,7 @@ export type EventContent = {
   startTime: string;
   endTime: string;
 };
-export type CardType = "event" | "Card" | null;
+export type CardType = "event" | "Card" | "news" | null;
 // TODO type "any"
 export type ParagraphData = {[k in Lang]: any};
 export type UrlAliases = {[k in Lang]: string};

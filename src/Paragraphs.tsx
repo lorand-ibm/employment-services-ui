@@ -13,6 +13,7 @@ import { getCookieConsentValue } from "react-cookie-consent";
 import ImageAndCard from "./components/ImageAndCard";
 import CardList from "./components/CardList";
 import EventsList from "./components/EventsList";
+import NewsList from "./components/NewsList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import Link from "./components/Link";
@@ -330,6 +331,9 @@ function Paragraphs(props: ParagraphsProps) {
         break;
       case "EventsList":
         items.push(<EventsList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} />);
+        break;
+      case "NewsList":
+        items.push(<NewsList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} />);
         break;
       case "Date":
         items.push(

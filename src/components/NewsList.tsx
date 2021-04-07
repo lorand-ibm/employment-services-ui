@@ -28,12 +28,6 @@ const useStyles = makeStyles((theme) => ({
   cardList: {
     width: "100%",
   },
-  results: {
-    fontSize: 20,
-    fontWeight: "bold",
-    fontFamily: "HelsinkiGrotesk",
-    paddingBottom: "20px",
-  },
   loadMore: {
     display: "flex",
     justifyContent: "center",
@@ -41,14 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface EventState {
+interface NewsState {
   total: number;
   results: Array<{
-    title: string;
     path: string;
-    image: string;
-    startTime: string;
-    endTime: string;
+    title: string;
+    summary: string;
+    date: string;
   }>;
 }
 
@@ -63,26 +56,25 @@ function NewsList(props: NewsListProps) {
   const classes = useStyles();
   const { title, bgColor, lang } = props;
 
-  const [eventsIndex, setEventsIndex] = useState<number>(0);
-  const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
+  const [newsIndex, setNewsIndex] = useState<number>(0);
+  const [news, setNews] = useState<NewsState>({ total: 0, results: [] });
 
   useEffect(() => {}, []);
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      const res = await axios.get("/api/events/all/" + eventsIndex);
-      const newEvents = {
+    const fetchNews = async () => {
+      const res = await axios.get("/api/news/all/" + newsIndex);
+      const newNews = {
         total: res.data.total,
-        results: [...events.results, ...res.data.results],
+        results: [...news.results, ...res.data.results],
       };
-      setEvents(newEvents);
+      setNews(newNews);
     };
-    fetchEvents();
-  }, [eventsIndex]);
+    fetchNews();
+  }, [newsIndex]);
 
-  const resultsText = lang === "fi" ? "hakutulosta" : lang === "sv" ? "sökresultat" : "search results";
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
-  const eventUrl = lang === "fi" ? "/fi/tapahtuma" : lang === "sv" ? "/sv/evenemang" : "/en/event";
+  const newsUrl = lang === "fi" ? "/fi/uutiset" : lang === "sv" ? "/sv/nyheter" : "/en/news";
 
   const isKoro = true;
   return (
@@ -100,26 +92,24 @@ function NewsList(props: NewsListProps) {
             <div className={classes.title}>
               <Mainheading headingTag={"h2"} title={title} />
             </div>
-            <div className={classes.results}>{`${events.total} ${resultsText}`}</div>
             <CardList
               lang={lang}
-              cards={events.results.map((event) => ({
-                type: "event",
-                title: event.title,
-                image: event.image,
-                title_color: "#fd4f00",
-                dateContent: { startTime: event.startTime, endTime: event.endTime },
-                button_url: `${eventUrl}${event.path}`,
+              cards={news.results.map((news) => ({
+                type: "news",
+                title: news.title,
+                title_color: "#1a1a1a",
+                dateContent: { startTime: news.date },
+                button_url: `${newsUrl}${news.path}`,
               }))}
             ></CardList>
-            {events.total > events.results.length && (
+            {news.total > news.results.length && (
               <div className={classes.loadMore}>
                 <HDSButton
                   variant="supplementary"
                   iconRight={<IconPlus />}
                   onClick={() => {
-                    if (events.total > events.results.length) {
-                      setEventsIndex(eventsIndex + 1);
+                    if (news.total > news.results.length) {
+                      setNewsIndex(newsIndex + 1);
                     }
                   }}
                 >

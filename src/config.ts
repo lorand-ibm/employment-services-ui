@@ -11,10 +11,19 @@ const appNames: { [l in Lang]: string } = {
 
 export const getAppName = (l: Lang): string => appNames[l];
 
-const eventListTitles: { [l in Lang]: string } = {
+const eventsListTitles: { [l in Lang]: string } = {
   fi: "Tapahtumakalenteri",
   sv: "Evenemang",
   en: "Events",
 };
 
-export const getEventListTitle = (l: Lang): string => eventListTitles[l];
+export const getEventsListTitle = (l: Lang): string => eventsListTitles[l];
+
+const newsListTitles: { [l in Lang]: string } = {
+  fi: "Muita uutisia",
+  sv: "Nyheter",
+  en: "News",
+};
+
+export const getNewsListTitle = (l: Lang): string => newsListTitles[l];
+

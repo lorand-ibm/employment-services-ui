@@ -16,7 +16,7 @@ async function fetchDrupalEvents() {
 
   const eventData: Array<any> = data.data;
   if (!eventData) {
-    throw "Error fetcing drupal events, no event data in res";
+    throw "Error fetching drupal events, no event data in res";
   }
 
   const parsedEvents = eventData.reduce((acc: any, curr: any) => {

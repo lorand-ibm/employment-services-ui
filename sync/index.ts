@@ -3,6 +3,7 @@ import path from "path";
 import cron from "node-cron";
 
 import { syncElasticSearch } from "./syncEvents";
+import { syncElasticSearchNews } from "./syncNews";
 import { syncLinkedEvents } from "./linkedEventsSync";
 
 dotEnv.config({ path: path.resolve(__dirname + "/../.env") });
@@ -10,6 +11,7 @@ dotEnv.config({ path: path.resolve(__dirname + "/../.env") });
 const syncEvents = async () => {
   console.log("------");
   console.log("start", new Date());
+  await syncElasticSearchNews();
   console.log("SYNC LINKED EVENTS");
   const modified = await syncLinkedEvents();
   if (modified) {
