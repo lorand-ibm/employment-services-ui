@@ -1,5 +1,21 @@
-import { getClient } from "./elasticsearchClient";
 import axios from "axios";
+import { find } from 'lodash';
+import { getClient } from "./elasticsearchClient";
+
+export const findParagraphFieldData = (data: any, dataIncluded: any, paragraphField: string, paragraphType: string, field: string) => {
+  try {
+    const paragraph = find(data.relationships[paragraphField].data, { type: paragraphType });
+
+    if (paragraph) {
+      const paragraphData = find(dataIncluded, { id: paragraph.id });
+      return paragraphData.attributes[field];
+    }
+  } catch (error) {
+    console.log(paragraphField);
+    console.log(error);
+  }
+  return "";
+}
 
 async function fetchNews() {
   const drupalUrl = process.env.DRUPAL_URL;
@@ -16,13 +32,15 @@ async function fetchNews() {
 
   const newsData: Array<any> = data.data;
   if (!newsData) {
-    throw "Error fetching drupal news, no event data in res";
+    throw "Error fetching drupal news, no News data in res";
   }
+
   const parsedNews = newsData.reduce((acc: any, curr: any) => {
+    const newsTitle = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
     const attr = curr.attributes;
     const news = {
       path: attr.path.alias,
-      title: attr.title,
+      title: newsTitle,
       summary: attr.field_summary,
       date: attr.created,
     };
@@ -35,11 +53,11 @@ async function fetchNews() {
 export const syncElasticSearchNews = async () => {
   const client = getClient();
 
-  // try {
-  //   await client.indices.delete({ index: "news" });
-  // } catch (err) {
-  //   console.warn("WARNING when deleting 'news' index:");
-  // }
+  try {
+    await client.indices.delete({ index: "news" });
+  } catch (err) {
+    console.warn("WARNING when deleting 'news' index:");
+  }
 
   try {
     await client.indices.create(
@@ -67,5 +85,5 @@ export const syncElasticSearchNews = async () => {
   const body = dataset.flatMap((doc: any) => [{ index: { _index: "news" } }, doc]);
   const { body: bulkResponse } = await client.bulk({ refresh: true, body });
   const { body: count } = await client.count({ index: "news" });
-  console.log("added:", count.count);
+  console.log("news added:", count.count);
 };

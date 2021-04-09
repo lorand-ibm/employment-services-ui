@@ -51,11 +51,11 @@ const getTextValue = (path) => {
   return path.value;
 }
 
-const getCards = (d, ids) => {
+const getCards = (dataIncluded, ids) => {
   let cards = [];
   ids.map((item, index) => {
     let id = item.id;
-    let card = find(d, { id: id });
+    let card = find(dataIncluded, { id: id });
     card.thisCardIsInList = true;
     cards.push(card);
     return cards;
@@ -294,7 +294,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             showDate: item.attributes.field_show_date, 
           });
         } catch (error) {
-          console.log("subheading");
+          console.log("mainheading");
           console.log(error);
         }
         break;
@@ -408,20 +408,6 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
   }
 
   return data;
-}
-
-export const findTaxonomy = (data, field) => {
-  try {
-    let type = data.data[0].relationships[field].data.type;
-    let taxonomy = find(data.included, { type: type });
-    if (taxonomy) {
-      return taxonomy.attributes.name;
-    }
-  } catch (error) {
-    console.log(field);
-    console.log(error);
-  }
-  return "";
 }
 
 export const getUrlAlias = (data) => {
