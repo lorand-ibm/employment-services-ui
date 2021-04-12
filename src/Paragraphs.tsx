@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Accord from "./components/Accord";
 import SingleCard from "./components/SingleCard";
 import { Mainheading, Subheading } from "./components/Headings";
@@ -9,6 +9,7 @@ import Text from "./components/Text";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "./components/Image";
+import { getCookieConsentValue } from "react-cookie-consent";
 import ImageAndCard from "./components/ImageAndCard";
 import CardList from "./components/CardList";
 import EventsList from "./components/EventsList";
@@ -18,7 +19,7 @@ import Link from "./components/Link";
 import Date from "./components/Date";
 import Location from "./components/Location";
 import SujoEmbedded from "./components/SujoEmbedded";
-
+import ImportReactAndShare from './hooks/ImportScripts';
 import { Lang } from "./types";
 
 const useStyles = makeStyles((theme) => ({
@@ -105,14 +106,19 @@ const useStyles = makeStyles((theme) => ({
   location: {
     paddingBottom: 20,
   },
+  reactAndShare: {
+    padding: 0,
+    marginTop: 0,
+    marginBottom: 0,
+  }
 }));
 
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
-
 interface ParagraphsProps {
   paragraphs: any;
   width: ParagraphWidth;
   lang: Lang;
+  lastParagraphColor: string;
 }
 
 const FullParagraphGrid = ({ className, children }: { className: string; children: any }) => (
@@ -175,8 +181,14 @@ export const ParagraphGrid = ({
 
 function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
-  const { paragraphs, width, lang } = props;
+  const { paragraphs, width, lang, lastParagraphColor } = props;
   const items: any[] = [];
+  const [cookieConsent, setCookieConsent] = useState(getCookieConsentValue('tyollisyyspalvelut_cookie_consent'));
+
+  if (cookieConsent === 'true') {
+    ImportReactAndShare("https://cdn.reactandshare.com/plugin/rns.js");
+  }
+
   paragraphs.forEach((paragraph: any, index: number) => {
     switch (paragraph.type) {
       case "Accordion":
@@ -341,6 +353,17 @@ function Paragraphs(props: ParagraphsProps) {
           </Container>
         )
         break;
+      case "ReactAndShare":
+        items.push(
+          <div style={{ backgroundColor: lastParagraphColor }}>
+            <Container className={classes.container2}>
+              <ParagraphGrid className={classes.reactAndShare} paragraphWidth={width}>
+                <div className="rns"></div>
+              </ParagraphGrid>
+            </Container>
+          </div>
+        )
+        break;
       default:
         break;
     }
@@ -348,13 +371,13 @@ function Paragraphs(props: ParagraphsProps) {
   });
 
   return (
-    <React.Fragment>
+    <>
       {items.map((item, i) =>
         <React.Fragment key={i}>
          {item}
         </React.Fragment>
       )}
-    </React.Fragment>
+    </>
   );
 }
 

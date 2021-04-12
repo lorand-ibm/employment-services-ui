@@ -27,3 +27,9 @@ export interface SingleCardProps {
   bgColor?: string;
   bg_color?: string;
 }
+
+declare global {
+  interface Window {
+    rnsData: any;
+  }
+}
