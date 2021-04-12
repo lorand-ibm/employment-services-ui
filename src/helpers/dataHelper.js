@@ -128,12 +128,21 @@ export const findEventData = (lang, json) => {
       }
     )
   }
+
   paragraphs.push({
     type: 'EventsList',
     lang,
     title: getEventListTitle(lang),
     text: '',
     bgColor: '#f1f1f1',
+  })
+
+  paragraphs.push({
+    type: 'ReactAndShare',
+    lang,
+    title: '',
+    text: '',
+    bgColor: '#fff',
   })
 
   return paragraphs;
@@ -145,6 +154,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
     console.log('error with data, no json.included');
     return data;
   }
+
   json.included.map((item, index) => {
     switch (item.type) {
       case 'paragraph--accordion':
@@ -293,7 +303,6 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             lang: item.attributes.langcode,
             title: '',
             text: getTextValue(item.attributes.field_text_demo),
-
           });
         } catch (error) {
           console.log("text");
@@ -365,6 +374,13 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
     }
     return data;
   });
+
+  data.push({
+    type: 'ReactAndShare',
+    lang,
+    bgColor: '#fff',
+  });
+
   return data;
 }
 

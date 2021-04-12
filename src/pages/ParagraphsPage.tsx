@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
 import FooterBottom from "../FooterBottom";
 import Paragraphs from "../Paragraphs";
 import Hero from "../components/Hero";
@@ -34,7 +33,6 @@ interface PageUsingParagraphsProps {
 export default function ParagraphsPage(props: PageUsingParagraphsProps) {
   const classes = useStyles();
   const { lang, paragraphData, width } = props;
-
   const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
 
   let heroTitle = "";
@@ -50,7 +48,8 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
     isHero = false;
   }
 
-  const lastParagraph = !useData ? undefined : useData[useData.length - 1];
+  // -2 because ReactAndShare is not calculated
+  const lastParagraph = !useData ? undefined : useData[useData.length - 2];
   const lastParagraphColor = lastParagraph ? lastParagraph.bgColor : "";
 
   return (
@@ -64,7 +63,7 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
           <></>
         )}
         <div className={classes.paragraphs}>
-          <Paragraphs paragraphs={useData} width={width} lang={lang} />
+          <Paragraphs paragraphs={useData} width={width} lang={lang} lastParagraphColor={lastParagraphColor} />
         </div>
       </main>
       <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor={lastParagraphColor} />

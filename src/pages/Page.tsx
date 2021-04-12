@@ -98,7 +98,7 @@ function Page(props: LandingPage) {
   if (!data) {
     return <></>;
   }
-
+  
   return <PageUsingParagraphs lang={lang} paragraphData={data.paragraphData} width={data.width} />;
 }
 
