@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-function ImportReactAndShare(resourceUrl: string) {
-  const reactAndShareApiKey = process.env.REACT_APP_REACT_AND_SHARE;
+function ImportReactAndShare(resourceUrl: string, lang: string) {
+  const reactAndShareApiKey = lang === 'fi' ? process.env.REACT_APP_REACT_AND_SHARE_FI : lang === 'sv' ? process.env.REACT_APP_REACT_AND_SHARE_SV : process.env.REACT_APP_REACT_AND_SHARE_EN;
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -9,7 +9,7 @@ function ImportReactAndShare(resourceUrl: string) {
     
     window.rnsData = {
       apiKey: reactAndShareApiKey,
-      categories: ['tyollisyyspalvelut'],
+      categories: ['Työllisyyspalvelut'],
     };
 
     document.body.appendChild(script);

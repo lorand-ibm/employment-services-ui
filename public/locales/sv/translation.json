@@ -1,0 +1,10 @@
+{
+  "locale": "sv",
+  "cookies": {
+    "text": "SWEDISH Tämä sivusto käyttää evästeitä yleisen käytön seurantaan. Lisäksi käytämme kohdennusevästeitä käyttäjäkokemuksen parantamiseksi ja analytiikkaan.",
+    "link_text": "Mer information",
+    "accept": "Avvisa cookies",
+    "decline": "Godkänn cookies",
+    "url": "https://tyollisyyspalvelut.hel.fi/sv/cookie-policy"
+  }
+}
