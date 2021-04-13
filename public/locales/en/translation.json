@@ -1,0 +1,10 @@
+{
+  "locale": "en",
+  "cookies": {
+    "text": "ENGLISH Tämä sivusto käyttää evästeitä yleisen käytön seurantaan. Lisäksi käytämme kohdennusevästeitä käyttäjäkokemuksen parantamiseksi ja analytiikkaan.",
+    "link_text": "Read more on cookies",
+    "accept": "Accept cookies",
+    "decline": "Decline cookies",
+    "url": "https://tyollisyyspalvelut.hel.fi/en/cookie-policy"
+  }
+}
