@@ -186,7 +186,7 @@ function Paragraphs(props: ParagraphsProps) {
   const [cookieConsent, setCookieConsent] = useState(getCookieConsentValue('tyollisyyspalvelut_cookie_consent'));
 
   if (cookieConsent === 'true') {
-    ImportReactAndShare("https://cdn.reactandshare.com/plugin/rns.js");
+    ImportReactAndShare("https://cdn.reactandshare.com/plugin/rns.js", lang);
   }
 
   paragraphs.forEach((paragraph: any, index: number) => {
