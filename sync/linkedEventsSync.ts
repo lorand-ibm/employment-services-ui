@@ -103,7 +103,7 @@ const axiosConfig = {
   },
 };
 
-const syncLinkedEvents = async () => {
+const syncLinkedEventsToDrupal = async () => {
   if (!linkedEventUrl) {
     throw "Set LINKEDEVENTS_URL";
   }
@@ -238,4 +238,4 @@ const addEventToDrupal = async (tags: any, linkedEvent: LinkedEventsItem) => {
   }
 };
 
-export { syncLinkedEvents };
+export { syncLinkedEventsToDrupal };

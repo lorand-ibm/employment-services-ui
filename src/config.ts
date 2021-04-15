@@ -27,3 +27,11 @@ const newsListTitles: { [l in Lang]: string } = {
 
 export const getNewsListTitle = (l: Lang): string => newsListTitles[l];
 
+const blogListTitles: { [l in Lang]: string } = {
+  fi: "Blogit",
+  sv: "Bloggar",
+  en: "Blogs",
+};
+
+export const getBlogListTitle = (l: Lang): string => blogListTitles[l];
+

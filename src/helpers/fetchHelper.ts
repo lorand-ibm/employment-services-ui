@@ -54,7 +54,14 @@ export const getPagePagePath = (filter: string) =>
 export const getNewsPagePath = (filter: string) =>
 getPagePath(
   "/node/news",
-  "?fields[node--news]=created&include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
+  "?include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
+  filter
+);
+
+export const getBlogPagePath = (filter: string) =>
+getPagePath(
+  "/node/blog",
+  "?include=field_page_content,field_page_width,field_page_content.field_cards,field_page_content.field_ic_card",
   filter
 );
 

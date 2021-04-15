@@ -83,8 +83,8 @@ function EventsList(props: EventListProps) {
   const resultsText = lang === "fi" ? "hakutulosta" : lang === "sv" ? "sökresultat" : "search results";
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
   const eventUrl = lang === "fi" ? "/fi/tapahtuma" : lang === "sv" ? "/sv/evenemang" : "/en/event";
-
   const isKoro = true;
+  
   return (
     <div
       style={{

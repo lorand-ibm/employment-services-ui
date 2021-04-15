@@ -35,7 +35,7 @@ async function fetchDrupalEvents() {
   return parsedEvents;
 }
 
-export const syncElasticSearch = async () => {
+export const syncElasticSearchEvents = async () => {
   const client = getClient();
   try {
     await client.indices.delete({ index: "events" });
