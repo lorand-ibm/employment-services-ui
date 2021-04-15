@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface NewsState {
+interface BlogState {
   total: number;
   results: Array<{
     path: string;
@@ -49,7 +49,7 @@ interface NewsState {
   }>;
 }
 
-interface NewsListProps {
+interface BlogListProps {
   title: string;
   lang: Lang;
   bgColor: string;
@@ -58,34 +58,33 @@ interface NewsListProps {
   limit: boolean;
 }
 
-function NewsList(props: NewsListProps) {
+function BlogList(props: BlogListProps) {
   const classes = useStyles();
   const history = useHistory();
   const { title, bgColor, lang, isKoro, titleColor, limit } = props;
-
-  const [newsIndex, setNewsIndex] = useState<number>(0);
-  const [news, setNews] = useState<NewsState>({ total: 0, results: [] });
+  const [blogIndex, setBlogIndex] = useState<number>(0);
+  const [blogs, setBlogs] = useState<BlogState>({ total: 0, results: [] });
 
   useEffect(() => {}, []);
 
   useEffect(() => {
-    const fetchNews = async () => {
-      const res = await axios.get("/api/news/all/" + newsIndex);
+    const fetchBlogs = async () => {
+      const res = await axios.get("/api/blogs/all/" + blogIndex);
       const results = limit ? res.data.results.slice(0, 3) : res.data.results;
       const total = limit ? 3 : res.data.total;
 
-      const newNews = {
+      const newBlogs = {
         total: total,
-        results: [...news.results, ...results],
+        results: [...blogs.results, ...results],
       };
-      setNews(newNews);
+      setBlogs(newBlogs);
     };
-    fetchNews();
-  }, [newsIndex]);
+    fetchBlogs();
+  }, [blogIndex]);
 
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
-  const readMoreText = lang === "fi" ? "Lue kaikki uutiset" : lang === "sv" ? "Läs alla nyheter" : "Read all news";
-  const newsUrl = lang === "fi" ? "/fi/uutiset" : lang === "sv" ? "/sv/nyheter" : "/en/news";
+  const readMoreText = lang === "fi" ? "Lue kaikki blogit" : lang === "sv" ? "Läs alla bloggar" : "Read all blogs";
+  const blogUrl = lang === "fi" ? "/fi/blogit" : lang === "sv" ? "/sv/bloggar" : "/en/blogs";
 
   return (
     <div
@@ -105,13 +104,13 @@ function NewsList(props: NewsListProps) {
             <CardList
               lang={lang}
               type="listItem"
-              cards={news.results.map((news) => ({
-                type: "news",
-                title: news.title,
+              cards={blogs.results.map((blog) => ({
+                type: "blog",
+                title: blog.title,
                 title_color: titleColor,
-                text: news.summary,
-                dateContent: { startTime: news.date },
-                button_url: `${newsUrl}${news.path}`,
+                text: blog.summary,
+                dateContent: { startTime: blog.date },
+                button_url: `${blogUrl}${blog.path}`,
               }))}
             />
             { limit && (
@@ -119,21 +118,21 @@ function NewsList(props: NewsListProps) {
                 <HDSButton
                   iconRight={<IconArrowRight />}
                   onClick={() => {
-                    history.replace(newsUrl);
+                    history.replace(blogUrl);
                   }}
                 >
                   {readMoreText}
                 </HDSButton>
               </Box>
             )}
-            {!limit && news.total > news.results.length && (
+            { !limit && blogs.total > blogs.results.length && (
               <div className={classes.loadMore}>
                 <HDSButton
                   variant="supplementary"
                   iconRight={<IconPlus />}
                   onClick={() => {
-                    if (news.total > news.results.length) {
-                      setNewsIndex(newsIndex + 1);
+                    if (blogs.total > blogs.results.length) {
+                      setBlogIndex(blogIndex + 1);
                     }
                   }}
                 >
@@ -147,4 +146,4 @@ function NewsList(props: NewsListProps) {
     </div>
   );
 }
-export default NewsList;
+export default BlogList;

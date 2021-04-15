@@ -1,6 +1,6 @@
 import { find } from 'lodash';
 import { getColor } from "./colorHelper.js";
-import { getEventsListTitle, getNewsListTitle } from "../config";
+import { getEventsListTitle, getNewsListTitle, getBlogListTitle } from "../config";
 
 export const findImageUrl = (uuid, files, media, imageStyle) => {
   if (!!!files || !!!files.data || !!!media || !!!media.data) {
@@ -28,7 +28,7 @@ export const findImage = (item, field, files, media, imageStyle) => {
   try {
     return findImageUrl(item.relationships[field].data.id, files, media, imageStyle);
   } catch (error) {
-    console.log('no pic: ' + field);
+    // console.log('no pic: ' + field);
   }
   return null;
 }
@@ -352,6 +352,40 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           console.log(error);
         }
         break;
+      case 'paragraph--news_list':
+        try {
+          data.push({
+            type: 'NewsList',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_title,
+            text: '',
+            bgColor: getColor(item, 'field_background_color', taxonomies),
+            isKoro: item.attributes.field_koro,
+            titleColor: "#fd4f00",
+            limit: item.attributes.field_short_list,
+          })
+        } catch (error) {
+          console.log('news-list');
+          console.log(error);
+        }
+        break;
+      case 'paragraph--blog_list':
+        try {
+          data.push({
+            type: 'BlogList',
+            lang: item.attributes.langcode,
+            title: item.attributes.field_title,
+            text: '',
+            bgColor: getColor(item, 'field_background_color', taxonomies),
+            isKoro: item.attributes.field_koro,
+            titleColor: "#fd4f00",
+            limit: item.attributes.field_short_list,
+          })
+        } catch (error) {
+          console.log('blog-list');
+          console.log(error);
+        }
+        break;
       case 'paragraph--link':
         try {
           data.push({
@@ -404,6 +438,22 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
       title: getNewsListTitle(lang),
       text: '',
       bgColor: '#f1f1f1',
+      isKoro: true,
+      titleColor: "#1a1a1a",
+      limit: false,
+    })
+  }
+
+  if (pageType === 'node--blog') {
+    data.push({
+      type: 'BlogList',
+      lang,
+      title: getBlogListTitle(lang),
+      text: '',
+      bgColor: '#f1f1f1',
+      isKoro: true,
+      titleColor: "#1a1a1a",
+      limit: false,
     })
   }
 

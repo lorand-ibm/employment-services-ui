@@ -42,7 +42,7 @@ export function Mainheading(props: HeadingProps) {
       <Typography variant={tag} component={tag} className={classes.main} style={{ color: title_color }}>
         {title}
       </Typography>
-      {showDate && <DateComponent startTime={nodeData.created} />}
+      {showDate && <DateComponent startTime={nodeData.created} size="large" />}
     </>
   );
 }

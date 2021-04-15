@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme: any) => ({
     padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
     minHeight: "100px",
   }),
-  ccontent: (props) => ({
+  actions: (props) => ({
     marginTop: "auto",
     padding: props.type === "event" ? "0 15px 15px 15px" : 0,
   }),
@@ -79,7 +79,7 @@ function SingleCard(props: SingleCardProps) {
   const CardButton = () => {
     if (type === "event") {
       const readMoreText = lang === "fi" ? "Lue lisää" : lang === "sv" ? "Läs mer" : "Read more";
-      return <Link text={readMoreText} url={button_url ? button_url : ""}></Link>;
+      return <Link text={readMoreText} url={button_url ? button_url : ""} />;
     }
     return (
       <Box position={"bottom"} className={classes.buttonArea}>
@@ -124,7 +124,7 @@ function SingleCard(props: SingleCardProps) {
         </CardContent>
       </div>
       {(button_text || type === "event") && (
-        <CardActions className={classes.ccontent}>
+        <CardActions className={classes.actions}>
           <CardButton />
         </CardActions>
       )}

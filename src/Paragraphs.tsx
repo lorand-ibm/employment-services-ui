@@ -14,6 +14,7 @@ import ImageAndCard from "./components/ImageAndCard";
 import CardList from "./components/CardList";
 import EventsList from "./components/EventsList";
 import NewsList from "./components/NewsList";
+import BlogList from "./components/BlogList";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import Link from "./components/Link";
@@ -333,7 +334,10 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(<EventsList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} />);
         break;
       case "NewsList":
-        items.push(<NewsList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} />);
+        items.push(<NewsList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} isKoro={paragraph.isKoro} titleColor={paragraph.titleColor} limit={paragraph.limit} />);
+        break;
+      case "BlogList":
+        items.push(<BlogList lang={lang} title={paragraph.title} bgColor={paragraph.bgColor} isKoro={paragraph.isKoro} titleColor={paragraph.titleColor} limit={paragraph.limit} />);
         break;
       case "Date":
         items.push(

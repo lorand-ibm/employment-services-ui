@@ -18,17 +18,18 @@ const useStyles = makeStyles((theme: any) => ({
   text: () => ({
     paddingTop: 1,
   }),
-  date: () => ({
+  date: (props: DateProps) => ({
     color: "#666",
-    paddingTop: 16,
-    fontSize: 18,
+    fontSize: props.size === "large" ? 18 : 16,
     lineHeight: 1.6875,
+    paddingTop: 16,
   }),
 }));
 
 interface DateProps {
   startTime: string;
   endTime?: string;
+  size?: string;
 }
 
 export function DateWithIcon(props: DateProps) {
@@ -76,7 +77,7 @@ export function DateWithIcon(props: DateProps) {
 
 export function DateComponent(props: DateProps) {
   const classes = useStyles(props);
-  const { startTime } = props;
+  const { startTime, size } = props;
 
   return (
     <div className={classes.container}>
