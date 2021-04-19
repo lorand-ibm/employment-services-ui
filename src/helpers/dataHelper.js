@@ -425,12 +425,6 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
     return data;
   });
 
-  data.push({
-    type: 'ReactAndShare',
-    lang,
-    bgColor: '#fff',
-  });
-
   if (pageType === 'node--news') {
     data.push({
       type: 'NewsList',
@@ -456,6 +450,12 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
       limit: false,
     })
   }
+
+  data.push({
+    type: 'ReactAndShare',
+    lang,
+    bgColor: '#fff',
+  });
 
   return data;
 }
