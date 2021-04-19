@@ -1,7 +1,7 @@
 {
   "locale": "sv",
   "cookies": {
-    "text": "SWEDISH Tämä sivusto käyttää evästeitä yleisen käytön seurantaan. Lisäksi käytämme kohdennusevästeitä käyttäjäkokemuksen parantamiseksi ja analytiikkaan.",
+    "text": "Vi använder kakor på vår webbplats för att förbättra användarupplevelsen på webbplatsen. Genom att fortsätta använda denna webbplats godkänner du att kakorna lagras i din webbläsare.",
     "link_text": "Mer information",
     "accept": "Avvisa cookies",
     "decline": "Godkänn cookies",
