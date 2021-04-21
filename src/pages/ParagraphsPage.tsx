@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import FooterBottom from "../FooterBottom";
 import Paragraphs from "../Paragraphs";
-import Hero from "../components/Hero";
+import { Hero, HeroShallow } from "../components/Hero";
 import { getAppName } from "../config";
 import { Lang, ParagraphData } from "../types";
 
@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
-  hero: {
-    height: 550,
-  },
+  hero: (heroShallow: Boolean) => ({
+    height: heroShallow ? 360 : 550,
+  }),
   main: {},
   paragraphs: {
-    marginTop: 72,
+    marginTop: 56,
   },
 }));
 
@@ -33,22 +33,25 @@ interface PageUsingParagraphsProps {
 }
 
 export default function ParagraphsPage(props: PageUsingParagraphsProps) {
-  const classes = useStyles();
   const { lang, cookieConsent, nodeData, paragraphData, width } = props;
-
   const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
 
   let heroTitle = "";
   let heroText = "";
   let heroUrl = "";
   let isHero = true;
+  let heroShallow = false;
+
   if (useData.length > 0 && useData[0].type === "Hero") {
     heroTitle = useData[0].title;
     heroText = useData[0].text;
     heroUrl = useData[0].imageUrl;
+    heroShallow = useData[0].shallow;
   } else {
     isHero = false;
   }
+
+  const classes = useStyles(heroShallow);
 
   // -2 because ReactAndShare is not calculated
   const lastParagraph = !useData ? undefined : useData[useData.length - 2];
@@ -59,7 +62,11 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
       <main className={classes.main}>
         {isHero ? (
           <div className={classes.hero}>
-            <Hero title={heroTitle} text={heroText} imageUrl={heroUrl} />
+            { heroShallow ? (
+              <HeroShallow title={heroTitle} imageUrl={heroUrl} />
+            ) : (
+              <Hero title={heroTitle} text={heroText} imageUrl={heroUrl}/>
+            )}
           </div>
         ) : (
           <></>

@@ -27,32 +27,32 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 550
   },
- fiCardContent: {
-    height: 550,
-    color: 'black',
-    width: '30%',
-   [theme.breakpoints.only("xs")]: {
-     top: 40,
-     left: 50,
-     padding: 30,
-   },
-   [theme.breakpoints.only("sm")]: {
-     top: 40,
-     left: 50,
-     padding: 30,
-   },
-    [theme.breakpoints.only("md")]: {
+  fiCardContent: {
+      height: 550,
+      color: 'black',
+      width: '30%',
+    [theme.breakpoints.only("xs")]: {
       top: 40,
-      left: 40,
+      left: 50,
+      padding: 30,
     },
-   [theme.breakpoints.only("lg")]: {
-     top: 70,
-     left: 50,
-   },
-   [theme.breakpoints.only("xl")]: {
-    top: 100,
-    left: 120,
-  },
+    [theme.breakpoints.only("sm")]: {
+      top: 40,
+      left: 50,
+      padding: 30,
+    },
+      [theme.breakpoints.only("md")]: {
+        top: 40,
+        left: 40,
+      },
+    [theme.breakpoints.only("lg")]: {
+      top: 70,
+      left: 50,
+    },
+    [theme.breakpoints.only("xl")]: {
+      top: 100,
+      left: 120,
+    },
   },
   title: {
     fontWeight: 'bold',
@@ -125,10 +125,28 @@ const useStyles = makeStyles((theme) => ({
     fontWeigth: 400,
     paddingLeft: 20,
     paddingRight: 20,
-  }
+  },
+  shallowContainer: {
+    height: 358,
+    marginBottom: 32,
+    marginTop: 32,
+    maxWidth: 1440,
+    padding: 0,
+  },
+  shallowKoro: {
+    fill: '#fff',
+    color: '#fff',
+    marginTop: -40,
+  },
 }));
 
-function Hero(props) {
+interface HeroProps {
+  title: string;
+  text: string;
+  imageUrl: string;
+}
+
+export function Hero(props: HeroProps) {
   const classes = useStyles();
   const { title, text, imageUrl } = props;
   
@@ -141,21 +159,17 @@ function Hero(props) {
           <FiCard className={classes.card}>
             <div>
               <FiCardMedia className={classes.mediaPic}
-                media="picture"
-                alt={title}
                 image={imagePath}
                 title={title}
-                height="550"
               />
               <FiCardContent className={classes.fiCardContent}>
-                <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left" className={classes.title}>
+                <Typography gutterBottom variant="h2" component="h1" className={classes.title}>
                   {title}
                 </Typography>
-                <Typography maxWidth={2}
-                  variant="p"
-                  className={classes.fiCardContentTextSecondary}
+                <Typography
                   component="div"
                   dangerouslySetInnerHTML={{__html:text}}
+                  className={classes.fiCardContentTextSecondary}
                 >
                 </Typography>
               </FiCardContent>
@@ -176,16 +190,16 @@ function Hero(props) {
       </Hidden>
       <Hidden mdUp>
         <Container maxWidth="lg" className={classes.mobileContainer}>
-          <Typography gutterBottom variant="h2" component="h1" maxWidth={3} xs={3} justify="left" className={classes.mobileTitle}>
+          <Typography gutterBottom variant="h2" component="h1" className={classes.mobileTitle}>
             {title}
           </Typography>
-          <Typography maxWidth={3}
+          <Typography
             className={classes.mobileText}
             component="div"
             dangerouslySetInnerHTML={{__html:text}}
           >
           </Typography>
-          <Card elevation={0} width={1} className={classes.mobileCard}>
+          <Card elevation={0} className={classes.mobileCard}>
             <div>
               <Koros type="basic" flipHorizontal className={classes.koro}/>
               <CardMedia className={classes.smallCard}
@@ -204,4 +218,22 @@ function Hero(props) {
   );
 }
 
-export default Hero;
+interface HeroShallowProps {
+  title: string;
+  imageUrl: string;
+}
+
+export function HeroShallow(props: HeroShallowProps) {
+  const classes = useStyles();
+  const { title, imageUrl } = props;
+  
+  const imagePath = imageUrl && (imageUrl.startsWith('https') || imageUrl.startsWith('http')) ? imageUrl : drupalUrl + imageUrl;
+
+  return (
+    <Container className={classes.shallowContainer}>
+      <img alt={title} src={imagePath} />
+      <Koros type="basic" className={classes.shallowKoro}/>
+  </Container>
+  );
+}
+
