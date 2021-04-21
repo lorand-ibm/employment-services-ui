@@ -274,7 +274,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           data.push({
             type: 'Video',
             lang: item.attributes.langcode,
-            videoUrl: item.attributes.field_youtube,
+            videoUrl: item.attributes.field_video_url,
           });
         } catch (error) {
           console.log("video");

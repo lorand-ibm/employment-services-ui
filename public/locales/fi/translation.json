@@ -8,8 +8,8 @@
     "url": "https://tyollisyyspalvelut.hel.fi/fi/evastekaytanto"
   },
   "video": {
-    "cookie_consent": "Et ole antanut lupaa asettaa evästeitä kohteesta YouTube.com. ",
-    "link_text": "Hyväksy evästeet nähdäksesi videon"
+    "cookie_consent": "Et ole antanut lupaa asettaa evästeitä.",
+    "link_text": "Hyväksy evästeet nähdäksesi sisällön"
   },
   "footer": {
     "feedback": "Anna palautetta",

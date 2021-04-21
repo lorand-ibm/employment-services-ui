@@ -1,5 +1,4 @@
 import React from "react";
-import YouTube from 'react-youtube';
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Typography from "@material-ui/core/Typography";
@@ -24,12 +23,11 @@ function Video(props: VideoProps) {
   const history = useHistory();
   const { t } = useTranslation();
   const { videoUrl, cookieConsent } = props;
-  const videoId = videoUrl.split("?v=")[1];
 
   return (
     <>
       { cookieConsent === 'true' ? (
-        videoId && <div><YouTube videoId={videoId} containerClassName="video-wrapper" /></div>
+        <div className="video-wrapper"><iframe allowFullScreen={true} scrolling='no' src={videoUrl} /></div>
       ) : (
         <Typography component="p" className={classes.declined}>
           {t("video.cookie_consent")}
