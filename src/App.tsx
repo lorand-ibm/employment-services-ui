@@ -19,6 +19,11 @@ import { getAppName } from "./config";
 import { ImportMatomo } from './hooks';
 
 const groteskTheme = createMuiTheme({
+  palette: {
+    background: {
+      default: "#fff"
+    }
+  },
   typography: {
     fontFamily: "HelsinkiGrotesk",
     fontSize: 14,

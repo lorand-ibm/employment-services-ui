@@ -375,7 +375,7 @@ function Paragraphs(props: ParagraphsProps) {
         break;
       case "Video":
         items.push(
-          <Container className={classes.container2}>
+          <Container className={classes.container}>
             <ParagraphGrid className={classes.video} paragraphWidth={width}>
               <Video videoUrl={paragraph.videoUrl} cookieConsent={cookieConsent} />
             </ParagraphGrid>

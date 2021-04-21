@@ -214,7 +214,8 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             lang: item.attributes.langcode,
             title: item.attributes.field_hero_title,
             text: getTextValue(item.attributes.field_hero_text),
-            imageUrl: findImage(item, 'field_hero_image', files, media, 'hero'),
+            imageUrl: item.attributes.field_shallow ? findImage(item, 'field_hero_image', files, media, 'hero_shallow') : findImage(item, 'field_hero_image', files, media, 'hero'),
+            shallow: item.attributes.field_shallow
           });
         } catch (error) {
           console.log("hero");
