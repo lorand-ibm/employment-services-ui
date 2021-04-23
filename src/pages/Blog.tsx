@@ -71,6 +71,7 @@ function Blog(props: BlogProps) {
     setData({
       nodeData: {
         created: lang === 'fi' ? fi.data.data[0].attributes.created : lang === 'sv' ? sv.data.data[0].attributes.created : en.data.data[0].attributes.created,
+        title: lang === 'fi' ? fi.data.data[0].attributes.title : lang === 'sv' ? sv.data.data[0].attributes.title : en.data.data[0].attributes.title,
       },
       paragraphData: {
         fi: findPageData("fi", fi.data, files, media, documents, taxonomies),

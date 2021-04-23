@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import { Container } from "hds-react";
+import { Koros } from "hds-react/components/Koros";
 import Accord from "./components/Accord";
 import SingleCard from "./components/SingleCard";
 import { Mainheading, Subheading } from "./components/Headings";
@@ -6,7 +9,6 @@ import Info from "./components/Info";
 import Pdf from "./components/Pdf";
 import PhoneNumberBox from "./components/PhoneNumberBox";
 import Text from "./components/Text";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "./components/Image";
 import ImageAndCard from "./components/ImageAndCard";
@@ -15,13 +17,11 @@ import EventsList from "./components/EventsList";
 import NewsList from "./components/NewsList";
 import BlogList from "./components/BlogList";
 import Video from "./components/Video";
-import { Container } from "hds-react";
-import { Koros } from "hds-react/components/Koros";
 import Link from "./components/Link";
 import { DateWithIcon } from "./components/Date";
 import Location from "./components/Location";
 import SujoEmbedded from "./components/SujoEmbedded";
-import { ImportReactAndShare } from './hooks';
+import { useReactAndShare } from './hooks';
 import { Lang } from "./types";
 
 
@@ -201,7 +201,7 @@ function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
   const { paragraphs, lang, cookieConsent, nodeData, width, lastParagraphColor } = props;
   const items: any[] = [];
-  ImportReactAndShare(cookieConsent, lang);
+  useReactAndShare(cookieConsent, lang, nodeData.title);
 
   paragraphs.forEach((paragraph: any, index: number) => {
     switch (paragraph.type) {
