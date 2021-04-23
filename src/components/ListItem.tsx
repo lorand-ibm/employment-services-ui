@@ -2,6 +2,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "./Link";
@@ -40,12 +41,13 @@ const useStyles = makeStyles((theme: any) => ({
 
 function ListItem(props: ListItemProps) {
   const classes = useStyles(props as ListItemProps);
-  const { title, lang, text, button_url, dateContent } = props;
+  const { title, lang, text, button_url, dateContent, imageUrl } = props;
   const readMoreText = lang === "fi" ? "Lue lisää" : lang === "sv" ? "Läs mer" : "Read more";
 
   return (
     <Card className={classes.root}>
       <CardContent className={classes.content}>
+        {imageUrl && <CardMedia component="img" src={imageUrl} /> }
         <Typography variant="body2" color="textSecondary">
           <DateComponent startTime={dateContent.startTime}  />
         </Typography>

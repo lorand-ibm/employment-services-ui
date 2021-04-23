@@ -33,6 +33,7 @@ export interface ListItemProps {
   type: CardType;
   lang: Lang;
 
+  imageUrl?: string;
   dateContent: DateContent;
   location?: string;
 

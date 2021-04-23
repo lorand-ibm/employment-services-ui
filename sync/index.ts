@@ -14,6 +14,7 @@ const syncEvents = async () => {
   console.log("start", new Date());
   console.log("SYNC NEWS");
   await syncElasticSearchNews();
+  console.log("SYNC BLOGS");
   await syncElasticSearchBlogs();
   console.log("SYNC LINKED EVENTS");
   const modified = await syncLinkedEventsToDrupal();

@@ -1,43 +1,20 @@
 import axios from "axios";
-import { find } from 'lodash';
 import { getClient } from "./elasticsearchClient";
+import { fetchFiles, fetchImages, findParagraphFieldData, getPagePath } from './helpers'
 
-export const findParagraphFieldData = (data: any, dataIncluded: any, paragraphField: string, paragraphType: string, field: string) => {
-  try {
-    const paragraph = find(data.relationships[paragraphField].data, { type: paragraphType });
-
-    if (paragraph) {
-      const paragraphData = find(dataIncluded, { id: paragraph.id });
-      return paragraphData.attributes[field];
-    }
-  } catch (error) {
-    console.log(paragraphField);
-    console.log(error);
-  }
-  return "";
-}
-
-const getPagePath = (page: string, includes: string, filter = "") => {
+async function fetchBlogs() {
   const drupalUrl = process.env.DRUPAL_URL;
   if (!drupalUrl) {
     throw "Set DRUPAL_URL";
   }
 
-  const api = "apijson";
-  let rest = "/" + api + page + includes;
-  if (filter) {
-    rest += filter;
-  }
-  return [drupalUrl + "/fi" + rest, drupalUrl + "/sv" + rest, drupalUrl + rest];
-};
-
-async function fetchBlogs() {
   const [fiBlogsUrl, svBlogsUrl, enBlogsUrl] = getPagePath(
+    drupalUrl,
     "/node/blog",
     "?include=field_page_content",
   );
 
-  const [fi, sv, en] = await Promise.all([axios.get(fiBlogsUrl), axios.get(svBlogsUrl), axios.get(enBlogsUrl)]);
+  const [fi, sv, en, files, media] = await Promise.all([axios.get(fiBlogsUrl), axios.get(svBlogsUrl), axios.get(enBlogsUrl), fetchFiles(drupalUrl), fetchImages(drupalUrl)]);
 
   const data = fi.data;
   if (!data) {
@@ -51,12 +28,14 @@ async function fetchBlogs() {
 
   const parsedBlogs = blogsData.reduce((acc: any, curr: any) => {
     const blogTitle = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
+    const blogImageUrl = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
     const attr = curr.attributes;
     const blogs = {
       path: attr.path.alias,
-      title: blogTitle,
-      summary: attr.field_summary,
       date: attr.created,
+      title: blogTitle,
+      imageUrl: blogImageUrl,
+      summary: attr.field_summary,
     };
     return [...acc, blogs];
   }, []);
