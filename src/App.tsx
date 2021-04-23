@@ -16,7 +16,7 @@ import Event from "./pages/Event";
 import News from "./pages/News";
 import Blog from "./pages/Blog";
 import { getAppName } from "./config";
-import { ImportMatomo } from './hooks';
+import { useMatomo } from './hooks';
 
 const groteskTheme = createMuiTheme({
   palette: {
@@ -51,7 +51,7 @@ function App() {
   const [, langPath] = location.pathname.split("/");
   const [lang, setLang] = useState<Lang>(strToLang(langPath));
   const [cookieConsent, setCookieConsent] = useState(getCookieConsentValue('tyollisyyspalvelut_cookie_consent'));
-  ImportMatomo(cookieConsent);
+  useMatomo(cookieConsent);
 
   useEffect(() => {
     i18n.changeLanguage(lang);
