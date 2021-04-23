@@ -43,9 +43,10 @@ interface BlogState {
   total: number;
   results: Array<{
     path: string;
-    title: string;
-    summary: string;
     date: string;
+    title: string;
+    imageUrl: string;
+    summary: string;
   }>;
 }
 
@@ -108,6 +109,7 @@ function BlogList(props: BlogListProps) {
                 type: "blog",
                 title: blog.title,
                 title_color: titleColor,
+                imageUrl: blog.imageUrl,
                 text: blog.summary,
                 dateContent: { startTime: blog.date },
                 button_url: `${blogUrl}${blog.path}`,

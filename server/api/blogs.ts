@@ -34,8 +34,8 @@ blogsRouter.get("/all/:index", async (req, res) => {
     res.send({
       total: total.value,
       results: hitsResults.map((result: any) => {
-        const { path, title, summary, date } = result._source;
-        return { path, title, summary, date };
+        const { path, date, title, imageUrl, summary } = result._source;
+        return { path, date, title, imageUrl, summary };
       }),
     });
   } catch (err) {
