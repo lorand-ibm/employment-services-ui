@@ -1,15 +1,20 @@
 {
   "locale": "fi",
+  "navigation": {
+    "button_text": "Oma asiointi",
+    "button_link": "https://asiointi.mol.fi/omaasiointi/",
+    "title_aria_label": "Helsinki: Työllisyyspalvelut"
+  },
+  "video": {
+    "cookie_consent": "Et ole antanut lupaa asettaa evästeitä.",
+    "link_text": "Hyväksy evästeet nähdäksesi sisällön"
+  },
   "cookies": {
     "text": "Tämä sivusto käyttää evästeitä yleisen käytön seurantaan. Lisäksi käytämme kohdennusevästeitä käyttäjäkokemuksen parantamiseksi ja analytiikkaan.",
     "link_text": "Lue lisää evästeistä",
     "accept": "Hyväksy evästeet",
     "decline": "Kieltäydy evästeistä",
     "url": "https://tyollisyyspalvelut.hel.fi/fi/evastekaytanto"
-  },
-  "video": {
-    "cookie_consent": "Et ole antanut lupaa asettaa evästeitä.",
-    "link_text": "Hyväksy evästeet nähdäksesi sisällön"
   },
   "footer": {
     "feedback": "Anna palautetta",

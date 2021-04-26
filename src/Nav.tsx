@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { orderBy } from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
 import { Navigation, Button } from "hds-react/components";
@@ -65,26 +66,10 @@ interface NavProps {
 
 function Nav(props: NavProps) {
   const { lang, changeLang } = props;
-
-  const [menu, setMenu] = useState(null);
+  const { t } = useTranslation();
   const classes = useStyles(props);
+  const [menu, setMenu] = useState(null);
   const menuData = drupalUrl + "/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-" + lang;
-
-  const eServiceTexts: { text: string; link: string } =
-    lang === "sv"
-      ? {
-          text: "E-Tjänster",
-          link: "https://asiointi.mol.fi/omaasiointi/?kieli=sv",
-        }
-      : lang === "fi"
-      ? {
-          text: "Oma asiointi",
-          link: "https://asiointi.mol.fi/omaasiointi/",
-        }
-      : {
-          text: "E-Services",
-          link: "https://asiointi.mol.fi/omaasiointi/",
-        };
 
   useEffect(() => {
     const getMenu = async () => {
@@ -140,10 +125,22 @@ function Nav(props: NavProps) {
         "--header-divider-color": "white",
       }}
       title={getAppName(lang)}
-      titleAriaLabel="Helsinki: Työllisyyspalvelut"
+      titleAriaLabel={t("navigation.title_aria_label")}
       titleUrl={`/${lang}`}
     >
       <Navigation.Actions>
+        <div style={{ marginLeft: "auto" }}>
+          <Button
+            className={classes.navButton}
+            size="small"
+            variant="secondary"
+            onClick={() => {
+              window.location.href = t("navigation.button_link");
+            }}
+          >
+            {t("navigation.button_text")}
+          </Button>
+        </div>
         <Navigation.LanguageSelector label={lang.toUpperCase()}>
           <Navigation.Item
             href="#"
@@ -173,18 +170,6 @@ function Nav(props: NavProps) {
       </Navigation.Actions>
       <Navigation.Row>
         {getNavi(menu, lang)}
-        <div style={{ marginLeft: "auto" }}>
-          <Button
-            className={classes.navButton}
-            size="small"
-            variant="secondary"
-            onClick={() => {
-              window.location.href = eServiceTexts.link;
-            }}
-          >
-            {eServiceTexts.text}
-          </Button>
-        </div>
       </Navigation.Row>
     </Navigation>
   );
