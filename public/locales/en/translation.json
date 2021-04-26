@@ -1,15 +1,20 @@
 {
   "locale": "en",
+  "navigation": {
+    "button_text": "E-Services",
+    "button_link": "https://asiointi.mol.fi/omaasiointi/",
+    "title_aria_label": "Helsinki: Employment services"
+  },
+  "video": {
+    "cookie_consent": "You have not yet given permission to place the required cookies.",
+    "link_text": "Accept the required cookies to view this content."
+  },
   "cookies": {
     "text": "We use cookies on our website to improve the user experience of the site. By continuing to use this site, you agree to the use of our cookies in your browser.",
     "link_text": "Read more on cookies",
     "accept": "Accept cookies",
     "decline": "Decline cookies",
     "url": "https://tyollisyyspalvelut.hel.fi/en/cookie-policy"
-  },
-  "video": {
-    "cookie_consent": "You have not yet given permission to place the required cookies.",
-    "link_text": "Accept the required cookies to view this content."
   },
   "footer": {
     "feedback": "Give feedback",
