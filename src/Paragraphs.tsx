@@ -19,7 +19,7 @@ import Link from "./components/Link";
 import Date from "./components/Date";
 import Location from "./components/Location";
 import SujoEmbedded from "./components/SujoEmbedded";
-import { ImportReactAndShare } from './hooks/ImportScripts';
+import { useReactAndShare } from './hooks/ImportScripts';
 import { Lang } from "./types";
 
 const useStyles = makeStyles((theme) => ({
@@ -116,6 +116,7 @@ const useStyles = makeStyles((theme) => ({
 type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
 interface ParagraphsProps {
   paragraphs: any;
+  nodeData: any;
   width: ParagraphWidth;
   lang: Lang;
   lastParagraphColor: string;
@@ -181,10 +182,10 @@ export const ParagraphGrid = ({
 
 function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
-  const { paragraphs, width, lang, lastParagraphColor } = props;
+  const { paragraphs, width, lang, nodeData, lastParagraphColor } = props;
   const items: any[] = [];
   const [cookieConsent, setCookieConsent] = useState(getCookieConsentValue('tyollisyyspalvelut_cookie_consent'));
-  ImportReactAndShare(cookieConsent, lang);
+  useReactAndShare(cookieConsent, lang, nodeData.title);
 
   paragraphs.forEach((paragraph: any, index: number) => {
     switch (paragraph.type) {

@@ -26,13 +26,14 @@ const useStyles = makeStyles((theme) => ({
 
 interface PageUsingParagraphsProps {
   lang: Lang;
+  nodeData?: any;
   paragraphData: ParagraphData 
   width: any;
 }
 
 export default function ParagraphsPage(props: PageUsingParagraphsProps) {
   const classes = useStyles();
-  const { lang, paragraphData, width } = props;
+  const { lang, nodeData, paragraphData, width } = props;
   const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
 
   let heroTitle = "";
@@ -63,7 +64,7 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
           <></>
         )}
         <div className={classes.paragraphs}>
-          <Paragraphs paragraphs={useData} width={width} lang={lang} lastParagraphColor={lastParagraphColor} />
+          <Paragraphs paragraphs={useData} nodeData={nodeData} width={width} lang={lang} lastParagraphColor={lastParagraphColor} />
         </div>
       </main>
       <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor={lastParagraphColor} />

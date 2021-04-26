@@ -14,7 +14,7 @@ import Landing from "./pages/Landing";
 import Page from "./pages/Page";
 import Event from "./pages/Event";
 import { getAppName } from "./config";
-import { ImportMatomo } from './hooks/ImportScripts';
+import { useMatomo } from './hooks/ImportScripts';
 
 const groteskTheme = createMuiTheme({
   typography: {
@@ -44,7 +44,7 @@ function App() {
   const [, langPath] = location.pathname.split("/");
   const [lang, setLang] = useState<Lang>(strToLang(langPath));
   const [cookieConsent, setCookieConsent] = useState(getCookieConsentValue('tyollisyyspalvelut_cookie_consent'));
-  ImportMatomo(cookieConsent);
+  useMatomo(cookieConsent);
 
   useEffect(() => {
     i18n.changeLanguage(lang);

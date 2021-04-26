@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export function ImportReactAndShare(cookieConsent: string, lang: string) {
+export const useReactAndShare = (cookieConsent: string, lang: string, pageTitle: string) => {
 
   useEffect(() => {
     if (cookieConsent !== 'true') return;
@@ -12,6 +12,8 @@ export function ImportReactAndShare(cookieConsent: string, lang: string) {
     
     window.rnsData = {
       apiKey: reactAndShareApiKey,
+      title: pageTitle || 'Työllisyyspalvelut',
+      canonicalUrl: window.location.href,
       categories: ['Työllisyyspalvelut'],
     };
     
@@ -22,7 +24,7 @@ export function ImportReactAndShare(cookieConsent: string, lang: string) {
   }, [cookieConsent, lang]);
 };
 
-export function ImportMatomo(cookieConsent: string) {
+export const useMatomo = (cookieConsent: string) => {
 
   useEffect(() => {
     if (cookieConsent !== 'true') return;

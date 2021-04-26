@@ -17,6 +17,7 @@ import { Lang, Params, ParagraphData } from "../types";
 import NotFound from "./NotFound";
 
 type Data = null | {
+  nodeData: any;
   paragraphData: ParagraphData;
   urlAliases: { [k in Lang]: any };
   width: any;
@@ -65,6 +66,9 @@ function Page(props: LandingPage) {
     const [fi, sv, en] = await Promise.all([axios.get(fiPage), axios.get(svPage), axios.get(enPage)]);
 
     setData({
+      nodeData: {
+        title: lang === 'fi' ? fi.data.data[0].attributes.title : lang === 'sv' ? sv.data.data[0].attributes.title : en.data.data[0].attributes.title,
+      },
       paragraphData: {
         fi: findPageData("fi", fi.data, files, media, documents, taxonomies),
         en: findPageData("en", en.data, files, media, documents, taxonomies),
@@ -99,7 +103,7 @@ function Page(props: LandingPage) {
     return <></>;
   }
   
-  return <PageUsingParagraphs lang={lang} paragraphData={data.paragraphData} width={data.width} />;
+  return <PageUsingParagraphs lang={lang} nodeData={data.nodeData} paragraphData={data.paragraphData} width={data.width} />;
 }
 
 export default Page;
