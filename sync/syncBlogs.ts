@@ -27,14 +27,14 @@ async function fetchBlogs() {
   }
 
   const parsedBlogs = blogsData.reduce((acc: any, curr: any) => {
-    const blogTitle = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
-    const blogImageUrl = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
+    const title = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
+    const imageUrl = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
     const attr = curr.attributes;
     const blogs = {
       path: attr.path.alias,
       date: attr.created,
-      title: blogTitle,
-      imageUrl: blogImageUrl,
+      title: title,
+      imageUrl: imageUrl || "https://edit.tyollisyyspalvelut.hel.fi/sites/default/files/2021-04/tyollisyyspalvelut-helsinki.png",
       summary: attr.field_summary,
     };
     return [...acc, blogs];
@@ -49,7 +49,7 @@ export const syncElasticSearchBlogs = async () => {
   try {
     await client.indices.delete({ index: "blogs" });
   } catch (err) {
-    console.warn("WARNING when deleting 'blogs' index:");
+    console.warn("WARNING when deleting 'blogs' index: " + err.body.error);
   }
 
   try {
@@ -60,9 +60,10 @@ export const syncElasticSearchBlogs = async () => {
           mappings: {
             properties: {
               path: { type: "text" },
-              title: { type: "text" },
-              summary: { type: "text" },
               date: { type: "date" },
+              title: { type: "text" },
+              imageUrl: { type: "text" },
+              summary: { type: "text" },
             },
           },
         },

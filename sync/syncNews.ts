@@ -1,31 +1,22 @@
 import axios from "axios";
-import { find } from 'lodash';
 import { getClient } from "./elasticsearchClient";
-
-export const findParagraphFieldData = (data: any, dataIncluded: any, paragraphField: string, paragraphType: string, field: string) => {
-  try {
-    const paragraph = find(data.relationships[paragraphField].data, { type: paragraphType });
-
-    if (paragraph) {
-      const paragraphData = find(dataIncluded, { id: paragraph.id });
-      return paragraphData.attributes[field];
-    }
-  } catch (error) {
-    console.log(paragraphField);
-    console.log(error);
-  }
-  return "";
-}
+import { fetchFiles, fetchImages, findParagraphFieldData, getPagePath } from './helpers'
 
 async function fetchNews() {
   const drupalUrl = process.env.DRUPAL_URL;
   if (!drupalUrl) {
     throw "Set DRUPAL_URL";
   }
-  const newsDrupalUrl = drupalUrl + "/fi/apijson/node/news?include=field_page_content";
-  const res = await axios.get(newsDrupalUrl);
 
-  const data = res.data;
+  const [fiNewsUrl, svNewsUrl, enNewsUrl] = getPagePath(
+    drupalUrl,
+    "/node/news",
+    "?include=field_page_content",
+  );
+
+  const [fi, sv, en, files, media] = await Promise.all([axios.get(fiNewsUrl), axios.get(svNewsUrl), axios.get(enNewsUrl), fetchFiles(drupalUrl), fetchImages(drupalUrl)]);
+
+  const data = fi.data;
   if (!data) {
     throw "Error fetcing drupal news, no data in res";
   }
@@ -36,13 +27,15 @@ async function fetchNews() {
   }
 
   const parsedNews = newsData.reduce((acc: any, curr: any) => {
-    const newsTitle = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
+    const title = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
+    const imageUrl = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
     const attr = curr.attributes;
     const news = {
       path: attr.path.alias,
-      title: newsTitle,
-      summary: attr.field_summary,
       date: attr.created,
+      title: title,
+      imageUrl: imageUrl || "https://edit.tyollisyyspalvelut.hel.fi/sites/default/files/2021-04/tyollisyyspalvelut-helsinki.png",
+      summary: attr.field_summary,
     };
     return [...acc, news];
   }, []);
@@ -56,7 +49,7 @@ export const syncElasticSearchNews = async () => {
   try {
     await client.indices.delete({ index: "news" });
   } catch (err) {
-    console.warn("WARNING when deleting 'news' index:");
+    console.warn("WARNING when deleting 'news' index: " + err.body.error);
   }
 
   try {
@@ -67,9 +60,10 @@ export const syncElasticSearchNews = async () => {
           mappings: {
             properties: {
               path: { type: "text" },
-              title: { type: "text" },
-              summary: { type: "text" },
               date: { type: "date" },
+              title: { type: "text" },
+              imageUrl: { type: "text" },
+              summary: { type: "text" },
             },
           },
         },
