@@ -103,7 +103,6 @@ function Page(props: PageProps) {
   if (!data) {
     return <></>;
   }
-  
   return <PageUsingParagraphs lang={lang} cookieConsent={cookieConsent} nodeData={data.nodeData} paragraphData={data.paragraphData} width={data.width} />;
 }
 
