@@ -43,9 +43,10 @@ interface NewsState {
   total: number;
   results: Array<{
     path: string;
-    title: string;
-    summary: string;
     date: string;
+    title: string;
+    imageUrl: string;
+    summary: string;
   }>;
 }
 
@@ -109,6 +110,7 @@ function NewsList(props: NewsListProps) {
                 type: "news",
                 title: news.title,
                 title_color: titleColor,
+                imageUrl: news.imageUrl,
                 text: news.summary,
                 dateContent: { startTime: news.date },
                 button_url: `${newsUrl}${news.path}`,
