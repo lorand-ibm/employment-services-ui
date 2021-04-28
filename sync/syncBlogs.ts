@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getClient } from "./elasticsearchClient";
-import { fetchFiles, fetchImages, findParagraphFieldData, getPagePath } from './helpers'
+import { fetchFiles, fetchImages, getPagePath, findNodeData } from './helpers';
+import { NodeData } from "./types";
 
 async function fetchBlogs() {
   const drupalUrl = process.env.DRUPAL_URL;
@@ -21,63 +22,58 @@ async function fetchBlogs() {
     throw "Error fetcing drupal blogs, no data in res";
   }
 
-  const blogsData: Array<any> = data.data;
-  if (!blogsData) {
-    throw "Error fetching drupal blogs, no Blogs data in res";
-  }
+  const nodeData: NodeData = {
+    fi: findNodeData(fi.data, files, media),
+    en: findNodeData(en.data, files, media),
+    sv: findNodeData(sv.data, files, media),
+  };
 
-  const parsedBlogs = blogsData.reduce((acc: any, curr: any) => {
-    const title = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
-    const imageUrl = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
-    const attr = curr.attributes;
-    const blogs = {
-      path: attr.path.alias,
-      date: attr.created,
-      title: title,
-      imageUrl: imageUrl || "https://edit.tyollisyyspalvelut.hel.fi/sites/default/files/2021-04/tyollisyyspalvelut-helsinki.png",
-      summary: attr.field_summary,
-    };
-    return [...acc, blogs];
-  }, []);
-
-  return parsedBlogs;
+  return nodeData;
 }
 
 export const syncElasticSearchBlogs = async () => {
   const client = getClient();
 
   try {
-    await client.indices.delete({ index: "blogs" });
+    await Promise.all([await client.indices.delete({ index: "blogs-fi" }), await client.indices.delete({ index: "blogs-sv" }), await client.indices.delete({ index: "blogs-en" })]);
   } catch (err) {
-    console.warn("WARNING when deleting 'blogs' index: " + err.body.error);
+    console.warn("WARNING when deleting 'blogs' index: " + err);
   }
 
-  try {
-    await client.indices.create(
-      {
-        index: "blogs",
-        body: {
-          mappings: {
-            properties: {
-              path: { type: "text" },
-              date: { type: "date" },
-              title: { type: "text" },
-              imageUrl: { type: "text" },
-              summary: { type: "text" },
-            },
+  const newIndex = (name: string) => {
+    return {
+      index: name,
+      body: {
+        mappings: {
+          properties: {
+            id: { type: 'integer' },
+            path: { type: "text" },
+            date: { type: "date" },
+            title: { type: "text" },
+            imageUrl: { type: "text" },
+            summary: { type: "text" },
           },
         },
       },
-      { ignore: [400] }
-    );
+    }
+  };
+
+  try {
+    await Promise.all([client.indices.create(newIndex('blogs-fi'),{ ignore: [400] }), client.indices.create(newIndex('blogs-sv'),{ ignore: [400] }), client.indices.create(newIndex('blogs-en'),{ ignore: [400] })]);
   } catch (err) {
     console.log("ERROR", err);
     return;
   }
 
-  const dataset = await fetchBlogs();
-  const body = dataset.flatMap((doc: any) => [{ index: { _index: "blogs" } }, doc]);
+  const blogs = await fetchBlogs();
+  const dataset = Object.keys(blogs).map((k: any) => {
+    return blogs[k].flatMap((doc: any) => [{ index: { _index: "blogs-" + k } }, doc]);
+  });
+
+  const body = dataset.flatMap((doc: any) => doc);
   const { body: bulkResponse } = await client.bulk({ refresh: true, body });
-  const { body: count } = await client.count({ index: "blogs" });
-  console.log("blogs added:", count.count);
+  const [{ body: fiBody }, { body: svBody }, { body: enBody }] = await Promise.all([client.count({ index: "blogs-fi" }), client.count({ index: "blogs-sv" }), client.count({ index: "blogs-en" })]);
+  console.log("blogs-fi added:", fiBody.count);
+  console.log("blogs-sv added:", svBody.count);
+  console.log("blogs-en added:", enBody.count);
 };

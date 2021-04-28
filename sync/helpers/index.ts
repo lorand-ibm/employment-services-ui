@@ -76,5 +76,31 @@ export const findParagraphFieldData = (data: any, dataIncluded: any, paragraphFi
   return "";
 }
 
+export const findNodeData = (data: any, files: any, media: any) => {
+
+  const nodeData: Array<any> = data.data;
+  if (!nodeData) {
+    throw "Error fetching drupal node data, no data in res";
+  }
+
+  const parsedData = nodeData.reduce((acc: any, node: any) => {
+    const title = findParagraphFieldData(node, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
+    const imageUrl = findParagraphFieldData(node, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
+    const attr = node.attributes;
+
+    const returnData = {
+      nid: attr.drupal_internal__nid,
+      path: attr.path.alias,
+      date: attr.created,
+      title: title,
+      imageUrl: imageUrl || "https://edit.tyollisyyspalvelut.hel.fi/sites/default/files/2021-04/tyollisyyspalvelut-helsinki.png",
+      summary: attr.field_summary,
+    };
+    return [...acc, returnData];
+  }, []);
+
+  return parsedData
+}
+
 export const fetchFiles = (drupalUrl: string) => fetchWithPagination(drupalUrl + "/apijson/file/file");
 export const fetchImages = (drupalUrl: string) => fetchWithPagination(drupalUrl + "/apijson/media/image");

@@ -5,8 +5,10 @@ const client = new Client({ node: process.env.ELASTICSEARCH_URL });
 
 const newsRouter = Router();
 
-newsRouter.get("/all/:index", async (req, res) => {
+newsRouter.get("/all/:lang/:index", async (req, res) => {
   const index = Number(req.params.index);
+  const lang = String(req.params.lang);
+
   if (isNaN(index)) {
     res.send(400).send();
     return;
@@ -21,7 +23,7 @@ newsRouter.get("/all/:index", async (req, res) => {
 
   try {
     const searchRes = await client.search({
-      index: "news",
+      index: `news-${lang}`,
       body: body,
       sort: "date:asc",
     });

@@ -9,13 +9,9 @@ import { syncLinkedEventsToDrupal } from "./linkedEventsSync";
 
 dotEnv.config({ path: path.resolve(__dirname + "/../.env") });
 
-const syncEvents = async () => {
+const syncElasticEvents = async () => {
   console.log("------");
-  console.log("start", new Date());
-  console.log("SYNC NEWS");
-  await syncElasticSearchNews();
-  console.log("SYNC BLOGS");
-  await syncElasticSearchBlogs();
+  console.log("start event sync", new Date());
   console.log("SYNC LINKED EVENTS");
   const modified = await syncLinkedEventsToDrupal();
   if (modified) {
@@ -27,9 +23,24 @@ const syncEvents = async () => {
   }
 };
 
-syncEvents();
+const syncElasticContent = async () => {
+  console.log("------");
+  console.log("start content sync", new Date());
+  console.log("SYNC NEWS");
+  await syncElasticSearchNews();
+  console.log("SYNC BLOGS");
+  await syncElasticSearchBlogs();
+};
 
-// Sync every half an hour
+syncElasticContent();
+syncElasticEvents();
+
+// Sync events every half an hour
 cron.schedule("*/30 * * * *", async () => {
-  syncEvents();
+  syncElasticEvents();
+});
+
+// Sync content every 5 minutes
+cron.schedule("*/5 * * * *", async () => {
+  syncElasticContent();
 });
