@@ -76,7 +76,7 @@ function NewsList(props: NewsListProps) {
     const fetchNews = async () => {
       const res = await axios.get("/api/news/all/" + lang + "/" + newsIndex);
       const results = limit ? res.data.results.slice(0, 3) : res.data.results;
-      const total = limit ? 3 : res.data.total;
+      const total = limit ? res.data.results.length : res.data.total;
 
       const newNews = {
         total: total,
@@ -90,6 +90,10 @@ function NewsList(props: NewsListProps) {
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
   const readMoreText = lang === "fi" ? "Lue kaikki uutiset" : lang === "sv" ? "Läs alla nyheter" : "Read all news";
   const newsUrl = lang === "fi" ? "/fi/uutiset" : lang === "sv" ? "/sv/nyheter" : "/en/news";
+
+  if (news.total === 0) {
+    return <></>;
+  }
 
   return (
     <div
