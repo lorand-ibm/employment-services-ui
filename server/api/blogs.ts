@@ -4,8 +4,10 @@ import { Client } from "@elastic/elasticsearch";
 const client = new Client({ node: process.env.ELASTICSEARCH_URL });
 const blogsRouter = Router();
 
-blogsRouter.get("/all/:index", async (req, res) => {
+blogsRouter.get("/all/:lang/:index", async (req, res) => {
   const index = Number(req.params.index);
+  const lang = String(req.params.lang);
+
   if (isNaN(index)) {
     res.send(400).send();
     return;
@@ -20,7 +22,7 @@ blogsRouter.get("/all/:index", async (req, res) => {
 
   try {
     const searchRes = await client.search({
-      index: "blogs",
+      index: `blogs-${lang}`,
       body: body,
       sort: "date:desc",
     });

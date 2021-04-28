@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Koros } from "hds-react/components/Koros";
 import { Container, Button as HDSButton, IconPlus, IconArrowRight } from "hds-react";
@@ -62,6 +62,7 @@ interface BlogListProps {
 function BlogList(props: BlogListProps) {
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
   const { title, bgColor, lang, isKoro, titleColor, limit } = props;
   const [blogIndex, setBlogIndex] = useState<number>(0);
   const [blogs, setBlogs] = useState<BlogState>({ total: 0, results: [] });
@@ -69,19 +70,21 @@ function BlogList(props: BlogListProps) {
   useEffect(() => {}, []);
 
   useEffect(() => {
+    const [, langPath] = location.pathname.split("/");
+
     const fetchBlogs = async () => {
-      const res = await axios.get("/api/blogs/all/" + blogIndex);
+      const res = await axios.get("/api/blogs/all/" + lang + "/" + blogIndex);
       const results = limit ? res.data.results.slice(0, 3) : res.data.results;
       const total = limit ? 3 : res.data.total;
 
       const newBlogs = {
         total: total,
-        results: [...blogs.results, ...results],
+        results: (lang !== langPath) ? results : [...blogs.results, ...results],
       };
       setBlogs(newBlogs);
     };
     fetchBlogs();
-  }, [blogIndex]);
+  }, [blogIndex, lang]);
 
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
   const readMoreText = lang === "fi" ? "Lue kaikki blogit" : lang === "sv" ? "Läs alla bloggar" : "Read all blogs";

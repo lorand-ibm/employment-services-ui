@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getClient } from "./elasticsearchClient";
-import { fetchFiles, fetchImages, findParagraphFieldData, getPagePath } from './helpers'
+import { fetchFiles, fetchImages, getPagePath, findNodeData } from './helpers';
+import { NodeData } from "./types";
 
 async function fetchNews() {
   const drupalUrl = process.env.DRUPAL_URL;
@@ -21,63 +22,58 @@ async function fetchNews() {
     throw "Error fetcing drupal news, no data in res";
   }
 
-  const newsData: Array<any> = data.data;
-  if (!newsData) {
-    throw "Error fetching drupal news, no News data in res";
-  }
+  const nodeData: NodeData = {
+    fi: findNodeData(fi.data, files, media),
+    en: findNodeData(en.data, files, media),
+    sv: findNodeData(sv.data, files, media),
+  };
 
-  const parsedNews = newsData.reduce((acc: any, curr: any) => {
-    const title = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
-    const imageUrl = findParagraphFieldData(curr, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
-    const attr = curr.attributes;
-    const news = {
-      path: attr.path.alias,
-      date: attr.created,
-      title: title,
-      imageUrl: imageUrl || "https://edit.tyollisyyspalvelut.hel.fi/sites/default/files/2021-04/tyollisyyspalvelut-helsinki.png",
-      summary: attr.field_summary,
-    };
-    return [...acc, news];
-  }, []);
-
-  return parsedNews;
+  return nodeData;
 }
 
 export const syncElasticSearchNews = async () => {
   const client = getClient();
 
   try {
-    await client.indices.delete({ index: "news" });
+    await Promise.all([await client.indices.delete({ index: "news-fi" }), await client.indices.delete({ index: "news-sv" }), await client.indices.delete({ index: "news-en" })]);
   } catch (err) {
-    console.warn("WARNING when deleting 'news' index: " + err.body.error);
+    console.warn("WARNING when deleting 'news' index: " + err);
   }
 
-  try {
-    await client.indices.create(
-      {
-        index: "news",
-        body: {
-          mappings: {
-            properties: {
-              path: { type: "text" },
-              date: { type: "date" },
-              title: { type: "text" },
-              imageUrl: { type: "text" },
-              summary: { type: "text" },
-            },
+  const newIndex = (name: string) => {
+    return {
+      index: name,
+      body: {
+        mappings: {
+          properties: {
+            id: { type: 'integer' },
+            path: { type: "text" },
+            date: { type: "date" },
+            title: { type: "text" },
+            imageUrl: { type: "text" },
+            summary: { type: "text" },
           },
         },
       },
-      { ignore: [400] }
-    );
+    }
+  };
+
+  try {
+    await Promise.all([client.indices.create(newIndex('news-fi'),{ ignore: [400] }), client.indices.create(newIndex('news-sv'),{ ignore: [400] }), client.indices.create(newIndex('news-en'),{ ignore: [400] })]);
   } catch (err) {
     console.log("ERROR", err);
     return;
   }
 
-  const dataset = await fetchNews();
-  const body = dataset.flatMap((doc: any) => [{ index: { _index: "news" } }, doc]);
+  const news = await fetchNews();
+  const dataset = Object.keys(news).map((k: any) => {
+    return news[k].flatMap((doc: any) => [{ index: { _index: "news-" + k } }, doc]);
+  });
+
+  const body = dataset.flatMap((doc: any) => doc);
   const { body: bulkResponse } = await client.bulk({ refresh: true, body });
-  const { body: count } = await client.count({ index: "news" });
-  console.log("news added:", count.count);
+  const [{ body: fiBody }, { body: svBody }, { body: enBody }] = await Promise.all([client.count({ index: "news-fi" }), client.count({ index: "news-sv" }), client.count({ index: "news-en" })]);
+  console.log("news-fi added:", fiBody.count);
+  console.log("news-sv added:", svBody.count);
+  console.log("news-en added:", enBody.count);
 };

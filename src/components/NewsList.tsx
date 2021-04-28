@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Koros } from "hds-react/components/Koros";
 import { Container, Button as HDSButton, IconPlus, IconArrowRight } from "hds-react";
@@ -62,6 +62,7 @@ interface NewsListProps {
 function NewsList(props: NewsListProps) {
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
   const { title, bgColor, lang, isKoro, titleColor, limit } = props;
 
   const [newsIndex, setNewsIndex] = useState<number>(0);
@@ -70,19 +71,21 @@ function NewsList(props: NewsListProps) {
   useEffect(() => {}, []);
 
   useEffect(() => {
+    const [, langPath] = location.pathname.split("/");
+
     const fetchNews = async () => {
-      const res = await axios.get("/api/news/all/" + newsIndex);
+      const res = await axios.get("/api/news/all/" + lang + "/" + newsIndex);
       const results = limit ? res.data.results.slice(0, 3) : res.data.results;
       const total = limit ? 3 : res.data.total;
 
       const newNews = {
         total: total,
-        results: [...news.results, ...results],
+        results: (lang !== langPath) ? results : [...news.results, ...results],
       };
       setNews(newNews);
     };
     fetchNews();
-  }, [newsIndex]);
+  }, [newsIndex, lang]);
 
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
   const readMoreText = lang === "fi" ? "Lue kaikki uutiset" : lang === "sv" ? "Läs alla nyheter" : "Read all news";
