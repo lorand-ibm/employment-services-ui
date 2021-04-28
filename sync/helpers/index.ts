@@ -7,7 +7,7 @@ export const getPagePath = (drupalUrl: string, page: string, includes: string, f
   if (filter) {
     rest += filter;
   }
-  return [drupalUrl + "/fi" + rest, drupalUrl + "/sv" + rest, drupalUrl + rest];
+  return [drupalUrl + "/fi" + rest + "&filter[langcode]=fi", drupalUrl + "/sv" + rest  + "&filter[langcode]=sv", drupalUrl + rest  + "&filter[langcode]=en"];
 };
 
 const fetchWithPagination = async (drupalUrl: string) => {
@@ -89,7 +89,7 @@ export const findNodeData = (data: any, files: any, media: any) => {
     const attr = node.attributes;
 
     const returnData = {
-      nid: attr.drupal_internal__nid,
+      id: node.id,
       path: attr.path.alias,
       date: attr.created,
       title: title,

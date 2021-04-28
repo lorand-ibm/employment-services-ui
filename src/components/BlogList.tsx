@@ -75,7 +75,7 @@ function BlogList(props: BlogListProps) {
     const fetchBlogs = async () => {
       const res = await axios.get("/api/blogs/all/" + lang + "/" + blogIndex);
       const results = limit ? res.data.results.slice(0, 3) : res.data.results;
-      const total = limit ? 3 : res.data.total;
+      const total = limit ? res.data.results.length : res.data.total;
 
       const newBlogs = {
         total: total,
@@ -89,6 +89,10 @@ function BlogList(props: BlogListProps) {
   const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
   const readMoreText = lang === "fi" ? "Lue kaikki blogit" : lang === "sv" ? "Läs alla bloggar" : "Read all blogs";
   const blogUrl = lang === "fi" ? "/fi/blogi" : lang === "sv" ? "/sv/blogg" : "/en/blog";
+
+  if (blogs.total === 0) {
+    return <></>;
+  }
 
   return (
     <div

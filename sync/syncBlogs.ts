@@ -46,7 +46,7 @@ export const syncElasticSearchBlogs = async () => {
       body: {
         mappings: {
           properties: {
-            id: { type: 'integer' },
+            id: { type: 'text' },
             path: { type: "text" },
             date: { type: "date" },
             title: { type: "text" },
@@ -66,6 +66,7 @@ export const syncElasticSearchBlogs = async () => {
   }
 
   const blogs = await fetchBlogs();
+  
   const dataset = Object.keys(blogs).map((k: any) => {
     return blogs[k].flatMap((doc: any) => [{ index: { _index: "blogs-" + k } }, doc]);
   });

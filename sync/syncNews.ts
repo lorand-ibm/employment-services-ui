@@ -46,7 +46,7 @@ export const syncElasticSearchNews = async () => {
       body: {
         mappings: {
           properties: {
-            id: { type: 'integer' },
+            id: { type: 'text' },
             path: { type: "text" },
             date: { type: "date" },
             title: { type: "text" },

@@ -25,7 +25,7 @@ newsRouter.get("/all/:lang/:index", async (req, res) => {
     const searchRes = await client.search({
       index: `news-${lang}`,
       body: body,
-      sort: "date:asc",
+      sort: "date:desc",
     });
 
     const {
