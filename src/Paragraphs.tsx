@@ -327,11 +327,20 @@ function Paragraphs(props: ParagraphsProps) {
           </Container>
         );
         break;
+      case "Lead":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={width}>
+              <Text {...paragraph} />
+            </ParagraphGrid>
+          </Container>
+        );
+        break;
       case "Text":
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={width}>
-              <Text {...paragraph}></Text>
+              <Text {...paragraph} />
             </ParagraphGrid>
           </Container>
         );

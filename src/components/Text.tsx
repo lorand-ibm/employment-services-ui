@@ -3,25 +3,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme: any) => ({
-  text: {
-    fontSize: '16px',
-  }
+  text: (props: TextProps) => ({
+    fontSize: props.type === 'Lead' ? 20 : 16,
+  })
 }));
 
 interface TextProps {
   text: string;
+  type: string;
 }
 
 function Text(props: TextProps) {
-    const classes = useStyles();
-    const { text } = props;
+  const classes = useStyles(props);
+  const { text } = props;
 
-    return (
-      <>
-        <Typography className={classes.text} dangerouslySetInnerHTML={{__html:text}}>
-        </Typography>
-      </>
-    );
+  return (
+    <Typography className={classes.text} component="div" dangerouslySetInnerHTML={{__html:text}} />
+  );
 }
 
 export default Text;

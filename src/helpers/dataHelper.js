@@ -325,6 +325,18 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           console.log(error);
         }
         break;
+      case 'paragraph--lead':
+        try {
+          data.push({
+            type: 'Lead',
+            lang: item.attributes.langcode,
+            text: item.attributes.field_lead_text,
+          });
+        } catch (error) {
+          console.log("lead");
+          console.log(error);
+        }
+        break;
       case 'paragraph--text':
         try {
           data.push({
