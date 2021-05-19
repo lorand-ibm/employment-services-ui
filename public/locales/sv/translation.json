@@ -17,10 +17,11 @@
     "url": "https://tyollisyyspalvelut.hel.fi/sv/cookie-policy"
   },
   "footer": {
+    "accessibility": "Tillgänglighetsbeskrivning",
+    "accessibilityLink": "https://tyollisyyspalvelut.hel.fi/sv/tillganglighetsbeskrivning",
     "feedback": "Ge respons",
     "feedbackLink": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/delta/feedback",
     "goup": "Till början av sidan",
-    "accessibility": "Tillgänglighetsutlåtande",
     "cookies": "Policy för kakor",
     "cookie_settings": "Cookie inställningar"
   }

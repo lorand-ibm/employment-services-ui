@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Footer } from  "hds-react/components/Footer";
 import { useTranslation } from "react-i18next";
-import { drupalUrl } from "./config";
 import { Lang } from "./types";
 import { deleteCookie } from "../src/helpers/helpers";
 
@@ -48,7 +47,7 @@ function FooterBottom(props: FooterProps) {
         >
           <Footer.Navigation navigationAriaLabel="{title} navigation"></Footer.Navigation>
           <Footer.Base copyrightHolder="Copyright" copyrightText="All rights reserved">
-            <Footer.Item href={`${drupalUrl}/sites/default/files/2021-02/saavutettavuusseloste%2026.2.2021.pdf`} label={t("footer.accessibility")} />
+            <Footer.Item href={t("footer.accessibilityLink")} label={t("footer.accessibility")} />
             <Footer.Item href={t("cookies.url")} label={t("footer.cookies")} />
             <Footer.Item href="#" label={t("footer.cookie_settings")} onClick={(e: any) => {
               deleteCookie(e ,'tyollisyyspalvelut_cookie_consent', history);

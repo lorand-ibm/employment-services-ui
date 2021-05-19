@@ -27,7 +27,7 @@ function Video(props: VideoProps) {
   return (
     <>
       { cookieConsent === 'true' ? (
-        <div className="video-wrapper"><iframe allowFullScreen={true} scrolling='no' src={videoUrl} /></div>
+        <div className="video-wrapper"><iframe allowFullScreen={true} scrolling='no' src={videoUrl} title="video" /></div>
       ) : (
         <Typography component="p" className={classes.declined}>
           {t("video.cookie_consent")}

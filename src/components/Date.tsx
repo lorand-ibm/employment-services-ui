@@ -77,7 +77,7 @@ export function DateWithIcon(props: DateProps) {
 
 export function DateComponent(props: DateProps) {
   const classes = useStyles(props);
-  const { startTime, size } = props;
+  const { startTime } = props;
 
   return (
     <div className={classes.container}>
