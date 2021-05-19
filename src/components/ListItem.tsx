@@ -48,9 +48,7 @@ function ListItem(props: ListItemProps) {
     <Card className={classes.root}>
       <CardContent className={classes.content}>
         {imageUrl && <CardMedia component="img" src={imageUrl} /> }
-        <Typography variant="body2" color="textSecondary">
-          <DateComponent startTime={dateContent.startTime}  />
-        </Typography>
+        <DateComponent startTime={dateContent.startTime}  />
         <Typography gutterBottom variant="h6" component="h3" className={classes.title}>
           {title}
         </Typography>

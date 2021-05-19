@@ -105,10 +105,8 @@ function SingleCard(props: SingleCardProps) {
           </Typography>
 
           {dateContent ? (
-            <Typography variant="body2" color="textSecondary" className={classes.text}>
-              <div>
-                <DateWithIcon startTime={dateContent.startTime} endTime={dateContent.endTime} />
-              </div>
+            <Typography component="div" variant="body2" color="textSecondary" className={classes.text}>
+              <DateWithIcon startTime={dateContent.startTime} endTime={dateContent.endTime} />
               <div style={{ paddingTop: 8 }}>
                 <Location location="Internet" />
               </div>

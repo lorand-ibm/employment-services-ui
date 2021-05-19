@@ -69,7 +69,7 @@ function Nav(props: NavProps) {
   const { t } = useTranslation();
   const classes = useStyles(props);
   const [menu, setMenu] = useState(null);
-  const menuData = drupalUrl + "/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-" + lang;
+  const menuData = drupalUrl + "/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-" + lang + '&filter[enabled]=1';
 
   useEffect(() => {
     const getMenu = async () => {

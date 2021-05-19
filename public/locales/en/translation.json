@@ -17,10 +17,11 @@
     "url": "https://tyollisyyspalvelut.hel.fi/en/cookie-policy"
   },
   "footer": {
+    "accessibility": "Accessibility statement",
+    "accessibilityLink": "https://tyollisyyspalvelut.hel.fi/en/accessibility_statement",
     "feedback": "Give feedback",
     "feedbackLink": "https://www.hel.fi/helsinki/en/administration/participate/feedback",
     "goup": "Back to the top",
-    "accessibility": "Accessibility statement",
     "cookies": "Cookie policy",
     "cookie_settings": "Cookie settings"
   }
