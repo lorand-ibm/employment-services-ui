@@ -58,3 +58,23 @@ li::marker {
   font-size: 1.25em;
 }
 
+a[class^="link"] {
+  color: #0000bf;
+  display: flex;
+  text-decoration: none;
+}
+
+a[class^="link"]::after {
+  content: '';
+  margin-left: 10px;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.link-internal::after {
+  background: url('../src/assets/icon-arrow-right.svg') no-repeat center center;
+}
+
+.link-external::after {
+  background: url('../src/assets/icon-link-external.svg') no-repeat center center;
+}
