@@ -15,14 +15,14 @@ function Info(props: InfoProps) {
       <Notification
         label={title}
         style={{
-          'fontFamily':'HelsinkiGrotesk',
-          'fontSize': '18px',
-          'fontWeight': 'bold',
-          'paddingTop': '32px',
-          'paddingBottom': '24px',
+          fontFamily: "HelsinkiGrotesk",
+          fontSize: "18px",
+          fontWeight: "bold",
+          paddingTop: "32px",
+          paddingBottom: "24px",
         }}
       >
-        <Typography dangerouslySetInnerHTML={{__html:text}} />
+        <Typography dangerouslySetInnerHTML={{ __html: text }} />
       </Notification>
     </>
   );

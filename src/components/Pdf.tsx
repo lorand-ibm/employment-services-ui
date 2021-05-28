@@ -1,10 +1,10 @@
 import React from "react";
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
-import LaunchIcon from '@material-ui/icons/Launch';
+import LaunchIcon from "@material-ui/icons/Launch";
 import { makeStyles } from "@material-ui/core/styles";
-import { drupalUrl } from '../config';
+import { drupalUrl } from "../config";
 
 interface PdfProps {
   url: string;
@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme: any) => ({
     fontSize: 16,
   },
   link: {
-    color: '#0E00BF',
-  }
+    color: "#0E00BF",
+  },
 }));
 
 function Pdf(props: PdfProps) {
@@ -27,15 +27,23 @@ function Pdf(props: PdfProps) {
 
   return (
     <>
-      <Link display="block" variant="body1" href={address} key={title} className={classes.link}>
-          <Grid container spacing={1}>
-            <Grid item >
-              <Typography><LaunchIcon /></Typography>
-            </Grid>
-            <Grid item >
-              <Typography className={classes.text}>{title}</Typography>
-            </Grid>
+      <Link
+        display="block"
+        variant="body1"
+        href={address}
+        key={title}
+        className={classes.link}
+      >
+        <Grid container spacing={1}>
+          <Grid item>
+            <Typography>
+              <LaunchIcon />
+            </Typography>
           </Grid>
+          <Grid item>
+            <Typography className={classes.text}>{title}</Typography>
+          </Grid>
+        </Grid>
       </Link>
     </>
   );

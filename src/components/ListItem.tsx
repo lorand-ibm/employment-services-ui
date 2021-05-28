@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -41,26 +42,32 @@ const useStyles = makeStyles((theme: any) => ({
 
 function ListItem(props: ListItemProps) {
   const classes = useStyles(props as ListItemProps);
-  const { title, lang, text, button_url, dateContent, imageUrl } = props;
-  const readMoreText = lang === "fi" ? "Lue lisää" : lang === "sv" ? "Läs mer" : "Read more";
+  const { t } = useTranslation();
+  const { title, lang, text, buttonUrl, dateContent, imageUrl } = props;
+  const readMoreText = t("list.read_more");
 
   return (
     <Card className={classes.root}>
       <CardContent className={classes.content}>
-        {imageUrl && <CardMedia component="img" src={imageUrl} /> }
-        <DateComponent startTime={dateContent.startTime}  />
-        <Typography gutterBottom variant="h6" component="h3" className={classes.title}>
+        {imageUrl && <CardMedia component="img" src={imageUrl} />}
+        <DateComponent startTime={dateContent.startTime} />
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="h3"
+          className={classes.title}
+        >
           {title}
         </Typography>
         <Typography gutterBottom component="p" className={classes.text}>
           {text}
         </Typography>
       </CardContent>
-      { button_url && 
+      {buttonUrl && (
         <CardActions className={classes.actions}>
-          <Link text={readMoreText} url={button_url} />
+          <Link text={readMoreText} href={buttonUrl} />
         </CardActions>
-      }
+      )}
     </Card>
   );
 }

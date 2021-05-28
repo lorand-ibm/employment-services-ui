@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -7,11 +8,9 @@ import { Button } from "hds-react/components/Button";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-
 import Link from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
-
 import { drupalUrl } from "../config";
 import { SingleCardProps } from "../types";
 
@@ -72,24 +71,34 @@ const useStyles = makeStyles((theme: any) => ({
 
 function SingleCard(props: SingleCardProps) {
   const classes = useStyles(props as SingleCardProps);
-  const { image, title, lang, text, button_url, button_text, type, dateContent } = props;
+  const {
+    image,
+    title,
+    text,
+    buttonUrl,
+    buttonText,
+    type,
+    dateContent,
+  } = props;
+  const { t } = useTranslation();
 
-  const imageAddress = image ? (image.startsWith("http") ? image : drupalUrl + image) : "";
+  // eslint-disable-next-line
+  const imageAddress = image ? image.startsWith("http") ? image: drupalUrl + image: "";
 
   const CardButton = () => {
     if (type === "event") {
-      const readMoreText = lang === "fi" ? "Lue lisää" : lang === "sv" ? "Läs mer" : "Read more";
-      return <Link text={readMoreText} url={button_url ? button_url : ""} />;
+      const readMoreText = t("list.read_more");
+      return <Link text={readMoreText} href={buttonUrl || ""} />;
     }
     return (
-      <Box position={"bottom"} className={classes.buttonArea}>
+      <Box position="bottom" className={classes.buttonArea}>
         <Button
           className={classes.button}
           onClick={() => {
-            window.location.href = button_url ? button_url : "";
+            window.location.href = buttonUrl || "";
           }}
         >
-          {button_text}
+          {buttonText}
         </Button>
       </Box>
     );
@@ -98,15 +107,37 @@ function SingleCard(props: SingleCardProps) {
   return (
     <Card className={classes.root}>
       <div>
-        {image ? <CardMedia component="img" className={classes.media} image={imageAddress} title="-" /> : <></>}
+        {image ? (
+          <CardMedia
+            component="img"
+            className={classes.media}
+            image={imageAddress}
+            title="-"
+          />
+        ) : (
+          <></>
+        )}
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h2"
+            className={classes.title}
+          >
             {title}
           </Typography>
 
           {dateContent ? (
-            <Typography component="div" variant="body2" color="textSecondary" className={classes.text}>
-              <DateWithIcon startTime={dateContent.startTime} endTime={dateContent.endTime} />
+            <Typography
+              component="div"
+              variant="body2"
+              color="textSecondary"
+              className={classes.text}
+            >
+              <DateWithIcon
+                startTime={dateContent.startTime}
+                endTime={dateContent.endTime}
+              />
               <div style={{ paddingTop: 8 }}>
                 <Location location="Internet" />
               </div>
@@ -121,7 +152,7 @@ function SingleCard(props: SingleCardProps) {
           )}
         </CardContent>
       </div>
-      {(button_text || type === "event") && (
+      {(buttonText || type === "event") && (
         <CardActions className={classes.actions}>
           <CardButton />
         </CardActions>

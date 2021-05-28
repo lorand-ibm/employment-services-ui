@@ -13,53 +13,53 @@ const useStyles = makeStyles((theme: any) => ({
   title: (props: ImageAndCardProps) => ({
     color: props.card.title_color,
     backgroundColor: props.card.bg_color,
-    fontFamily: 'HelsinkiGrotesk',
+    fontFamily: "HelsinkiGrotesk",
     fontSize: 36,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   }),
   text: (props: ImageAndCardProps) => ({
     fontSize: 18,
-    fontFamily: 'HelsinkiGrotesk',
-    backgroundColor: 'transparent',
+    fontFamily: "HelsinkiGrotesk",
+    backgroundColor: "transparent",
     mlineHeight: 27,
   }),
   button: (props: ImageAndCardProps) => ({
-    color: 'black',
+    color: "black",
     backgroundColor: props.card.bg_color,
-    borderColor: 'black',
+    borderColor: "black",
   }),
   box: (props: ImageAndCardProps) => ({
     backgroundColor: props.card.bg_color,
-    position: 'absolute',
-    top: '9%',
-    right: '0',
+    position: "absolute",
+    top: "9%",
+    right: "0",
     width: 450,
-    marginLeft: 'auto',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+    marginLeft: "auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
     [theme.breakpoints.down("1248")]: {
-      top: '32%',
-      right: 'auto',
+      top: "32%",
+      right: "auto",
     },
     [theme.breakpoints.down("960")]: {
-      position: 'initial',
-      width: '100%',
-      height: 'auto',
-    }
+      position: "initial",
+      width: "100%",
+      height: "auto",
+    },
   }),
   wrapper: (props: ImageAndCardProps) => ({
-    position: 'relative',
+    position: "relative",
     [theme.breakpoints.down("1248")]: {
       minHeight: 590,
-    }
+    },
   }),
   imageWrapper: (props: ImageAndCardProps) => ({
-    width: '70%',
+    width: "70%",
     [theme.breakpoints.down("1248")]: {
-      width: '100%'
-    }
-  })
+      width: "100%",
+    },
+  }),
 }));
 interface ImageAndCardProps {
   card: SingleCardProps;
@@ -70,21 +70,26 @@ function ImageAndCard(props: ImageAndCardProps) {
   const classes = useStyles(props);
   const { card, imageUrl } = props;
 
-  const imagePath = imageUrl && (imageUrl.startsWith('https') || imageUrl.startsWith('http')) ? imageUrl : drupalUrl + imageUrl;
+  const imagePath =
+    imageUrl && (imageUrl.startsWith("https") || imageUrl.startsWith("http"))
+      ? imageUrl
+      : drupalUrl + imageUrl;
 
-  let button =
+  let button = (
     <Button
       className={classes.button}
       onClick={() => {
-        window.location.href = card.button_url || ''
+        window.location.href = card.buttonUrl || "";
       }}
       style={{
-        borderColor: 'black',
-      }}>
-      {card.button_text}
-    </Button>;
+        borderColor: "black",
+      }}
+    >
+      {card.buttonText}
+    </Button>
+  );
 
-  if (!card.button_text) {
+  if (!card.buttonText) {
     button = <></>;
   }
 
@@ -92,26 +97,33 @@ function ImageAndCard(props: ImageAndCardProps) {
     <>
       <div className={classes.wrapper}>
         <div className={classes.imageWrapper}>
-          <div style={{
-            paddingBottom: '62%',
-            height: 0,
-            overflow: 'hidden'
-          }}>
-            <img alt="" style={{ width: '100%' }} src={imagePath}></img>
+          <div
+            style={{
+              paddingBottom: "62%",
+              height: 0,
+              overflow: "hidden",
+            }}
+          >
+            <img alt="" style={{ width: "100%" }} src={imagePath} />
           </div>
         </div>
 
-        <Card className={classes.box} theme={{
-          '--background-color': card.bg_color,
-          '--padding-horizontal': 'var(--spacing-l)',
-          '--padding-vertical': 'var(--spacing-m)'
-        }}
+        <Card
+          className={classes.box}
+          theme={{
+            "--background-color": card.bg_color,
+            "--padding-horizontal": "var(--spacing-l)",
+            "--padding-vertical": "var(--spacing-m)",
+          }}
         >
           <div>
             <Typography component="h2" className={classes.title}>
               {card.title}
             </Typography>
-            <Typography className={classes.text} dangerouslySetInnerHTML={{ __html: card.text }} />
+            <Typography
+              className={classes.text}
+              dangerouslySetInnerHTML={{ __html: card.text }}
+            />
           </div>
           {button}
         </Card>

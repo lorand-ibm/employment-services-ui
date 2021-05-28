@@ -22,7 +22,11 @@ function Accord(props: { text: string; title: string }) {
           "--header-font-size": "18px",
         }}
       >
-        <Typography dangerouslySetInnerHTML={{ __html: text }} component="div" className={classes.text} />
+        <Typography
+          dangerouslySetInnerHTML={{ __html: text }}
+          component="div"
+          className={classes.text}
+        />
       </Accordion>
     </>
   );

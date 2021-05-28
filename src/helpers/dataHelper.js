@@ -1,9 +1,9 @@
 import { find } from 'lodash';
-import { getColor } from "./colorHelper.js";
+import getColor from "./colorHelper";
 import { getEventsListTitle, getNewsListTitle, getBlogListTitle } from "../config";
 
 export const findImageUrl = (uuid, files, media, imageStyle) => {
-  if (!!!files || !!!files.data || !!!media || !!!media.data) {
+  if (!files || !files.data || !media || !media.data) {
     return "";
   }
   const mIndex = media.data.data.findIndex(item => item.id === uuid);
@@ -14,7 +14,7 @@ export const findImageUrl = (uuid, files, media, imageStyle) => {
 }
 
 export const findImageAlt = (item, field, files, media) => {
-  if (!!!files || !!!files.data || !!!media || !!!media.data) {
+  if (!files || !files.data || !media || !media.data) {
     return "";
   }
 
@@ -34,7 +34,7 @@ export const findImage = (item, field, files, media, imageStyle) => {
 }
 
 export const findPdfUrl = (uid, files, pdfs) => {
-  if (!!!files || !!!files.data || !!!pdfs || !!!pdfs.data) {
+  if (!files || !files.data || !pdfs || !pdfs.data) {
     return "";
   }
   const pIndex = pdfs.data.data.findIndex(item => item.id === uid);
@@ -45,17 +45,17 @@ export const findPdfUrl = (uid, files, pdfs) => {
 }
 
 const getTextValue = (path) => {
-  if (!!!path || !!!path.value) {
+  if (!path || !path.value) {
     return "";
   }
   return path.value;
 }
 
 const getCards = (dataIncluded, ids) => {
-  let cards = [];
+  const cards = [];
   ids.map((item, index) => {
-    let id = item.id;
-    let card = find(dataIncluded, { id: id });
+    const { id } = item;
+    const card = find(dataIncluded, { id });
     card.thisCardIsInList = true;
     cards.push(card);
     return cards;
@@ -64,7 +64,7 @@ const getCards = (dataIncluded, ids) => {
 }
 
 const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxonomies) => {
-  let cards = [];
+  const cards = [];
   try {
     drupalCards.map((item, index) => {
       if ((includeFromList && item.thisCardIsInList) ||
@@ -78,8 +78,8 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
           title_color: getColor(item, 'field_title_color', taxonomies),
           text: getTextValue(item.attributes.field_card_text),
           text_color: getColor(item, 'field_text_color', taxonomies),
-          button_text: item.attributes.field_card_button_text,
-          button_url: item.attributes.field_card_button_url,
+          buttonText: item.attributes.field_card_button_text,
+          buttonUrl: item.attributes.field_card_button_url,
           width: item.attributes.field_card_width,
           height: item.attributes.field_card_height,
           image: findImage(item, 'field_ic_image', files, media, 'wide_s'),
@@ -121,7 +121,6 @@ export const findEventData = (lang, json) => {
   {
     type: 'Location',
     lang,
-    //TODO:
     location: "Internet",
   },
   {
@@ -159,8 +158,30 @@ export const findEventData = (lang, json) => {
   return paragraphs;
 }
 
+export const findNodeCreated = (lang, fi, sv, en) => {
+  let created = fi.data.data[0].attributes.created;
+  if (lang === "en") {
+    created = en.data.data[0].attributes.created;
+  } else if (lang === "sv") {
+    created = sv.data.data[0].attributes.created;
+  }
+
+  return created;
+}
+
+export const findNodeTitle = (lang, fi, sv, en) => {
+  let title = fi.data.data[0].attributes.title;
+  if (lang === "en") {
+    title = en.data.data[0].attributes.title;
+  } else if (lang === "sv") {
+    title = sv.data.data[0].attributes.title;
+  }
+
+  return title;
+}
+
 export const findPageData = (lang, json, files, media, doc, taxonomies) => {
-  let data = [];
+  const data = [];
   
   if (!json.included) {
     console.log('error with data, no json.included');
@@ -184,12 +205,13 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           console.log(error);
         }
         break;
-      case 'paragraph--card':
+      case 'paragraph--card': {
         const cards = convertCardsFromDrupal([item], false, files, media, taxonomies);
         if (cards.length > 0) {
           data.push(cards[0]);
         }
         break;
+      }
       case 'paragraph--card_list':
         try {
           const drupalCards = getCards(json.included, item.relationships.field_cards.data);
@@ -198,9 +220,9 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             type: 'CardList',
             lang: item.attributes.langcode,
             title: item.attributes.field_card_list_title,
-            cards: cards,
+            cards,
             bgColor: getColor(item, 'field_card_list_bg_color', taxonomies),
-            isKoro: item.attributes.field_card_list_is_koro ? true : false,
+            isKoro: item.attributes.field_card_list_is_koro,
           });
         } catch (error) {
           console.log("card-list");
@@ -245,7 +267,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             type: 'ImageAndCard',
             lang: item.attributes.langcode,
             card: cards[0],
-            imageUrl: imageUrl,
+            imageUrl,
           });
         } catch (error) {
           console.log("image and card");
@@ -286,7 +308,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           const pdfUrl = findPdfUrl(item.relationships.field_media_document.data.id, files, doc);
           data.push({
             type: 'Pdf',
-            lang: lang,
+            lang,
             title: item.attributes.field_doc_title,
             text: '',
             url: pdfUrl,
@@ -302,7 +324,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             type: 'Mainheading',
             lang: item.attributes.langcode,
             title: item.attributes.field_title,
-            title_color: getColor(item, 'field_title_color', taxonomies),
+            titleColor: getColor(item, 'field_title_color', taxonomies),
             text: '',
             showDate: item.attributes.field_show_date, 
           });
@@ -317,7 +339,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             type: 'Subheading',
             lang: item.attributes.langcode,
             title: item.attributes.field_subheading_title,
-            title_color: getColor(item, 'field_title_color', taxonomies),
+            titleColor: getColor(item, 'field_title_color', taxonomies),
             text: '',
           });
         } catch (error) {

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useTranslation } from "react-i18next";
 import { Koros } from "hds-react/components/Koros";
 import { Container, Button as HDSButton, IconPlus } from "hds-react";
-import { ParagraphGrid } from "../Paragraphs";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { ParagraphGrid } from "./ParagraphGrid";
 import CardList from "./CardList";
 import { Mainheading } from "./Headings";
-
 import { Lang } from "../types";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,6 +59,7 @@ interface EventListProps {
 
 function EventsList(props: EventListProps) {
   const classes = useStyles();
+  const { t } = useTranslation();
   const { title, bgColor, lang } = props;
 
   const [eventsIndex, setEventsIndex] = useState<number>(0);
@@ -70,7 +69,7 @@ function EventsList(props: EventListProps) {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await axios.get("/api/events/all/" + eventsIndex);
+      const res = await axios.get(`/api/events/all/${eventsIndex}`);
       const newEvents = {
         total: res.data.total,
         results: [...events.results, ...res.data.results],
@@ -80,11 +79,11 @@ function EventsList(props: EventListProps) {
     fetchEvents();
   }, [eventsIndex]);
 
-  const resultsText = lang === "fi" ? "hakutulosta" : lang === "sv" ? "sökresultat" : "search results";
-  const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
-  const eventUrl = lang === "fi" ? "/fi/tapahtuma" : lang === "sv" ? "/sv/evenemang" : "/en/event";
+  const loadMoreText = t("list.load_more");
+  const eventsUrl = t("list.events_url");
+  const resultsText = t("list.results_text");
   const isKoro = true;
-  
+
   return (
     <div
       style={{
@@ -94,13 +93,22 @@ function EventsList(props: EventListProps) {
       }}
     >
       <div style={{ backgroundColor: bgColor }}>
-        {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
+        {isKoro ? (
+          <Koros
+            type="basic"
+            style={{ fill: bgColor, position: "absolute", top: "-15px" }}
+          />
+        ) : (
+          <></>
+        )}
         <Container className={classes.container} style={{ zIndex: 10 }}>
-          <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
+          <ParagraphGrid className={classes.cardList} paragraphWidth="Full">
             <div className={classes.title}>
-              <Mainheading headingTag={"h2"} title={title} />
+              <Mainheading headingTag="h2" title={title} />
             </div>
-            <div className={classes.results}>{`${events.total} ${resultsText}`}</div>
+            <div
+              className={classes.results}
+            >{`${events.total} ${resultsText}`}</div>
             <CardList
               lang={lang}
               cards={events.results.map((event) => ({
@@ -108,10 +116,13 @@ function EventsList(props: EventListProps) {
                 title: event.title,
                 image: event.image,
                 title_color: "#fd4f00",
-                dateContent: { startTime: event.startTime, endTime: event.endTime },
-                button_url: `${eventUrl}${event.path}`,
+                dateContent: {
+                  startTime: event.startTime,
+                  endTime: event.endTime,
+                },
+                buttonUrl: `${eventsUrl}${event.path}`,
               }))}
-            ></CardList>
+            />
             {events.total > events.results.length && (
               <div className={classes.loadMore}>
                 <HDSButton

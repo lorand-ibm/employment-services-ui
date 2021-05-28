@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import { Koros } from "hds-react/components/Koros";
-import { Container, Button as HDSButton, IconPlus, IconArrowRight } from "hds-react";
+import {
+  Container,
+  Button as HDSButton,
+  IconPlus,
+  IconArrowRight,
+} from "hds-react";
 import Box from "@material-ui/core/Box";
-import { ParagraphGrid } from "../Paragraphs";
 import { makeStyles } from "@material-ui/core/styles";
+import { ParagraphGrid } from "./ParagraphGrid";
 import CardList from "./CardList";
 import { Mainheading } from "./Headings";
 import { Lang } from "../types";
@@ -63,6 +69,7 @@ function BlogList(props: BlogListProps) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
+  const { t } = useTranslation();
   const { title, bgColor, lang, isKoro, titleColor, limit } = props;
   const [blogIndex, setBlogIndex] = useState<number>(0);
   const [blogs, setBlogs] = useState<BlogState>({ total: 0, results: [] });
@@ -73,22 +80,22 @@ function BlogList(props: BlogListProps) {
     const [, langPath] = location.pathname.split("/");
 
     const fetchBlogs = async () => {
-      const res = await axios.get("/api/blogs/all/" + lang + "/" + blogIndex);
+      const res = await axios.get(`/api/blogs/all/${lang}/${blogIndex}`);
       const results = limit ? res.data.results.slice(0, 3) : res.data.results;
       const total = limit ? res.data.results.length : res.data.total;
 
       const newBlogs = {
-        total: total,
-        results: (lang !== langPath) ? results : [...blogs.results, ...results],
+        total,
+        results: lang !== langPath ? results : [...blogs.results, ...results],
       };
       setBlogs(newBlogs);
     };
     fetchBlogs();
   }, [blogIndex, lang]);
 
-  const loadMoreText = lang === "fi" ? "Lataa lisää" : lang === "sv" ? "Visa fler" : "Show more";
-  const readMoreText = lang === "fi" ? "Lue kaikki blogit" : lang === "sv" ? "Läs alla bloggar" : "Read all blogs";
-  const blogUrl = lang === "fi" ? "/fi/blogi" : lang === "sv" ? "/sv/blogg" : "/en/blog";
+  const loadMoreText = t("list.load_more");
+  const readMoreText = t("list.read_more");
+  const blogUrl = t("list.blog_url");
 
   if (blogs.total === 0) {
     return <></>;
@@ -103,11 +110,18 @@ function BlogList(props: BlogListProps) {
       }}
     >
       <div style={{ backgroundColor: bgColor }}>
-        {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
+        {isKoro ? (
+          <Koros
+            type="basic"
+            style={{ fill: bgColor, position: "absolute", top: "-15px" }}
+          />
+        ) : (
+          <></>
+        )}
         <Container className={classes.container} style={{ zIndex: 10 }}>
-          <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
+          <ParagraphGrid className={classes.cardList} paragraphWidth="Full">
             <div className={classes.title}>
-              <Mainheading headingTag={"h2"} title={title} />
+              <Mainheading headingTag="h2" title={title} />
             </div>
             <CardList
               lang={lang}
@@ -119,10 +133,10 @@ function BlogList(props: BlogListProps) {
                 imageUrl: blog.imageUrl,
                 text: blog.summary,
                 dateContent: { startTime: blog.date },
-                button_url: `${blogUrl}${blog.path}`,
+                buttonUrl: `${blogUrl}${blog.path}`,
               }))}
             />
-            { limit && (
+            {limit && (
               <Box className={classes.box}>
                 <HDSButton
                   iconRight={<IconArrowRight />}
@@ -134,7 +148,7 @@ function BlogList(props: BlogListProps) {
                 </HDSButton>
               </Box>
             )}
-            { !limit && blogs.total > blogs.results.length && (
+            {!limit && blogs.total > blogs.results.length && (
               <div className={classes.loadMore}>
                 <HDSButton
                   variant="supplementary"

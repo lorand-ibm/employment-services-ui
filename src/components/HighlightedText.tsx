@@ -6,10 +6,10 @@ const useStyles = makeStyles((theme: any) => ({
   text: {
     borderLeft: "4px solid #fd4f00",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     lineHeight: 1.5,
     padding: "8px 0 8px 2em",
-  }
+  },
 }));
 
 interface HighlightedTextProps {
@@ -21,7 +21,10 @@ function HighlightedText(props: HighlightedTextProps) {
   const { text } = props;
 
   return (
-    <Typography className={classes.text} dangerouslySetInnerHTML={{__html:text}} />
+    <Typography
+      className={classes.text}
+      dangerouslySetInnerHTML={{ __html: text }}
+    />
   );
 }
 

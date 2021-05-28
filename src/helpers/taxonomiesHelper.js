@@ -3,8 +3,8 @@ import { find } from 'lodash';
 // Taxonomy data is in: .included
 export const findTaxonomy = (data, field) => {
   try {
-    let type = data.data[0].relationships[field].data.type;
-    let taxonomy = find(data.included, {type: type});
+    const type = data.data[0].relationships[field].data.type;
+    const taxonomy = find(data.included, {type});
     if (taxonomy) {
       return taxonomy.attributes.name;
     }
@@ -18,16 +18,16 @@ export const findTaxonomy = (data, field) => {
 
 export const findTaxonomyValue = (id, taxonomies) => {
   try {
-    const name = find(taxonomies, {id: id}).name;
+    const name = find(taxonomies, {id}).name;
     return name;
   } catch(error) {
-    console.log("taxonomies error: " + id);
+    console.log(`taxonomies error: ${id}`);
   }
   return "no-value";
 }
 
 export const setTaxonomies = (taxonomiesRaw) => {
-  let tax = [];
+  const tax = [];
   try {
     taxonomiesRaw.map((item, index) => {
       item[1].data.data.map((t, i) => {
@@ -49,7 +49,7 @@ export const setTaxonomies = (taxonomiesRaw) => {
 }
 
 export const getTaxonomyPath = (drupalUrl, taxonomy, secondPage) => {
-  let path = drupalUrl + '/apijson/taxonomy_term/'+taxonomy+'?fields[taxonomy_term--'+taxonomy+']=id,name';
+  let path = `${drupalUrl}/apijson/taxonomy_term/${taxonomy}?fields[taxonomy_term--${taxonomy}]=id,name`;
   if (secondPage) {
     path += "&page[offset]=50&page[limit]=50";
   }
