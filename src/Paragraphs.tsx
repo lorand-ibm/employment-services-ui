@@ -1,7 +1,7 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
+import { makeStyles } from "@material-ui/core/styles";
 import Accord from "./components/Accord";
 import SingleCard from "./components/SingleCard";
 import { Mainheading, Subheading } from "./components/Headings";
@@ -10,7 +10,6 @@ import Pdf from "./components/Pdf";
 import PhoneNumberBox from "./components/PhoneNumberBox";
 import Text from "./components/Text";
 import HighlightedText from "./components/HighlightedText";
-import { makeStyles } from "@material-ui/core/styles";
 import Image from "./components/Image";
 import ImageAndCard from "./components/ImageAndCard";
 import CardList from "./components/CardList";
@@ -23,7 +22,8 @@ import { DateWithIcon } from "./components/Date";
 import Location from "./components/Location";
 import SujoEmbedded from "./components/SujoEmbedded";
 import { useReactAndShare } from './hooks';
-import { Lang } from "./types";
+import { Lang, ParagraphWidth } from "./types";
+import { ParagraphGrid, NarrowLargerParagraphGrid } from "./components/ParagraphGrid";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -130,8 +130,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
-interface ParagraphsProps {
+export interface ParagraphsProps {
   paragraphs: any;
   lang: Lang;
   cookieConsent: string;
@@ -139,64 +138,6 @@ interface ParagraphsProps {
   width: ParagraphWidth;
   lastParagraphColor: string;
 }
-
-const FullParagraphGrid = ({ className, children }: { className: string; children: any }) => (
-  <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0", zIndex: 10 }} xs={12}>
-      {children}
-    </Grid>
-  </Grid>
-);
-
-const WideParagraphGrid = ({ className, children }: { className: string; children: any }) => (
-  <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12}>
-      {children}
-    </Grid>
-  </Grid>
-);
-
-const NarrowParagraphGrid = ({ className, children }: { className: string; children: any }) => (
-  <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={8}>
-      {children}
-    </Grid>
-  </Grid>
-);
-
-const NarrowLargerParagraphGrid = ({ className, children }: { className: string; children: any }) => (
-  <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={9}>
-      {children}
-    </Grid>
-  </Grid>
-);
-
-export const DefaultParagraphGrid = ({ className, children }: { className: string; children: any }) => (
-  <Grid container spacing={1} className={className}>
-    <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={8} key={2}>
-      {children}
-    </Grid>
-  </Grid>
-);
-
-export const ParagraphGrid = ({
-  className,
-  paragraphWidth,
-  children,
-}: {
-  className: string;
-  paragraphWidth: ParagraphWidth;
-  children: any;
-}) => {
-  if (paragraphWidth === "Wide") {
-    return <WideParagraphGrid className={className}>{children}</WideParagraphGrid>;
-  }
-  if (paragraphWidth === "Full") {
-    return <FullParagraphGrid className={className}>{children}</FullParagraphGrid>;
-  }
-  return <NarrowParagraphGrid className={className}>{children}</NarrowParagraphGrid>;
-};
 
 function Paragraphs(props: ParagraphsProps) {
   const classes = useStyles();
@@ -210,7 +151,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={width}>
-              <Accord {...paragraph}></Accord>
+              <Accord {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
@@ -219,14 +160,13 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={width}>
-              <SingleCard {...paragraph}></SingleCard>
+              <SingleCard {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
         break;
-      case "CardList":
-        const isKoro = paragraph.isKoro;
-        const bgColor = paragraph.bgColor;
+      case "CardList": {
+        const { isKoro, bgColor } = paragraph;
         items.push(
           <div
             style={{
@@ -239,19 +179,20 @@ function Paragraphs(props: ParagraphsProps) {
             <div style={{ backgroundColor: bgColor }}>
               {isKoro ? <Koros type="basic" style={{ fill: bgColor, position: "absolute", top: "-15px" }} /> : <></>}
               <Container className={classes.container} style={{ zIndex: 10 }}>
-                <ParagraphGrid className={classes.cardList} paragraphWidth={"Full"}>
-                  <CardList {...paragraph}></CardList>
+                <ParagraphGrid className={classes.cardList} paragraphWidth="Full">
+                  <CardList {...paragraph} />
                 </ParagraphGrid>
               </Container>
             </div>
           </div>
         );
         break;
+      }
       case "Mainheading":
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.subheading} paragraphWidth={width}>
-              <Mainheading {...paragraph} nodeData={nodeData}></Mainheading>
+              <Mainheading {...paragraph} nodeData={nodeData} />
             </ParagraphGrid>
           </Container>
         );
@@ -260,7 +201,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.subheading} paragraphWidth={width}>
-              <Subheading {...paragraph}></Subheading>
+              <Subheading {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
@@ -270,13 +211,13 @@ function Paragraphs(props: ParagraphsProps) {
           width === "Narrow" ? (
             <Container className={classes.container}>
               <NarrowLargerParagraphGrid className={classes.info}>
-                <Info {...paragraph}></Info>
+                <Info {...paragraph} />
               </NarrowLargerParagraphGrid>
             </Container>
           ) : (
             <Container className={classes.container}>
               <ParagraphGrid className={classes.info} paragraphWidth={width}>
-                <Info {...paragraph}></Info>
+                <Info {...paragraph} />
               </ParagraphGrid>
             </Container>
           )
@@ -286,7 +227,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={width}>
-              <Link url={paragraph.url} text={paragraph.url_text}></Link>
+              <Link href={paragraph.url} text={paragraph.url_text} />
             </ParagraphGrid>
           </Container>
         );
@@ -296,7 +237,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.pdf} paragraphWidth={width}>
-              <Pdf {...paragraph}></Pdf>
+              <Pdf {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
@@ -305,7 +246,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container2}>
             <ParagraphGrid className={classes.image} paragraphWidth={width}>
-              <Image {...paragraph}></Image>
+              <Image {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
@@ -314,7 +255,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.info} paragraphWidth={width}>
-              <ImageAndCard {...paragraph}></ImageAndCard>
+              <ImageAndCard {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
@@ -323,7 +264,7 @@ function Paragraphs(props: ParagraphsProps) {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={width}>
-              <PhoneNumberBox {...paragraph}></PhoneNumberBox>
+              <PhoneNumberBox {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
@@ -406,7 +347,7 @@ function Paragraphs(props: ParagraphsProps) {
           <div style={{ backgroundColor: lastParagraphColor }}>
             <Container className={classes.container2}>
               <ParagraphGrid className={classes.reactAndShare} paragraphWidth={width}>
-                <div className="rns"></div>
+                <div className="rns" />
               </ParagraphGrid>
             </Container>
           </div>
@@ -415,15 +356,14 @@ function Paragraphs(props: ParagraphsProps) {
       default:
         break;
     }
-    return;
   });
 
   return (
     <>
       {items.map((item, i) =>
-        <React.Fragment key={i}>
+        <>
          {item}
-        </React.Fragment>
+        </>
       )}
     </>
   );

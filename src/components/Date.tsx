@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: any) => ({
   }),
 }));
 
-interface DateProps {
+export interface DateProps {
   startTime: string;
   endTime?: string;
   size?: string;
@@ -35,7 +35,7 @@ interface DateProps {
 export function DateWithIcon(props: DateProps) {
   const classes = useStyles(props);
 
-  const { startTime, endTime = '' } = props;
+  const { startTime, endTime = "" } = props;
 
   const startDate = new Date(startTime);
   const endDate = new Date(endTime);
@@ -50,7 +50,10 @@ export function DateWithIcon(props: DateProps) {
     return (
       <div className={classes.container}>
         <IconClock className={classes.icon} />
-        <div className={classes.text}>{`${dateformat(startTime, "dd.mm.yyyy  -  HH:MM")}`}</div>
+        <div className={classes.text}>{`${dateformat(
+          startTime,
+          "dd.mm.yyyy  -  HH:MM"
+        )}`}</div>
       </div>
     );
   }
@@ -59,7 +62,10 @@ export function DateWithIcon(props: DateProps) {
     return (
       <div className={classes.container}>
         <IconClock className={classes.icon} />
-        <div className={classes.text}>{`${dateformat(startTime, "dd.mm.yyyy  -  HH:MM")} - ${dateformat(endTime, "HH:MM")}`}</div>
+        <div className={classes.text}>{`${dateformat(
+          startTime,
+          "dd.mm.yyyy  -  HH:MM"
+        )} - ${dateformat(endTime, "HH:MM")}`}</div>
       </div>
     );
   }
@@ -67,13 +73,17 @@ export function DateWithIcon(props: DateProps) {
     <>
       <div className={classes.container}>
         <IconClock className={classes.icon} />
-        <div className={classes.text}>{dateformat(startTime, "dd.mm.yyyy  - HH:MM")}</div>
+        <div className={classes.text}>
+          {dateformat(startTime, "dd.mm.yyyy  - HH:MM")}
+        </div>
       </div>
-      <div className={classes.container2}>{`-  ${dateformat(endDate, "dd.mm.yyyy  - HH:MM")}`}</div>
+      <div className={classes.container2}>{`-  ${dateformat(
+        endDate,
+        "dd.mm.yyyy  - HH:MM"
+      )}`}</div>
     </>
   );
 }
-
 
 export function DateComponent(props: DateProps) {
   const classes = useStyles(props);
@@ -81,7 +91,10 @@ export function DateComponent(props: DateProps) {
 
   return (
     <div className={classes.container}>
-      <div className={classes.date}>{`${dateformat(startTime, "dd.mm.yyyy · HH:MM")}`}</div>
+      <div className={classes.date}>{`${dateformat(
+        startTime,
+        "dd.mm.yyyy · HH:MM"
+      )}`}</div>
     </div>
   );
 }

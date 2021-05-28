@@ -4,21 +4,21 @@ import { drupalUrl } from "../config";
 
 const useStyles = makeStyles((theme: any) => ({
   container: () => ({
-    overflow: 'hidden'
+    overflow: "hidden",
   }),
   img: () => ({
-    maxWidth: '100%',
-    height: 'auto'
+    maxWidth: "100%",
+    height: "auto",
   }),
   caption: () => ({
     color: "#666",
     fontSize: 16,
     lineHeight: 1.5,
-    paddingTop: 8
+    paddingTop: 8,
   }),
 }));
 
-interface ImageProps {
+export interface ImageProps {
   imageUrl: string;
   caption: string;
   alt?: string;
@@ -26,9 +26,12 @@ interface ImageProps {
 
 function Image(props: ImageProps) {
   const classes = useStyles(props);
-  const { imageUrl, caption, alt = '' } = props;
+  const { imageUrl, caption, alt = "" } = props;
 
-  const imagePath = imageUrl && (imageUrl.startsWith('https') || imageUrl.startsWith('http')) ? imageUrl : drupalUrl + imageUrl;
+  const imagePath =
+    imageUrl && (imageUrl.startsWith("https") || imageUrl.startsWith("http"))
+      ? imageUrl
+      : drupalUrl + imageUrl;
 
   return (
     <div className={classes.container}>

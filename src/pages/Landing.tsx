@@ -10,7 +10,7 @@ import {
   getLandingPagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-import { findPageData } from "../helpers/dataHelper";
+import { findPageData, findNodeTitle } from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, ParagraphData } from "../types";
 
@@ -26,7 +26,7 @@ interface LandingProps {
 }
 
 function Landing(props: LandingProps) {
-  const { langParam } = useParams<{langParam: string}>()
+  const { langParam } = useParams<{ langParam: string }>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);
   const { lang, cookieConsent } = props;
@@ -45,11 +45,17 @@ function Landing(props: LandingProps) {
       ["Width", widthTax],
     ]);
     const [fiPage, svPage, enPage] = getLandingPagePath();
-    const [fi, sv, en] = await Promise.all([axios.get(fiPage), axios.get(svPage), axios.get(enPage)]);
+    const [fi, sv, en] = await Promise.all([
+      axios.get(fiPage),
+      axios.get(svPage),
+      axios.get(enPage),
+    ]);
+
+    const title = findNodeTitle(lang, fi, sv, en);
 
     setData({
       nodeData: {
-        title: lang === 'fi' ? fi.data.data[0].attributes.title : lang === 'sv' ? sv.data.data[0].attributes.title : en.data.data[0].attributes.title,
+        title
       },
       paragraphData: {
         en: findPageData("en", en.data, files, media, documents, taxonomies),
@@ -68,13 +74,21 @@ function Landing(props: LandingProps) {
     if (lang !== langParam) {
       history.replace(lang);
     }
-  }, [lang])
+  }, [lang]);
 
   if (!data) {
     return <></>;
   }
 
-  return <PageUsingParagraphs lang={lang} cookieConsent={cookieConsent} nodeData={data.nodeData} paragraphData={data.paragraphData} width={data.width} />;
+  return (
+    <PageUsingParagraphs
+      lang={lang}
+      cookieConsent={cookieConsent}
+      nodeData={data.nodeData}
+      paragraphData={data.paragraphData}
+      width={data.width}
+    />
+  );
 }
 
 export default Landing;

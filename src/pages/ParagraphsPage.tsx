@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
-  hero: (heroShallow: Boolean) => ({
+  hero: (heroShallow) => ({
     height: heroShallow ? 360 : 550,
   }),
   main: {},
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface PageUsingParagraphsProps {
+export interface PageUsingParagraphsProps {
   lang: Lang;
   cookieConsent: string;
   nodeData?: any;
@@ -34,7 +34,13 @@ interface PageUsingParagraphsProps {
 
 export default function ParagraphsPage(props: PageUsingParagraphsProps) {
   const { lang, cookieConsent, nodeData, paragraphData, width } = props;
-  const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
+
+  let useData = paragraphData.fi;
+  if (lang === "en") {
+    useData = paragraphData.en;
+  } else if (lang === "sv") {
+    useData = paragraphData.sv;
+  }
 
   let heroTitle = "";
   let heroText = "";
@@ -62,20 +68,31 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
       <main className={classes.main}>
         {isHero ? (
           <div className={classes.hero}>
-            { heroShallow ? (
+            {heroShallow ? (
               <HeroShallow title={heroTitle} imageUrl={heroUrl} />
             ) : (
-              <Hero title={heroTitle} text={heroText} imageUrl={heroUrl}/>
+              <Hero title={heroTitle} text={heroText} imageUrl={heroUrl} />
             )}
           </div>
         ) : (
           <></>
         )}
         <div className={classes.paragraphs}>
-          <Paragraphs paragraphs={useData} lang={lang} cookieConsent={cookieConsent} nodeData={nodeData} width={width} lastParagraphColor={lastParagraphColor} />
+          <Paragraphs
+            paragraphs={useData}
+            lang={lang}
+            cookieConsent={cookieConsent}
+            nodeData={nodeData}
+            width={width}
+            lastParagraphColor={lastParagraphColor}
+          />
         </div>
       </main>
-      <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor={lastParagraphColor} />
+      <FooterBottom
+        title={getAppName(lang)}
+        lang={lang}
+        lastParagraphColor={lastParagraphColor}
+      />
     </>
   );
 }

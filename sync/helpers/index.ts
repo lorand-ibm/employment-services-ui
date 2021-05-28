@@ -46,7 +46,7 @@ export const findImage = (item: any, field: string, files: any, media: any, imag
 }
 
 export const findImageUrl = (uuid: string, files: any, media: any, imageStyle: string) => {
-  if (!!!files || !!!files.data || !!!media || !!!media.data) {
+  if (!files || !files.data || !media || !media.data) {
     return "";
   }
   const mIndex = media.data.data.findIndex((item: { id: string; }) => item.id === uuid);

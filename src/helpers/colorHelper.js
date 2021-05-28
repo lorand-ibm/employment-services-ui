@@ -1,5 +1,5 @@
-import {findTaxonomyValue} from "./taxonomiesHelper.js";
 import { find } from 'lodash';
+import { findTaxonomyValue } from "./taxonomiesHelper";
 
 const colors = [
   {name: 'bussi', rgb: '#0000bf'},
@@ -17,17 +17,19 @@ const colors = [
   {name: 'valkoinen', rgb: '#fff'},
 ];
 
-export const getColor = (item, field, taxonomies) => {
+const getColor = (item, field, taxonomies) => {
   try {
     const id = item.relationships[field].data.id;
     const name = findTaxonomyValue(id, taxonomies);
-    const c = find(colors, {name: name}).rgb;
+    const c = find(colors, { name }).rgb;
     if (!c) {
-      console.log('undefined color ' + id + ' ' + name);
+      console.log(`undefined color ${id} ${name}`);
     }
     return c;
   } catch(error) {
-
+    console.log(error)
   }
   return null;
 }
+
+export default getColor;

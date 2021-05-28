@@ -4,8 +4,8 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme: any) => ({
   text: (props: TextProps) => ({
-    fontSize: props.type === 'Lead' ? 20 : 16,
-  })
+    fontSize: props.type === "Lead" ? 20 : 16,
+  }),
 }));
 
 interface TextProps {
@@ -15,10 +15,14 @@ interface TextProps {
 
 function Text(props: TextProps) {
   const classes = useStyles(props);
-  const { text } = props;
+  const { text, type } = props;
 
   return (
-    <Typography className={classes.text} component="div" dangerouslySetInnerHTML={{__html:text}} />
+    <Typography
+      className={classes.text}
+      component="div"
+      dangerouslySetInnerHTML={{ __html: text }}
+    />
   );
 }
 
