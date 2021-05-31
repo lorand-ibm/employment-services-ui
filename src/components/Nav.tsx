@@ -4,8 +4,8 @@ import { orderBy } from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
 import { Navigation, Button } from "hds-react/components";
 import axios from "axios";
-import { drupalUrl, getAppName } from "./config";
-import { Lang } from "./types";
+import { drupalUrl, getAppName } from "../config";
+import { Lang } from "../types";
 
 const findSubmenu = (m: any, id: any) => {
   const subs: any = [];
@@ -45,7 +45,7 @@ export const makeMenu = (menuRes: any) => {
   return menu2;
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   navi: {
     zIndex: 10000,
     fontFamily: "HelsinkiGrotesk",
@@ -63,7 +63,7 @@ interface NavProps {
   changeLang: (lang: Lang) => void;
 }
 
-function Nav(props: NavProps) {
+function Nav(props: NavProps): JSX.Element {
   const { lang, changeLang } = props;
   const { t } = useTranslation();
   const classes = useStyles(props);
@@ -77,7 +77,7 @@ function Nav(props: NavProps) {
       setMenu(updatedMenu);
     };
     getMenu();
-  }, [lang]);
+  }, [lang]); // eslint-disable-line
 
   const getNavi = (menuArray: any, language: string) => {
     const nav: any = [];

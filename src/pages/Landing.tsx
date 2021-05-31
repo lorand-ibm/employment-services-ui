@@ -25,7 +25,7 @@ interface LandingProps {
   cookieConsent: string;
 }
 
-function Landing(props: LandingProps) {
+function Landing(props: LandingProps): JSX.Element {
   const { langParam } = useParams<{ langParam: string }>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);

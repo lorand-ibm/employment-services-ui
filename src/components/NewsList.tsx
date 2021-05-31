@@ -65,7 +65,7 @@ interface NewsListProps {
   limit: boolean;
 }
 
-function NewsList(props: NewsListProps) {
+function NewsList(props: NewsListProps): JSX.Element {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
@@ -92,7 +92,7 @@ function NewsList(props: NewsListProps) {
       setNews(newNews);
     };
     fetchNews();
-  }, [newsIndex, lang]);
+  }, [newsIndex, lang]); // eslint-disable-line
 
     const loadMoreText = t("list.load_more");
     const readMoreText = t("list.read_more_news");

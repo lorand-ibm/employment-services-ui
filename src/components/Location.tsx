@@ -6,7 +6,7 @@ interface LocationProps {
   location: string;
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   container: () => ({
     display: "flex",
     color: "black",
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: any) => ({
   }),
 }));
 
-function Location(props: LocationProps) {
+function Location(props: LocationProps): JSX.Element {
   const classes = useStyles(props);
   const { location } = props;
 

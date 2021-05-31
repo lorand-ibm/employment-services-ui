@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import FooterBottom from "../FooterBottom";
-import Paragraphs from "../Paragraphs";
+import Footer from "../components/Footer";
+import Paragraphs from "../components/Paragraphs";
 import { Hero, HeroShallow } from "../components/Hero";
 import { getAppName } from "../config";
 import { Lang, ParagraphData } from "../types";
@@ -32,7 +32,7 @@ export interface PageUsingParagraphsProps {
   width: any;
 }
 
-export default function ParagraphsPage(props: PageUsingParagraphsProps) {
+export default function ParagraphsPage(props: PageUsingParagraphsProps): JSX.Element {
   const { lang, cookieConsent, nodeData, paragraphData, width } = props;
 
   let useData = paragraphData.fi;
@@ -88,7 +88,7 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
           />
         </div>
       </main>
-      <FooterBottom
+      <Footer
         title={getAppName(lang)}
         lang={lang}
         lastParagraphColor={lastParagraphColor}

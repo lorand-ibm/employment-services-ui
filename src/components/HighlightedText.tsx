@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   text: {
     borderLeft: "4px solid #fd4f00",
     fontSize: 18,
@@ -16,7 +16,7 @@ interface HighlightedTextProps {
   text: string;
 }
 
-function HighlightedText(props: HighlightedTextProps) {
+function HighlightedText(props: HighlightedTextProps): JSX.Element {
   const classes = useStyles();
   const { text } = props;
 

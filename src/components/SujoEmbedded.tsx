@@ -1,6 +1,6 @@
 import React from "react";
 
-function SujoEmbedded(props: { training: boolean }) {
+function SujoEmbedded(props: { training: boolean }): JSX.Element {
   const { training } = props;
 
   return (

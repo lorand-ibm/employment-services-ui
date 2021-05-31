@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme: any) => ({
   }),
 }));
 
-function SingleCard(props: SingleCardProps) {
+function SingleCard(props: SingleCardProps): JSX.Element {
   const classes = useStyles(props as SingleCardProps);
   const {
     image,

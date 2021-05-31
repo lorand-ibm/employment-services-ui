@@ -11,7 +11,7 @@ interface PdfProps {
   title: string;
 }
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   text: {
     fontSize: 16,
   },
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-function Pdf(props: PdfProps) {
+function Pdf(props: PdfProps): JSX.Element {
   const classes = useStyles();
   const { title, url } = props;
   const address = drupalUrl + url;

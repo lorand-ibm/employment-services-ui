@@ -65,7 +65,7 @@ interface BlogListProps {
   limit: boolean;
 }
 
-function BlogList(props: BlogListProps) {
+function BlogList(props: BlogListProps): JSX.Element {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
@@ -91,7 +91,7 @@ function BlogList(props: BlogListProps) {
       setBlogs(newBlogs);
     };
     fetchBlogs();
-  }, [blogIndex, lang]);
+  }, [blogIndex, lang]); // eslint-disable-line
 
   const loadMoreText = t("list.load_more");
   const readMoreText = t("list.read_more");
@@ -169,4 +169,5 @@ function BlogList(props: BlogListProps) {
     </div>
   );
 }
+
 export default BlogList;

@@ -26,7 +26,7 @@ const NarrowParagraphGrid = ({ className, children }: { className: string; child
   </Grid>
 );
 
-export const NarrowLargerParagraphGrid = ({ className, children }: { className: string; children: any }) => (
+export const NarrowLargerParagraphGrid = ({ className, children }: { className: string; children: any }): JSX.Element => (
   <Grid container spacing={1} className={className}>
     <Grid item style={{ margin: "0 auto", zIndex: 10 }} xs={12} md={9}>
       {children}
@@ -42,7 +42,7 @@ export const ParagraphGrid = ({
   className: string;
   paragraphWidth: ParagraphWidth;
   children: any;
-}) => {
+}): JSX.Element => {
   if (paragraphWidth === "Wide") {
     return <WideParagraphGrid className={className}>{children}</WideParagraphGrid>;
   }

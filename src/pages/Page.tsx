@@ -28,7 +28,7 @@ interface PageProps {
   cookieConsent: string;
 }
 
-function Page(props: PageProps) {
+function Page(props: PageProps): JSX.Element {
   const { langParam, urlAlias } = useParams<Params>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);
@@ -103,7 +103,7 @@ function Page(props: PageProps) {
     if (langParam !== lang) {
       history.replace(`/${lang}/${alias}`);
     }
-  }, [lang]);
+  }, [lang]); // eslint-disable-line
 
   if (redirect) {
     return <NotFound lang={lang} />;

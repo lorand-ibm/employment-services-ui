@@ -32,7 +32,7 @@ export interface HeadingProps {
   showDate?: boolean;
 }
 
-export function Mainheading(props: HeadingProps) {
+export function Mainheading(props: HeadingProps): JSX.Element {
   const classes = useStyles(props);
   const { title, titleColor, headingTag, nodeData, showDate } = props;
   const tag = headingTag || "h1";
@@ -52,7 +52,7 @@ export function Mainheading(props: HeadingProps) {
   );
 }
 
-export function Subheading(props: HeadingProps) {
+export function Subheading(props: HeadingProps): JSX.Element {
   const classes = useStyles(props);
   const { title, titleColor, headingTag } = props;
   const tag = headingTag || "h2";

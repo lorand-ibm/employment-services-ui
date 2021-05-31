@@ -6,7 +6,7 @@ import SingleCard from "./SingleCard";
 import ListItem from "./ListItem";
 import { Lang } from "../types";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   title: {
     nocolor: "white",
     nobackground: "blue",
@@ -25,7 +25,7 @@ export interface CardListProps {
   type?: string;
 }
 
-function CardList(props: CardListProps) {
+function CardList(props: CardListProps): JSX.Element {
   const classes = useStyles(props);
   const { title, cards, lang, type } = props;
 

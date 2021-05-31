@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import dateformat from "dateformat";
 import { IconClock } from "hds-react";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   container: () => ({
     display: "flex",
     color: "black",
@@ -32,9 +32,8 @@ export interface DateProps {
   size?: string;
 }
 
-export function DateWithIcon(props: DateProps) {
+export function DateWithIcon(props: DateProps): JSX.Element {
   const classes = useStyles(props);
-
   const { startTime, endTime = "" } = props;
 
   const startDate = new Date(startTime);
@@ -85,7 +84,7 @@ export function DateWithIcon(props: DateProps) {
   );
 }
 
-export function DateComponent(props: DateProps) {
+export function DateComponent(props: DateProps): JSX.Element {
   const classes = useStyles(props);
   const { startTime } = props;
 

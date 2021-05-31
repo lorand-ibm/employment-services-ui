@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import CallIcon from "@material-ui/icons/CallOutlined";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   title: {
     color: "black",
     background: "white",
@@ -35,7 +35,7 @@ interface PhoneNumberBoxProps {
   title: string;
 }
 
-function PhoneNumberBox(props: PhoneNumberBoxProps) {
+function PhoneNumberBox(props: PhoneNumberBoxProps): JSX.Element {
   const classes = useStyles();
   const { title, text } = props;
 

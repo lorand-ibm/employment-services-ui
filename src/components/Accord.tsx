@@ -3,13 +3,13 @@ import { Accordion } from "hds-react/components/Accordion";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   text: {
     fontSize: "16px",
   },
 }));
 
-function Accord(props: { text: string; title: string }) {
+function Accord(props: { text: string; title: string }): JSX.Element {
   const classes = useStyles();
   const { title, text } = props;
 
