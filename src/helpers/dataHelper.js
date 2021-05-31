@@ -337,12 +337,23 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           console.log(error);
         }
         break;
+      case 'paragraph--highlighted_text':
+          try {
+            data.push({
+              type: 'HighlightedText',
+              lang: item.attributes.langcode,
+              text: item.attributes.field_highlighted_text,
+            });
+          } catch (error) {
+            console.log("highlighted text");
+            console.log(error);
+          }
+          break;
       case 'paragraph--text':
         try {
           data.push({
             type: 'Text',
             lang: item.attributes.langcode,
-            title: '',
             text: getTextValue(item.attributes.field_text_demo),
           });
         } catch (error) {

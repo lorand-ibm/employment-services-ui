@@ -14,7 +14,7 @@ function Accord(props: { text: string; title: string }) {
   const { title, text } = props;
 
   return (
-    <React.Fragment>
+    <>
       <Accordion
         heading={title}
         theme={{
@@ -22,9 +22,9 @@ function Accord(props: { text: string; title: string }) {
           "--header-font-size": "18px",
         }}
       >
-        <Typography dangerouslySetInnerHTML={{ __html: text }} className={classes.text} />
+        <Typography dangerouslySetInnerHTML={{ __html: text }} component="div" className={classes.text} />
       </Accordion>
-    </React.Fragment>
+    </>
   );
 }
 

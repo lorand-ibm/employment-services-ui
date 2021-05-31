@@ -9,6 +9,7 @@ import Info from "./components/Info";
 import Pdf from "./components/Pdf";
 import PhoneNumberBox from "./components/PhoneNumberBox";
 import Text from "./components/Text";
+import HighlightedText from "./components/HighlightedText";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "./components/Image";
 import ImageAndCard from "./components/ImageAndCard";
@@ -332,6 +333,15 @@ function Paragraphs(props: ParagraphsProps) {
           <Container className={classes.container}>
             <ParagraphGrid className={classes.accord} paragraphWidth={width}>
               <Text {...paragraph} />
+            </ParagraphGrid>
+          </Container>
+        );
+        break;
+      case "HighlightedText":
+        items.push(
+          <Container className={classes.container}>
+            <ParagraphGrid className={classes.accord} paragraphWidth={width}>
+              <HighlightedText {...paragraph} />
             </ParagraphGrid>
           </Container>
         );
