@@ -22,7 +22,7 @@ interface EventProps {
   cookieConsent: string;
 }
 
-function Event(props: EventProps) {
+function Event(props: EventProps): JSX.Element {
   const { urlAlias } = useParams<EventParams>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);
@@ -74,7 +74,7 @@ function Event(props: EventProps) {
       const newPath = `${t("list.events_url")}/${urlAlias}`;
       history.replace(newPath);
     }
-  }, [lang]);
+  }, [lang]); // eslint-disable-line
 
   if (redirect) {
     return <NotFound lang={lang} />;

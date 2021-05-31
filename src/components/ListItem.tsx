@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-function ListItem(props: ListItemProps) {
+function ListItem(props: ListItemProps): JSX.Element {
   const classes = useStyles(props as ListItemProps);
   const { t } = useTranslation();
-  const { title, lang, text, buttonUrl, dateContent, imageUrl } = props;
+  const { title, text, buttonUrl, dateContent, imageUrl } = props;
   const readMoreText = t("list.read_more");
 
   return (

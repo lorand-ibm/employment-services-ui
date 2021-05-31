@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { drupalUrl } from "../config";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   container: () => ({
     overflow: "hidden",
   }),
@@ -24,7 +24,7 @@ export interface ImageProps {
   alt?: string;
 }
 
-function Image(props: ImageProps) {
+function Image(props: ImageProps): JSX.Element {
   const classes = useStyles(props);
   const { imageUrl, caption, alt = "" } = props;
 

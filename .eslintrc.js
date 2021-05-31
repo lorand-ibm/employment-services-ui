@@ -10,9 +10,9 @@ module.exports = {
   plugins: ['react-hooks', '@typescript-eslint'], //'jest'],
   env: {
     browser: true,
-    // es6: true,
+    es6: true,
     node: true,
-    jest: true,
+    // jest: true,
   },
   globals: {
     Atomics: 'readonly',
@@ -28,17 +28,9 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    // 'linebreak-style': 'off',
-    // 'prettier/prettier': [
-    //   'error',
-    //   {
-    //     endOfLine: 'auto',
-    //   },
-    // ]
     'prettier/prettier': 0,
     'prefer-destructuring': 0,
     'react/jsx-props-no-spreading': 0,
-    'react/jsx-filename-extension': [1, { 'extensions': ['.tsx'] }],
     'react/prop-types': 0,
     'import/extensions': [
       "error",
@@ -51,7 +43,7 @@ module.exports = {
       }
     ],
     "no-underscore-dangle": ["error", { "allow": ["__DEV__"] }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "curly": ["error", "all"],
     "react-hooks/rules-of-hooks": "error",
     'jsx-a11y/label-has-associated-control': [

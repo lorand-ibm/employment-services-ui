@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme: any) => ({
     fontSize: 36,
     fontWeight: "bold",
   }),
-  text: (props: ImageAndCardProps) => ({
+  text: {
     fontSize: 18,
     fontFamily: "HelsinkiGrotesk",
     backgroundColor: "transparent",
     mlineHeight: 27,
-  }),
+  },
   button: (props: ImageAndCardProps) => ({
     color: "black",
     backgroundColor: props.card.bg_color,
@@ -48,25 +48,25 @@ const useStyles = makeStyles((theme: any) => ({
       height: "auto",
     },
   }),
-  wrapper: (props: ImageAndCardProps) => ({
+  wrapper: {
     position: "relative",
     [theme.breakpoints.down("1248")]: {
       minHeight: 590,
     },
-  }),
-  imageWrapper: (props: ImageAndCardProps) => ({
+  },
+  imageWrapper: {
     width: "70%",
     [theme.breakpoints.down("1248")]: {
       width: "100%",
     },
-  }),
+  },
 }));
 interface ImageAndCardProps {
   card: SingleCardProps;
   imageUrl: string;
 }
 
-function ImageAndCard(props: ImageAndCardProps) {
+function ImageAndCard(props: ImageAndCardProps): JSX.Element {
   const classes = useStyles(props);
   const { card, imageUrl } = props;
 

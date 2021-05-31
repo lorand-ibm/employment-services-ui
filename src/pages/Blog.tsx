@@ -29,7 +29,7 @@ interface BlogProps {
   cookieConsent: string;
 }
 
-function Blog(props: BlogProps) {
+function Blog(props: BlogProps): JSX.Element {
   const { urlAlias } = useParams<Params>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);

@@ -2,28 +2,28 @@ import React from "react";
 import { Container } from "hds-react";
 import { Koros } from "hds-react/components/Koros";
 import { makeStyles } from "@material-ui/core/styles";
-import Accord from "./components/Accord";
-import SingleCard from "./components/SingleCard";
-import { Mainheading, Subheading } from "./components/Headings";
-import Info from "./components/Info";
-import Pdf from "./components/Pdf";
-import PhoneNumberBox from "./components/PhoneNumberBox";
-import Text from "./components/Text";
-import HighlightedText from "./components/HighlightedText";
-import Image from "./components/Image";
-import ImageAndCard from "./components/ImageAndCard";
-import CardList from "./components/CardList";
-import EventsList from "./components/EventsList";
-import NewsList from "./components/NewsList";
-import BlogList from "./components/BlogList";
-import Video from "./components/Video";
-import Link from "./components/Link";
-import { DateWithIcon } from "./components/Date";
-import Location from "./components/Location";
-import SujoEmbedded from "./components/SujoEmbedded";
-import { useReactAndShare } from './hooks';
-import { Lang, ParagraphWidth } from "./types";
-import { ParagraphGrid, NarrowLargerParagraphGrid } from "./components/ParagraphGrid";
+import Accord from "./Accord";
+import SingleCard from "./SingleCard";
+import { Mainheading, Subheading } from "./Headings";
+import Info from "./Info";
+import Pdf from "./Pdf";
+import PhoneNumberBox from "./PhoneNumberBox";
+import Text from "./Text";
+import HighlightedText from "./HighlightedText";
+import Image from "./Image";
+import ImageAndCard from "./ImageAndCard";
+import CardList from "./CardList";
+import EventsList from "./EventsList";
+import NewsList from "./NewsList";
+import BlogList from "./BlogList";
+import Video from "./Video";
+import Link from "./Link";
+import { DateWithIcon } from "./Date";
+import Location from "./Location";
+import SujoEmbedded from "./SujoEmbedded";
+import { useReactAndShare } from '../hooks';
+import { Lang, ParagraphWidth } from "../types";
+import { ParagraphGrid, NarrowLargerParagraphGrid } from "./ParagraphGrid";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -139,7 +139,7 @@ export interface ParagraphsProps {
   lastParagraphColor: string;
 }
 
-function Paragraphs(props: ParagraphsProps) {
+function Paragraphs(props: ParagraphsProps): JSX.Element {
   const classes = useStyles();
   const { paragraphs, lang, cookieConsent, nodeData, width, lastParagraphColor } = props;
   const items: any[] = [];

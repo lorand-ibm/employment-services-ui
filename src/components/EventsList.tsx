@@ -57,7 +57,7 @@ interface EventListProps {
   bgColor: string;
 }
 
-function EventsList(props: EventListProps) {
+function EventsList(props: EventListProps): JSX.Element {
   const classes = useStyles();
   const { t } = useTranslation();
   const { title, bgColor, lang } = props;
@@ -77,7 +77,7 @@ function EventsList(props: EventListProps) {
       setEvents(newEvents);
     };
     fetchEvents();
-  }, [eventsIndex]);
+  }, [eventsIndex]); // eslint-disable-line
 
   const loadMoreText = t("list.load_more");
   const eventsUrl = t("list.events_url");

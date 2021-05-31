@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Helmet } from "react-helmet";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
-import Nav from "./Nav";
+import Nav from "./components/Nav";
 import { Lang } from "./types";
 import Landing from "./pages/Landing";
 import Page from "./pages/Page";
@@ -45,7 +45,7 @@ const strToLang = (langParam: string): Lang => {
   }
 };
 
-function App() {
+function App(): JSX.Element {
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const [, langPath] = location.pathname.split("/");
@@ -55,7 +55,7 @@ function App() {
 
   useEffect(() => {
     i18n.changeLanguage(lang);
-  }, [lang]);
+  }, [lang, i18n]);
 
   const changeLang = (newLang: Lang) => {
     setLang(newLang);

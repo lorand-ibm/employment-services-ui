@@ -29,7 +29,7 @@ interface NewsProps {
   cookieConsent: string;
 }
 
-function News(props: NewsProps) {
+function News(props: NewsProps): JSX.Element {
   const { urlAlias } = useParams<Params>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);

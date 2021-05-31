@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container } from "hds-react";
 import { Params, Lang } from "../types";
-import FooterBottom from "../FooterBottom";
+import Footer from "../components/Footer";
 import { getAppName } from "../config";
 
 const notFoundTexts = {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   main: {},
 }));
 
-function NotFound(props: NotFoundProps) {
+function NotFound(props: NotFoundProps): JSX.Element {
   const classes = useStyles();
   const { langParam } = useParams<Params>();
   const { lang } = props;
@@ -69,7 +69,7 @@ function NotFound(props: NotFoundProps) {
           </Link>
         </Container>
       </main>
-      <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor="" />
+      <Footer title={getAppName(lang)} lang={lang} lastParagraphColor="" />
     </>
   );
 }

@@ -7,7 +7,7 @@ interface InfoProps {
   text: string;
 }
 
-function Info(props: InfoProps) {
+function Info(props: InfoProps): JSX.Element {
   const { title, text } = props;
 
   return (

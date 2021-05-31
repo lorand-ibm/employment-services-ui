@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import deleteCookie from "../helpers/helpers";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   declined: () => ({
     border: "2px solid",
     padding: "24px 16px",
@@ -18,7 +18,7 @@ interface VideoProps {
   cookieConsent: string;
 }
 
-function Video(props: VideoProps) {
+function Video(props: VideoProps): JSX.Element {
   const classes = useStyles(props);
   const history = useHistory();
   const { t } = useTranslation();
