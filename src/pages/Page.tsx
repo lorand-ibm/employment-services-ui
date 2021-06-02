@@ -11,7 +11,7 @@ import {
   getPagePagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-import { findPageData, getUrlAlias, findNodeTitle } from "../helpers/dataHelper";
+import { findPageData, getUrlAlias, findNodeAttributes } from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, Params, ParagraphData } from "../types";
 import NotFound from "./NotFound";
@@ -71,11 +71,11 @@ function Page(props: PageProps): JSX.Element {
       axios.get(enPage),
     ]);
 
-    const title = findNodeTitle(lang, fi, sv, en);
-
     setData({
       nodeData: {
-        title
+        fi: findNodeAttributes(fi.data),
+        en: findNodeAttributes(en.data),
+        sv: findNodeAttributes(sv.data),
       },
       paragraphData: {
         fi: findPageData("fi", fi.data, files, media, documents, taxonomies),

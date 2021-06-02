@@ -22,6 +22,9 @@ const groteskTheme = createMuiTheme({
   palette: {
     background: {
       default: "#fff"
+    },
+    success: {
+      main: "#006250" 
     }
   },
   typography: {

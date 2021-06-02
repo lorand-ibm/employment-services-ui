@@ -1,5 +1,6 @@
 {
   "locale": "sv",
+  "link_copied": "Länken har kopierats",
   "navigation": {
     "button_text": "E-Tjänster",
     "button_link": "https://asiointi.mol.fi/omaasiointi/?kieli=sv",

@@ -21,9 +21,10 @@ import Link from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
 import SujoEmbedded from "./SujoEmbedded";
+import ShareButtons from "./ShareButtons";
+import { ParagraphGrid, NarrowLargerParagraphGrid } from "./ParagraphGrid";
 import { useReactAndShare } from '../hooks';
 import { Lang, ParagraphWidth } from "../types";
-import { ParagraphGrid, NarrowLargerParagraphGrid } from "./ParagraphGrid";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -122,6 +123,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 24,
     marginBottom: 24,
     textAlign: "center",
+  },
+  shareButtons: {
+    padding: '32px 0',
+    marginTop: 0,
+    marginBottom: 0,
   },
   reactAndShare: {
     padding: 0,
@@ -340,6 +346,17 @@ function Paragraphs(props: ParagraphsProps): JSX.Element {
               <Video videoUrl={paragraph.videoUrl} cookieConsent={cookieConsent} />
             </ParagraphGrid>
           </Container>
+        )
+        break;
+      case "ShareButtons":
+        items.push(
+          <div style={{ backgroundColor: lastParagraphColor }}>
+            <Container className={classes.container2}>
+              <ParagraphGrid className={classes.shareButtons} paragraphWidth={width}>
+                <ShareButtons lang={lang} pageTitle={nodeData.title} pageSummary={nodeData.summary} />
+              </ParagraphGrid>
+            </Container>
+          </div>
         )
         break;
       case "ReactAndShare":

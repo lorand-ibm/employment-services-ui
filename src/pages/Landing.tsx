@@ -10,7 +10,7 @@ import {
   getLandingPagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-import { findPageData, findNodeTitle } from "../helpers/dataHelper";
+import { findPageData, findNodeAttributes} from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, ParagraphData } from "../types";
 
@@ -51,11 +51,11 @@ function Landing(props: LandingProps): JSX.Element {
       axios.get(enPage),
     ]);
 
-    const title = findNodeTitle(lang, fi, sv, en);
-
     setData({
       nodeData: {
-        title
+        fi: findNodeAttributes(fi.data),
+        en: findNodeAttributes(en.data),
+        sv: findNodeAttributes(sv.data),
       },
       paragraphData: {
         en: findPageData("en", en.data, files, media, documents, taxonomies),

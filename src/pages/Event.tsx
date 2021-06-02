@@ -7,7 +7,7 @@ import {
   getEventPagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy } from "../helpers/taxonomiesHelper";
-import { findEventData, findNodeTitle } from "../helpers/dataHelper";
+import { findEventData, findNodeAttributes } from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, EventParams, ParagraphData } from "../types";
 import NotFound from "./NotFound";
@@ -49,11 +49,11 @@ function Event(props: EventProps): JSX.Element {
       axios.get(enPage),
     ]);
 
-    const title = findNodeTitle(lang, fi, sv, en);
-
     setData({
       nodeData: {
-        title
+        fi: findNodeAttributes(fi.data),
+        en: findNodeAttributes(en.data),
+        sv: findNodeAttributes(sv.data),
       },
       paragraphData: {
         en: findEventData("en", en.data),
