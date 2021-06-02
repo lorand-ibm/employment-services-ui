@@ -12,7 +12,7 @@ import {
   getNewsPagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-import { findPageData, getUrlAlias, findNodeTitle, findNodeCreated } from "../helpers/dataHelper";
+import { findPageData, getUrlAlias, findNodeAttributes } from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, Params, ParagraphData } from "../types";
 import NotFound from "./NotFound";
@@ -74,13 +74,11 @@ function News(props: NewsProps): JSX.Element {
       axios.get(enPage),
     ]);
 
-    const created = findNodeCreated(lang, fi, sv, en);
-    const title = findNodeTitle(lang, fi, sv, en);
-
     setData({
       nodeData: {
-        created,
-        title
+        fi: findNodeAttributes(fi.data),
+        en: findNodeAttributes(en.data),
+        sv: findNodeAttributes(sv.data),
       },
       paragraphData: {
         fi: findPageData("fi", fi.data, files, media, documents, taxonomies),

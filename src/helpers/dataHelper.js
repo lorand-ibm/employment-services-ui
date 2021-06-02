@@ -140,6 +140,12 @@ export const findEventData = (lang, json) => {
   }
 
   paragraphs.push({
+    type: 'ShareButtons',
+    lang,
+    bgColor: '#fff',
+  })
+
+  paragraphs.push({
     type: 'EventsList',
     lang,
     title: getEventsListTitle(lang),
@@ -158,26 +164,14 @@ export const findEventData = (lang, json) => {
   return paragraphs;
 }
 
-export const findNodeCreated = (lang, fi, sv, en) => {
-  let created = fi.data.data[0].attributes.created;
-  if (lang === "en") {
-    created = en.data.data[0].attributes.created;
-  } else if (lang === "sv") {
-    created = sv.data.data[0].attributes.created;
-  }
+export const findNodeAttributes = (json) => {
+  const data = {
+    created: json.data[0].attributes.created,
+    summary: json.data[0].attributes.field_summary,
+    title: json.data[0].attributes.title,
+  };
 
-  return created;
-}
-
-export const findNodeTitle = (lang, fi, sv, en) => {
-  let title = fi.data.data[0].attributes.title;
-  if (lang === "en") {
-    title = en.data.data[0].attributes.title;
-  } else if (lang === "sv") {
-    title = sv.data.data[0].attributes.title;
-  }
-
-  return title;
+  return data
 }
 
 export const findPageData = (lang, json, files, media, doc, taxonomies) => {
@@ -482,6 +476,14 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
       }
     return data;
   });
+
+  if (pageType !== 'node--landing') {
+    data.push({
+      type: 'ShareButtons',
+      lang,
+      bgColor: '#fff',
+    });
+  }
 
   if (pageType === 'node--news') {
     data.push({

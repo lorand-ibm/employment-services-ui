@@ -36,4 +36,3 @@ const blogListTitles: { [l in Lang]: string } = {
 };
 
 export const getBlogListTitle = (l: Lang): string => blogListTitles[l];
-
