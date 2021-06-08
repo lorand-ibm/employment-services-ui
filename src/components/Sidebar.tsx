@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   sidebarAboutBox: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200],
@@ -16,7 +16,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Sidebar(props) {
+Sidebar.propTypes = {
+  archives: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  social: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.elementType.isRequired,
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+interface SidebarProps {
+  description: string;
+  title: string;
+}
+
+function Sidebar(props: any) {
   const classes = useStyles();
   const { archives, description, social, title } = props;
 
@@ -31,7 +51,7 @@ function Sidebar(props) {
       <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Archives
       </Typography>
-      {archives.map((archive) => (
+      {archives.map((archive: any) => (
         <Link display="block" variant="body1" href={archive.url} key={archive.title}>
           {archive.title}
         </Link>
@@ -40,7 +60,7 @@ function Sidebar(props) {
       <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Social
       </Typography>
-      {social.map((network) => (
+      {social.map((network: any) => (
         <Link display="block" variant="body1" href="#" key={network.name}>
           <Grid container direction="row" spacing={1} alignItems="center">
             <Grid item>
@@ -53,22 +73,5 @@ function Sidebar(props) {
     </Grid>
   );
 }
-
-Sidebar.propTypes = {
-  archives: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  description: PropTypes.string.isRequired,
-  social: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.elementType.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default Sidebar;

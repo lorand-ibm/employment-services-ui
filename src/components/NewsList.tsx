@@ -52,6 +52,7 @@ interface NewsState {
     date: string;
     title: string;
     imageUrl: string;
+    alt: string;
     summary: string;
   }>;
 }
@@ -132,9 +133,10 @@ function NewsList(props: NewsListProps): JSX.Element {
                 title: n.title,
                 title_color: titleColor,
                 imageUrl: n.imageUrl,
+                alt: n.alt,
                 text: n.summary,
                 dateContent: { startTime: n.date },
-                buttonUrl: `${newsUrl}${n.path}`,
+                url: `${newsUrl}${n.path}`,
               }))}
             />
             {limit && (

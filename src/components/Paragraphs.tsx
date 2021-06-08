@@ -17,7 +17,7 @@ import EventsList from "./EventsList";
 import NewsList from "./NewsList";
 import BlogList from "./BlogList";
 import Video from "./Video";
-import Link from "./Link";
+import IconLink from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
 import SujoEmbedded from "./SujoEmbedded";
@@ -233,7 +233,7 @@ function Paragraphs(props: ParagraphsProps): JSX.Element {
         items.push(
           <Container className={classes.container}>
             <ParagraphGrid className={classes.card} paragraphWidth={width}>
-              <Link href={paragraph.url} text={paragraph.url_text} />
+              <IconLink href={paragraph.url} text={paragraph.url_text} />
             </ParagraphGrid>
           </Container>
         );

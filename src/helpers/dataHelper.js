@@ -14,12 +14,11 @@ export const findImageUrl = (uuid, files, media, imageStyle) => {
 }
 
 export const findImageAlt = (item, field, files, media) => {
-  if (!files || !files.data || !media || !media.data) {
-    return "";
+  if (!files || !files.data || !media || !media.data || !item.relationships[field].data) {
+    return '';
   }
-
   const mIndex = media.data.data.findIndex(i => i.id === item.relationships[field].data.id);
-  const imgAlt = media.data.data[mIndex].relationships.field_media_image.data.meta.alt;
+  const imgAlt = media.data.data[mIndex].relationships.field_media_image.data.meta.alt || '';
 
   return imgAlt;
 }
@@ -73,17 +72,18 @@ const convertCardsFromDrupal = (drupalCards, includeFromList, files, media, taxo
         cards.push({
           type: 'Card',
           lang: item.attributes.langcode,
-          bg_color: getColor(item, 'field_background_color', taxonomies),
+          bgColor: getColor(item, 'field_background_color', taxonomies),
           title: item.attributes.field_card_title,
           title_color: getColor(item, 'field_title_color', taxonomies),
           text: getTextValue(item.attributes.field_card_text),
           text_color: getColor(item, 'field_text_color', taxonomies),
           buttonText: item.attributes.field_card_button_text,
-          buttonUrl: item.attributes.field_card_button_url,
+          url: item.attributes.field_card_button_url,
           width: item.attributes.field_card_width,
           height: item.attributes.field_card_height,
           image: findImage(item, 'field_ic_image', files, media, 'wide_s'),
-          button_bg_color: getColor(item, 'field_button_color', taxonomies),
+          buttonBgColor: getColor(item, 'field_button_color', taxonomies),
+          alt: findImageAlt(item, 'field_ic_image', files, media)
         });
       }
       return cards;
@@ -256,12 +256,14 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
           const drupalCards = getCards(json.included, item.relationships.field_ic_card.data);
           const cards = convertCardsFromDrupal(drupalCards, true, files, media, taxonomies);
           const imageUrl = findImage(item, 'field_ic_image', files, media, 'regular_s');
+          const alt = findImageAlt(item, 'field_ic_image', files, media)
 
           data.push({
             type: 'ImageAndCard',
             lang: item.attributes.langcode,
             card: cards[0],
             imageUrl,
+            alt,
           });
         } catch (error) {
           console.log("image and card");

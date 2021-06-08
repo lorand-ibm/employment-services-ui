@@ -52,6 +52,7 @@ interface BlogState {
     date: string;
     title: string;
     imageUrl: string;
+    alt: string;
     summary: string;
   }>;
 }
@@ -131,9 +132,10 @@ function BlogList(props: BlogListProps): JSX.Element {
                 title: blog.title,
                 title_color: titleColor,
                 imageUrl: blog.imageUrl,
+                alt: blog.alt,
                 text: blog.summary,
                 dateContent: { startTime: blog.date },
-                buttonUrl: `${blogUrl}${blog.path}`,
+                url: `${blogUrl}${blog.path}`,
               }))}
             />
             {limit && (

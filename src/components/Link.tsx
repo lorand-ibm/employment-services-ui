@@ -1,7 +1,7 @@
 import React from "react";
 import { IconArrowRight, IconLinkExternal } from "hds-react";
 
-function Link({ href, text }: { href: string; text: string }): JSX.Element {
+function IconLink({ href, text }: { href: string; text: string }): JSX.Element {
   const isExternalLink =
     href && (href.startsWith("https://") || href.startsWith("https://"));
   return (
@@ -20,4 +20,4 @@ function Link({ href, text }: { href: string; text: string }): JSX.Element {
   );
 }
 
-export default Link;
+export default IconLink;

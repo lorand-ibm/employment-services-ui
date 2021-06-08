@@ -45,6 +45,7 @@ interface EventState {
     title: string;
     path: string;
     image: string;
+    alt: string;
     startTime: string;
     endTime: string;
   }>;
@@ -115,12 +116,13 @@ function EventsList(props: EventListProps): JSX.Element {
                 type: "event",
                 title: event.title,
                 image: event.image,
+                alt: event.alt,
                 title_color: "#fd4f00",
                 dateContent: {
                   startTime: event.startTime,
                   endTime: event.endTime,
                 },
-                buttonUrl: `${eventsUrl}${event.path}`,
+                url: `${eventsUrl}${event.path}`,
               }))}
             />
             {events.total > events.results.length && (
