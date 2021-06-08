@@ -8,7 +8,8 @@ import { Button } from "hds-react/components/Button";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Link from "./Link";
+import Link from "@material-ui/core/Link";
+import IconLink from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
 import { drupalUrl } from "../config";
@@ -18,7 +19,7 @@ const defaultImageHeight = 221;
 
 const useStyles = makeStyles((theme: any) => ({
   root: (props: SingleCardProps) => ({
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     color: theme.color,
     height: "100%",
     display: "flex",
@@ -30,24 +31,30 @@ const useStyles = makeStyles((theme: any) => ({
   }),
   title: (props: SingleCardProps) => ({
     color: props.title_color,
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     fontFamily: "HelsinkiGrotesk",
     fontSize: props.image ? 20 : 24,
     fontWeight: "bold",
+    '& a': {
+      color: 'inherit',
+      '&:hover': {
+        textDecoration: 'none',
+      }
+    }
   }),
   text: (props: SingleCardProps) => ({
     fontSize: props.image ? 16 : 18,
     fontFamily: "HelsinkiGrotesk",
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     color: props.text_color,
   }),
   button: (props: SingleCardProps) => ({
     fontFamily: "HelsinkiGrotesk",
     color: "black",
-    backgroundColor: props.button_bg_color,
+    backgroundColor: props.buttonBgColor,
     fontSize: 16,
     "&:hover": {
-      backgroundColor: props.button_bg_color,
+      backgroundColor: props.buttonBgColor,
       color: "black",
     },
   }),
@@ -55,7 +62,7 @@ const useStyles = makeStyles((theme: any) => ({
     height: props.type === "event" ? 150 : defaultImageHeight,
   }),
   content: (props) => ({
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
     minHeight: "100px",
   }),
@@ -75,10 +82,11 @@ function SingleCard(props: SingleCardProps): JSX.Element {
     image,
     title,
     text,
-    buttonUrl,
+    url,
     buttonText,
     type,
     dateContent,
+    alt,
   } = props;
   const { t } = useTranslation();
 
@@ -88,14 +96,14 @@ function SingleCard(props: SingleCardProps): JSX.Element {
   const CardButton = () => {
     if (type === "event") {
       const readMoreText = t("list.read_more");
-      return <Link text={readMoreText} href={buttonUrl || ""} />;
+      return <IconLink text={readMoreText} href={url || ""} />;
     }
     return (
       <Box position="bottom" className={classes.buttonArea}>
         <Button
           className={classes.button}
           onClick={() => {
-            window.location.href = buttonUrl || "";
+            window.location.href = url || "";
           }}
         >
           {buttonText}
@@ -108,12 +116,14 @@ function SingleCard(props: SingleCardProps): JSX.Element {
     <Card className={classes.root}>
       <div>
         {image ? (
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image={imageAddress}
-            title="-"
-          />
+          <Link href={url}>
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image={imageAddress}
+              title={alt}
+            />
+          </Link>
         ) : (
           <></>
         )}
@@ -124,7 +134,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
             component="h2"
             className={classes.title}
           >
-            {title}
+            <Link href={url}>{title}</Link>
           </Typography>
 
           {dateContent ? (

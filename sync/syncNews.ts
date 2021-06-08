@@ -51,6 +51,7 @@ export const syncElasticSearchNews = async () => {
             date: { type: "date" },
             title: { type: "text" },
             imageUrl: { type: "text" },
+            alt: { type: "text" },
             summary: { type: "text" },
           },
         },
@@ -66,6 +67,7 @@ export const syncElasticSearchNews = async () => {
   }
 
   const news = await fetchNews();
+
   const dataset = Object.keys(news).map((k: any) => {
     return news[k].flatMap((doc: any) => [{ index: { _index: "news-" + k } }, doc]);
   });

@@ -8,11 +8,11 @@ import { SingleCardProps } from "../types";
 
 const useStyles = makeStyles((theme: any) => ({
   root: (props: ImageAndCardProps) => ({
-    backgroundColor: props.card.bg_color,
+    backgroundColor: props.card.bgColor,
   }),
   title: (props: ImageAndCardProps) => ({
     color: props.card.title_color,
-    backgroundColor: props.card.bg_color,
+    backgroundColor: props.card.bgColor,
     fontFamily: "HelsinkiGrotesk",
     fontSize: 36,
     fontWeight: "bold",
@@ -25,11 +25,11 @@ const useStyles = makeStyles((theme: any) => ({
   },
   button: (props: ImageAndCardProps) => ({
     color: "black",
-    backgroundColor: props.card.bg_color,
+    backgroundColor: props.card.bgColor,
     borderColor: "black",
   }),
   box: (props: ImageAndCardProps) => ({
-    backgroundColor: props.card.bg_color,
+    backgroundColor: props.card.bgColor,
     position: "absolute",
     top: "9%",
     right: "0",
@@ -64,11 +64,12 @@ const useStyles = makeStyles((theme: any) => ({
 interface ImageAndCardProps {
   card: SingleCardProps;
   imageUrl: string;
+  alt: string;
 }
 
 function ImageAndCard(props: ImageAndCardProps): JSX.Element {
   const classes = useStyles(props);
-  const { card, imageUrl } = props;
+  const { card, imageUrl, alt } = props;
 
   const imagePath =
     imageUrl && (imageUrl.startsWith("https") || imageUrl.startsWith("http"))
@@ -79,7 +80,7 @@ function ImageAndCard(props: ImageAndCardProps): JSX.Element {
     <Button
       className={classes.button}
       onClick={() => {
-        window.location.href = card.buttonUrl || "";
+        window.location.href = card.url || "";
       }}
       style={{
         borderColor: "black",
@@ -104,14 +105,14 @@ function ImageAndCard(props: ImageAndCardProps): JSX.Element {
               overflow: "hidden",
             }}
           >
-            <img alt="" style={{ width: "100%" }} src={imagePath} />
+            <img alt={alt} style={{ width: "100%" }} src={imagePath} />
           </div>
         </div>
 
         <Card
           className={classes.box}
           theme={{
-            "--background-color": card.bg_color,
+            "--background-color": card.bgColor,
             "--padding-horizontal": "var(--spacing-l)",
             "--padding-vertical": "var(--spacing-m)",
           }}

@@ -51,6 +51,7 @@ export const syncElasticSearchBlogs = async () => {
             date: { type: "date" },
             title: { type: "text" },
             imageUrl: { type: "text" },
+            alt: { type: "text" },
             summary: { type: "text" },
           },
         },

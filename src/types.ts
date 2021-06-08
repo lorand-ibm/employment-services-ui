@@ -16,17 +16,17 @@ export interface SingleCardProps {
   type: CardType;
   lang: Lang;
 
+  image?: string;
+  alt?: string;
   dateContent?: DateContent;
   location?: string;
 
   text_color?: string;
   title_color?: string;
-  image?: string;
-  buttonUrl?: string;
+  url?: string;
   buttonText?: string;
-  button_bg_color?: string;
+  buttonBgColor?: string;
   bgColor?: string;
-  bg_color?: string;
 }
 export interface ListItemProps {
   text: string;
@@ -35,16 +35,16 @@ export interface ListItemProps {
   lang: Lang;
 
   imageUrl?: string;
+  alt?: string;
   dateContent: DateContent;
   location?: string;
 
   text_color?: string;
   title_color?: string;
-  buttonUrl?: string;
+  url: string;
   buttonText?: string;
-  button_bg_color?: string;
+  buttonBgColor?: string;
   bgColor?: string;
-  bg_color?: string;
 }
 declare global {
   interface Window {
