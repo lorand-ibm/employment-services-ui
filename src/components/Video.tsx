@@ -3,13 +3,13 @@ import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { deleteCookie } from "../helpers/helpers";
+import deleteCookie from "../helpers/helpers";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
   declined: () => ({
     border: "2px solid",
     padding: "24px 16px",
-    textAlign: "center"
+    textAlign: "center",
   }),
 }));
 
@@ -18,7 +18,7 @@ interface VideoProps {
   cookieConsent: string;
 }
 
-function Video(props: VideoProps) {
+function Video(props: VideoProps): JSX.Element {
   const classes = useStyles(props);
   const history = useHistory();
   const { t } = useTranslation();
@@ -26,13 +26,20 @@ function Video(props: VideoProps) {
 
   return (
     <>
-      { cookieConsent === 'true' ? (
-        <div className="video-wrapper"><iframe allowFullScreen={true} scrolling='no' src={videoUrl} title="video" /></div>
+      {cookieConsent === "true" ? (
+        <div className="video-wrapper">
+          <iframe allowFullScreen scrolling="no" src={videoUrl} title="video" />
+        </div>
       ) : (
         <Typography component="p" className={classes.declined}>
           {t("video.cookie_consent")}
-          <a href="#href" onClick={(e: any) => {deleteCookie(e ,'tyollisyyspalvelut_cookie_consent', history);}}>
-          {t("video.link_text")}
+          <a
+            href="#href"
+            onClick={(e: any) => {
+              deleteCookie(e, "tyollisyyspalvelut_cookie_consent", history);
+            }}
+          >
+            {t("video.link_text")}
           </a>
         </Typography>
       )}

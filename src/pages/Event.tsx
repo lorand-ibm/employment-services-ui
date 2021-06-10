@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
-import { getDrupalNodeDataFromPathAlias, getEventPagePath } from "../helpers/fetchHelper";
+import { useTranslation } from "react-i18next";
+import {
+  getDrupalNodeDataFromPathAlias,
+  getEventPagePath,
+} from "../helpers/fetchHelper";
 import { findTaxonomy } from "../helpers/taxonomiesHelper";
-import { findEventData } from "../helpers/dataHelper";
+import { findEventData, findNodeAttributes } from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, EventParams, ParagraphData } from "../types";
 import NotFound from "./NotFound";
@@ -18,30 +22,38 @@ interface EventProps {
   cookieConsent: string;
 }
 
-function Event(props: EventProps) {
+function Event(props: EventProps): JSX.Element {
   const { urlAlias } = useParams<EventParams>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);
   const [redirect, setRedirect] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
   const { lang, cookieConsent } = props;
 
   const fetchData = async () => {
     // TODO: Change langParam here when there's lang support for events
-    const { nid } = await getDrupalNodeDataFromPathAlias(urlAlias, 'en') || {};
+    const { nid } =
+      (await getDrupalNodeDataFromPathAlias(urlAlias, "en")) || {};
     if (!nid) {
       setRedirect(true);
       return;
     }
 
-    const filter = "&filter[drupal_internal__nid]=" + nid;
+    const filter = `&filter[drupal_internal__nid]=${nid}`;
     const [fiPage, svPage, enPage] = getEventPagePath(filter);
 
-    const [fi, sv, en] = await Promise.all([axios.get(fiPage), axios.get(svPage), axios.get(enPage)]);
+    const [fi, sv, en] = await Promise.all([
+      axios.get(fiPage),
+      axios.get(svPage),
+      axios.get(enPage),
+    ]);
 
     setData({
       nodeData: {
-        title: lang === 'fi' ? fi.data.data[0].attributes.title : lang === 'sv' ? sv.data.data[0].attributes.title : en.data.data[0].attributes.title,
+        fi: findNodeAttributes(fi.data),
+        en: findNodeAttributes(en.data),
+        sv: findNodeAttributes(sv.data),
       },
       paragraphData: {
         en: findEventData("en", en.data),
@@ -59,15 +71,10 @@ function Event(props: EventProps) {
   useEffect(() => {
     const [, langPath] = location.pathname.split("/");
     if (lang !== langPath) {
-      const newPath =
-        lang === "fi"
-          ? `/fi/tapahtuma/${urlAlias}`
-          : lang === "sv"
-          ? `/sv/evenemang/${urlAlias}`
-          : `/en/event/${urlAlias}`;
+      const newPath = `${t("list.events_url")}/${urlAlias}`;
       history.replace(newPath);
     }
-  }, [lang]);
+  }, [lang]); // eslint-disable-line
 
   if (redirect) {
     return <NotFound lang={lang} />;
@@ -77,7 +84,15 @@ function Event(props: EventProps) {
     return <></>;
   }
 
-  return <PageUsingParagraphs lang={lang} cookieConsent={cookieConsent} nodeData={data.nodeData} paragraphData={data.paragraphData} width={data.width} />;
+  return (
+    <PageUsingParagraphs
+      lang={lang}
+      cookieConsent={cookieConsent}
+      nodeData={data.nodeData}
+      paragraphData={data.paragraphData}
+      width={data.width}
+    />
+  );
 }
 
 export default Event;

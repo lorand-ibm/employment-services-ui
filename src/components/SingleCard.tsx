@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -7,11 +8,10 @@ import { Button } from "hds-react/components/Button";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-
-import Link from "./Link";
+import Link from "@material-ui/core/Link";
+import IconLink from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
-
 import { drupalUrl } from "../config";
 import { SingleCardProps } from "../types";
 
@@ -19,7 +19,7 @@ const defaultImageHeight = 221;
 
 const useStyles = makeStyles((theme: any) => ({
   root: (props: SingleCardProps) => ({
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     color: theme.color,
     height: "100%",
     display: "flex",
@@ -31,24 +31,30 @@ const useStyles = makeStyles((theme: any) => ({
   }),
   title: (props: SingleCardProps) => ({
     color: props.title_color,
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     fontFamily: "HelsinkiGrotesk",
     fontSize: props.image ? 20 : 24,
     fontWeight: "bold",
+    '& a': {
+      color: 'inherit',
+      '&:hover': {
+        textDecoration: 'none',
+      }
+    }
   }),
   text: (props: SingleCardProps) => ({
     fontSize: props.image ? 16 : 18,
     fontFamily: "HelsinkiGrotesk",
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     color: props.text_color,
   }),
   button: (props: SingleCardProps) => ({
     fontFamily: "HelsinkiGrotesk",
     color: "black",
-    backgroundColor: props.button_bg_color,
+    backgroundColor: props.buttonBgColor,
     fontSize: 16,
     "&:hover": {
-      backgroundColor: props.button_bg_color,
+      backgroundColor: props.buttonBgColor,
       color: "black",
     },
   }),
@@ -56,7 +62,7 @@ const useStyles = makeStyles((theme: any) => ({
     height: props.type === "event" ? 150 : defaultImageHeight,
   }),
   content: (props) => ({
-    backgroundColor: props.bg_color,
+    backgroundColor: props.bgColor,
     padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
     minHeight: "100px",
   }),
@@ -70,26 +76,37 @@ const useStyles = makeStyles((theme: any) => ({
   }),
 }));
 
-function SingleCard(props: SingleCardProps) {
+function SingleCard(props: SingleCardProps): JSX.Element {
   const classes = useStyles(props as SingleCardProps);
-  const { image, title, lang, text, button_url, button_text, type, dateContent } = props;
+  const {
+    image,
+    title,
+    text,
+    url,
+    buttonText,
+    type,
+    dateContent,
+    alt,
+  } = props;
+  const { t } = useTranslation();
 
-  const imageAddress = image ? (image.startsWith("http") ? image : drupalUrl + image) : "";
+  // eslint-disable-next-line
+  const imageAddress = image ? image.startsWith("http") ? image: drupalUrl + image: "";
 
   const CardButton = () => {
     if (type === "event") {
-      const readMoreText = lang === "fi" ? "Lue lisää" : lang === "sv" ? "Läs mer" : "Read more";
-      return <Link text={readMoreText} url={button_url ? button_url : ""} />;
+      const readMoreText = t("list.read_more");
+      return <IconLink text={readMoreText} href={url || ""} />;
     }
     return (
-      <Box position={"bottom"} className={classes.buttonArea}>
+      <Box position="bottom" className={classes.buttonArea}>
         <Button
           className={classes.button}
           onClick={() => {
-            window.location.href = button_url ? button_url : "";
+            window.location.href = url || "";
           }}
         >
-          {button_text}
+          {buttonText}
         </Button>
       </Box>
     );
@@ -98,15 +115,39 @@ function SingleCard(props: SingleCardProps) {
   return (
     <Card className={classes.root}>
       <div>
-        {image ? <CardMedia component="img" className={classes.media} image={imageAddress} title="-" /> : <></>}
+        {image ? (
+          <Link href={url}>
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image={imageAddress}
+              title={alt}
+            />
+          </Link>
+        ) : (
+          <></>
+        )}
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
-            {title}
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h2"
+            className={classes.title}
+          >
+            <Link href={url}>{title}</Link>
           </Typography>
 
           {dateContent ? (
-            <Typography component="div" variant="body2" color="textSecondary" className={classes.text}>
-              <DateWithIcon startTime={dateContent.startTime} endTime={dateContent.endTime} />
+            <Typography
+              component="div"
+              variant="body2"
+              color="textSecondary"
+              className={classes.text}
+            >
+              <DateWithIcon
+                startTime={dateContent.startTime}
+                endTime={dateContent.endTime}
+              />
               <div style={{ paddingTop: 8 }}>
                 <Location location="Internet" />
               </div>
@@ -121,7 +162,7 @@ function SingleCard(props: SingleCardProps) {
           )}
         </CardContent>
       </div>
-      {(button_text || type === "event") && (
+      {(buttonText || type === "event") && (
         <CardActions className={classes.actions}>
           <CardButton />
         </CardActions>

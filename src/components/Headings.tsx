@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("xs")]: {
       fontSize: 24,
     },
-    color: props.title_color,
+    color: props.titleColor,
   }),
   sub: (props: HeadingProps) => ({
     fontSize: 28,
@@ -20,26 +20,31 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("xs")]: {
       fontSize: 18,
     },
-    color: props.title_color,
+    color: props.titleColor,
   }),
 }));
 
-interface HeadingProps {
+export interface HeadingProps {
   title: string;
-  title_color?: string;
+  titleColor?: string;
   headingTag?: "h1" | "h2" | "h3";
   nodeData?: any;
   showDate?: boolean;
 }
 
-export function Mainheading(props: HeadingProps) {
+export function Mainheading(props: HeadingProps): JSX.Element {
   const classes = useStyles(props);
-  const { title, title_color, headingTag, nodeData, showDate } = props;
-  const tag = headingTag ? headingTag : "h1";
+  const { title, titleColor, headingTag, nodeData, showDate } = props;
+  const tag = headingTag || "h1";
 
   return (
     <>
-      <Typography variant={tag} component={tag} className={classes.main} style={{ color: title_color }}>
+      <Typography
+        variant={tag}
+        component={tag}
+        className={classes.main}
+        style={{ color: titleColor }}
+      >
         {title}
       </Typography>
       {showDate && <DateComponent startTime={nodeData.created} size="large" />}
@@ -47,14 +52,19 @@ export function Mainheading(props: HeadingProps) {
   );
 }
 
-export function Subheading(props: HeadingProps) {
+export function Subheading(props: HeadingProps): JSX.Element {
   const classes = useStyles(props);
-  const { title, title_color, headingTag } = props;
-  const tag = headingTag ? headingTag : "h2";
+  const { title, titleColor, headingTag } = props;
+  const tag = headingTag || "h2";
 
   return (
     <>
-      <Typography variant={tag} component={tag} className={classes.sub} style={{ color: title_color }}>
+      <Typography
+        variant={tag}
+        component={tag}
+        className={classes.sub}
+        style={{ color: titleColor }}
+      >
         {title}
       </Typography>
     </>

@@ -36,6 +36,16 @@ const fetchWithPagination = async (drupalUrl: string) => {
   return res;
 };
 
+export const findImageAlt = (item: any, field: string, files: any, media: any) => {
+  if (!files || !files.data || !media || !media.data || !item.relationships[field].data) {
+    return '';
+  }
+  const mIndex = media.data.data.findIndex((i: any) => i.id === item.relationships[field].data.id);
+  const imgAlt = media.data.data[mIndex].relationships.field_media_image.data.meta.alt || '';
+
+  return imgAlt;
+}
+
 export const findImage = (item: any, field: string, files: any, media: any, imageStyle: string) => {
   try {
     return findImageUrl(item.relationships[field].data.id, files, media, imageStyle);
@@ -46,7 +56,7 @@ export const findImage = (item: any, field: string, files: any, media: any, imag
 }
 
 export const findImageUrl = (uuid: string, files: any, media: any, imageStyle: string) => {
-  if (!!!files || !!!files.data || !!!media || !!!media.data) {
+  if (!files || !files.data || !media || !media.data) {
     return "";
   }
   const mIndex = media.data.data.findIndex((item: { id: string; }) => item.id === uuid);
@@ -64,7 +74,11 @@ export const findParagraphFieldData = (data: any, dataIncluded: any, paragraphFi
       const paragraphData = find(dataIncluded, { id: paragraph.id });
       
       if (paragraphType === 'paragraph--image') {
-        return findImage(paragraphData, 'field_image_image', files, media, 'wide_s');
+        const imgData = {
+          imageUrl: findImage(paragraphData, 'field_image_image', files, media, 'wide_s'),
+          alt: findImageAlt(paragraphData, 'field_image_image', files, media)
+        }
+        return imgData;
       }
 
       return paragraphData.attributes[field];
@@ -77,7 +91,6 @@ export const findParagraphFieldData = (data: any, dataIncluded: any, paragraphFi
 }
 
 export const findNodeData = (data: any, files: any, media: any) => {
-
   const nodeData: Array<any> = data.data;
   if (!nodeData) {
     throw "Error fetching drupal node data, no data in res";
@@ -85,15 +98,16 @@ export const findNodeData = (data: any, files: any, media: any) => {
 
   const parsedData = nodeData.reduce((acc: any, node: any) => {
     const title = findParagraphFieldData(node, data.included, 'field_page_content', 'paragraph--mainheading', 'field_title');
-    const imageUrl = findParagraphFieldData(node, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
+    const { imageUrl, alt } = findParagraphFieldData(node, data.included, 'field_page_content', 'paragraph--image', 'field_image_image', files, media);
     const attr = node.attributes;
 
     const returnData = {
       id: node.id,
       path: attr.path.alias,
       date: attr.created,
-      title: title,
+      title,
       imageUrl: imageUrl || "https://edit.tyollisyyspalvelut.hel.fi/sites/default/files/2021-04/tyollisyyspalvelut-helsinki.png",
+      alt: alt || '',
       summary: attr.field_summary,
     };
     return [...acc, returnData];

@@ -6,6 +6,7 @@ export type DateContent = {
   endTime: string;
 };
 export type CardType = "event" | "Card" | "news" | "blog" | null;
+export type ParagraphWidth = "Narrow" | "Medium" | "Wide" | "Full" | null;
 // TODO type "any"
 export type ParagraphData = {[k in Lang]: any};
 export type UrlAliases = {[k in Lang]: string};
@@ -15,17 +16,17 @@ export interface SingleCardProps {
   type: CardType;
   lang: Lang;
 
+  image?: string;
+  alt?: string;
   dateContent?: DateContent;
   location?: string;
 
   text_color?: string;
   title_color?: string;
-  image?: string;
-  button_url?: string;
-  button_text?: string;
-  button_bg_color?: string;
+  url?: string;
+  buttonText?: string;
+  buttonBgColor?: string;
   bgColor?: string;
-  bg_color?: string;
 }
 export interface ListItemProps {
   text: string;
@@ -34,16 +35,16 @@ export interface ListItemProps {
   lang: Lang;
 
   imageUrl?: string;
+  alt?: string;
   dateContent: DateContent;
   location?: string;
 
   text_color?: string;
   title_color?: string;
-  button_url?: string;
-  button_text?: string;
-  button_bg_color?: string;
+  url: string;
+  buttonText?: string;
+  buttonBgColor?: string;
   bgColor?: string;
-  bg_color?: string;
 }
 declare global {
   interface Window {

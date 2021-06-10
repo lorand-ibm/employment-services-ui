@@ -11,7 +11,7 @@ import {
   getPagePagePath,
 } from "../helpers/fetchHelper";
 import { findTaxonomy, setTaxonomies } from "../helpers/taxonomiesHelper";
-import { findPageData, getUrlAlias } from "../helpers/dataHelper";
+import { findPageData, getUrlAlias, findNodeAttributes } from "../helpers/dataHelper";
 import PageUsingParagraphs from "./ParagraphsPage";
 import { Lang, Params, ParagraphData } from "../types";
 import NotFound from "./NotFound";
@@ -28,7 +28,7 @@ interface PageProps {
   cookieConsent: string;
 }
 
-function Page(props: PageProps) {
+function Page(props: PageProps): JSX.Element {
   const { langParam, urlAlias } = useParams<Params>();
   const history = useHistory();
   const [data, setData] = useState<Data>(null);
@@ -49,26 +49,33 @@ function Page(props: PageProps) {
       ["Width", widthTax],
     ]);
 
-    const { nid, nodeLang } = await getDrupalNodeDataFromPathAlias(urlAlias, langParam) || {};
+    const { nid, nodeLang } =
+      (await getDrupalNodeDataFromPathAlias(urlAlias, langParam)) || {};
 
     if (!nid) {
       setRedirect(true);
       return;
-    };
+    }
 
     if (nodeLang !== langParam) {
       setRedirect(true);
       return;
     }
 
-    let filter = "&filter[drupal_internal__nid]=" + nid;
+    const filter = `&filter[drupal_internal__nid]=${nid}`;
 
     const [fiPage, svPage, enPage] = getPagePagePath(filter);
-    const [fi, sv, en] = await Promise.all([axios.get(fiPage), axios.get(svPage), axios.get(enPage)]);
+    const [fi, sv, en] = await Promise.all([
+      axios.get(fiPage),
+      axios.get(svPage),
+      axios.get(enPage),
+    ]);
 
     setData({
       nodeData: {
-        title: lang === 'fi' ? fi.data.data[0].attributes.title : lang === 'sv' ? sv.data.data[0].attributes.title : en.data.data[0].attributes.title,
+        fi: findNodeAttributes(fi.data),
+        en: findNodeAttributes(en.data),
+        sv: findNodeAttributes(sv.data),
       },
       paragraphData: {
         fi: findPageData("fi", fi.data, files, media, documents, taxonomies),
@@ -89,12 +96,14 @@ function Page(props: PageProps) {
   }, []);
 
   useEffect(() => {
-    if (!data) return;
-    const urlAlias = data.urlAliases[lang];
-    if (langParam !== lang) {
-      history.replace(`/${lang}/${urlAlias}`);
+    if (!data) {
+      return;
     }
-  }, [lang]);
+    const alias = data.urlAliases[lang];
+    if (langParam !== lang) {
+      history.replace(`/${lang}/${alias}`);
+    }
+  }, [lang]); // eslint-disable-line
 
   if (redirect) {
     return <NotFound lang={lang} />;
@@ -103,7 +112,16 @@ function Page(props: PageProps) {
   if (!data) {
     return <></>;
   }
-  return <PageUsingParagraphs lang={lang} cookieConsent={cookieConsent} nodeData={data.nodeData} paragraphData={data.paragraphData} width={data.width} />;
+
+  return (
+    <PageUsingParagraphs
+      lang={lang}
+      cookieConsent={cookieConsent}
+      nodeData={data.nodeData}
+      paragraphData={data.paragraphData}
+      width={data.width}
+    />
+  );
 }
 
 export default Page;

@@ -4,14 +4,13 @@ import { orderBy } from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
 import { Navigation, Button } from "hds-react/components";
 import axios from "axios";
-
-import { drupalUrl, getAppName } from "./config";
-import { Lang } from "./types";
+import { drupalUrl, getAppName } from "../config";
+import { Lang } from "../types";
 
 const findSubmenu = (m: any, id: any) => {
   const subs: any = [];
   m.data.data.map((item: any) => {
-    if (item.attributes.parent === "menu_link_content:" + id) {
+    if (item.attributes.parent === `menu_link_content:${id}`) {
       subs.push({
         name: item.attributes.title,
         link: item.attributes.link.uri,
@@ -27,7 +26,7 @@ const findSubmenu = (m: any, id: any) => {
 
 export const makeMenu = (menuRes: any) => {
   const menu: any = [];
-  if (!!!menuRes || !!!menuRes.data) {
+  if (!menuRes || !menuRes.data) {
     console.log("no menus");
     return menu;
   }
@@ -46,7 +45,7 @@ export const makeMenu = (menuRes: any) => {
   return menu2;
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   navi: {
     zIndex: 10000,
     fontFamily: "HelsinkiGrotesk",
@@ -64,44 +63,44 @@ interface NavProps {
   changeLang: (lang: Lang) => void;
 }
 
-function Nav(props: NavProps) {
+function Nav(props: NavProps): JSX.Element {
   const { lang, changeLang } = props;
   const { t } = useTranslation();
   const classes = useStyles(props);
   const [menu, setMenu] = useState(null);
-  const menuData = drupalUrl + "/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-" + lang + '&filter[enabled]=1';
+  const menuData = `${drupalUrl}/apijson/menu_link_content/menu_link_content/?filter[menu_name]=main-${lang}&filter[enabled]=1'`;
 
   useEffect(() => {
     const getMenu = async () => {
       const res = await axios.get(menuData);
-      const menu = makeMenu(res);
-      setMenu(menu);
+      const updatedMenu = makeMenu(res);
+      setMenu(updatedMenu);
     };
     getMenu();
-  }, [lang]);
+  }, [lang]); // eslint-disable-line
 
-  const getNavi = (menu: any, lang: string) => {
-    let nav: any = [];
-    if (!!!menu) {
+  const getNavi = (menuArray: any, language: string) => {
+    const nav: any = [];
+    if (!menuArray) {
       return <></>;
     }
 
-    menu.map((item: any, index: number) => {
-      let subs: any = [];
+    menuArray.map((item: any, index: number) => {
+      const subs: any = [];
       item.items.map((sub: any, i: number) => {
         subs.push(
           <Navigation.Item
-            key={i}
+            key={sub.name}
             as="a"
-            href={"/" + lang + "/" + sub.link.substr(10)}
+            href={`/${language}/${sub.link.substr(10)}`}
             label={sub.name}
-            onClick={function noRefCheck() {}}
+            // onClick={function noRefCheck() {}}
           />
         );
         return subs;
       });
       nav.push(
-        <Navigation.Dropdown label={item.name} key={index}>
+        <Navigation.Dropdown label={item.name} key={item.name}>
           {subs}
         </Navigation.Dropdown>
       );

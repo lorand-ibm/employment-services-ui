@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import FooterBottom from "../FooterBottom";
-import Paragraphs from "../Paragraphs";
+import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
+import Paragraphs from "../components/Paragraphs";
 import { Hero, HeroShallow } from "../components/Hero";
 import { getAppName } from "../config";
 import { Lang, ParagraphData } from "../types";
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
-  hero: (heroShallow: Boolean) => ({
+  hero: (heroShallow) => ({
     height: heroShallow ? 360 : 550,
   }),
   main: {},
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface PageUsingParagraphsProps {
+export interface PageUsingParagraphsProps {
   lang: Lang;
   cookieConsent: string;
   nodeData?: any;
@@ -32,9 +33,18 @@ interface PageUsingParagraphsProps {
   width: any;
 }
 
-export default function ParagraphsPage(props: PageUsingParagraphsProps) {
+export default function ParagraphsPage(props: PageUsingParagraphsProps): JSX.Element {
   const { lang, cookieConsent, nodeData, paragraphData, width } = props;
-  const useData = lang === 'fi' ? paragraphData.fi : lang === 'sv' ? paragraphData.sv : paragraphData.en;
+
+  let useData = paragraphData.fi;
+  let nodeAttributes = nodeData.fi;
+  if (lang === "en") {
+    useData = paragraphData.en;
+    nodeAttributes = nodeData.en;
+  } else if (lang === "sv") {
+    useData = paragraphData.sv;
+    nodeAttributes = nodeData.sv;
+  }
 
   let heroTitle = "";
   let heroText = "";
@@ -53,29 +63,48 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps) {
 
   const classes = useStyles(heroShallow);
 
-  // -2 because ReactAndShare is not calculated
-  const lastParagraph = !useData ? undefined : useData[useData.length - 2];
+  const filteredParagraphs = useData.filter((el: any) => el.type !== 'ReactAndShare' && el.type !== 'ShareButtons');
+  const lastParagraph = !filteredParagraphs ? undefined : filteredParagraphs[filteredParagraphs.length - 1];
   const lastParagraphColor = lastParagraph ? lastParagraph.bgColor : "";
+  const imageParagraph = useData.filter((el: any) => el.type === 'Image');
 
   return (
     <>
+      <Helmet>
+        <title>{`${getAppName(lang)} | ${nodeAttributes.title}`}</title>
+        { nodeAttributes.summary && <meta name="description" content={nodeAttributes.summary} /> }
+        <meta name="og:title" content={nodeAttributes.title} />
+        { nodeAttributes.summary && <meta name="og:description" content={nodeAttributes.summary} />}
+        { imageParagraph?.length && <meta name="og:image" content={imageParagraph[0].imageUrl} />}
+      </Helmet>
       <main className={classes.main}>
         {isHero ? (
           <div className={classes.hero}>
-            { heroShallow ? (
+            {heroShallow ? (
               <HeroShallow title={heroTitle} imageUrl={heroUrl} />
             ) : (
-              <Hero title={heroTitle} text={heroText} imageUrl={heroUrl}/>
+              <Hero title={heroTitle} text={heroText} imageUrl={heroUrl} />
             )}
           </div>
         ) : (
           <></>
         )}
         <div className={classes.paragraphs}>
-          <Paragraphs paragraphs={useData} lang={lang} cookieConsent={cookieConsent} nodeData={nodeData} width={width} lastParagraphColor={lastParagraphColor} />
+          <Paragraphs
+            paragraphs={useData}
+            lang={lang}
+            cookieConsent={cookieConsent}
+            nodeData={nodeAttributes}
+            width={width}
+            lastParagraphColor={lastParagraphColor}
+          />
         </div>
       </main>
-      <FooterBottom title={getAppName(lang)} lang={lang} lastParagraphColor={lastParagraphColor} />
+      <Footer
+        title={getAppName(lang)}
+        lang={lang}
+        lastParagraphColor={lastParagraphColor}
+      />
     </>
   );
 }

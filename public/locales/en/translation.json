@@ -1,9 +1,19 @@
 {
   "locale": "en",
+  "link_copied": "Link copied",
   "navigation": {
     "button_text": "E-Services",
     "button_link": "https://asiointi.mol.fi/omaasiointi/",
     "title_aria_label": "Helsinki: Employment services"
+  },
+  "list": {
+    "load_more": "Show more",
+    "read_more": "Read all blogs",
+    "read_more_news": "Read all news",
+    "blog_url": "/en/blog",
+    "events_url": "/en/event",
+    "news_url": "/en/news",
+    "results_text": "search results"
   },
   "video": {
     "cookie_consent": "You have not allowed the use of cookies on this site.",

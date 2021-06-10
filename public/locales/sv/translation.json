@@ -1,9 +1,19 @@
 {
   "locale": "sv",
+  "link_copied": "Länken har kopierats",
   "navigation": {
     "button_text": "E-Tjänster",
     "button_link": "https://asiointi.mol.fi/omaasiointi/?kieli=sv",
     "title_aria_label": "Helsingfors: Arbetstjänster"
+  },
+  "list": {
+    "load_more": "Visa fler",
+    "read_more": "Läs alla bloggar",
+    "read_more_news": "Läs alla nyheter",
+    "blog_url": "/sv/blogg",
+    "events_url": "/sv/evenemang",
+    "news_url": "/sv/nyheter",
+    "results_text": "sökresultat"
   },
   "video": {
     "cookie_consent": "Du har inte gett tillstånd att installera cookies.",
