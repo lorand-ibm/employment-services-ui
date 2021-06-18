@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Related repositories
+- [Drupal employment services](https://github.com/City-of-Helsinki/drupal-employment-services)
+- [Employment services content sync functions](https://github.com/City-of-Helsinki/employment-services-content-sync)
 ## Tech Stack
 
 The project is created with the Create React App framework.
