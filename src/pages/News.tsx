@@ -100,11 +100,13 @@ function News(props: NewsProps): JSX.Element {
 
   useEffect(() => {
     const [, langPath] = location.pathname.split("/");
+    const alias = data?.urlAliases[lang];
+
     if (lang !== langPath) {
-      const newPath = `${t("list.news_url")}/${urlAlias}`;
+      const newPath = `${t("list.news_url")}/${alias}`;
       history.replace(newPath);
     }
-  }, [lang]);
+  }, [lang, t]);
 
   if (redirect) {
     return <NotFound lang={lang} />;
