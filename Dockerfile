@@ -27,5 +27,7 @@ RUN npm run build
 
 WORKDIR /usr/src/app
 
-# Run server
+# Run server 
 CMD ["node", "server/build/index.js"]
+
+
