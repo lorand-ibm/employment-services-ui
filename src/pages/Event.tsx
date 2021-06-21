@@ -70,11 +70,12 @@ function Event(props: EventProps): JSX.Element {
 
   useEffect(() => {
     const [, langPath] = location.pathname.split("/");
+
     if (lang !== langPath) {
       const newPath = `${t("list.events_url")}/${urlAlias}`;
       history.replace(newPath);
     }
-  }, [lang]); // eslint-disable-line
+  }, [lang, t]); // eslint-disable-line
 
   if (redirect) {
     return <NotFound lang={lang} />;

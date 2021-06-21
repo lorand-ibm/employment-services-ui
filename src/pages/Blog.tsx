@@ -101,12 +101,12 @@ function Blog(props: BlogProps): JSX.Element {
   useEffect(() => {
     const [, langPath] = location.pathname.split("/");
     const alias = data?.urlAliases[lang];
-
+    
     if (lang !== langPath) {
       const newPath = `${t("list.blog_url")}/${alias}`;
       history.replace(newPath);
     }
-  }, [lang]);
+  }, [lang, t]);
 
   if (redirect) {
     return <NotFound lang={lang} />;
