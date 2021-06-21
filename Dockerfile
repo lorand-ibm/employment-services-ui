@@ -1,33 +1,9 @@
-FROM node:14
+FROM ubuntu:20.04
+RUN apt-get update -y 
+RUN apt-get install -y telnet
+RUN apt-get install -y traceroute
+RUN apt-get install -y postgresql-client
 
-WORKDIR /usr/src/app
-
-COPY .env ./
-
-# Install React
-COPY package.json ./
-COPY package-lock.json ./
-
-RUN npm install
-RUN npm install -g react-scripts@4.0.1
-
-# Build React
-COPY ./ ./
-
-RUN npm run build
-
-# Install server
-WORKDIR /usr/src/app/server
-
-COPY server/package.json ./
-COPY server/package-lock.json ./
-
-RUN npm install
-RUN npm run build
-
-WORKDIR /usr/src/app
-
-# Run serverr
-CMD ["node", "server/build/index.js"]
-
-
+# Run the container in the background
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
