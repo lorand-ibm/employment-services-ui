@@ -29,4 +29,3 @@ WORKDIR /usr/src/app
 
 # Run server
 CMD ["node", "server/build/index.js"]
-
