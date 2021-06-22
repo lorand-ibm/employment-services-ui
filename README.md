@@ -32,7 +32,7 @@ nvm use
 # install server depencencies
 npm install --prefix server/
 
-# install front end dependencies
+# install front end dependencies.
 npm install
 
 # run server and front end
