@@ -31,13 +31,13 @@ app.get("/*", async (req, res) => {
     const pageType = getPageType(nodeType, urlAlias);
 
     const { nid } =
-      (await getDrupalNodeDataFromPathAlias(pageType, urlAlias, lang)) || {};
+      (await getDrupalNodeDataFromPathAlias(urlAlias)) || {};
 
     const fetchUrl = getNodePath(pageType, lang, nid);
 
     const pageJson = await axios.get(fetchUrl);
     const nodeAttributes = await findNodeAttributes(pageJson.data, lang);
-  
+
     const filePath = path.resolve(__dirname, '../../build/index.html')
     fs.readFile(filePath, 'utf8', function (err: any, data: any) {
       if (err) {

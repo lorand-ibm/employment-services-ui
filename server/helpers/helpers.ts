@@ -63,9 +63,7 @@ export const getNodePath = (type: string, lang: string, nid: string|boolean) =>
   );
 
 export const getDrupalNodeDataFromPathAlias = async (
-  pageType: string,
   pathAlias: string,
-  langParam: string
 ): Promise<any> => {
   const paths = `${drupalUrl}/apijson/path_alias/path_alias`;
   const exactPath = `${paths}?filter[alias]=/${pathAlias}`;
@@ -75,27 +73,12 @@ export const getDrupalNodeDataFromPathAlias = async (
     return null;
   }
 
-  const eventTypes = [
-    'tapahtuma',
-    'evenemang',
-    'events'
-  ]
-
-  let nodeData = res.data.data.filter(function (d: any) {
-    return d.attributes.langcode === langParam;
-  });
-
-  // Remove this when we have multilang events.
-  if (eventTypes.includes(pageType)) {
-    nodeData = res.data.data;
-  }
-  
-  if (!nodeData.length) {
+  if (!res.data.data.length) {
     return null;
   }
 
   return {
-    nid: nodeData[0].attributes.path.substr(6),
+    nid: res.data.data[0].attributes.path.substr(6),
   };
 };
 
