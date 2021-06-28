@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import Paragraphs from "../components/Paragraphs";
-import { Hero, HeroShallow } from "../components/Hero";
+import Footer from "./Footer";
+import Paragraphs from "./Paragraphs";
+import { Hero, HeroShallow } from "./Hero";
 import { getAppName } from "../config";
 import { Lang, ParagraphData } from "../types";
 
@@ -71,9 +71,9 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps): JSX.Ele
   return (
     <>
       <Helmet>
-        <title>{`${getAppName(lang)} | ${nodeAttributes.title}`}</title>
+        <title>{`${nodeAttributes.title} | ${getAppName(lang)}`}</title>
         { nodeAttributes.summary && <meta name="description" content={nodeAttributes.summary} /> }
-        <meta name="og:title" content={nodeAttributes.title} />
+        <meta name="og:title" content={`${nodeAttributes.title} | ${getAppName(lang)}`} />
         { nodeAttributes.summary && <meta name="og:description" content={nodeAttributes.summary} />}
         { imageParagraph?.length && <meta name="og:image" content={imageParagraph[0].imageUrl} />}
       </Helmet>

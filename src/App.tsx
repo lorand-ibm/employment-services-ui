@@ -68,7 +68,6 @@ function App(): JSX.Element {
     <ThemeProvider theme={groteskTheme}>
       <Helmet>
         <html lang={lang} />
-        <title>{getAppName(lang)}</title>
       </Helmet>
       <Nav lang={lang} changeLang={changeLang} />
       <CssBaseline />
