@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
 function Pdf(props: PdfProps): JSX.Element {
   const classes = useStyles();
   const { title, url } = props;
+  // The url of the pdf.
   const address = drupalUrl + url;
 
   return (
