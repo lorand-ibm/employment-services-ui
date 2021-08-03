@@ -31,6 +31,8 @@ function Landing(props: LandingProps): JSX.Element {
   const [data, setData] = useState<Data>(null);
   const { lang, cookieConsent } = props;
 
+  console.log(process.env)
+
   const fetchData = async () => {
     const [files, media, documents, colorsTax, widthTax] = await Promise.all([
       fetchFiles(),
