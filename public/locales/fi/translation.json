@@ -9,6 +9,7 @@
   "list": {
     "load_more": "Lataa lisää",
     "read_more": "Lue lisää",
+    "read_more_blogs": "Lue kaikki blogit",
     "read_more_news": "Lue kaikki uutiset",
     "blog_url": "/fi/blogi",
     "events_url": "/fi/tapahtuma",
