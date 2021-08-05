@@ -8,7 +8,8 @@
   },
   "list": {
     "load_more": "Show more",
-    "read_more": "Read all blogs",
+    "read_more": "Read more",
+    "read_more_blogs": "Read all blogs",
     "read_more_news": "Read all news",
     "blog_url": "/en/blog",
     "events_url": "/en/event",
