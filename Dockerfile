@@ -2,6 +2,8 @@ FROM node:14
 
 WORKDIR /usr/src/app
 
+COPY .env ./
+
 # Install React
 COPY package.json ./
 COPY package-lock.json ./

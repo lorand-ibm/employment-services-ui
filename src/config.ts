@@ -1,10 +1,9 @@
 import { Lang } from "./types";
 
-// if (!process.env.REACT_APP_DRUPAL_URL) {
-//   throw Error("Drupal URL missing");
-// }
-console.log(process.env)
-export const drupalUrl = "https://edit.test.tyollisyyspalvelut.hel.fi";
+if (!process.env.REACT_APP_DRUPAL_URL) {
+  throw Error("Drupal URL missing");
+}
+export const drupalUrl = process.env.REACT_APP_DRUPAL_URL;
 
 const appNames: { [l in Lang]: string } = {
   fi: "Työllisyyspalvelut",

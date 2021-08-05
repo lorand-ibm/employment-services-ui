@@ -95,7 +95,7 @@ function BlogList(props: BlogListProps): JSX.Element {
   }, [blogIndex, lang]); // eslint-disable-line
 
   const loadMoreText = t("list.load_more");
-  const readMoreText = t("list.read_more");
+  const readMoreText = t("list.read_more_blogs");
   const blogUrl = t("list.blog_url");
 
   if (blogs.total === 0) {

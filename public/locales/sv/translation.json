@@ -8,7 +8,8 @@
   },
   "list": {
     "load_more": "Visa fler",
-    "read_more": "Läs alla bloggar",
+    "read_more": "Läs fler",
+    "read_more_blogs": "Läs alla bloggar",
     "read_more_news": "Läs alla nyheter",
     "blog_url": "/sv/blogg",
     "events_url": "/sv/evenemang",
