@@ -48,6 +48,7 @@ interface EventState {
     alt: string;
     startTime: string;
     endTime: string;
+    location: string;
   }>;
 }
 
@@ -118,6 +119,7 @@ function EventsList(props: EventListProps): JSX.Element {
                 image: event.image,
                 alt: event.alt,
                 title_color: "#fd4f00",
+                location: event.location,
                 dateContent: {
                   startTime: event.startTime,
                   endTime: event.endTime,
