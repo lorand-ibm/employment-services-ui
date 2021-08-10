@@ -35,8 +35,8 @@ eventsRouter.get("/all/:index", async (req, res) => {
     res.send({
       total: total.value,
       results: hitsResults.map((result: any) => {
-        const { title, path, image, alt, startTime, endTime } = result._source;
-        return { title, path, image, alt, startTime, endTime };
+        const { title, path, image, alt, startTime, endTime, location } = result._source;
+        return { title, path, image, alt, startTime, endTime, location };
       }),
     });
   } catch (err) {

@@ -121,7 +121,7 @@ export const findEventData = (lang, json) => {
   {
     type: 'Location',
     lang,
-    location: "Internet",
+    location: attributes.field_location,
   },
   {
     type: 'Text',
