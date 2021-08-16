@@ -1,9 +1,20 @@
 import { Lang } from "./types";
 
-// if (!process.env.REACT_APP_DRUPAL_URL) {
+
+const envSettings = window;
+
+export const configuration = {
+  drupalUrl: envSettings.REACT_APP_DRUPAL_URL,
+  rnsFi: envSettings.REACT_APP_REACT_AND_SHARE_FI,
+  rnsSv: envSettings.REACT_APP_REACT_AND_SHARE_SV,
+  rnsEn: envSettings.REACT_APP_REACT_AND_SHARE_EN,
+}
+
+console.log(envSettings)
+console.log(process.env)
+// if (!configuration.drupalUrl) {
 //   throw Error("Drupal URL missing");
 // }
-console.log(process.env)
 
 export const drupalUrl = 'https://edit.test.tyollisyyspalvelut.hel.fi';
 

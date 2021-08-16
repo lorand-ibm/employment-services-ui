@@ -50,5 +50,9 @@ declare global {
   interface Window {
     rnsData: any;
     _paq: any;
+    REACT_APP_DRUPAL_URL: string;
+    REACT_APP_REACT_AND_SHARE_FI: string;
+    REACT_APP_REACT_AND_SHARE_SV: string;
+    REACT_APP_REACT_AND_SHARE_EN: string;
   }
 }
