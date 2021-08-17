@@ -1,22 +1,15 @@
 import { Lang } from "./types";
 
-
 const envSettings = window;
-
-export const configuration = {
-  drupalUrl: envSettings.REACT_APP_DRUPAL_URL,
-  rnsFi: envSettings.REACT_APP_REACT_AND_SHARE_FI,
-  rnsSv: envSettings.REACT_APP_REACT_AND_SHARE_SV,
-  rnsEn: envSettings.REACT_APP_REACT_AND_SHARE_EN,
-}
-
 console.log(envSettings)
-console.log(process.env)
 // if (!configuration.drupalUrl) {
 //   throw Error("Drupal URL missing");
 // }
 
-export const drupalUrl = 'https://edit.test.tyollisyyspalvelut.hel.fi';
+export const drupalUrl = envSettings.DRUPAL_URL;
+export const rnsFi = envSettings.RNS_FI;
+export const rnsSv = envSettings.RNS_SV;
+export const rnsEn = envSettings.RNS_EN;
 
 const appNames: { [l in Lang]: string } = {
   fi: "Työllisyyspalvelut",
