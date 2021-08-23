@@ -11,7 +11,7 @@ import { Lang } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: 0,
+    padding: "0 0 60px",
     margin: "0 auto 0 auto",
     [theme.breakpoints.down(768)]: {
       paddingLeft: 16,
@@ -132,6 +132,7 @@ function EventsList(props: EventListProps): JSX.Element {
                 <HDSButton
                   variant="supplementary"
                   iconRight={<IconPlus />}
+                  style={{ background: 'none' }}
                   onClick={() => {
                     if (events.total > events.results.length) {
                       setEventsIndex(eventsIndex + 1);
