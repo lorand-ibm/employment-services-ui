@@ -1,10 +1,10 @@
 import { Lang } from "./types";
 
 const envSettings = window;
-console.log(envSettings)
-// if (!configuration.drupalUrl) {
-//   throw Error("Drupal URL missing");
-// }
+
+if (!envSettings.DRUPAL_URL) {
+  throw Error("Drupal URL missing");
+}
 
 export const drupalUrl = envSettings.DRUPAL_URL;
 export const rnsFi = envSettings.RNS_FI;

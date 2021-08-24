@@ -68,7 +68,7 @@ app.get("/*", async (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../build/index.html'));
 });
-console.log('SE: ', process.env)
+
 const port = process.env.SERVER_PORT || 9000;
 app.listen(port, () => {
   console.log("Server running on port", port);
