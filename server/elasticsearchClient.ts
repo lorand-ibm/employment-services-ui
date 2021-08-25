@@ -11,7 +11,7 @@ export const getClient = (): Client => {
     },
     ssl: {
       ca: process.env.elasticsearch_certificate,
-      rejectUnauthorized: false,
+      rejectUnauthorized: true,
     }
   });
 }
