@@ -32,6 +32,17 @@ code {
   color: #0000bf !important;
 }
 
+#rcc-confirm-button:hover,
+#rcc-confirm-button:focus {
+  background: #0000bf !important;
+  color: white !important;
+}
+
+#rcc-decline-button:hover,
+#rcc-decline-button:focus {
+  background: white !important;
+  color: #0000bf !important;
+}
 
 .video-wrapper {
   position: relative;
