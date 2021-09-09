@@ -15,7 +15,6 @@ import Page from "./pages/Page";
 import Event from "./pages/Event";
 import News from "./pages/News";
 import Blog from "./pages/Blog";
-import { getAppName } from "./config";
 import { useMatomo } from './hooks';
 
 const groteskTheme = createMuiTheme({
