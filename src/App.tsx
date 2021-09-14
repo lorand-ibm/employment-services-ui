@@ -119,7 +119,7 @@ function App(): JSX.Element {
         cookieName="tyollisyyspalvelut_cookie_consent"
         containerClasses="cookie-banner"
         contentClasses="cookie-banner-content"
-        style={{ background: "#0000bf", color: "#fff", fontSize: "18px", alignItems: "center" }}
+        style={{ background: "#0000bf", color: "#fff", fontSize: "18px", alignItems: "center", maxHeight: "50vh", overflowX: "hidden", overflowY: "auto" }}
         buttonStyle={{ background: "#fff", color: "#0000bf", fontSize: "16px", fontWeight: "500", lineHeight: "1.5", border: "2px solid #fff", padding: "16px 24px", margin: "0 8px 16px" }}
         declineButtonStyle={{ background: "#0000bf", color: "#fff", fontSize: "16px", fontWeight: "500", lineHeight: "1.5", border: "2px solid #fff", padding: "16px 24px", margin: "0 8px 16px" }}
         expires={180}
