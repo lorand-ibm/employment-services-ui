@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: any) => ({
     fontFamily: "HelsinkiGrotesk",
     fontSize: 36,
     fontWeight: "bold",
+    wordBreak: "break-word",
   }),
   text: {
     fontSize: 18,
