@@ -63,6 +63,10 @@ code {
   padding: 32px 40px;
 }
 
+.cookie-banner-content {
+  flex: 1 0 280px !important;
+}
+
 @media only screen and (max-width: 764px) {
   .cookie-banner {
     padding: 16px;

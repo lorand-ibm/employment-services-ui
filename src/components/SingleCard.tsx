@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme: any) => ({
     fontWeight: "bold",
     '& a': {
       color: 'inherit',
+      wordBreak: 'break-word',
       '&:hover': {
         textDecoration: 'none',
       }
@@ -47,6 +48,9 @@ const useStyles = makeStyles((theme: any) => ({
     fontFamily: "HelsinkiGrotesk",
     backgroundColor: props.bgColor,
     color: props.text_color,
+    "& li": {
+      wordBreak: "break-word",
+    },
   }),
   button: (props: SingleCardProps) => ({
     fontFamily: "HelsinkiGrotesk",
