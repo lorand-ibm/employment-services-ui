@@ -136,7 +136,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
           <Typography
             gutterBottom
             variant="h5"
-            component="h2"
+            component="h3"
             className={classes.title}
           >
             <Link href={url}>{title}</Link>
