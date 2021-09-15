@@ -16,10 +16,9 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
-  hero: (heroShallow) => ({
-    height: heroShallow ? 360 : 550,
-  }),
-  main: {},
+  hero: {
+    overflow: 'hidden',
+  },
   paragraphs: {
     marginTop: 56,
   },
@@ -77,7 +76,7 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps): JSX.Ele
         { nodeAttributes.summary && <meta name="og:description" content={nodeAttributes.summary} />}
         { imageParagraph?.length && <meta name="og:image" content={imageParagraph[0].imageUrl} />}
       </Helmet>
-      <main className={classes.main}>
+      <main>
         {isHero ? (
           <div className={classes.hero}>
             {heroShallow ? (
