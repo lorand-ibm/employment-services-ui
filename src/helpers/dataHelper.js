@@ -229,6 +229,7 @@ export const findPageData = (lang, json, files, media, doc, taxonomies) => {
             type: 'Hero',
             lang: item.attributes.langcode,
             title: item.attributes.field_hero_title,
+            alt: findImageAlt(item, 'field_hero_image', files, media),
             text: getTextValue(item.attributes.field_hero_text),
             imageUrl: item.attributes.field_shallow ? findImage(item, 'field_hero_image', files, media, 'hero_shallow') : findImage(item, 'field_hero_image', files, media, 'hero'),
             shallow: item.attributes.field_shallow
