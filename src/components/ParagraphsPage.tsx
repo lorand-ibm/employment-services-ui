@@ -50,12 +50,14 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps): JSX.Ele
   let heroUrl = "";
   let isHero = true;
   let heroShallow = false;
+  let heroAlt = " ";
 
   if (useData.length > 0 && useData[0].type === "Hero") {
     heroTitle = useData[0].title;
     heroText = useData[0].text;
     heroUrl = useData[0].imageUrl;
     heroShallow = useData[0].shallow;
+    heroAlt = useData[0].alt;
   } else {
     isHero = false;
   }
@@ -80,7 +82,7 @@ export default function ParagraphsPage(props: PageUsingParagraphsProps): JSX.Ele
         {isHero ? (
           <div className={classes.hero}>
             {heroShallow ? (
-              <HeroShallow title={heroTitle} imageUrl={heroUrl} />
+              <HeroShallow alt={heroAlt} imageUrl={heroUrl} />
             ) : (
               <Hero title={heroTitle} text={heroText} imageUrl={heroUrl} />
             )}

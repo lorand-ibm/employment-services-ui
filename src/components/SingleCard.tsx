@@ -126,6 +126,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
               component="img"
               className={classes.media}
               image={imageAddress}
+              alt={alt}
               title={alt}
             />
           </Link>
