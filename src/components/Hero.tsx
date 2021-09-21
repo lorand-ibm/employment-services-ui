@@ -232,13 +232,13 @@ export function Hero(props: HeroProps): JSX.Element {
 }
 
 interface HeroShallowProps {
-  title: string;
+  alt: string;
   imageUrl: string;
 }
 
 export function HeroShallow(props: HeroShallowProps): JSX.Element {
   const classes = useStyles();
-  const { title, imageUrl } = props;
+  const { alt, imageUrl } = props;
 
   const imagePath =
     imageUrl && (imageUrl.startsWith("https") || imageUrl.startsWith("http"))
@@ -247,7 +247,7 @@ export function HeroShallow(props: HeroShallowProps): JSX.Element {
 
   return (
     <Container className={classes.shallowContainer}>
-      <img alt={title} src={imagePath} />
+      <img alt={alt} src={imagePath} />
       <Koros type="basic" className={classes.shallowKoro} />
     </Container>
   );
