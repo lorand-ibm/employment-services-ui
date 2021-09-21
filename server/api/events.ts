@@ -1,8 +1,7 @@
 import { Router } from "express";
+import { getClient } from "../elasticsearchClient";
 
-import { Client } from "@elastic/elasticsearch";
-const client = new Client({ node: process.env.ELASTICSEARCH_URL });
-
+const client = getClient();
 const eventsRouter = Router();
 
 eventsRouter.get("/all/:index", async (req, res) => {
@@ -40,7 +39,7 @@ eventsRouter.get("/all/:index", async (req, res) => {
       }),
     });
   } catch (err) {
-    console.log('err', err.body.error)
+    console.log('err', err)
     res.status(500).send();
   }
 });

@@ -1,9 +1,15 @@
 import { Lang } from "./types";
 
-if (!process.env.REACT_APP_DRUPAL_URL) {
+const envSettings = window;
+
+if (!envSettings.DRUPAL_URL) {
   throw Error("Drupal URL missing");
 }
-export const drupalUrl = process.env.REACT_APP_DRUPAL_URL;
+
+export const drupalUrl = envSettings.DRUPAL_URL;
+export const rnsFi = envSettings.RNS_FI;
+export const rnsSv = envSettings.RNS_SV;
+export const rnsEn = envSettings.RNS_EN;
 
 const appNames: { [l in Lang]: string } = {
   fi: "Työllisyyspalvelut",

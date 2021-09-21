@@ -1,4 +1,4 @@
-# Työllisyyspalvelut
+# Työllisyyspalvelut site
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -17,12 +17,12 @@ Required env variables:
 
 | name                 | description                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
-| REACT_APP_DRUPAL_URL | Drupal for front end. Use `https://edit.test.tyollisyyspalvelut.hel.fi` for testing envionrment.   |
+| REACT_APP_DRUPAL_URL | Drupal for frontend                                                                                |
 | SERVER_PORT          | Use `9000` for local environment.                                                                  |
 | ELASTICSEARCH_URL    | Elasticsearch URL.                                                                                 |
 
 
-## Developer's Flow
+## Local development Flow
 
 Run project with the following commands in project root:
 
@@ -32,20 +32,9 @@ nvm use
 # install server depencencies
 npm install --prefix server/
 
-# install front end dependencies.
+# install frontend dependencies.
 npm install
 
-# run server and front end
+# run server and frontend
 npm start
 ```
-
-## Build & Deployment
-
-The deployments are still WIP.
-
-The project can be built and run with Docker. See `Dockerfile`.
-
-Steps:
-- Define `.env` in project root.
-- Build docker image `docker build -t node .`
-- Run docker container `docker run -d -p 127.0.0.1:9000:9000 node`. *Note*: Expose node server port as needed with the `-p` flag.

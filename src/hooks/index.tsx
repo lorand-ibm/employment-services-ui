@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { useEffect } from "react";
+import { rnsFi, rnsSv, rnsEn } from "../config";
 
 export const useReactAndShare = (
   cookieConsent: string,
@@ -11,11 +12,11 @@ export const useReactAndShare = (
       return;
     }
 
-    let reactAndShareApiKey = process.env.REACT_APP_REACT_AND_SHARE_FI;
+    let reactAndShareApiKey = rnsFi;
     if (lang === "en") {
-      reactAndShareApiKey = process.env.REACT_APP_REACT_AND_SHARE_EN;
+      reactAndShareApiKey = rnsSv;
     } else if (lang === "sv") {
-      reactAndShareApiKey = process.env.REACT_APP_REACT_AND_SHARE_SV;
+      reactAndShareApiKey = rnsEn;
     }
 
     const script = document.createElement("script");

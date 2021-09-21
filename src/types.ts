@@ -50,5 +50,9 @@ declare global {
   interface Window {
     rnsData: any;
     _paq: any;
+    DRUPAL_URL: string;
+    RNS_FI: string;
+    RNS_SV: string;
+    RNS_EN: string;
   }
 }

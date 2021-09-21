@@ -41,7 +41,7 @@ function Footer(props: FooterProps): JSX.Element {
           '--footer-background': '#0E00BF',
           '--footer-divider-color': '#0172C6',
           '--footer-color': 'white',
-          '--footer-focus-outline-color': 'var(--color-black-90)',
+          '--footer-focus-outline-color': 'var(--color-white)',
         }}
       >
         <HSDFooter.Navigation navigationAriaLabel="{title} navigation" />

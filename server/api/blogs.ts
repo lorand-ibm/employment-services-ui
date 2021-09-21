@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { Client } from "@elastic/elasticsearch";
+import { getClient } from "../elasticsearchClient";
 
-const client = new Client({ node: process.env.ELASTICSEARCH_URL });
+const client = getClient();
 const blogsRouter = Router();
 
 blogsRouter.get("/all/:lang/:index", async (req, res) => {
@@ -41,7 +41,7 @@ blogsRouter.get("/all/:lang/:index", async (req, res) => {
       }),
     });
   } catch (err) {
-    console.log('err', err.body.error)
+    console.log('err', err)
     res.status(500).send();
   }
 });

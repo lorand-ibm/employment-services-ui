@@ -56,7 +56,7 @@ function ListItem(props: ListItemProps): JSX.Element {
   return (
     <Card className={classes.root}>
       <CardContent className={classes.content}>
-        {imageUrl && <Link href={url}><CardMedia component="img" src={imageUrl} title={alt} /></Link>}
+        {imageUrl && <Link href={url}><CardMedia component="img" src={imageUrl} title={alt} alt={alt} /></Link>}
         <DateComponent startTime={dateContent.startTime} />
         <Typography
           gutterBottom

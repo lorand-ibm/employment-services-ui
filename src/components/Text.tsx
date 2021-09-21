@@ -5,6 +5,21 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles(() => ({
   text: (props: TextProps) => ({
     fontSize: props.type === "Lead" ? 20 : 16,
+    "& h2": {
+      fontSize: 28,
+    },
+    "& h3": {
+      fontSize: 24,
+    },
+    "& h4": {
+      fontSize: 20,
+    },
+    "& h5": {
+      fontSize: 18,
+    },
+    "& h6": {
+      fontSize: 16,
+    },
   }),
 }));
 

@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme: any) => ({
     fontWeight: "bold",
     '& a': {
       color: 'inherit',
+      wordBreak: 'break-word',
       '&:hover': {
         textDecoration: 'none',
       }
@@ -47,6 +48,9 @@ const useStyles = makeStyles((theme: any) => ({
     fontFamily: "HelsinkiGrotesk",
     backgroundColor: props.bgColor,
     color: props.text_color,
+    "& li": {
+      wordBreak: "break-word",
+    },
   }),
   button: (props: SingleCardProps) => ({
     fontFamily: "HelsinkiGrotesk",
@@ -122,6 +126,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
               component="img"
               className={classes.media}
               image={imageAddress}
+              alt={alt}
               title={alt}
             />
           </Link>
@@ -132,7 +137,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
           <Typography
             gutterBottom
             variant="h5"
-            component="h2"
+            component="h3"
             className={classes.title}
           >
             <Link href={url}>{title}</Link>
