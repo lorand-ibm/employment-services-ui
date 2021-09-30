@@ -2,8 +2,7 @@ import { Client } from "@elastic/elasticsearch";
 
 export const getClient = (): Client => {
   const url = process.env.ELASTICSEARCH_URL;
-  console.log('URL: ', url)
-  console.log('AAAA: ', process.env)
+  console.log('PROCESS: ', process.env)
   if (!url) throw "Set ELASTICSEARCH_URL";
   return new Client({ 
     node: url,
