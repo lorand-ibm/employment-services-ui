@@ -45,7 +45,7 @@ app.get("/*", async (req, res) => {
       }
   
       if (nodeAttributes.title) {
-        data = data.replace(/\$OG_TITLE/g, nodeAttributes.title);
+        data = data.replace(/Työllisyyspalvelut/g, nodeAttributes.title);
       }
   
       if (nodeAttributes.summary) {
