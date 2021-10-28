@@ -49,7 +49,7 @@ app.get("/*", async (req, res) => {
       }
   
       if (nodeAttributes.summary) {
-        data = data.replace(/\$OG_DESCRIPTION/g, nodeAttributes.summary);
+        data = data.replace(/\Hyviä töitä Helsingissä!/g, nodeAttributes.summary);
       }
   
       if (nodeAttributes.imageUrl) {
@@ -69,7 +69,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../build/index.html'));
 });
 
-const port = process.env.SERVER_PORT || 9000;
+const port = process.env.SERVER_PORT || 7000;
 app.listen(port, () => {
   console.log("Server running on port", port);
 });

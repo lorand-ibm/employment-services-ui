@@ -2,11 +2,11 @@ import { Lang } from "./types";
 
 const envSettings = window;
 
-if (!envSettings.DRUPAL_URL) {
+if (!envSettings.DRUPAL_URL && !process.env.REACT_APP_DRUPAL_URL) {
   throw Error("Drupal URL missing");
 }
 
-export const drupalUrl = envSettings.DRUPAL_URL;
+export const drupalUrl = envSettings.DRUPAL_URL || process.env.REACT_APP_DRUPAL_URL;
 export const rnsFi = envSettings.RNS_FI;
 export const rnsSv = envSettings.RNS_SV;
 export const rnsEn = envSettings.RNS_EN;
