@@ -18,7 +18,7 @@ Required env variables:
 | name                 | description                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
 | REACT_APP_DRUPAL_URL | Drupal for frontend                                                                                |
-| SERVER_PORT          | Use `9000` for local environment.                                                                  |
+| SERVER_PORT          | Use `7000` for local environment.                                                                  |
 | ELASTICSEARCH_URL    | Elasticsearch URL.                                                                                 |
 
 
