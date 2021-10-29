@@ -1,9 +1,10 @@
 import axios from "axios";
 
-if (!process.env.REACT_APP_DRUPAL_URL) {
+if (!process.env.REACT_APP_DRUPAL_SSR_URL) {
   throw Error("Drupal URL missing");
 }
-export const drupalUrl = process.env.REACT_APP_DRUPAL_SSR_URL || process.env.REACT_APP_DRUPAL_URL;
+
+export const drupalUrl = process.env.REACT_APP_DRUPAL_SSR_URL;
 
 export type Lang = "fi" | "en" | "sv";
 
