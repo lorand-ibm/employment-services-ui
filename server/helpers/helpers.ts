@@ -4,7 +4,7 @@ if (!process.env.REACT_APP_DRUPAL_SSR_URL) {
   throw Error("Drupal URL missing");
 }
 
-export const drupalUrl = process.env.REACT_APP_DRUPAL_SSR_URL;
+export const drupalSsrUrl = process.env.REACT_APP_DRUPAL_SSR_URL;
 
 export type Lang = "fi" | "en" | "sv";
 
@@ -49,9 +49,9 @@ const getPagePath = (lang: string, nid: string|boolean, page: string, includes: 
   }
 
   if (lang === 'en') {
-    return `${drupalUrl}${rest}`
+    return `${drupalSsrUrl}${rest}`
   } else {
-    return `${drupalUrl}/${lang}${rest}`
+    return `${drupalSsrUrl}/${lang}${rest}`
   }
 };
 
@@ -66,7 +66,7 @@ export const getNodePath = (type: string, lang: string, nid: string|boolean) =>
 export const getDrupalNodeDataFromPathAlias = async (
   pathAlias: string,
 ): Promise<any> => {
-  const paths = `${drupalUrl}/apijson/path_alias/path_alias`;
+  const paths = `${drupalSsrUrl}/apijson/path_alias/path_alias`;
   const exactPath = `${paths}?filter[alias]=/${pathAlias}`;
   const res = await axios.get(exactPath);
 
@@ -108,7 +108,8 @@ export const findImage = async (json: any): Promise<string> => {
 
   if (imageParagraph?.length) {
     const imageField  = await axios.get(imageParagraph[0].relationships.field_image_image.links.related.href + '?include=field_media_image&fields[file--file]=image_style_uri');
-    const imageUrl = imageField.data.included[0].attributes.image_style_uri.filter((imgStyle: any) => imgStyle['wide_s'])[0]['wide_s'];
+    let imageUrl = imageField.data.included[0].attributes.image_style_uri.filter((imgStyle: any) => imgStyle['wide_s'])[0]['wide_s'];
+    imageUrl = imageUrl.replace(drupalSsrUrl, process.env.REACT_APP_DRUPAL_URL);
     return imageUrl;
   }
 
