@@ -15,12 +15,12 @@ Copy `.env.example` to `.env`.
 
 Required env variables:
 
-| name                 | description                                                                                        |
-| -------------------- | -------------------------------------------------------------------------------------------------- |
-| REACT_APP_DRUPAL_URL | Drupal for frontend                                                                                |
-| SERVER_PORT          | Use `7000` for local environment.                                                                  |
-| ELASTICSEARCH_URL    | Elasticsearch URL.                                                                                 |
-
+| name                     | description                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| REACT_APP_DRUPAL_URL     | Drupal for frontend                                                                   |
+| REACT_APP_DRUPAL_SSR_URL | SSR Drupal url                                                                        |
+| SERVER_PORT              | Use `7000` for local environment.                                                     |
+| ELASTICSEARCH_URL        | Elasticsearch URL.                                                                    |
 
 ## Local development Flow
 
@@ -37,4 +37,11 @@ npm install
 
 # run server and frontend
 npm start
+
+# run only server
+npm run start-server
+
+# run only frontend
+npm run start-client
+
 ```
