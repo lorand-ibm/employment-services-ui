@@ -71,6 +71,11 @@ function Page(props: PageProps): JSX.Element {
       axios.get(enPage),
     ]);
 
+    if (!fi.data.data.length) {
+      setRedirect(true);
+      return;
+    }
+
     setData({
       nodeData: {
         fi: findNodeAttributes(fi.data),

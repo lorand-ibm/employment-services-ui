@@ -74,6 +74,11 @@ function News(props: NewsProps): JSX.Element {
       axios.get(enPage),
     ]);
 
+    if (!fi.data.data.length) {
+      setRedirect(true);
+      return;
+    }
+
     setData({
       nodeData: {
         fi: findNodeAttributes(fi.data),
