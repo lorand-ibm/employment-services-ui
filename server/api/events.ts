@@ -14,7 +14,11 @@ eventsRouter.get("/all/:index", async (req, res) => {
     size: 9,
     from: (9*index),
     query: {
-      match_all: {},
+      range: {
+        endTime: {
+          gte: "now/d",
+        }
+      },
     },
   };
 
@@ -22,7 +26,7 @@ eventsRouter.get("/all/:index", async (req, res) => {
     const searchRes = await client.search({
       index: "events",
       body: body,
-      sort: "startTime:asc",
+      sort: "endTime:asc",
     });
 
     const {
