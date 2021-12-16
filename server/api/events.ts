@@ -4,18 +4,20 @@ import { getClient } from "../elasticsearchClient";
 const client = getClient();
 const eventsRouter = Router();
 
-eventsRouter.get("/all/:index", async (req, res) => {
+eventsRouter.get("/:index", async (req, res) => {
   const index = Number(req.params.index);
+
   if (isNaN(index)) {
     res.send(400).send();
     return;
   }
+
   const body = {
     size: 9,
     from: (9*index),
     query: {
-      match_all: {},
-    },
+      match_all: {}
+    }
   };
 
   try {
@@ -34,8 +36,8 @@ eventsRouter.get("/all/:index", async (req, res) => {
     res.send({
       total: total.value,
       results: hitsResults.map((result: any) => {
-        const { title, path, image, alt, startTime, endTime, location } = result._source;
-        return { title, path, image, alt, startTime, endTime, location };
+        const { title, path, image, alt, startTime, endTime, location, tags } = result._source;
+        return { title, path, image, alt, startTime, endTime, location, tags };
       }),
     });
   } catch (err) {

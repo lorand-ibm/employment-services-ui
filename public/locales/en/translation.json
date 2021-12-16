@@ -6,6 +6,10 @@
     "button_link": "https://asiointi.mol.fi/omaasiointi/",
     "title_aria_label": "Helsinki: Employment services"
   },
+  "search": {
+    "filter": "Filter",
+    "clear": "Clear"
+  },
   "list": {
     "load_more": "Show more",
     "read_more": "Read more",

@@ -4,11 +4,13 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import { Button } from "hds-react/components/Button";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import { Button } from "hds-react/components/Button";
 import IconLink from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
@@ -67,8 +69,9 @@ const useStyles = makeStyles((theme: any) => ({
   }),
   content: (props) => ({
     backgroundColor: props.bgColor,
-    padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
     minHeight: "100px",
+    padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
+    position: "relative",
   }),
   actions: (props) => ({
     marginTop: "auto",
@@ -78,6 +81,22 @@ const useStyles = makeStyles((theme: any) => ({
     backgroundColor: props.bgColor,
     paddingLeft: 20,
   }),
+  tags: {
+    display: "flex",
+    flexWrap: "wrap",
+    marginTop: "-32px",
+  },
+  tag: {
+    backgroundColor: "#ffdbeb",
+    paddingTop: "4px",
+    paddingBottom: "4px",
+    paddingRight: "12px",
+    paddingLeft: "12px",
+    marginRight: "16px",
+    marginBottom: "8px",
+    textTransform: "capitalize",
+    width: "auto",
+  },
 }));
 
 function SingleCard(props: SingleCardProps): JSX.Element {
@@ -92,6 +111,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
     dateContent,
     alt,
     location,
+    tags,
   } = props;
   const { t } = useTranslation();
 
@@ -134,6 +154,14 @@ function SingleCard(props: SingleCardProps): JSX.Element {
           <></>
         )}
         <CardContent className={classes.content}>
+          <List className={classes.tags}>
+            {tags && Object.values(tags).map((tag: any, i: number) => (
+                <ListItem className={classes.tag}>
+                  { tag }
+                </ListItem>
+              
+            ))}
+            </List>
           <Typography
             gutterBottom
             variant="h5"

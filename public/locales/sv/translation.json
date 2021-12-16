@@ -6,6 +6,10 @@
     "button_link": "https://asiointi.mol.fi/omaasiointi/?kieli=sv",
     "title_aria_label": "Helsingfors: Arbetstjänster"
   },
+  "search": {
+    "filter": "Filtrera",
+    "clear": "Klar"
+  },
   "list": {
     "load_more": "Visa fler",
     "read_more": "Läs mer",
