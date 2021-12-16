@@ -106,8 +106,6 @@ function EventsList(props: EventListProps): JSX.Element {
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
   const [filteredEvents, setFilteredEvents] = useState<EventState>(events);
 
-  // useEffect(() => {}, []);
-
   useEffect(() => {
     const fetchEvents = async () => {
       const res = await axios.get(`/api/events/${eventsIndex}`);
