@@ -4,6 +4,7 @@ import { IconLocation } from "hds-react";
 
 interface LocationProps {
   location: string;
+  locationExtraInfo: string;
 }
 
 const useStyles = makeStyles(() => ({
@@ -18,13 +19,20 @@ const useStyles = makeStyles(() => ({
 
 function Location(props: LocationProps): JSX.Element {
   const classes = useStyles(props);
-  const { location } = props;
+  const { location, locationExtraInfo } = props;
 
   return (
-    <div className={classes.container}>
-      <IconLocation className={classes.icon} />
-      <div>{location}</div>
-    </div>
+    <>
+      <div className={classes.container}>
+        <IconLocation className={classes.icon} />
+        <div>{location}</div>
+      </div>
+      <div className={classes.container}>
+        { locationExtraInfo && 
+          locationExtraInfo
+        }
+      </div>
+    </>
   );
 }
 
