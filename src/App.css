@@ -53,9 +53,13 @@ li {
   padding-left: 1.5em;
 }
 
-li::marker {
+ul li::marker {
   color: #fd4f00;
   font-size: 1.25em;
+}
+
+li li::marker {
+  color: #1a1a1a;
 }
 
 a[class^="link"] {

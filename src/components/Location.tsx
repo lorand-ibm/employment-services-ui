@@ -15,6 +15,9 @@ const useStyles = makeStyles(() => ({
   icon: () => ({
     marginRight: 5,
   }),
+  extra: () => ({
+    display: 'block',
+  }),
 }));
 
 function Location(props: LocationProps): JSX.Element {
@@ -25,12 +28,12 @@ function Location(props: LocationProps): JSX.Element {
     <>
       <div className={classes.container}>
         <IconLocation className={classes.icon} />
-        <div>{location}</div>
-      </div>
-      <div className={classes.container}>
-        { locationExtraInfo && 
-          locationExtraInfo
-        }
+        <div>
+          {location}
+          { locationExtraInfo && 
+            <span className={classes.extra}>{locationExtraInfo}</span>
+          } 
+        </div>
       </div>
     </>
   );
