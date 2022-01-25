@@ -38,8 +38,8 @@ eventsRouter.get("/all/:index", async (req, res) => {
     res.send({
       total: total.value,
       results: hitsResults.map((result: any) => {
-        const { title, path, image, alt, startTime, endTime, location } = result._source;
-        return { title, path, image, alt, startTime, endTime, location };
+        const { title, path, image, alt, startTime, endTime, location, locationExtraInfo } = result._source;
+        return { title, path, image, alt, startTime, endTime, location, locationExtraInfo };
       }),
     });
   } catch (err) {

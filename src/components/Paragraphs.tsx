@@ -325,7 +325,7 @@ function Paragraphs(props: ParagraphsProps): JSX.Element {
         items.push(
           <Container className={classes.container2}>
             <ParagraphGrid className={classes.location} paragraphWidth={width}>
-              <Location location={paragraph.location} />
+              <Location location={paragraph.location} locationExtraInfo={paragraph.locationExtraInfo} />
             </ParagraphGrid>
           </Container>
         )

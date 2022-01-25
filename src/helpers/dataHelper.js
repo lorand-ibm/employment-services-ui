@@ -104,7 +104,9 @@ export const findEventData = (lang, json) => {
   const attributes = json.data[0].attributes;
 
   const infoUrl = attributes.field_info_url;
+  const externalLinks = attributes.field_external_links;
   const infoUrlText = infoUrl && infoUrl.startsWith("https://teams.microsoft") ? "Avaa Teams-tapahtuma" : "Tapahtuman kotisivut";
+  const locationExtraInfo = attributes.field_location_extra_info;
   const paragraphs = [{
     type: 'Subheading',
     lang,
@@ -122,6 +124,7 @@ export const findEventData = (lang, json) => {
     type: 'Location',
     lang,
     location: attributes.field_location,
+    locationExtraInfo,
   },
   {
     type: 'Text',
@@ -137,6 +140,17 @@ export const findEventData = (lang, json) => {
         url_text: infoUrlText,
       }
     )
+  }
+  if (externalLinks.length) {
+    externalLinks.forEach((extLink) => {
+      paragraphs.push(
+        {
+          type: 'Link',
+          url: extLink.uri,
+          url_text: extLink.title,
+        }
+      )
+    });
   }
 
   paragraphs.push({
