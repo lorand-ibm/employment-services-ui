@@ -16,15 +16,19 @@ eventsRouter.get("/:index", async (req, res) => {
     size: 9,
     from: (9*index),
     query: {
-      match_all: {}
-    }
+      range: {
+        endTime: {
+          gte: "now/d",
+        }
+      },
+    },
   };
 
   try {
     const searchRes = await client.search({
       index: "events",
       body: body,
-      sort: "startTime:asc",
+      sort: "endTime:asc",
     });
 
     const {
@@ -36,8 +40,8 @@ eventsRouter.get("/:index", async (req, res) => {
     res.send({
       total: total.value,
       results: hitsResults.map((result: any) => {
-        const { title, path, image, alt, startTime, endTime, location, tags } = result._source;
-        return { title, path, image, alt, startTime, endTime, location, tags };
+        const { title, path, image, alt, startTime, endTime, location, locationExtraInfo, tags } = result._source;
+        return { title, path, image, alt, startTime, endTime, location, locationExtraInfo, tags };
       }),
     });
   } catch (err) {

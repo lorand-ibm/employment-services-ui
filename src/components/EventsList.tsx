@@ -86,6 +86,7 @@ interface EventState {
     endTime: string;
     location: string;
     tags: string[];
+    locationExtraInfo: string;
   }>;
 }
 
@@ -206,6 +207,7 @@ function EventsList(props: EventListProps): JSX.Element {
                 title_color: "#fd4f00",
                 location: event.location,
                 tags: event.tags,
+                locationExtraInfo: event.locationExtraInfo,
                 dateContent: {
                   startTime: event.startTime,
                   endTime: event.endTime,

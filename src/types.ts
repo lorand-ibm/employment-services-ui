@@ -21,6 +21,7 @@ export interface SingleCardProps {
   dateContent?: DateContent;
   location?: string;
   tags?: any;
+  locationExtraInfo?: string;
 
   text_color?: string;
   title_color?: string;

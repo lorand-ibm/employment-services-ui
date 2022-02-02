@@ -13,7 +13,7 @@ export const rnsEn = envSettings.RNS_EN;
 
 const appNames: { [l in Lang]: string } = {
   fi: "Työllisyyspalvelut",
-  sv: "Arbetstjänster",
+  sv: "Sysselsättningstjänster",
   en: "Employment services",
 };
 

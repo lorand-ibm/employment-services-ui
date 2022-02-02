@@ -112,6 +112,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
     alt,
     location,
     tags,
+    locationExtraInfo
   } = props;
   const { t } = useTranslation();
 
@@ -183,7 +184,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
                 endTime={dateContent.endTime}
               />
               <div style={{ paddingTop: 8 }}>
-                <Location location={location || ''} />
+                <Location location={location || ''} locationExtraInfo={locationExtraInfo || ''} />
               </div>
             </Typography>
           ) : (

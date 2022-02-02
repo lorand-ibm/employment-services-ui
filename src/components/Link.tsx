@@ -11,6 +11,7 @@ function IconLink({ href, text }: { href: string; text: string }): JSX.Element {
         display: "flex",
         fontSize: "16px",
         textDecoration: "none",
+        textTransform: "capitalize",
         fontFamily: "HelsinkiGrotesk",
       }}
     >
