@@ -6,6 +6,10 @@
     "button_link": "https://asiointi.mol.fi/omaasiointi/?kieli=sv",
     "title_aria_label": "Helsingfors: Sysselsättningstjänster"
   },
+  "search": {
+    "filter": "Filtrera evenemang",
+    "clear": "Klar"
+  },
   "list": {
     "load_more": "Visa fler",
     "read_more": "Läs mer",
@@ -15,6 +19,9 @@
     "events_url": "/sv/evenemang",
     "news_url": "/sv/nyheter",
     "results_text": "sökresultat"
+  },
+  "event": {
+    "remote_event": "Virtuellt evenemang"
   },
   "video": {
     "cookie_consent": "Du har inte gett tillstånd att installera cookies.",

@@ -102,36 +102,51 @@ export const findEventData = (lang, json) => {
     return [];
   }
   const attributes = json.data[0].attributes;
-
+  
+  const tags = attributes.field_tags;
   const infoUrl = attributes.field_info_url;
   const externalLinks = attributes.field_external_links;
   const infoUrlText = infoUrl && infoUrl.startsWith("https://teams.microsoft") ? "Avaa Teams-tapahtuma" : "Tapahtuman kotisivut";
   const locationExtraInfo = attributes.field_location_extra_info;
-  const paragraphs = [{
-    type: 'Subheading',
+  const paragraphs = [
+  {
+    type: 'Mainheading',
     lang,
     title: attributes.field_title,
     title_color: "",
     text: '',
-  },
-  {
-    type: 'Date',
-    lang,
-    startTime: attributes.field_start_time,
-    endTime: attributes.field_end_time,
-  },
-  {
-    type: 'Location',
-    lang,
-    location: attributes.field_location,
-    locationExtraInfo,
-  },
-  {
-    type: 'Text',
-    lang,
-    title: '',
-    text: attributes.field_text.value,
   }]
+
+  if (tags.length) {
+    paragraphs.push(
+      {
+        type: 'TagList',
+        tags,
+      },
+    )
+  }
+
+  paragraphs.push(
+    {
+      type: 'Date',
+      lang,
+      startTime: attributes.field_start_time,
+      endTime: attributes.field_end_time,
+    },
+    {
+      type: 'Location',
+      lang,
+      location: attributes.field_location,
+      locationExtraInfo,
+    },
+    {
+      type: 'Text',
+      lang,
+      title: '',
+      text: attributes.field_text.value,
+    }
+  )
+
   if (infoUrl) {
     paragraphs.push(
       {

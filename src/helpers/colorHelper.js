@@ -3,6 +3,7 @@ import { findTaxonomyValue } from "./taxonomiesHelper";
 
 const colors = [
   {name: 'bussi', rgb: '#0000bf'},
+  {name: 'bus-dark', rgb: '#00005e'},
   {name: 'hopea', rgb: '#dedfe1'},
   {name: 'musta', rgb: '#000'},
   {name: 'metro', rgb: '#fd4f00'},

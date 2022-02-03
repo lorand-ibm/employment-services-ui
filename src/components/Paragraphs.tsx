@@ -17,6 +17,7 @@ import EventsList from "./EventsList";
 import NewsList from "./NewsList";
 import BlogList from "./BlogList";
 import Video from "./Video";
+import TagList from "./TagList";
 import IconLink from "./Link";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
@@ -129,7 +130,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 0,
     marginBottom: 0,
   },
-  reactAndShare: {
+  nopadding: {
     padding: 0,
     marginTop: 0,
     marginBottom: 0,
@@ -348,6 +349,15 @@ function Paragraphs(props: ParagraphsProps): JSX.Element {
           </Container>
         )
         break;
+      case "TagList":
+        items.push(
+          <Container className={classes.container2}>
+            <ParagraphGrid className={classes.nopadding} paragraphWidth={width}>
+              <TagList tags={paragraph.tags} />
+            </ParagraphGrid>
+          </Container>
+        )
+        break;
       case "ShareButtons":
         items.push(
           <div style={{ backgroundColor: lastParagraphColor }}>
@@ -363,7 +373,7 @@ function Paragraphs(props: ParagraphsProps): JSX.Element {
         items.push(
           <div style={{ backgroundColor: lastParagraphColor }}>
             <Container className={classes.container2}>
-              <ParagraphGrid className={classes.reactAndShare} paragraphWidth={width}>
+              <ParagraphGrid className={classes.nopadding} paragraphWidth={width}>
                 <div className="rns" />
               </ParagraphGrid>
             </Container>

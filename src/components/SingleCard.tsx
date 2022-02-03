@@ -4,12 +4,13 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import { Button } from "hds-react/components/Button";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import { Button } from "hds-react/components/Button";
 import IconLink from "./Link";
+import TagList from "./TagList";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
 import { drupalUrl } from "../config";
@@ -67,8 +68,9 @@ const useStyles = makeStyles((theme: any) => ({
   }),
   content: (props) => ({
     backgroundColor: props.bgColor,
-    padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
     minHeight: "100px",
+    padding: props.type === "event" ? "15px 15px 0 15px" : "25px 25px 0 25px",
+    position: "relative",
   }),
   actions: (props) => ({
     marginTop: "auto",
@@ -92,6 +94,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
     dateContent,
     alt,
     location,
+    tags,
     locationExtraInfo
   } = props;
   const { t } = useTranslation();
@@ -135,6 +138,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
           <></>
         )}
         <CardContent className={classes.content}>
+          {tags && tags.length !== 0 && <TagList tags={tags} /> }
           <Typography
             gutterBottom
             variant="h5"
