@@ -6,6 +6,10 @@
     "button_link": "https://asiointi.mol.fi/omaasiointi/",
     "title_aria_label": "Helsinki: Employment services"
   },
+  "search": {
+    "filter": "Filter events",
+    "clear": "Clear"
+  },
   "list": {
     "load_more": "Show more",
     "read_more": "Read more",
@@ -15,6 +19,9 @@
     "events_url": "/en/event",
     "news_url": "/en/news",
     "results_text": "search results"
+  },
+  "event": {
+    "remote_event": "Virtual event"
   },
   "video": {
     "cookie_consent": "You have not allowed the use of cookies on this site.",

@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { IconLocation } from "hds-react";
+import { useTranslation } from "react-i18next";
 
 interface LocationProps {
   location: string;
@@ -22,6 +23,7 @@ const useStyles = makeStyles(() => ({
 
 function Location(props: LocationProps): JSX.Element {
   const classes = useStyles(props);
+  const { t } = useTranslation();
   const { location, locationExtraInfo } = props;
 
   return (
@@ -29,7 +31,7 @@ function Location(props: LocationProps): JSX.Element {
       <div className={classes.container}>
         <IconLocation className={classes.icon} />
         <div>
-          {location}
+          {location === 'Internet' ? t("event.remote_event") : location}
           { locationExtraInfo && 
             <span className={classes.extra}>{locationExtraInfo}</span>
           } 

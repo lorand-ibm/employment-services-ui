@@ -6,6 +6,10 @@
     "button_link": "https://asiointi.mol.fi/omaasiointi/",
     "title_aria_label": "Helsinki: Työllisyyspalvelut"
   },
+  "search": {
+    "filter": "Suodata tapahtumia",
+    "clear": "Tyhjennä"
+  },
   "list": {
     "load_more": "Lataa lisää",
     "read_more": "Lue lisää",
@@ -15,6 +19,9 @@
     "events_url": "/fi/tapahtuma",
     "news_url": "/fi/uutiset",
     "results_text": "hakutulosta"
+  },
+  "event": {
+    "remote_event": "Etätapahtuma"
   },
   "video": {
     "cookie_consent": "Et ole antanut lupaa asettaa evästeitä.",
