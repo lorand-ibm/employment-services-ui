@@ -31,10 +31,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffdbeb",
     border: "none",
     color: "#1a1a1a",
-    marginRight: "16px",
+    display: "inline-block",
+    marginRight: "12px",
     marginBottom: "16px",
-    textTransform: "capitalize",
     width: "auto",
+    "&:first-letter": {
+      textTransform: "uppercase",
+    },
   },
   selected: {
     backgroundColor: "#00005e",
@@ -92,7 +95,7 @@ interface EventState {
 
 interface EventListProps {
   title: string;
-  // TODO:
+  // TODO: lang when there are translated events.
   lang: Lang;
   bgColor: string;
 }
@@ -145,9 +148,6 @@ function EventsList(props: EventListProps): JSX.Element {
   });
 
   tags.push(t("search.clear"));
-
-  console.log(tags)
-  console.log(filter)
 
   return (
     <div
@@ -206,7 +206,7 @@ function EventsList(props: EventListProps): JSX.Element {
                 alt: event.alt,
                 title_color: "#fd4f00",
                 location: event.location,
-                tags: event.tags,
+                tags: event.tags.slice(0,3),
                 locationExtraInfo: event.locationExtraInfo,
                 dateContent: {
                   startTime: event.startTime,

@@ -8,10 +8,9 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import { Button } from "hds-react/components/Button";
 import IconLink from "./Link";
+import TagList from "./TagList";
 import { DateWithIcon } from "./Date";
 import Location from "./Location";
 import { drupalUrl } from "../config";
@@ -81,22 +80,6 @@ const useStyles = makeStyles((theme: any) => ({
     backgroundColor: props.bgColor,
     paddingLeft: 20,
   }),
-  tags: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginTop: "-32px",
-  },
-  tag: {
-    backgroundColor: "#ffdbeb",
-    paddingTop: "4px",
-    paddingBottom: "4px",
-    paddingRight: "12px",
-    paddingLeft: "12px",
-    marginRight: "16px",
-    marginBottom: "8px",
-    textTransform: "capitalize",
-    width: "auto",
-  },
 }));
 
 function SingleCard(props: SingleCardProps): JSX.Element {
@@ -155,14 +138,7 @@ function SingleCard(props: SingleCardProps): JSX.Element {
           <></>
         )}
         <CardContent className={classes.content}>
-          <List className={classes.tags}>
-            {tags && Object.values(tags).map((tag: any, i: number) => (
-                <ListItem className={classes.tag}>
-                  { tag }
-                </ListItem>
-              
-            ))}
-            </List>
+          {tags && tags.length !== 0 && <TagList tags={tags} /> }
           <Typography
             gutterBottom
             variant="h5"

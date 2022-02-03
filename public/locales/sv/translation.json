@@ -20,6 +20,9 @@
     "news_url": "/sv/nyheter",
     "results_text": "sökresultat"
   },
+  "event": {
+    "remote_event": "Virtuellt evenemang"
+  },
   "video": {
     "cookie_consent": "Du har inte gett tillstånd att installera cookies.",
     "link_text": "Godkänn cookies för att se innehållet."

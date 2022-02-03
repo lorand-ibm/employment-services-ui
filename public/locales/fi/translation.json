@@ -20,6 +20,9 @@
     "news_url": "/fi/uutiset",
     "results_text": "hakutulosta"
   },
+  "event": {
+    "remote_event": "Etätapahtuma"
+  },
   "video": {
     "cookie_consent": "Et ole antanut lupaa asettaa evästeitä.",
     "link_text": "Hyväksythän evästeet nähdäksesi sisällön"
