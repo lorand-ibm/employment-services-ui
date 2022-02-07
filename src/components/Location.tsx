@@ -31,7 +31,7 @@ function Location(props: LocationProps): JSX.Element {
       <div className={classes.container}>
         <IconLocation className={classes.icon} />
         <div>
-          {location === 'Internet' ? t("event.remote_event") : location}
+          {location}
           { locationExtraInfo && 
             <span className={classes.extra}>{locationExtraInfo}</span>
           } 

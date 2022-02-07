@@ -8,7 +8,7 @@
   },
   "search": {
     "filter": "Suodata tapahtumia",
-    "clear": "Tyhjennä"
+    "clear": "Poista valinta"
   },
   "list": {
     "load_more": "Lataa lisää",

@@ -11,7 +11,6 @@ const useStyles = makeStyles(() => ({
   },
   tag: {
     backgroundColor: "#ffdbeb",
-    display: "inline-block",
     paddingTop: "4px",
     paddingBottom: "4px",
     paddingRight: "12px",
@@ -19,9 +18,6 @@ const useStyles = makeStyles(() => ({
     marginRight: "12px",
     marginBottom: "8px",
     width: "auto",
-    "&:first-letter": {
-      textTransform: "uppercase",
-    },
   },
 }));
 
@@ -33,13 +29,11 @@ function TagList(props: TagListProps): JSX.Element {
   const classes = useStyles(props);
   const { tags } = props;
   
-  const filteredTags = tags.filter((el: string) => el !== 'etätapahtuma');
-
   return (
     <>
-      {filteredTags.length !== 0 && 
+      {tags.length !== 0 && 
         <List className={classes.tags}>
-        {Object.values(filteredTags).map((tag: any, i: number) => (
+        {Object.values(tags).map((tag: any, i: number) => (
           <ListItem className={classes.tag}>
             { tag }
           </ListItem>
