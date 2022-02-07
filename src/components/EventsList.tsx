@@ -31,21 +31,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffdbeb",
     border: "none",
     color: "#1a1a1a",
-    display: "inline-block",
     marginRight: "12px",
     marginBottom: "16px",
     width: "auto",
-    "&:first-letter": {
-      textTransform: "uppercase",
-    },
   },
   selected: {
     backgroundColor: "#00005e",
     border: "none",
     color: "#fff",
-    marginRight: "16px",
+    marginRight: "12px",
     marginBottom: "16px",
-    textTransform: "capitalize",
     width: "auto",
   },
   supplementary: {
@@ -53,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     color: "#1a1a1a",
     marginBottom: "16px",
-    textTransform: "capitalize",
   },
   cardList: {
     width: "100%",
@@ -109,6 +103,7 @@ function EventsList(props: EventListProps): JSX.Element {
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
   const [filteredEvents, setFilteredEvents] = useState<EventState>(events);
+  const allowedTags = ["Maahan muuttaneet", "Nuoret", "Info", "Koulutus", "Messut", "Neuvonta", "Rekrytointi", "Työpajat", "Digitaidot", "Etätapahtuma", "Palkkatuki", "Työnhaku"];
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -146,7 +141,7 @@ function EventsList(props: EventListProps): JSX.Element {
   tags = tags.flat().filter((value:any, index:any, array:any) => { 
     return array.indexOf(value) === index;
   });
-
+  tags.sort((a: string, b: string) => allowedTags.indexOf(a) - allowedTags.indexOf(b));
   tags.push(t("search.clear"));
 
   return (
