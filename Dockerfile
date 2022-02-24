@@ -1,29 +1,78 @@
-FROM node:14
+# =======================================
+FROM node:16-alpine AS deps
+# =======================================
 
-WORKDIR /usr/src/app
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Install React
-COPY package.json ./
-COPY package-lock.json ./
+# =======================================
+FROM node:16-alpine AS builder
+# =======================================
 
-RUN npm install
-RUN npm install -g react-scripts@4.0.1
+ARG NEXT_PUBLIC_DRUPAL_BASE_URL
+ARG NEXT_IMAGE_DOMAIN
+ARG DRUPAL_FRONT_PAGE
+ARG DRUPAL_SITE_ID
+ARG DRUPAL_CLIENT_ID
 
-# Build React
-COPY ./ ./
+ARG DRUPAL_PREVIEW_SECRET
+ARG DRUPAL_CLIENT_SECRET
 
-RUN npm run build
+ENV NEXT_PUBLIC_DRUPAL_BASE_URL=$NEXT_PUBLIC_DRUPAL_BASE_URL
+ENV NEXT_IMAGE_DOMAIN=$NEXT_IMAGE_DOMAIN
+ENV DRUPAL_FRONT_PAGE=$DRUPAL_FRONT_PAGE
+ENV DRUPAL_SITE_ID=$DRUPAL_SITE_ID
+ENV DRUPAL_CLIENT_ID=$DRUPAL_CLIENT_ID
+ENV DRUPAL_PREVIEW_SECRET=$DRUPAL_PREVIEW_SECRET
+ENV DRUPAL_CLIENT_SECRET=$DRUPAL_CLIENT_SECRET
+ENV NEXT_TELEMETRY_DISABLED 1
 
-# Install server
-WORKDIR /usr/src/app/server
+WORKDIR /app
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
 
-COPY server/package.json ./
-COPY server/package-lock.json ./
 
-RUN npm install
-RUN npm run build
+RUN yarn build
+# Prune dev & build deps until we can use Yarn 2 which does it on the next line a
+RUN rm -rf node_modules
+# Install only production runtime deps
+RUN yarn install --production --ignore-scripts --prefer-offline
+# Use Azure env variables
 
-WORKDIR /usr/src/app
+# =======================================
+FROM node:16-alpine AS runner
+# =======================================
 
-# Run server
-CMD ["node", "server/build/index.js"]
+WORKDIR /app
+
+ENV NODE_ENV production
+
+
+
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/next.config.js ./next.config.js
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/next-i18next.config.js ./next-i18next.config.js
+# env debug line for debugging environment variables in Azure.
+# If you are sure if all env vars are available in both build- and runtime,
+# copy .env.production to runner so that runtime can have new env vars from repo if needed
+COPY --from=builder /app/.env.production .env.production
+
+
+# node process user should be able to write to .next/*
+RUN chmod -R a+rwx ./.next
+
+
+EXPOSE 8080
+ENV PORT=8080
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# We don't use it.
+ENV NEXT_TELEMETRY_DISABLED 1
+
+CMD ["yarn", "start"]
