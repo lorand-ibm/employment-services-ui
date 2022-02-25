@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GetStaticPathsResult, GetStaticPropsResult } from "next"
+import { GetStaticPropsContext, GetStaticPathsResult, GetStaticPropsResult } from "next"
 import Head from "next/head"
 import {
   DrupalNode,
@@ -13,7 +13,6 @@ import { NodeBasicPage } from "@/components/node-basic-page"
 
 interface PageProps {
   node: DrupalNode
-  locale: string
 }
 
 export default function Page({ node }: PageProps) {
@@ -31,7 +30,7 @@ export default function Page({ node }: PageProps) {
   )
 }
 
-export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
+export async function getStaticPaths(context: GetStaticPropsContext): Promise<GetStaticPathsResult> {
   return {
     //paths: await getPathsFromContext(["node--page"], context),
     paths: [],
@@ -39,7 +38,7 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
   }
 }
 
-export async function getStaticProps(context): Promise<GetStaticPropsResult<PageProps>> {
+export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<PageProps>> {
   const { locale } = context
   const type = await getResourceTypeFromContext(context)
 
@@ -63,8 +62,7 @@ export async function getStaticProps(context): Promise<GetStaticPropsResult<Page
 
   return {
     props: {
-      node,
-      locale
+      node
     },
     revalidate: 900,
   }

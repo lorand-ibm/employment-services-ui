@@ -14,8 +14,8 @@ import {
 const fs = require("fs")
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, '../../build')));
 
 app.use('/api', apiRouter);

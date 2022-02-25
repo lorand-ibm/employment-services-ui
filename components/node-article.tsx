@@ -3,7 +3,11 @@ import Link from "next/link"
 
 import { formatDate } from "@/lib/format-date"
 
-export function NodeArticle({ node, ...props }) {
+interface NodeArticleProps {
+  node: any;
+}
+
+export function NodeArticle({ node, ...props }: NodeArticleProps): JSX.Element {
   return (
     <article {...props}>
       <h1>{node.title}</h1>
@@ -34,7 +38,7 @@ export function NodeArticle({ node, ...props }) {
   )
 }
 
-export function NodeArticleTeaser({ node, ...props }) {
+export function NodeArticleTeaser({ node, ...props }: NodeArticleProps): JSX.Element {
   return (
     <article {...props}>
       <Link href={node.path.alias} passHref>
@@ -61,7 +65,7 @@ export function NodeArticleTeaser({ node, ...props }) {
   )
 }
 
-function NodeMeta({ node, ...props }) {
+export function NodeMeta({ node, ...props }: NodeArticleProps): JSX.Element {
   return (
     <div {...props}>
       {node.uid?.display_name ? (

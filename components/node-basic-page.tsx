@@ -1,4 +1,8 @@
-export function NodeBasicPage({ node, ...props }) {
+interface NodeBasicPageProps {
+  node: any;
+}
+
+export function NodeBasicPage({ node, ...props }: NodeBasicPageProps): JSX.Element {
   return (
     <article {...props}>
       <h1 className="text-6xl font-black mb-4 leading-tight">{node.title}</h1>
