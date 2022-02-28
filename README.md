@@ -1,6 +1,7 @@
 # Työllisyyspalvelut site
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Drupal integration is implemented using [next-drupal](https://next-drupal.org) module.
 
 ## Related repositories
 - [Drupal employment services](https://github.com/City-of-Helsinki/drupal-employment-services)
@@ -8,33 +9,70 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+To use right node version
 
 ```bash
-npm run dev
-# or
+nvm use
+```
+
+Install Yarn if not already installed
+
+
+```bash
+npm install -g yarn
+```
+
+Copy `.env.example` to .env.local. This is a `.gitignore`d local checkout's env file.
+
+Required environment variables are
+
+```env
+NEXT_PUBLIC_DRUPAL_BASE_URL='https://url-to-site.com
+NEXT_IMAGE_DOMAIN=image.domain.com
+DRUPAL_SITE_ID=THE SITE ID HASH FROM DRUPAL INSTANCE
+DRUPAL_FRONT_PAGE=/
+DRUPAL_PREVIEW_SECRET=PREVIEW SECRET FROM DRUPAL INSTANCE
+DRUPAL_CLIENT_ID=PREVIEW CLIENT ID HASH FROM DRUPAL INSTANCE
+DRUPAL_CLIENT_SECRET=CLIENT_SECRET FROM DRUPAL INSTANCE
+
+# Use this if your dev connection does not have a signed certificate
+NODE_TLS_REJECT_UNAUTHORIZED=0
+
+#Always make sure this is set to 0
+NEXT_TELEMETRY_DISABLED=0
+```
+
+Run the development server:
+
+```bash
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Run production server locally.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Ensure you have set next-drupal environment variables.
+You may create a local `.env.producion` file using the `.env.example ` files
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Make a build and start Nextjs server. See `localhost:3000`
 
-## Learn More
+```bash
+yarn build && yarn start
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Run production server on local docker.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Build Dockerfile, start container. See `localhost:8080`
 
-## Deploy on Vercel
+## next.config.js and getConfig
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Dont use `{process.env}` directly in application runtime code.
+Use ` next/config` `getConfig().serverRuntimeConfig` and `getConfig().publicRuntimeConfig` instead to avoid building env variables directly as strings to build files.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Landing page
+
+The root page of the site is mapped to a specific `node` in in drupal instance. The default value in drupal should be set to a Landing Page type, assumed `/landingpage`
+
+Make sure your drupal instance contains one `Landing Page` with matching url to Drupal Basic Settings:: Front Page (`/landingpage` by convention).
