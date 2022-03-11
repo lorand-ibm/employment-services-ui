@@ -1,6 +1,9 @@
-import * as React from "react"
-import { GetStaticPropsContext, GetStaticPathsResult, GetStaticPropsResult } from "next"
+import { useRouter } from 'next/router'
 import Head from "next/head"
+import ErrorPage from 'next/error'
+
+import { GetStaticPropsContext, GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsResult } from "next"
+
 import {
   DrupalNode,
   getPathsFromContext,
@@ -16,6 +19,11 @@ interface PageProps {
 }
 
 export default function Page({ node }: PageProps) {
+  const router = useRouter()
+  if (!router.isFallback && !node?.id) {
+    return <ErrorPage statusCode={404} />
+  }
+
   if (!node) return null
 
   return (
@@ -30,17 +38,12 @@ export default function Page({ node }: PageProps) {
   )
 }
 
-export async function getStaticPaths(context: GetStaticPropsContext): Promise<GetStaticPathsResult> {
-  return {
-    //paths: await getPathsFromContext(["node--page"], context),
-    paths: [],
-    fallback: "blocking",
-  }
-}
-
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<PageProps>> {
-  const { locale } = context
-  const type = await getResourceTypeFromContext(context)
+
+  const { locale: prefix } = context
+  const type = await getResourceTypeFromContext(context, {
+    prefix,
+  })
 
   if (!type) {
     return {
@@ -51,6 +54,7 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
   let params = {}
 
   const node = await getResourceFromContext<DrupalNode>(type, context, {
+    prefix,
     params,
   })
 
@@ -65,5 +69,13 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
       node
     },
     revalidate: 900,
+  }
+}
+
+export async function getStaticPaths(context: GetStaticPathsContext): Promise<GetStaticPathsResult> {
+  const paths = await getPathsFromContext(['node--page', 'node--article', 'node--landing_page'], context)
+  return {
+    paths: paths,
+    fallback: true,
   }
 }
