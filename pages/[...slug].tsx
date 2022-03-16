@@ -6,13 +6,15 @@ import { GetStaticPropsContext, GetStaticPathsContext, GetStaticPathsResult, Get
 
 import {
   DrupalNode,
+  DrupalParagraph,
   getPathsFromContext,
+  getResource,
   getResourceFromContext,
   getResourceTypeFromContext,
 } from "next-drupal"
 
 import { Layout } from "@/components/layout"
-import { NodeBasicPage } from "@/components/node-basic-page"
+import NodeBasicPage from "@/components/node-basic-page"
 
 interface PageProps {
   node: DrupalNode
@@ -33,7 +35,9 @@ export default function Page({ node }: PageProps) {
         <meta name="description" content="A Next.js site powered by a Drupal backend."
         />
       </Head>
-      {node.type === "node--page" && <NodeBasicPage node={node} />}
+      {node.type === "node--page" && (
+        <NodeBasicPage node={node} />
+      )}
     </Layout>
   )
 }
@@ -64,18 +68,40 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
     }
   }
 
+  if(node.field_content && node.field_content.length > 0) {
+    const field_content = node?.field_content.map((paragraph: any) => {
+      return getResource<DrupalParagraph>(paragraph.type, paragraph.id)
+    })
+    node.field_content = await Promise.all(field_content)
+  }
+
+  if(node.field_page_content && node.field_page_content.length > 0) {
+    const field_page_content = node?.field_page_content.map((paragraph: any) => {
+      return getResource<DrupalParagraph>(paragraph.type, paragraph.id)
+    })
+    node.field_page_content = await Promise.all(field_page_content)
+  }
+
+  if(node.field_sidebar_content && node.field_sidebar_content.length > 0) {
+    const field_sidebar_content = node?.field_sidebar_content.map((paragraph: any) => {
+      return getResource<DrupalParagraph>(paragraph.type, paragraph.id)
+    })
+    node.field_sidebar_content = await Promise.all(field_sidebar_content)
+  }
+
   return {
     props: {
       node
     },
-    revalidate: 900,
+    revalidate: 1,
   }
 }
+
 
 export async function getStaticPaths(context: GetStaticPathsContext): Promise<GetStaticPathsResult> {
   const paths = await getPathsFromContext(['node--page', 'node--article', 'node--landing_page'], context)
   return {
     paths: paths,
-    fallback: true,
+    fallback: 'blocking',
   }
 }

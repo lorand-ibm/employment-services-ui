@@ -3,7 +3,7 @@ import Link from "next/link"
 import { PreviewAlert } from "@/components/preview-alert"
 
 interface LayoutProps {
-  children: any;
+  children: any,
 }
 
 export function Layout({ children }: LayoutProps): JSX.Element {
