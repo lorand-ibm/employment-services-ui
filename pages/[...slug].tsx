@@ -5,6 +5,7 @@ import ErrorPage from 'next/error'
 import { GetStaticPropsContext, GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsResult } from "next"
 
 import {
+  Locale,
   DrupalNode,
   DrupalParagraph,
   getPathsFromContext,
@@ -15,6 +16,7 @@ import {
 
 import { Layout } from "@/components/layout"
 import NodeBasicPage from "@/components/node-basic-page"
+import Error from 'next/error'
 
 interface PageProps {
   node: DrupalNode
@@ -44,10 +46,10 @@ export default function Page({ node }: PageProps) {
 
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<PageProps>> {
 
-  const { locale: prefix } = context
-  const type = await getResourceTypeFromContext(context, {
-    prefix,
-  })
+  // Cast the locales because getResource consumes the options as JsonApiWithLocaleOptions | undefined.
+  const { locale, defaultLocale } = context as { locale: Locale, defaultLocale: Locale }
+
+  const type = await getResourceTypeFromContext(context)
 
   if (!type) {
     return {
@@ -58,7 +60,6 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
   let params = {}
 
   const node = await getResourceFromContext<DrupalNode>(type, context, {
-    prefix,
     params,
   })
 
@@ -68,25 +69,17 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
     }
   }
 
+  // @TODO: Generalize this by looping a configurable field name array?
+  // Get the appropriate locale specific entity referenced paragraphs.
   if(node.field_content && node.field_content.length > 0) {
     const field_content = node?.field_content.map((paragraph: any) => {
-      return getResource<DrupalParagraph>(paragraph.type, paragraph.id)
+      return getResource<DrupalParagraph>(paragraph.type, paragraph.id, {
+        locale,
+        defaultLocale, // @TODO: We might want to use the node's default language here instead of the site's.
+      })
     })
+
     node.field_content = await Promise.all(field_content)
-  }
-
-  if(node.field_page_content && node.field_page_content.length > 0) {
-    const field_page_content = node?.field_page_content.map((paragraph: any) => {
-      return getResource<DrupalParagraph>(paragraph.type, paragraph.id)
-    })
-    node.field_page_content = await Promise.all(field_page_content)
-  }
-
-  if(node.field_sidebar_content && node.field_sidebar_content.length > 0) {
-    const field_sidebar_content = node?.field_sidebar_content.map((paragraph: any) => {
-      return getResource<DrupalParagraph>(paragraph.type, paragraph.id)
-    })
-    node.field_sidebar_content = await Promise.all(field_sidebar_content)
   }
 
   return {
@@ -99,6 +92,7 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
 
 
 export async function getStaticPaths(context: GetStaticPathsContext): Promise<GetStaticPathsResult> {
+  // @TODO: Define this type array in the api.
   const paths = await getPathsFromContext(['node--page', 'node--article', 'node--landing_page'], context)
   return {
     paths: paths,
