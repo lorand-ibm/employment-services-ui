@@ -99,50 +99,38 @@ function EventsList(props: EventListProps): JSX.Element {
   const { t } = useTranslation();
   const { title, bgColor, lang } = props;
 
-  const [filter, setFilter] = useState<any | null>(t("search.clear"));
+  const [filter, setFilter] = useState<any | null>(null);
   const [eventsIndex, setEventsIndex] = useState<number>(0);
   const [events, setEvents] = useState<EventState>({ total: 0, results: [] });
-  const [filteredEvents, setFilteredEvents] = useState<EventState>(events);
+  const [tags, setTags] = useState<Array<string>>([]);
   const allowedTags = ["Maahan muuttaneet", "Nuoret", "Info", "Koulutus", "Messut", "Neuvonta", "Rekrytointi", "Työpajat", "Digitaidot", "Etätapahtuma", "Palkkatuki", "Työnhaku"];
 
   useEffect(() => {
+    const fetchTags = async () => {
+      const res = await axios.get(`/api/tags`);
+      const taglist = res.data.results[0].tags.sort((a: string, b: string) => allowedTags.indexOf(a) - allowedTags.indexOf(b));
+      taglist.push(t("search.clear"));
+      setTags(taglist);
+    };
+    fetchTags();
+  }, []); // eslint-disable-line
+
+  useEffect(() => {
     const fetchEvents = async () => {
-      const res = await axios.get(`/api/events/${eventsIndex}`);
+      const res = await axios.get(`/api/events/${eventsIndex}/${filter}`);
       const newEvents = {
         total: res.data.total,
-        results: [...events.results, ...res.data.results],
+        results: eventsIndex !== 0 ? [...events.results, ...res.data.results] : res.data.results,
       };
       setEvents(newEvents);
     };
     fetchEvents();
-  }, [eventsIndex]); // eslint-disable-line
-
-  useEffect(() => {
-    const filterEvents = () => {
-      const filtered = filter !== t("search.clear") ? events.results.filter(event => event.tags.includes(filter)) : events.results;
-      const fe = {
-        total: filtered.length,
-        results: filtered,
-      };
-      setFilteredEvents(fe);
-    };
-    filterEvents();
-  }, [filter, events]); // eslint-disable-line
+  }, [eventsIndex, filter]); // eslint-disable-line
 
   const loadMoreText = t("list.load_more");
   const eventsUrl = t("list.events_url");
   const resultsText = t("list.results_text");
   const isKoro = true;
-
-  let tags = events.results.reduce((acc:any, curr:any) => {
-    return [...acc, curr.tags]
-  }, []);
-
-  tags = tags.flat().filter((value:any, index:any, array:any) => { 
-    return array.indexOf(value) === index;
-  });
-  tags.sort((a: string, b: string) => allowedTags.indexOf(a) - allowedTags.indexOf(b));
-  tags.push(t("search.clear"));
 
   return (
     <div
@@ -167,7 +155,7 @@ function EventsList(props: EventListProps): JSX.Element {
               <Mainheading headingTag="h2" title={title} />
             </div>
             <div className={classes.results}>
-              {filter !== t("search.clear")  ? `${filteredEvents.total} / ${events.total} ${resultsText}` : `${events.total} ${resultsText}`}
+              {filter !== t("search.clear")  ? `${events.results.length} / ${events.total} ${resultsText}` : `${events.total} ${resultsText}`}
             </div>
             <div className={classes.filter}>{t("search.filter")}</div>
             <div className={classes.tags}>
@@ -177,7 +165,7 @@ function EventsList(props: EventListProps): JSX.Element {
                     variant="supplementary"
                     iconLeft={<IconCrossCircle />}
                     className={classes.supplementary}
-                    onClick={() => {setFilter(tag)}}
+                    onClick={() => {setFilter(null)}}
                   >
                     {tag}
                   </HDSButton>
@@ -185,7 +173,10 @@ function EventsList(props: EventListProps): JSX.Element {
                 : (
                   <HDSButton
                     className={filter === tag ? classes.selected: classes.tag}
-                    onClick={() => {setFilter(tag)}}
+                    onClick={() => {
+                      setFilter(tag)
+                      setEventsIndex(0)
+                    }}
                   >
                     {tag}
                   </HDSButton>
@@ -194,7 +185,7 @@ function EventsList(props: EventListProps): JSX.Element {
             </div>
             <CardList
               lang={lang}
-              cards={filteredEvents.results.map((event) => ({
+              cards={events.results.map((event) => ({
                 type: "event",
                 title: event.title,
                 image: event.image,
