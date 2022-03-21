@@ -4,24 +4,30 @@ import { getClient } from "../elasticsearchClient";
 const client = getClient();
 const eventsRouter = Router();
 
-eventsRouter.get("/:index", async (req, res) => {
+eventsRouter.get("/:index/:query", async (req, res) => {
   const index = Number(req.params.index);
+  const searchQuery = String(req.params.query);
 
-  if (isNaN(index)) {
+  if (!searchQuery || isNaN(index)) {
     res.send(400).send();
     return;
+  }
+
+  const query = {
+    ...(searchQuery == 'null' ? {
+      match_all: {}
+    } : {
+      multi_match: {
+        query: `${searchQuery}`,
+        fields: ['tags'],
+      }, 
+    })
   }
 
   const body = {
     size: 9,
     from: (9*index),
-    query: {
-      range: {
-        endTime: {
-          gte: "now/d",
-        }
-      },
-    },
+    query
   };
 
   try {
