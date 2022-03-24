@@ -5,7 +5,7 @@ interface HtmlBlockProps {
 }
 
 export function HtmlBlock({ field_text }: HtmlBlockProps): JSX.Element {
-  console.log('field_text', field_text)
+  // console.log('field_text', field_text)
   return (
     <div>
       {parse(field_text?.processed)}
