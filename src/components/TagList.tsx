@@ -21,6 +21,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const capitalize = (s: string) => {
+  if (typeof s !== 'string') {
+    return '';
+  }
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 export interface TagListProps {
   tags: Array<string>;
 }
@@ -28,12 +35,13 @@ export interface TagListProps {
 function TagList(props: TagListProps): JSX.Element {
   const classes = useStyles(props);
   const { tags } = props;
+  const modifiedTags = tags.map((tag: string) => tag === 'maahanmuuttajat' ? 'Maahan muuttaneet' : capitalize(tag));
   
   return (
     <>
       {tags.length !== 0 && 
         <List className={classes.tags}>
-        {Object.values(tags).map((tag: any, i: number) => (
+        {Object.values(modifiedTags).map((tag: any, i: number) => (
           <ListItem className={classes.tag}>
             { tag }
           </ListItem>
