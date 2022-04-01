@@ -12,6 +12,7 @@ interface ContentMapperProps {
 
 export function ContentMapper({ content, ...props }: ContentMapperProps): JSX.Element {
 
+  console.log('content: ', content)
   return content.map((item: any) => {
     const {type, id} = item
 
@@ -20,13 +21,12 @@ export function ContentMapper({ content, ...props }: ContentMapperProps): JSX.El
     switch(type) {
       case CONTENT_TYPES.TEXT:
         if (!item?.field_text?.processed) {
-          console.log('text', item)
+          // console.log('text', item)
           return null
         }
         return <HtmlBlock {...item} key={key} />
 
       case CONTENT_TYPES.ACCORDION:
-        console.log('item', item)
         return (
           <div className="my-16 ifu-accordion" key={key}>
             {item?.field_accordion_items.map(
@@ -45,25 +45,15 @@ export function ContentMapper({ content, ...props }: ContentMapperProps): JSX.El
                     key={`${type}-${id}`}
                     heading={field_accordion_item_heading}
                   >
-                    <ContentMapper content={field_accordion_item_content}/>
+                    {field_accordion_item_content?.length > 0 && (
+                      <ContentMapper content={field_accordion_item_content}/>
+                    )}
                   </Accordion>
                 )
               }
             )}
           </div>
         )
-      case CONTENT_TYPES.ACCORDION_ITEM:
-        console.log('item', item)
-        return (
-          <Accordion
-            border
-            card
-            heading="How to publish data?"
-          >
-            Accordion content here
-          </Accordion>
-        )
-
       case CONTENT_TYPES.HEADING:
       case CONTENT_TYPES.PARAGRAPH_IMAGE:
       case CONTENT_TYPES.HERO:
@@ -74,7 +64,7 @@ export function ContentMapper({ content, ...props }: ContentMapperProps): JSX.El
       case CONTENT_TYPES.COLUMNS:
       case CONTENT_TYPES.COLUMN_LEFT:
       case CONTENT_TYPES.COLUMN_RIGHT:
-        console.log('item', item)
+        // console.log('item', item)
         return <div key={key}>{type}</div>
 
       default:
