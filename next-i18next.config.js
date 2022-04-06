@@ -11,7 +11,7 @@ module.exports = {
     locales,
     languages,
     defaultLocale: 'fi',
-    fallbackLocale: 'en',
-    // localeDetection: false,
+    // fallbackLocale: 'en',
+    // localeDetection: true,
   },
 }

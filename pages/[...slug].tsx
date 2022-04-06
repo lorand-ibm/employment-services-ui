@@ -1,21 +1,34 @@
-import * as React from "react"
-import { GetStaticPropsContext, GetStaticPathsResult, GetStaticPropsResult } from "next"
+import { useRouter } from 'next/router'
 import Head from "next/head"
+import ErrorPage from 'next/error'
+
+import { GetStaticPropsContext, GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsResult } from "next"
+
 import {
+  Locale,
   DrupalNode,
+  DrupalParagraph,
   getPathsFromContext,
+  getResource,
   getResourceFromContext,
   getResourceTypeFromContext,
 } from "next-drupal"
 
 import { Layout } from "@/components/layout"
-import { NodeBasicPage } from "@/components/node-basic-page"
+import NodeBasicPage from "@/components/node-basic-page"
 
+import { NODE_TYPES, CONTENT_TYPES } from "@/lib/DRUPAL_API_TYPES"
+import { getParams } from "@/lib/params"
 interface PageProps {
   node: DrupalNode
 }
 
 export default function Page({ node }: PageProps) {
+  const router = useRouter()
+  if (!router.isFallback && !node?.id) {
+    return <ErrorPage statusCode={404} />
+  }
+
   if (!node) return null
 
   return (
@@ -25,21 +38,17 @@ export default function Page({ node }: PageProps) {
         <meta name="description" content="A Next.js site powered by a Drupal backend."
         />
       </Head>
-      {node.type === "node--page" && <NodeBasicPage node={node} />}
+      {node.type === "node--page" && (
+        <NodeBasicPage node={node} />
+      )}
     </Layout>
   )
 }
 
-export async function getStaticPaths(context: GetStaticPropsContext): Promise<GetStaticPathsResult> {
-  return {
-    //paths: await getPathsFromContext(["node--page"], context),
-    paths: [],
-    fallback: "blocking",
-  }
-}
-
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<PageProps>> {
-  const { locale } = context
+
+  console.log('props context', context)
+
   const type = await getResourceTypeFromContext(context)
 
   if (!type) {
@@ -48,22 +57,32 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
     }
   }
 
-  let params = {}
-
   const node = await getResourceFromContext<DrupalNode>(type, context, {
-    params,
+    params: getParams(type),
   })
 
-  if (!node?.status) {
-    return {
-      notFound: true,
-    }
+  if (!node || (!context.preview && node?.status === false)) {
+      return {
+        notFound: true,
+      }
   }
 
   return {
     props: {
       node
     },
-    revalidate: 900,
+    // revalidate: 30,
+  }
+}
+
+
+export async function getStaticPaths(context: GetStaticPathsContext): Promise<GetStaticPathsResult> {
+
+  const types = Object.values(NODE_TYPES)
+
+  const paths = await getPathsFromContext(types, context)
+  return {
+    paths: paths,
+    fallback: true,
   }
 }
