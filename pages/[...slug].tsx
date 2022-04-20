@@ -14,10 +14,10 @@ import {
   getResourceTypeFromContext,
 } from "next-drupal"
 
-import NodeBasicPage from "@/components/node-basic-page"
+import NodeBasicPage from "@/components/pageTemplates/nodeBasicPage"
 
-import { NODE_TYPES, CONTENT_TYPES } from "@/lib/DRUPAL_API_TYPES"
-import { getParams } from "@/lib/params"
+import { NODE_TYPES, CONTENT_TYPES } from "src/lib/drupalApiTypes"
+import { getParams } from "src/lib/params"
 interface PageProps {
   node: DrupalNode
 }

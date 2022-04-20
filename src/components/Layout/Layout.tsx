@@ -1,4 +1,4 @@
-import { PreviewAlert } from "@/components/preview-alert"
+import { PreviewAlert } from "@/components/previewAlert"
 import { Container } from "hds-react";
 import styles from './Layout.module.css'
 

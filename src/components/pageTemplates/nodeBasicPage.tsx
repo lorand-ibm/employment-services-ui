@@ -1,6 +1,6 @@
 import { Container } from "hds-react";
-import { Layout } from './Layout'
-import ContentMapper from './content-mapper'
+import { Layout } from '../layout/Layout'
+import ContentMapper from '../contentMapper'
 
 interface NodeBasicPageProps {
   node: any,
@@ -17,11 +17,10 @@ export function NodeBasicPage({ node, ...props }: NodeBasicPageProps): JSX.Eleme
               Sidebar
             </div>
             <div className="col col-8 flex-grow">
-              <h1 className="text-6xl font-black mb-4 leading-tight">{node.title}</h1>
+              <h1>{node.title}</h1>
               {node.body?.processed && (
                 <div
                   dangerouslySetInnerHTML={{ __html: node.body?.processed }}
-                  className="mt-6 font-serif text-xl leading-loose prose"
                 />
               )}
 

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import HtmlBlock from './HtmlBlock'
-import { CONTENT_TYPES, TEXT_HTML_FORMAT } from "@/lib/DRUPAL_API_TYPES"
+import { CONTENT_TYPES, TEXT_HTML_FORMAT } from "src/lib/drupalApiTypes"
 import { DrupalParagraph } from "next-drupal";
 
 import { Accordion } from "hds-react"
