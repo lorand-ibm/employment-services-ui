@@ -14,7 +14,6 @@ import {
   getResourceTypeFromContext,
 } from "next-drupal"
 
-import { Layout } from "@/components/layout"
 import NodeBasicPage from "@/components/node-basic-page"
 
 import { NODE_TYPES, CONTENT_TYPES } from "@/lib/DRUPAL_API_TYPES"
@@ -32,16 +31,16 @@ export default function Page({ node }: PageProps) {
   if (!node) return null
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{node.title}</title>
         <meta name="description" content="A Next.js site powered by a Drupal backend."
         />
       </Head>
-      {node.type === "node--page" && (
+      { node.type === "node--page" && (
         <NodeBasicPage node={node} />
       )}
-    </Layout>
+    </>
   )
 }
 
