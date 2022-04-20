@@ -79,6 +79,9 @@ a[class^="link"]::after {
   flex-direction: column;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
 
 @media (min-width: 768px) {
   .columns {
@@ -116,6 +119,10 @@ a[class^="link"]::after {
   
   .col-9 {
     width: 75%;
+  }
+
+  .col-12 {
+    width: 100%;
   }
 }
 

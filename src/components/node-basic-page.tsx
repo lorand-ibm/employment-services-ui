@@ -16,7 +16,7 @@ export function NodeBasicPage({ node, ...props }: NodeBasicPageProps): JSX.Eleme
             <div className="col col-4">
               Sidebar
             </div>
-            <div className="col col-8">
+            <div className="col col-8 flex-grow">
               <h1 className="text-6xl font-black mb-4 leading-tight">{node.title}</h1>
               {node.body?.processed && (
                 <div
@@ -28,6 +28,11 @@ export function NodeBasicPage({ node, ...props }: NodeBasicPageProps): JSX.Eleme
               {node.field_content?.length > 0 && (
                 <ContentMapper content={node.field_content}/>
               )}
+            </div>
+          </div>
+          <div className="columns">
+            <div className="col col-12">
+              Lower content region placeholder
             </div>
           </div>
         </Container>
