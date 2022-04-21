@@ -14,7 +14,7 @@ import {
   getResourceTypeFromContext,
 } from "next-drupal"
 
-import NodeBasicPage from "@/components/pageTemplates/nodeBasicPage"
+import NodeBasicPage from "@/components/pageTemplates/NodeBasicPage"
 
 import { NODE_TYPES, CONTENT_TYPES } from "src/lib/drupalApiTypes"
 import { getParams } from "src/lib/params"
