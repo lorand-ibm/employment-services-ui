@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
-import { NODE_TYPES, CONTENT_TYPES } from "./drupalApiTypes"
+import { NODE_TYPES, CONTENT_TYPES } from './drupalApiTypes'
 
 export function getParams(type: string) {
 

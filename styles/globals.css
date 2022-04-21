@@ -83,6 +83,10 @@ a[class^="link"]::after {
   flex-grow: 1;
 }
 
+.flex-order-first {
+  order: -1;
+}
+
 @media (min-width: 768px) {
   .columns {
     flex-direction: row;

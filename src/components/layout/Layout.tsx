@@ -1,5 +1,5 @@
-import { PreviewAlert } from "@/components/PreviewAlert"
-import { Container } from "hds-react"
+import { PreviewAlert } from '@/components/PreviewAlert'
+import { Container } from 'hds-react'
 import styles from './Layout.module.css'
 
 interface LayoutProps {
@@ -17,17 +17,16 @@ export function Layout({ children }: LayoutProps): JSX.Element {
         </header>
         <main>{children}</main>
         <footer>
-        <Container className="container">
-          <div className="columns">
-            <div className="col col-6">
-              Menu placeholder
+          <Container className="container">
+            <div className="columns">
+              <div className="col col-6">
+                Menu placeholder
+              </div>
+              <div className="col col-6">
+                Oma asiointi placeholder
+              </div>
             </div>
-            <div className="col col-6">
-              Oma asiointi placeholder
-            </div>
-          </div>
-        </Container>
-
+          </Container>
         </footer>
       </div>
     </>
