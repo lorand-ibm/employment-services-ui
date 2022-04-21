@@ -96,31 +96,31 @@ a[class^="link"]::after {
     margin-left: var(--spacing-m);
     margin-right: var(--spacing-m);
   }
-  
+
   .col-3 {
     width: 25%;
   }
-  
+
   .col-4 {
     width: 33%;
   }
-  
+
   .col-5 {
     width: 58%;
   }
-  
+
   .col-6 {
     width: 50%;
   }
-  
+
   .col-7 {
     width: 42%;
   }
-  
+
   .col-8 {
     width: 67%;
   }
-  
+
   .col-9 {
     width: 75%;
   }
@@ -140,4 +140,46 @@ a[class^="link"]::after {
 .col {
   margin-left: var(--spacing-xs);
   margin-right: var(--spacing-xs);
+}
+
+main h1, main .h1 {
+ font-size: var(--fontsize-heading-xl);
+ line-height: var(--lineheight-m);
+}
+h2, .h2 {
+  font-size: var(--fontsize-heading-l);
+  line-height: var(--lineheight-m);
+}
+h3, .h3 {
+  font-size: var(--fontsize-heading-m);
+  line-height: var(--lineheight-m);
+}
+h4, .h4 {
+  font-size: var(--fontsize-heading-s);
+  line-height: var(--lineheight-m);
+}
+h5, .h5 {
+  font-size: var(--fontsize-heading-xs);
+  line-height: var(--lineheight-m);
+}
+
+main h1.small, main .h1-small {
+  font-size: var(--fontsize-heading-l);
+  line-height: var(--lineheight-m);
+}
+h2.small, .h2-small {
+  font-size: var(--fontsize-heading-m);
+  line-height: var(--lineheight-m);
+}
+h3.small, .h3-small {
+  font-size: var(--fontsize-heading-s);
+  line-height: var(--lineheight-m);
+}
+h4.small, .h4-small {
+  font-size: var(--fontsize-heading-xs);
+  line-height: var(--lineheight-m);
+}
+h6, h5.small, .h6, .h5-small {
+  font-size: var(--fontsize-heading-xxs);
+  line-height: var(--lineheight-m);
 }
