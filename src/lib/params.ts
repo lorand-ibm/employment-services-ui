@@ -12,6 +12,7 @@ export function getParams(type: string) {
     ])
     .addInclude([
       'field_content.field_accordion_items.field_accordion_item_content',
+      'field_content.field_list_of_links_links',
     ])
   }
 

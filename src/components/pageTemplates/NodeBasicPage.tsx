@@ -10,7 +10,7 @@ export function NodeBasicPage({ node, ...props }: NodeBasicPageProps): JSX.Eleme
     <article>
       <Container className="container">
         <div className="columns">
-          <div className="col col-8 flex-grow">
+          <div className="content col col-8 flex-grow">
             <h1>{node.title}</h1>
             {node.body?.processed && (
               <div
