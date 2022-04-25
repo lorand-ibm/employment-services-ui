@@ -26,7 +26,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 ul, ol {
@@ -49,26 +48,36 @@ li li::marker {
   color: var(--color-black-90);
 }
 
-
-/* a[class^="link"] {
-  display: flex;
-  text-decoration: none;
+a.link-internal,
+a.link-external {
+  display: inline-flex;
 }
 
-a[class^="link"]::after {
+a.link-internal::after,
+a.link-external::after {
   content: '';
-  margin-left: 10px;
+  margin-left: var(--spacing-3-xs);
+  transition: transform .2s linear;
   width: 1.25rem;
-  height: 1.25rem;
 }
 
 .link-internal::after {
-  background: url('../src/assets/icon-arrow-right.svg') no-repeat center center;
+  margin-right: var(--spacing-2-xs);
+  background: url('../src/assets/arrow-right.svg') no-repeat center center;
 }
 
 .link-external::after {
-  background: url('../src/assets/icon-link-external.svg') no-repeat center center;
-} */
+  margin-right: var(--spacing-3-xs);
+  background: url('../src/assets/arrow-top-right.svg') no-repeat center center;
+}
+
+.link-internal:hover::after {
+  transform: translateX(8px);
+}
+
+.link-external:hover::after {
+  transform: translate(4px, -4px);
+}
 
 .container {
   margin-left: auto;
