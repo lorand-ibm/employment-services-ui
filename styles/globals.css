@@ -29,7 +29,7 @@ a {
   text-decoration: none;
 }
 
-ul {
+ul, ol {
   margin-top: var(--spacing-l);
   margin-bottom: var(--spacing-l);
   padding-top: 0;
